@@ -8,8 +8,8 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
                                host = "postgis1",
                                port = 5432,
-                               user = Sys.getenv(x = "db_usr"),
-                               password = Sys.getenv(x = "db_pwd"))
+                               user = Sys.getenv(x = "DB_USR"),
+                               password = Sys.getenv(x = "DB_PWD"))
 
 #---------------- Example Table -----------------------#
 
