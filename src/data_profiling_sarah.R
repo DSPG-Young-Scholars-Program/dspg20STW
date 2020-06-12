@@ -1,4 +1,6 @@
 # 2010 Example
+
+library(lubridate)
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
                                host = "postgis1",
@@ -39,6 +41,37 @@ prof_2010$uniqueness <- apply(tbl, MARGIN = 2, uniqueness)
 #attributes possess values within the range expected for a legitimate entry (NAs
 #are considered a valid value).
 
+value_validity <- function(x, year){
+  
+  z <- c()
+  id <- tbl$id
+  
+  if(length(unique(id)) == nrow(tbl) & length(unique(nchar(id))) == 1){
+    z <- c(z, 1)
+  } else{
+    z <- c(z, NA)
+  }
+  
+  jobdate <- tbl$jobdate
+  
+ if(sum(jobdate %in% seq(ymd(paste(as.character(year), "-01-01", sep = "")), 
+                     ymd(paste(as.character(year), "-12-31", sep = "")), '1 day')) ==nrow(tbl)){
+   z <- c(z, 1)
+ } else{
+   z <- c(z, NA)
+ }
+  
+  state <- tbl$state
+  if(sum(state %in% state.name) == nrow(tbl)){
+    z <- c(z, 1)
+  }else {
+    z <- c(z, NA)
+  }
+  
+  z <- c(z,rep(NA, 6))
+
+  
+}
 
 
 # big function
@@ -59,14 +92,20 @@ profile <- function(year){
   prof$completeness <- apply(tbl, MARGIN = 2, completeness)
   prof$uniqueness <- apply(tbl, MARGIN = 2, uniqueness)
   
+  prof$validity <- value_validity(tbl, i)
+  
   assign(paste("tbl", i, sep = ""), tbl, envir = .GlobalEnv)  
   assign(paste("prof", i, sep = ""), prof, envir = .GlobalEnv)  
+
+  
   
   }
 }
 
 
-profile(2010:2019)
+profile(2010:2012)
 
+
+# value validity
 
 
