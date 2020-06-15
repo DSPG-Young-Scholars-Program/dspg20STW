@@ -1,4 +1,5 @@
 library(RPostgreSQL)
+library(ggplot2)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -132,3 +133,24 @@ socValid <- function(col){
 my2010df$validity[4] = socValid((tbl$soc)) / length(tbl$soc)
  
 
+#socname
+
+#created a horizontal barchart that shows the count for each occupation (including NA)
+ggplot(tbl, aes(x = socname)) + geom_bar() + coord_flip()
+
+#I manually counted each category to see if there was a value that wasn't an occupation; in the first 30 rows of the 2010 dataset, all were valid
+my2010df$validity[5] = 1
+
+
+#lat
+#For validating latitude, I checked each value to see if it was between -90 and 90 (range of latitude)
+
+count = 0
+for(value in tbl$lat){
+  if(value >= -90 & value <= 90 | is.na(value)){
+    count = count + 1
+  }
+}
+
+#Assign the percentage of valid latitude values to my2010df
+my2010df$validity[6] = count / length(tbl$lat)
