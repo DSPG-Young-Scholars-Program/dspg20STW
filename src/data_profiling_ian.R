@@ -154,3 +154,6 @@ for(value in tbl$lat){
 
 #Assign the percentage of valid latitude values to my2010df
 my2010df$validity[6] = count / length(tbl$lat)
+
+#long
+#For validating longitude, I checked each value to see if it was between 0 and 180 (range for longitude)
