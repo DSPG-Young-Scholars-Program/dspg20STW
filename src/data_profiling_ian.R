@@ -27,6 +27,8 @@ prof_2010 <- data.frame(variable = colnames(tbl),
 head(tbl$minedu)
 
 
+#------------------------------------------------------------------Code Below------------------------------------------------------------------
+
 
 
 #Completeness -------------------------------------------
@@ -59,9 +61,11 @@ my2010df <- data.frame(variables = colnames(tbl),
 
 
 #sarah's %completeness function
-#completeness <- function(x){
-  #(length(x) - sum(is.na(x))) / length(x)
-#}
+completeness <- function(x){
+  (length(x) - sum(is.na(x))) / length(x)
+}
+
+my2010df$complete <- apply(tbl, MARGIN = 2, completeness)
 
 
 #Uniqueness---------------------------
@@ -74,8 +78,57 @@ getUni <- function(col){
 my2010df$uniqueness <- apply(tbl, MARGIN = 2, getUni)
 
 
-#Validity
- 
-for(i in tbl$minedu){
-  print(i)
+#Validity-----------------------------------------------------
+
+#ID
+#checking for length of each id in the id column; all 30 results had a length of 9
+for(i in tbl$id){
+  print(nchar(as.character(i)))
 }
+
+#validity for id column in my2010df is set to 100% or 1
+my2010df$validity[1] = 1
+
+
+
+
+
+#state
+#Check to see if there is a value in the state column that isn't a state
+
+for(state in tbl$state){
+  if(state%in%state.name){
+    print(TRUE)
+  }
+  
+}
+
+my2010df$validity[3] = 1 
+
+
+
+#jobdate
+#Checking to make sure that every entry is in year-month-day format
+
+
+
+#SOC
+#Assuming a valid SOC identifier is two digits, followed by a dash, followed by 4 more digits
+#Looking for length 7 characters with a dash at index 3
+
+#This function looks counts up all the SOC values that are two digits, followed by a dash, followed by 4 more digits
+socValid <- function(col){
+  count = 0
+  for(number in col){
+    if(nchar(as.character(number)) == 7 & substring(number, 3,3) == "-" | is.na(number)){
+      count = count + 1
+    }
+  }
+  
+  return(count)
+}
+
+#Get percentage of valid and add it to my2010df
+my2010df$validity[4] = socValid((tbl$soc)) / length(tbl$soc)
+ 
+
