@@ -19,6 +19,11 @@ tbl <- RPostgreSQL::dbGetQuery(
   conn = conn, 
   statement = "SELECT * FROM bgt_job.jolts_comparison_2010 LIMIT 30;")
 
+#2011 first 1000 columns
+tbl2 <- RPostgreSQL::dbGetQuery(
+  conn = conn, 
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2011 LIMIT 1000;")
+
 #creates a dataframe with 4 columns and 10 variables to track percentages
 prof_2010 <- data.frame(variable = colnames(tbl), 
                         completeness = numeric(length = ncol(tbl)),
@@ -168,3 +173,64 @@ my2010df$validity[7] = count2 / length(tbl$lon)
 
 
 #minedu
+#for minimum education I presumed that a value was valid if it was in the range 12 to 21
+countMinEdu <- 0
+
+for(value in tbl$minedu){
+  if(value >= 12 & value <= 21 | is.na(value)){
+    countMinEdu = countMinEdu + 1
+  }
+}
+
+my2010df$validity[8] = countMinEdu / length(tbl$minedu)
+
+#maxedu
+#for maximum education I presumed that a value was valid if it was in the range 12-21
+countMaxEdu <- 0
+
+for(value in tbl$maxedu){
+  if(value >= 12 & value <= 21 | is.na(value)){
+    countMaxEdu = countMaxEdu + 1
+  }
+}
+
+my2010df$validity[9] = countMaxEdu / length(tbl$maxedu)
+
+#---------------------------------------------------------------------------------
+
+#Looking at the first 1000 rows of 2011 BGT data
+my2011df <- data.frame(variables = colnames(tbl2),
+                       complete = numeric(length=ncol(tbl2)),
+                       validity = numeric(length = ncol(tbl2)),
+                       uniqueness = numeric(length = ncol(tbl2)))
+
+#completeness
+comp <- function(col){
+  return(sum(!is.na(col)) / length(col))
+}
+
+my2011df$complete <- apply(tbl2, MARGIN = 2, comp)
+print(my2011df)
+
+#Uniqueness
+getUni <- function(col){
+  return(sum(!is.na(unique(col))))
+}
+
+my2011df$uniqueness <- apply(tbl2, MARGIN = 2, getUni)
+print(my2011df)
+
+#Validity
+
+
+
+
+
+
+prac <- data.frame(variables = colnames(tbl2),
+                   complete = numeric(length=ncol(tbl2)),
+                   validity = numeric(length = ncol(tbl2)),
+                   uniqueness = numeric(length = ncol(tbl2)))
+
+prac$uniqueness <- apply(tbl, MARGIN = 2, getUni)
+print(prac)
