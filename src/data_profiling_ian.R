@@ -15,6 +15,60 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
 
 #---------------- Example Table -----------------------#
 
+year <- 2010
+col_names = c("id", "jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
+
+for(i in year){
+  #create df validity, completeness, and uniqueness
+  prof <<- data.frame(variable = col_names, 
+                      completeness = numeric(length = length(col_names)),
+                      validity = numeric(length = length(col_names)), 
+                      uniqueness = numeric(length = length(col_names)))
+  
+  
+  for(col in col_names){
+    tbl <- RPostgreSQL::dbGetQuery(
+      conn = conn, 
+      statement = paste("SELECT ", col, " FROM bgt_job.jolts_comparison_", year, sep = ""))
+    
+    prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
+    prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
+    
+    
+      
+
+    
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x <- c(1,2,3)
+
 tbl <- RPostgreSQL::dbGetQuery(
   conn = conn, 
   statement = "SELECT * FROM bgt_job.jolts_comparison_2010 LIMIT 30;")
@@ -140,11 +194,7 @@ my2010df$validity[4] = socValid((tbl$soc)) / length(tbl$soc)
 
 #socname
 
-#created a horizontal barchart that shows the count for each occupation (including NA)
-ggplot(tbl, aes(x = socname)) + geom_bar() + coord_flip()
 
-#I manually counted each category to see if there was a value that wasn't an occupation; in the first 30 rows of the 2010 dataset, all were valid
-my2010df$validity[5] = 1
 
 
 #lat
@@ -209,7 +259,7 @@ comp <- function(col){
   return(sum(!is.na(col)) / length(col))
 }
 
-my2011df$complete <- apply(tbl2, MARGIN = 2, comp)
+my2011df$complete <- apply(tbl2, MARGIN = 2, comp) 
 print(my2011df)
 
 #Uniqueness
@@ -222,6 +272,7 @@ print(my2011df)
 
 #Validity
 
+#Checking validity for ID
 
 
 
