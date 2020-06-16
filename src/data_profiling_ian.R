@@ -1,5 +1,6 @@
 library(RPostgreSQL)
 library(ggplot2)
+library(stringr)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -13,7 +14,19 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
 
-#---------------- Example Table -----------------------#
+#--------------------------------Code------------------------------------
+
+#functions
+
+#sarah's %completeness function
+completeness <- function(x){
+  (length(x) - sum(is.na(x))) / length(x)
+}
+
+#My uniqueness function
+getUni <- function(col){
+  return(sum(!is.na(unique(col))))
+}
 
 year <- 2010
 col_names = c("id", "jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
@@ -34,14 +47,28 @@ for(i in year){
     prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
     prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
     
+    #testing validity
+    
+    #id
+    #Assuming that a valid jobid is 7 or 9 characters long
+    validId <- function(column){
+      return(sum(nchar(column) == 7 | sum(nchar(column)) == 9) / length(column))
+    }
+    
+    
     
       
-
+    #Still confused about how the 2011 and 2012... dataframes are made after the first iteration
     
   }
   
 }
 
+my_str <- "My date is 2010-01-10"
+my_str_2 <- "My date is 2011/10/9"
+
+str_detect(my_str_2, "[0-9]+|-")
+  
 
 
 
@@ -66,8 +93,6 @@ for(i in year){
 
 
 
-
-x <- c(1,2,3)
 
 tbl <- RPostgreSQL::dbGetQuery(
   conn = conn, 
@@ -87,30 +112,13 @@ prof_2010 <- data.frame(variable = colnames(tbl),
 head(tbl$minedu)
 
 
-#------------------------------------------------------------------Code Below------------------------------------------------------------------
+#------------------------------------------------------------------Ignore------------------------------------------------------------------
 
 
 
 #Completeness -------------------------------------------
 
-#input column of values from dataframe
-calcCompleteness <- function(col){
-  #initialized to be 0
-  numberOfNA <- 0
-  #for loop that runs through each value in the column
-  for(i in col){
-    #if value, represented by i, is NA...
-    if(is.na(i)){
-      #increment count by 1
-      numberOfNA = numberOfNA + 1
-    }
-  }
-  
-  #return the % of complete values in the column
-  return((length(col) - numberOfNA) / length(col))
-  
-  
-}
+
 
 my2010df <- data.frame(variables = colnames(tbl),
                        complete = numeric(length=ncol(tbl)),
@@ -120,10 +128,7 @@ my2010df <- data.frame(variables = colnames(tbl),
 #calculate % of completeness
 
 
-#sarah's %completeness function
-completeness <- function(x){
-  (length(x) - sum(is.na(x))) / length(x)
-}
+
 
 my2010df$complete <- apply(tbl, MARGIN = 2, completeness)
 
@@ -131,9 +136,7 @@ my2010df$complete <- apply(tbl, MARGIN = 2, completeness)
 #Uniqueness---------------------------
 #Don't count NA
 #Function that returns the number of unique values not including NA
-getUni <- function(col){
-  return(sum(!is.na(unique(col))))
-}
+
 
 my2010df$uniqueness <- apply(tbl, MARGIN = 2, getUni)
 
@@ -248,40 +251,7 @@ my2010df$validity[9] = countMaxEdu / length(tbl$maxedu)
 
 #---------------------------------------------------------------------------------
 
-#Looking at the first 1000 rows of 2011 BGT data
-my2011df <- data.frame(variables = colnames(tbl2),
-                       complete = numeric(length=ncol(tbl2)),
-                       validity = numeric(length = ncol(tbl2)),
-                       uniqueness = numeric(length = ncol(tbl2)))
-
-#completeness
-comp <- function(col){
-  return(sum(!is.na(col)) / length(col))
-}
-
-my2011df$complete <- apply(tbl2, MARGIN = 2, comp) 
-print(my2011df)
-
-#Uniqueness
-getUni <- function(col){
-  return(sum(!is.na(unique(col))))
-}
-
-my2011df$uniqueness <- apply(tbl2, MARGIN = 2, getUni)
-print(my2011df)
-
-#Validity
-
-#Checking validity for ID
 
 
-
-
-
-prac <- data.frame(variables = colnames(tbl2),
-                   complete = numeric(length=ncol(tbl2)),
-                   validity = numeric(length = ncol(tbl2)),
-                   uniqueness = numeric(length = ncol(tbl2)))
-
-prac$uniqueness <- apply(tbl, MARGIN = 2, getUni)
-print(prac)
+x <- c("1234567", "3456", "2345678")
+sum(nchar(x) == 7)
