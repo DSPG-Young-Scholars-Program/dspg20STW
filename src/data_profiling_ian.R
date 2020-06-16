@@ -147,7 +147,7 @@ my2010df$validity[5] = 1
 
 count = 0
 for(value in tbl$lat){
-  if(value >= -90 & value <= 90 | is.na(value)){
+  if(value >= -90 & value <= 90 | is.na(value)){ 
     count = count + 1
   }
 }
@@ -156,4 +156,15 @@ for(value in tbl$lat){
 my2010df$validity[6] = count / length(tbl$lat)
 
 #long
-#For validating longitude, I checked each value to see if it was between 0 and 180 (range for longitude)
+#For validating longitude, I checked each value to see if it was between -180 and 180 (range for longitude)
+count2 = 0
+for(value in tbl$lon){
+  if(value >= -180 & value <= 180 | is.na(value)){
+    count2 = count2 + 1
+  }
+}
+
+my2010df$validity[7] = count2 / length(tbl$lon)
+
+
+#minedu
