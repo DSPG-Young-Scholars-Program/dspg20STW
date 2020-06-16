@@ -28,6 +28,11 @@ getUni <- function(col){
   return(sum(!is.na(unique(col))))
 }
 
+#Validate year
+validDate <- function(column, yr){
+  return(sum(str_detect(column, as.character(yr))) / length(column))
+}
+
 year <- 2010
 col_names = c("id", "jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
@@ -64,11 +69,17 @@ for(i in year){
   
 }
 
-my_str <- "My date is 2010-01-10"
-my_str_2 <- "My date is 2011/10/9"
 
-str_detect(my_str_2, "[0-9]+|-")
+
+
+my_str <- "My date is 2010-01-10"
+my_str_2 <- c("2011/10/9", "2012/05/10", "2010/05/10")
+
+test_year <- 2010
+sum(str_detect(my_str_2, as.character(test_year)))
   
+
+
 
 
 
