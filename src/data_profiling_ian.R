@@ -40,6 +40,8 @@ validDate <- function(column, yr){
 }
 
 #Validate state
+#c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
+
 validState <- function(col){
   return(sum(col%in%state.name | col == "District of Columbia" | col == "Puerto Rico") / length(col))
 }
@@ -50,14 +52,14 @@ validSoc <- function(col){
   return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
 }
 
-#Validate long
+#Validate lat
 #Since the US is in lat range 0 to 90 (Northern Hemisphere) I looked at the number of ranges between 0 and 90
 validLat <- function(col){
   return(sum(col >= 0 & col <= 90) / length(col))
 }
 
-year <- 2010
-col_names = c("id", "jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
+year <- 2010:2011 
+col_names = c("id")#"jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
 for(i in year){
   #create df validity, completeness, and uniqueness
@@ -70,7 +72,7 @@ for(i in year){
   for(col in col_names){
     tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
-      statement = paste("SELECT ", col, " FROM bgt_job.jolts_comparison_", year, sep = ""))
+      statement = paste("SELECT ", col, " FROM bgt_job.jolts_comparison_", i, sep = ""))
     
     prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
     prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
@@ -93,16 +95,24 @@ for(i in year){
       prof[prof$variable == col, "validity"] <- validSoc(tbl[, col])
     }
     
+    #throw else conditions
+    
     
     
     
     
       
-    #Still confused about how the 2011 and 2012... dataframes are made after the first iteration
+    
     
   }
+  assign(paste("prof", i, sep = ""), prof)
+  
   
 }
+
+
+
+
 
 
 
