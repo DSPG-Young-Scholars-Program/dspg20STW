@@ -25,12 +25,29 @@ completeness <- function(x){
 
 #My uniqueness function
 getUni <- function(col){
-  return(sum(!is.na(unique(col))))
+  return(sum(!is.na(unique(col)))) 
 }
 
-#Validate year
+#id
+#Assuming that a valid jobid is between 6 12 characters long
+validId <- function(column){
+  return(sum(nchar(column) >= 7 & sum(nchar(column)) == 9) <= length(column))
+}
+
+#Validate jobdate by looking at the year (maybe go back to)
 validDate <- function(column, yr){
   return(sum(str_detect(column, as.character(yr))) / length(column))
+}
+
+#Validate state
+validState <- function(col){
+  return(sum(col%in%state.name | col == "District of Columbia" | col == "Puerto Rico") / length(col))
+}
+
+#Validate soc
+#Looks like soc is two digits followed by a dash followed by 4 digits
+validSoc <- function(col){
+  return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d")) / length(col))
 }
 
 year <- 2010
@@ -52,13 +69,25 @@ for(i in year){
     prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
     prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
     
-    #testing validity
-    
-    #id
-    #Assuming that a valid jobid is 7 or 9 characters long
-    validId <- function(column){
-      return(sum(nchar(column) == 7 | sum(nchar(column)) == 9) / length(column))
+    #testing jobdate validity
+    if(col == "jobdate"){
+      prof[prof$variable == col, "validity"] <- validDate(tbl[, col], year)
     }
+    
+    #Testing for state
+    if(col == "id"){
+      prof[prof$variable == col, "validity"] <- validId(tbl[, col])
+    }
+    
+    if(col == "state"){
+      prof[prof$variable == col, "validity"] <- validState(tbl[, col])
+    }
+    
+    if(col == "soc"){
+      prof[prof$variable == col, "validity"] <- validSoc(tbl[, col])
+    }
+    
+    
     
     
     
@@ -112,7 +141,7 @@ tbl <- RPostgreSQL::dbGetQuery(
 #2011 first 1000 columns
 tbl2 <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2011 LIMIT 1000;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2012 LIMIT 10000;")
 
 #creates a dataframe with 4 columns and 10 variables to track percentages
 prof_2010 <- data.frame(variable = colnames(tbl), 
