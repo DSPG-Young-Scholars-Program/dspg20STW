@@ -47,7 +47,13 @@ validState <- function(col){
 #Validate soc
 #Looks like soc is two digits followed by a dash followed by 4 digits
 validSoc <- function(col){
-  return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d")) / length(col))
+  return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
+}
+
+#Validate long
+#Since the US is in lat range 0 to 90 (Northern Hemisphere) I looked at the number of ranges between 0 and 90
+validLat <- function(col){
+  return(sum(col >= 0 & col <= 90) / length(col))
 }
 
 year <- 2010
@@ -141,7 +147,7 @@ tbl <- RPostgreSQL::dbGetQuery(
 #2011 first 1000 columns
 tbl2 <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2012 LIMIT 10000;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
 
 #creates a dataframe with 4 columns and 10 variables to track percentages
 prof_2010 <- data.frame(variable = colnames(tbl), 
