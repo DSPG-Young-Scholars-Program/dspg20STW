@@ -42,8 +42,10 @@ validDate <- function(column, yr){
 #Validate state
 #c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
 
+
+other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
 validState <- function(col){
-  return(sum(col%in%state.name | col == "District of Columbia" | col == "Puerto Rico") / length(col))
+  return(sum(col%in%state.name | col%in%other_places) / length(col))
 }
 
 #Validate soc
@@ -58,8 +60,29 @@ validLat <- function(col){
   return(sum(col >= 0 & col <= 90) / length(col))
 }
 
-year <- 2010:2011 
-col_names = c("id")#"jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
+#Validate lon
+#Since the US is West of the prime meridian, valid longitude values will be in the negatives
+validLong <- function(col){
+  return(sum(sign(col) == -1 | is.na(col)) / length(col))
+}
+
+#validate minedu
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid <- c(12, 14, 16, 18, 21)
+validMinEdu <- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col))
+}
+
+#validate maxedu
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid <- c(12, 14, 16, 18, 21)
+validMaxEdu <- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col))
+}
+
+
+year <- 2010:2019 
+col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
 for(i in year){
   #create df validity, completeness, and uniqueness
@@ -92,18 +115,24 @@ for(i in year){
     }
     
     if(col == "soc"){
-      prof[prof$variable == col, "validity"] <- validSoc(tbl[, col])
+      prof[prof$variable == col, "validity"] <- validSoc(tbl[, col]) 
     }
     
-    #throw else conditions
+    if(col == "lat"){
+      prof[prof$variable == col, "validity"] <- validLat(tbl[, col])
+    }
     
+    if(col == "lon"){
+      prof[prof$variable == col, "validity"] <- validLong(tbl[, col])
+    }
     
+    if(col == "minedu"){
+      prof[prof$variable == col, "validity"] <- validMinEdu(tbl[, col])
+    }
     
-    
-    
-      
-    
-    
+    if(col == "maxedu"){
+      prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
+    }
   }
   assign(paste("prof", i, sep = ""), prof)
   
@@ -157,7 +186,7 @@ tbl <- RPostgreSQL::dbGetQuery(
 #2011 first 1000 columns
 tbl2 <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2019")
 
 #creates a dataframe with 4 columns and 10 variables to track percentages
 prof_2010 <- data.frame(variable = colnames(tbl), 
