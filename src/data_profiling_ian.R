@@ -39,7 +39,7 @@ validId <- function(col){
 
 #Validate jobdate by looking at the year (maybe go back to)
 validDate <- function(column, yr){
-  return(sum(str_detect(column, as.character(yr))) / length(column))
+  return(sum(str_detect(column, as.character(yr))) / length(column)) 
 }
 
 #Validate state
@@ -48,7 +48,7 @@ validDate <- function(column, yr){
 
 other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
 validState <- function(col){
-  return(sum(col%in%state.name | col%in%other_places) / length(col))
+  return(sum(col%in%state.name | col%in%other_places) / length(col))  
 }
 
 #Validate soc
@@ -136,7 +136,7 @@ for(i in year){
     if(col == "maxedu"){
       prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
     }
-  }
+  } 
   assign(paste("prof", i, sep = ""), prof)
   
   
