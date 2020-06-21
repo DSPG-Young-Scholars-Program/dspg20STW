@@ -1,6 +1,7 @@
 library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
+library(dplyr)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -13,7 +14,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
-
+ 
 #--------------------------------Code------------------------------------
 
 #functions
@@ -30,8 +31,10 @@ getUni <- function(col){
 
 #id
 #Assuming that a valid jobid is between 6 12 characters long
-validId <- function(column){
-  return(sum(nchar(column) >= 7 & sum(nchar(column)) == 9) <= length(column))
+range <- c(6,12)
+
+validId <- function(col){
+  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col))
 }
 
 #Validate jobdate by looking at the year (maybe go back to)
@@ -186,7 +189,7 @@ tbl <- RPostgreSQL::dbGetQuery(
 #2011 first 1000 columns
 tbl2 <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 10000;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
 
 #creates a dataframe with 4 columns and 10 variables to track percentages
 prof_2010 <- data.frame(variable = colnames(tbl), 
@@ -338,5 +341,4 @@ my2010df$validity[9] = countMaxEdu / length(tbl$maxedu)
 
 
 
-x <- c("1234567", "3456", "2345678")
-sum(nchar(x) == 7)
+
