@@ -8,19 +8,12 @@ output: html_document
 
 This paper is on data profiling BGT
 
-
-
-
 ```{r, echo = F}
 library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
 library(knitr)
-#------------------ DATABASE TABLES-------------------#
-
-# db_usr is defined in .Renviron in the Home directory
-# db_pwd is defined in .Renviron in the Home directory
 
 #Connects to the database
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
@@ -28,11 +21,12 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                host = "postgis1",
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
-                               password = Sys.getenv(x = "DB_PWD"))  
+                               password = Sys.getenv(x = "DB_PWD"))
 ```
 
+```{r}
+#functions
 
-```{r, message = F, warning = F}
 #sarah's %completeness function
 completeness <- function(x){
   (length(x) - sum(is.na(x))) / length(x) 
@@ -107,3 +101,11 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
+
+
+
+
+
+
+
+

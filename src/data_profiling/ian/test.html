@@ -185,9 +185,88 @@ summary {
 
 
 <p>This paper is on data profiling BGT</p>
-<pre class="r"><code>print(&quot;Hello World&quot;)</code></pre>
-<pre><code>## [1] &quot;Hello World&quot;</code></pre>
-<pre><code>## [1] &quot;Hello World&quot;</code></pre>
+<pre><code>## Loading required package: DBI</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>#sarah's %completeness function
+completeness &lt;- function(x){
+  (length(x) - sum(is.na(x))) / length(x) 
+}
+
+#My uniqueness function
+getUni &lt;- function(col){
+  return(sum(!is.na(unique(col)))) 
+}
+
+#id
+#Assuming that a valid jobid is between 6 12 characters long
+validId &lt;- function(col){
+  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col)) 
+}
+
+#Validate jobdate by looking at the year (maybe go back to)
+validDate &lt;- function(column, yr){
+  return(sum(str_detect(column, as.character(yr)) | is.na(column)) / length(column)) 
+}
+
+#Validate state
+#c(state.name, &quot;District of Columbia&quot;, &quot;Puerto Rico&quot;, &quot;Virgin Islands of the U.S.&quot;, &quot;Guam&quot;, &quot;American Samoa&quot;, &quot;Northern Mariana Islands&quot;, &quot;Palau&quot;)
+
+
+other_places = c(&quot;District of Columbia&quot;, &quot;Puerto Rico&quot;, &quot;Virgin Islands of the U.S.&quot;, &quot;Guam&quot;, &quot;American Samoa&quot;, &quot;Northern Mariana Islands&quot;, &quot;Palau&quot;, &quot;Marshall Islands&quot;, &quot;Federated States of Micronesia&quot;)
+validState &lt;- function(col){
+  return(sum(col%in%state.name | col%in%other_places) / length(col))  
+}
+
+#Validate soc
+#Looks like soc is two digits followed by a dash followed by 4 digits
+validSoc &lt;- function(col){
+  return(sum(str_detect(col, &quot;\\d+-\\d\\d\\d\\d&quot;) | is.na(col)) / length(col))
+}
+
+
+#validate socname
+#For this variable I am just going to see if any occupation names have any digits in them. If they do, they won't be counted as valid
+validSocname &lt;- function(col){
+  return(sum(!str_detect(col, &quot;[:digit:]&quot;) | is.na(col)) / length(col))
+}
+
+
+#Validate lat
+#Since the US is in lat range 0 to 90 (Northern Hemisphere) I looked at the number of ranges between 0 and 90
+validLat &lt;- function(col){
+  return(sum(col &gt;= 0 &amp; col &lt;= 90 | is.na(col)) / length(col))
+}
+
+#prof[prof$variable == j, &quot;validity&quot;]  &lt;- (sum(tbl[, j][!is.na(tbl[,j])] &lt; 0 |( 133 &lt; tbl[, j][!is.na(tbl[,j])] &amp; tbl[, j][!is.na(tbl[,j])] &lt; 172)) + sum(is.na(tbl[,j])))/length(tbl[,j])
+
+
+#Validate lon
+#Since the US is West of the prime meridian, valid longitude values will be in the negatives (or between 133 and 172)
+validLong &lt;- function(col){
+  return(sum(sign(col) == -1 | is.na(col)) / length(col))
+}
+
+#validate minedu
+#Does 0 mean there are no education requirements? #add zero
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid &lt;- c(12, 14, 16, 18, 21)
+validMinEdu &lt;- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col))
+}
+
+#validate maxedu
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid &lt;- c(12, 14, 16, 18, 21)
+validMaxEdu &lt;- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col)) 
+}</code></pre>
 
 
 

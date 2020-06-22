@@ -1,17 +1,3 @@
----
-title: "Data Profiling"
-author: "Ian MacLeod"
-date: "6/22/2020"
-output: html_document
-
----
-
-This paper is on data profiling BGT
-
-
-
-
-```{r, echo = F}
 library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
@@ -29,10 +15,11 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))  
-```
+ 
+#--------------------------------Code------------------------------------
 
+#functions
 
-```{r, message = F, warning = F}
 #sarah's %completeness function
 completeness <- function(x){
   (length(x) - sum(is.na(x))) / length(x) 
@@ -106,4 +93,109 @@ valid <- c(12, 14, 16, 18, 21)
 validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
-```
+
+
+year <- 2010:2019 
+col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
+
+for(i in year){
+  #create df validity, completeness, and uniqueness
+  prof <<- data.frame(variable = col_names, 
+                      completeness = numeric(length = length(col_names)),
+                      validity = numeric(length = length(col_names)), 
+                      uniqueness = numeric(length = length(col_names)))
+  
+  
+  for(col in col_names){
+    tbl <- RPostgreSQL::dbGetQuery(
+      conn = conn, 
+      statement = paste("SELECT ", col, " FROM bgt_job.jolts_comparison_", i, sep = ""))
+    
+    prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
+    prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
+    
+    #testing jobdate validity
+    if(col == "jobdate"){
+      prof[prof$variable == col, "validity"] <- validDate(tbl[, col], i)
+    }
+    
+    #Testing for state
+    if(col == "id"){
+      prof[prof$variable == col, "validity"] <- validId(tbl[, col])
+    }
+    
+    if(col == "state"){
+      prof[prof$variable == col, "validity"] <- validState(tbl[, col])
+    }
+    
+    if(col == "soc"){
+      prof[prof$variable == col, "validity"] <- validSoc(tbl[, col]) 
+    }
+    
+    if(col == "socname"){
+      prof[prof$variable == col, "validity"] <- validSocname(tbl[, col]) 
+    }
+    
+    if(col == "lat"){
+      prof[prof$variable == col, "validity"] <- validLat(tbl[, col])
+    }
+    
+    if(col == "lon"){
+      prof[prof$variable == col, "validity"] <- validLong(tbl[, col])
+    }
+    
+    if(col == "minedu"){
+      prof[prof$variable == col, "validity"] <- validMinEdu(tbl[, col])
+    }
+    
+    if(col == "maxedu"){
+      prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
+    }
+  } 
+  assign(paste("prof", i, sep = ""), prof) 
+  
+  
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tbl <- RPostgreSQL::dbGetQuery(
+  conn = conn, 
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2019 LIMIT 30;")
+
+#2011 first 1000 columns
+#tbl2 <- RPostgreSQL::dbGetQuery(
+  #conn = conn, 
+  #statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
+
+
+
+
+
+
