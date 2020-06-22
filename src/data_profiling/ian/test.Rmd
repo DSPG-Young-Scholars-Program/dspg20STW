@@ -107,7 +107,7 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
-```{r}
+```{r, echo = F}
 print("Testing")
 ```
 
