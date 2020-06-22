@@ -40,7 +40,7 @@ completeness <- function(x){
 
 #My uniqueness function
 getUni <- function(col){
-  return(sum(!is.na(unique(col)))) 
+  return(sum(!is.na(unique(col))))  
 }
 
 #id
@@ -107,3 +107,7 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
+```{r}
+print("Testing")
+```
+

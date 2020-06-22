@@ -201,7 +201,7 @@ completeness &lt;- function(x){
 
 #My uniqueness function
 getUni &lt;- function(col){
-  return(sum(!is.na(unique(col)))) 
+  return(sum(!is.na(unique(col))))  
 }
 
 #id
@@ -267,6 +267,8 @@ valid &lt;- c(12, 14, 16, 18, 21)
 validMaxEdu &lt;- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }</code></pre>
+<pre class="r"><code>print(&quot;Testing&quot;)</code></pre>
+<pre><code>## [1] &quot;Testing&quot;</code></pre>
 
 
 

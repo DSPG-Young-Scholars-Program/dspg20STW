@@ -92,7 +92,7 @@ validMinEdu <- function(col){
 valid <- c(12, 14, 16, 18, 21)
 validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
-}
+} 
 
 
 year <- 2010:2019 
