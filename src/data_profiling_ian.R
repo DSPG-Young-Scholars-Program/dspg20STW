@@ -33,7 +33,7 @@ getUni <- function(col){
 #id
 #Assuming that a valid jobid is between 6 12 characters long
 validId <- function(col){
-  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col)) 
+  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col))  
 }
 
 #Validate jobdate by looking at the year (maybe go back to)
