@@ -31,15 +31,13 @@ getUni <- function(col){
 
 #id
 #Assuming that a valid jobid is between 6 12 characters long
-range <- c(6,12)
-
 validId <- function(col){
   return(sum(between(nchar(col),6,12) | is.na(col)) / length(col))
 }
 
 #Validate jobdate by looking at the year (maybe go back to)
 validDate <- function(column, yr){
-  return(sum(str_detect(column, as.character(yr))) / length(column)) 
+  return(sum(str_detect(column, as.character(yr)) | is.na(column)) / length(column)) 
 }
 
 #Validate state
@@ -57,6 +55,14 @@ validSoc <- function(col){
   return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
 }
 
+
+#validate socname
+#For this variable I am just going to see if any occupation names have any digits in them. If they do, they won't be counted as valid
+validSocname <- function(col){
+  return(sum(!str_detect(col, "[:digit:]") | is.na(col)) / length(col))
+}
+
+
 #Validate lat
 #Since the US is in lat range 0 to 90 (Northern Hemisphere) I looked at the number of ranges between 0 and 90
 validLat <- function(col){
@@ -70,6 +76,7 @@ validLong <- function(col){
 }
 
 #validate minedu
+#Does 0 mean there are no education requirements?
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
 valid <- c(12, 14, 16, 18, 21)
 validMinEdu <- function(col){
@@ -105,7 +112,7 @@ for(i in year){
     
     #testing jobdate validity
     if(col == "jobdate"){
-      prof[prof$variable == col, "validity"] <- validDate(tbl[, col], year)
+      prof[prof$variable == col, "validity"] <- validDate(tbl[, col], i)
     }
     
     #Testing for state
@@ -119,6 +126,10 @@ for(i in year){
     
     if(col == "soc"){
       prof[prof$variable == col, "validity"] <- validSoc(tbl[, col]) 
+    }
+    
+    if(col == "socname"){
+      prof[prof$variable == col, "validity"] <- validSocname(tbl[, col]) 
     }
     
     if(col == "lat"){
@@ -137,23 +148,11 @@ for(i in year){
       prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
     }
   } 
-  assign(paste("prof", i, sep = ""), prof)
+  assign(paste("prof", i, sep = ""), prof) 
   
   
 }
 
-
-
-
-
-
-
-
-my_str <- "My date is 2010-01-10"
-my_str_2 <- c("2011/10/9", "2012/05/10", "2010/05/10")
-
-test_year <- 2010
-sum(str_detect(my_str_2, as.character(test_year)))
   
 
 
@@ -184,160 +183,14 @@ sum(str_detect(my_str_2, as.character(test_year)))
 
 tbl <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2010 LIMIT 30;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2019 LIMIT 30;")
 
 #2011 first 1000 columns
-tbl2 <- RPostgreSQL::dbGetQuery(
-  conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
-
-#creates a dataframe with 4 columns and 10 variables to track percentages
-prof_2010 <- data.frame(variable = colnames(tbl), 
-                        completeness = numeric(length = ncol(tbl)),
-                        validity = numeric(length = ncol(tbl)),
-                        uniqueness = numeric(length = ncol(tbl)))
-
-head(tbl$minedu)
+#tbl2 <- RPostgreSQL::dbGetQuery(
+  #conn = conn, 
+  #statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
 
 
-#------------------------------------------------------------------Ignore------------------------------------------------------------------
-
-
-
-#Completeness -------------------------------------------
-
-
-
-my2010df <- data.frame(variables = colnames(tbl),
-                       complete = numeric(length=ncol(tbl)),
-                       validity = numeric(length = ncol(tbl)),
-                       uniqueness = numeric(length = ncol(tbl))) 
-
-#calculate % of completeness
-
-
-
-
-my2010df$complete <- apply(tbl, MARGIN = 2, completeness)
-
-
-#Uniqueness---------------------------
-#Don't count NA
-#Function that returns the number of unique values not including NA
-
-
-my2010df$uniqueness <- apply(tbl, MARGIN = 2, getUni)
-
-
-#Validity-----------------------------------------------------
-
-#ID
-#checking for length of each id in the id column; all 30 results had a length of 9
-for(i in tbl$id){
-  print(nchar(as.character(i)))
-}
-
-#validity for id column in my2010df is set to 100% or 1
-my2010df$validity[1] = 1
-
-
-
-
-
-#state
-#Check to see if there is a value in the state column that isn't a state
-
-for(state in tbl$state){
-  if(state%in%state.name){
-    print(TRUE)
-  }
-  
-}
-
-my2010df$validity[3] = 1 
-
-
-
-#jobdate
-#Checking to make sure that every entry is in year-month-day format
-
-
-
-#SOC
-#Assuming a valid SOC identifier is two digits, followed by a dash, followed by 4 more digits
-#Looking for length 7 characters with a dash at index 3
-
-#This function looks counts up all the SOC values that are two digits, followed by a dash, followed by 4 more digits
-socValid <- function(col){
-  count = 0
-  for(number in col){
-    if(nchar(as.character(number)) == 7 & substring(number, 3,3) == "-" | is.na(number)){
-      count = count + 1
-    }
-  }
-  
-  return(count)
-}
-
-#Get percentage of valid and add it to my2010df
-my2010df$validity[4] = socValid((tbl$soc)) / length(tbl$soc)
- 
-
-#socname
-
-
-
-
-#lat
-#For validating latitude, I checked each value to see if it was between -90 and 90 (range of latitude)
-
-count = 0
-for(value in tbl$lat){
-  if(value >= -90 & value <= 90 | is.na(value)){ 
-    count = count + 1
-  }
-}
-
-#Assign the percentage of valid latitude values to my2010df
-my2010df$validity[6] = count / length(tbl$lat)
-
-#long
-#For validating longitude, I checked each value to see if it was between -180 and 180 (range for longitude)
-count2 = 0
-for(value in tbl$lon){
-  if(value >= -180 & value <= 180 | is.na(value)){
-    count2 = count2 + 1
-  }
-}
-
-my2010df$validity[7] = count2 / length(tbl$lon)
-
-
-#minedu
-#for minimum education I presumed that a value was valid if it was in the range 12 to 21
-countMinEdu <- 0
-
-for(value in tbl$minedu){
-  if(value >= 12 & value <= 21 | is.na(value)){
-    countMinEdu = countMinEdu + 1
-  }
-}
-
-my2010df$validity[8] = countMinEdu / length(tbl$minedu)
-
-#maxedu
-#for maximum education I presumed that a value was valid if it was in the range 12-21
-countMaxEdu <- 0
-
-for(value in tbl$maxedu){
-  if(value >= 12 & value <= 21 | is.na(value)){
-    countMaxEdu = countMaxEdu + 1
-  }
-}
-
-my2010df$validity[9] = countMaxEdu / length(tbl$maxedu)
-
-#---------------------------------------------------------------------------------
 
 
 
