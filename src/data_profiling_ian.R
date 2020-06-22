@@ -11,7 +11,7 @@ library(knitr)
 #Connects to the database
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
-                               host = "postgis1",
+                               host = "postgis1", 
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))  
@@ -76,13 +76,13 @@ validLat <- function(col){
 #Validate lon
 #Since the US is West of the prime meridian, valid longitude values will be in the negatives (or between 133 and 172)
 validLong <- function(col){
-  return(sum(sign(col) == -1 | is.na(col)) / length(col))
+  return(sum(sign(col) == -1 | is.na(col) | between(col, 132, 173)) / length(col))
 }
 
 #validate minedu
 #Does 0 mean there are no education requirements? #add zero
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
-valid <- c(12, 14, 16, 18, 21)
+valid <- c(0,12, 14, 16, 18, 21)
 validMinEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col))
 }
