@@ -2,6 +2,7 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
+library(knitr)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -13,7 +14,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                host = "postgis1",
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
-                               password = Sys.getenv(x = "DB_PWD"))
+                               password = Sys.getenv(x = "DB_PWD"))  
  
 #--------------------------------Code------------------------------------
 
@@ -21,7 +22,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
 
 #sarah's %completeness function
 completeness <- function(x){
-  (length(x) - sum(is.na(x))) / length(x)
+  (length(x) - sum(is.na(x))) / length(x) 
 }
 
 #My uniqueness function
@@ -32,7 +33,7 @@ getUni <- function(col){
 #id
 #Assuming that a valid jobid is between 6 12 characters long
 validId <- function(col){
-  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col))
+  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col)) 
 }
 
 #Validate jobdate by looking at the year (maybe go back to)
@@ -44,7 +45,7 @@ validDate <- function(column, yr){
 #c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
 
 
-other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
+other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
 validState <- function(col){
   return(sum(col%in%state.name | col%in%other_places) / length(col))  
 }
@@ -69,14 +70,17 @@ validLat <- function(col){
   return(sum(col >= 0 & col <= 90 | is.na(col)) / length(col))
 }
 
+#prof[prof$variable == j, "validity"]  <- (sum(tbl[, j][!is.na(tbl[,j])] < 0 |( 133 < tbl[, j][!is.na(tbl[,j])] & tbl[, j][!is.na(tbl[,j])] < 172)) + sum(is.na(tbl[,j])))/length(tbl[,j])
+
+
 #Validate lon
-#Since the US is West of the prime meridian, valid longitude values will be in the negatives
+#Since the US is West of the prime meridian, valid longitude values will be in the negatives (or between 133 and 172)
 validLong <- function(col){
   return(sum(sign(col) == -1 | is.na(col)) / length(col))
 }
 
 #validate minedu
-#Does 0 mean there are no education requirements?
+#Does 0 mean there are no education requirements? #add zero
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
 valid <- c(12, 14, 16, 18, 21)
 validMinEdu <- function(col){
@@ -87,7 +91,7 @@ validMinEdu <- function(col){
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
 valid <- c(12, 14, 16, 18, 21)
 validMaxEdu <- function(col){
-  return(sum(col%in%valid | is.na(col)) / length(col))
+  return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 
 
