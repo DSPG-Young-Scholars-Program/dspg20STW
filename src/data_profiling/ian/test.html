@@ -234,7 +234,7 @@ validSoc &lt;- function(col){
 #validate socname
 #For this variable I am just going to see if any occupation names have any digits in them. If they do, they won't be counted as valid
 validSocname &lt;- function(col){
-  return(sum(!str_detect(col, &quot;[:digit:]&quot;) | is.na(col)) / length(col))
+  return(sum(!str_detect(col, &quot;[:digit:]&quot;) | is.na(col)) / length(col)) 
 }
 
 
@@ -267,8 +267,7 @@ valid &lt;- c(12, 14, 16, 18, 21)
 validMaxEdu &lt;- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }</code></pre>
-<pre class="r"><code>print(&quot;Testing&quot;)</code></pre>
-<pre><code>## [1] &quot;Testing&quot;</code></pre>
+<pre><code>## [1] &quot;Testing!!&quot;</code></pre>
 
 
 

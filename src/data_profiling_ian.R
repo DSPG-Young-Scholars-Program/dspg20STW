@@ -9,7 +9,7 @@ library(knitr)
 # db_pwd is defined in .Renviron in the Home directory
 
 #Connects to the database
-conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
+conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(), 
                                dbname = "sdad",
                                host = "postgis1", 
                                port = 5432, 
@@ -88,7 +88,7 @@ validMinEdu <- function(col){
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
 valid <- c(0,12, 14, 16, 18, 21)
 validMaxEdu <- function(col){
-  return(sum(col%in%valid | is.na(col)) / length(col)) 
+  return(sum(col%in%valid | is.na(col)) / length(col))  
 } 
 
 
