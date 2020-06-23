@@ -158,7 +158,16 @@ for(i in year){
  
   
 knitr::kable(prof2010)
-
+knitr::kable(prof2011)
+knitr::kable(prof2012)
+knitr::kable(prof2013)
+knitr::kable(prof2014)
+knitr::kable(prof2015)
+knitr::kable(prof2016) 
+knitr::kable(prof2017)
+knitr::kable(prof2018)
+knitr::kable(prof2019)
+ 
 
 
 
