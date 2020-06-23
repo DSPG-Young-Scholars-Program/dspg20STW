@@ -2,7 +2,7 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)
+library(knitr) 
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -12,7 +12,7 @@ library(knitr)
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
                                host = "postgis1", 
-                               port = 5432,
+                               port = 5432, 
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))  
  
@@ -182,14 +182,6 @@ for(i in year){
 
 
 
-tbl <- RPostgreSQL::dbGetQuery(
-  conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2012 LIMIT 500;")
-
-#2011 first 1000 columns
-#tbl2 <- RPostgreSQL::dbGetQuery(
-  #conn = conn, 
-  #statement = "SELECT * FROM bgt_job.jolts_comparison_2013 LIMIT 1000;")
 
 
 
