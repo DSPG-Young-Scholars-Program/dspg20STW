@@ -82,7 +82,7 @@ validLong <- function(col){
 valid <- c(0,12, 14, 16, 18, 21)
 validMinEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col))
-}
+} 
 
 #validate maxedu
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
@@ -149,11 +149,11 @@ for(i in year){
       prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
     }
   } 
-  assign(paste("prof", i, sep = ""), prof) 
+  assign(paste("prof", i, sep = ""), prof)  
   
   
 }
-
+ 
   
 
 
@@ -184,7 +184,7 @@ for(i in year){
 
 tbl <- RPostgreSQL::dbGetQuery(
   conn = conn, 
-  statement = "SELECT * FROM bgt_job.jolts_comparison_2019 LIMIT 30;")
+  statement = "SELECT * FROM bgt_job.jolts_comparison_2012 LIMIT 500;")
 
 #2011 first 1000 columns
 #tbl2 <- RPostgreSQL::dbGetQuery(
