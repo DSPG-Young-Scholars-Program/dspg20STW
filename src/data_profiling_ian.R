@@ -8,6 +8,8 @@ library(knitr)
 # db_usr is defined in .Renviron in the Home directory
 # db_pwd is defined in .Renviron in the Home directory
 
+#test
+
 #Connects to the database
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(), 
                                dbname = "sdad",
