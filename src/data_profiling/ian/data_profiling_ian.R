@@ -151,12 +151,13 @@ for(i in year){
       prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
     }
   } 
-  assign(paste("prof", i, sep = ""), prof)  
+  assign(paste("prof", i, sep = ""), prof)
   
   
 }
  
   
+knitr::kable(prof2010)
 
 
 

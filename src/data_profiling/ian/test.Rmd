@@ -107,7 +107,7 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
-```{r, echo = F}
+```{r}
 year <- 2010:2019 
 col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
@@ -165,12 +165,27 @@ for(i in year){
       prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
     }
   } 
-  assign(paste("prof", i, sep = ""), prof)  
+  assign(paste("prof", i, sep = ""), prof)
+  
   
   
 }
 
 
+
 ```
 
+```{r}
+knitr::kable(prof2010)
+knitr::kable(prof2011)
+knitr::kable(prof2012)
+knitr::kable(prof2013)
+knitr::kable(prof2014)
+knitr::kable(prof2015)
+knitr::kable(prof2016) 
+knitr::kable(prof2017)
+knitr::kable(prof2018)
+knitr::kable(prof2019)
+```
+ 
  
