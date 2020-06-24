@@ -181,7 +181,7 @@ knitr::kable(prof2010)
 #2011 data profile
 knitr::kable(prof2011)
 #2012 data profile
-knitr::kable(prof2012)
+knitr::kable(prof2012) 
 #2013 data profile
 knitr::kable(prof2013)
 #2014 data profile
