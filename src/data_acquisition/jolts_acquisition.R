@@ -55,7 +55,8 @@ table <- read.table("data/original/jt.industry.txt",
 industry$industry_name <- table$industry_text[match(substr(industry$series_id, start = 4, stop = 9), table$industry_code)]
 
 
-
-
+# state by region
+states <- data.frame(state.name, state.region)
+states <- rbind(states, c("District of Columbia", "South"))
 
 
