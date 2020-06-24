@@ -2,7 +2,7 @@
 title: "Data Profiling"
 author: "Ian MacLeod"
 date: "6/22/2020"
-output: html_document
+output: md_document
 
 ---
 
@@ -185,7 +185,7 @@ knitr::kable(prof2015)
 knitr::kable(prof2016) 
 knitr::kable(prof2017)
 knitr::kable(prof2018)
-knitr::kable(prof2019)
+knitr::kable(prof2019) 
 ``` 
  
  

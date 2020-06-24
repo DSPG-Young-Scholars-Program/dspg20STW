@@ -157,7 +157,7 @@ for(i in year){
 }
  
   
-knitr::kable(prof2010)
+knitr::kable(prof2010) 
 knitr::kable(prof2011)
 knitr::kable(prof2012)
 knitr::kable(prof2013)
