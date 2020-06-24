@@ -4,7 +4,7 @@ author: "Ian MacLeod"
 date: "6/22/2020"
 output: md_document
 always_allow_html: true
----
+--- 
 
 This paper is on data profiling BGT
 
@@ -176,7 +176,7 @@ for(i in year){
 ```
 
 ```{r, echo = F}
-#2010 data profile
+
 knitr::kable(prof2010)
 #2011 data profile
 knitr::kable(prof2011)

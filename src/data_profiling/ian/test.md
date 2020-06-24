@@ -2,7 +2,7 @@ This paper is on data profiling BGT
 
     #sarah's %completeness function
     completeness <- function(x){
-      (length(x) - sum(is.na(x))) / length(x) 
+      (length(x) - sum(is.na(x))) / length(x)  
     }
 
     #My uniqueness function
@@ -758,7 +758,7 @@ Profiling for year 2018
 </tbody>
 </table>
 
-Profiling for year 2019
+Profiling for year 2019 
 
 <table>
 <thead>
