@@ -107,7 +107,7 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
-```{r, echo = F}
+```{r}
 year <- 2010:2019 
 col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
@@ -175,16 +175,26 @@ for(i in year){
 
 ```
 
-```{r}
+```{r, echo = F}
+#2010 data profile
 knitr::kable(prof2010)
+#2011 data profile
 knitr::kable(prof2011)
+#2012 data profile
 knitr::kable(prof2012)
+#2013 data profile
 knitr::kable(prof2013)
+#2014 data profile
 knitr::kable(prof2014)
+#2015 data profile
 knitr::kable(prof2015)
+#2016 data profile
 knitr::kable(prof2016) 
+#2017 data profile
 knitr::kable(prof2017)
+#2018 data profile
 knitr::kable(prof2018)
+#2019 data profile
 knitr::kable(prof2019) 
 ``` 
  
