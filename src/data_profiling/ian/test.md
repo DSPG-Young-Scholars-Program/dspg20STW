@@ -482,6 +482,8 @@ Profiling for year 2014
 </tbody>
 </table>
 
+Profiling for year 2015
+
 <table>
 <thead>
 <tr class="header">
@@ -548,6 +550,8 @@ Profiling for year 2014
 </tr>
 </tbody>
 </table>
+
+Profiling for year 2016
 
 <table>
 <thead>
@@ -616,13 +620,15 @@ Profiling for year 2014
 </tbody>
 </table>
 
+Profiling for year 2016
+
 <table>
 <thead>
 <tr class="header">
 <th align="left">variable</th>
 <th align="right">completeness</th>
 <th align="right">validity</th>
-<th align="right">uniqueness</th>
+<th align="right">uniqueness</th> 
 </tr>
 </thead>
 <tbody>
@@ -682,6 +688,8 @@ Profiling for year 2014
 </tr>
 </tbody>
 </table>
+
+Profiling for year 2017
 
 <table>
 <thead>
@@ -749,6 +757,8 @@ Profiling for year 2014
 </tr>
 </tbody>
 </table>
+
+Profiling for year 2018
 
 <table>
 <thead>
