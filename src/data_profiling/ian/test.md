@@ -137,7 +137,7 @@ This paper is on data profiling BGT
       
     }
 
-2010
+Profiling for year 2010
 
 <table>
 <thead>
@@ -206,6 +206,8 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
+Profiling for year 2011
+
 <table>
 <thead>
 <tr class="header">
@@ -272,6 +274,8 @@ This paper is on data profiling BGT
 </tr>
 </tbody>
 </table>
+
+Profiling for year 2012
 
 <table>
 <thead>
@@ -340,6 +344,8 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
+Profiling for year 2013
+
 <table>
 <thead>
 <tr class="header">
@@ -406,6 +412,8 @@ This paper is on data profiling BGT
 </tr>
 </tbody>
 </table>
+
+Profiling for year 2014
 
 <table>
 <thead>
