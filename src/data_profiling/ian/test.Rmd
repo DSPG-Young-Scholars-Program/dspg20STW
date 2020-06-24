@@ -3,7 +3,7 @@ title: "Data Profiling"
 author: "Ian MacLeod"
 date: "6/22/2020"
 output: md_document
-
+always_allow_html: true
 ---
 
 This paper is on data profiling BGT
@@ -11,7 +11,7 @@ This paper is on data profiling BGT
 
 
 
-```{r, echo = F}
+```{r, echo = F, warning = F, message = F}
 library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
@@ -107,7 +107,7 @@ validMaxEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col)) 
 }
 ```
-```{r}
+```{r, echo = F}
 year <- 2010:2019 
 col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
 
