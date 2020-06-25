@@ -27,14 +27,14 @@ This paper is on data profiling BGT
 
     other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
     validState <- function(col){
-      return(sum(col%in%state.name | col%in%other_places) / length(col))  
+      return(sum(col%in%state.name | col%in%other_places | is.na(col)) / length(col))  
     }
 
     #Validate soc
     #Looks like soc is two digits followed by a dash followed by 4 digits
     validSoc <- function(col){
       return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
-    }
+    } 
 
 
     #validate socname
@@ -138,8 +138,6 @@ This paper is on data profiling BGT
       
     }
 
-2010
-
 <table>
 <thead>
 <tr class="header">
@@ -207,7 +205,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2011
 <table>
 <thead>
 <tr class="header">
@@ -275,7 +272,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2012
 <table>
 <thead>
 <tr class="header">
@@ -343,7 +339,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2013
 <table>
 <thead>
 <tr class="header">
@@ -411,7 +406,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2014
 <table>
 <thead>
 <tr class="header">
@@ -479,7 +473,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2015
 <table>
 <thead>
 <tr class="header">
@@ -547,7 +540,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2016
 <table>
 <thead>
 <tr class="header">
@@ -615,7 +607,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2017
 <table>
 <thead>
 <tr class="header">
@@ -683,7 +674,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2018
 <table>
 <thead>
 <tr class="header">
@@ -751,7 +741,6 @@ This paper is on data profiling BGT
 </tbody>
 </table>
 
-2019
 <table>
 <thead>
 <tr class="header">
@@ -765,55 +754,55 @@ This paper is on data profiling BGT
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">33452673</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">0.9999690</td>
-<td align="right">0.999969</td>
+<td align="right">1</td>
 <td align="right">58</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9711764</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9711764</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9910704</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">38150</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9910704</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">40377</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.9994033</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">6</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.9999813</td>
-<td align="right">1.000000</td>
+<td align="right">1</td>
 <td align="right">6</td>
 </tr>
 </tbody>

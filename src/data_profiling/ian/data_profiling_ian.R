@@ -49,7 +49,7 @@ validDate <- function(column, yr){
 
 other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
 validState <- function(col){
-  return(sum(col%in%state.name | col%in%other_places) / length(col))  
+  return(sum(col%in%state.name | col%in%other_places | is.na(col)) / length(col))  
 }
 
 #Validate soc
@@ -86,7 +86,7 @@ validMinEdu <- function(col){
   return(sum(col%in%valid | is.na(col)) / length(col))
 } 
 
-#validate maxedu
+#validate maxedu 
 #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
 valid <- c(0,12, 14, 16, 18, 21)
 validMaxEdu <- function(col){

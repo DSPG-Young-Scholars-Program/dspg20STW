@@ -60,14 +60,14 @@ validDate <- function(column, yr){
 
 other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
 validState <- function(col){
-  return(sum(col%in%state.name | col%in%other_places) / length(col))  
+  return(sum(col%in%state.name | col%in%other_places | is.na(col)) / length(col))  
 }
 
 #Validate soc
 #Looks like soc is two digits followed by a dash followed by 4 digits
 validSoc <- function(col){
   return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
-}
+} 
 
 
 #validate socname
