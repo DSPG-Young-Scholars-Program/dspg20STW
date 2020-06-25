@@ -2,7 +2,7 @@ This paper is on data profiling BGT
 
     #sarah's %completeness function
     completeness <- function(x){
-      (length(x) - sum(is.na(x))) / length(x)  
+      (length(x) - sum(is.na(x))) / length(x) 
     }
 
     #My uniqueness function
@@ -55,21 +55,22 @@ This paper is on data profiling BGT
 
     #Validate lon
     #Since the US is West of the prime meridian, valid longitude values will be in the negatives (or between 133 and 172)
+
     validLong <- function(col){
-      return(sum(sign(col) == -1 | is.na(col)) / length(col))
+      return(sum(sign(col) == -1 | is.na(col) | between(col, 132, 173)) / length(col))
     }
 
     #validate minedu
     #Does 0 mean there are no education requirements? #add zero
     #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
-    valid <- c(12, 14, 16, 18, 21)
+    valid <- c(0, 12, 14, 16, 18, 21)
     validMinEdu <- function(col){
       return(sum(col%in%valid | is.na(col)) / length(col))
     }
 
     #validate maxedu
     #12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
-    valid <- c(12, 14, 16, 18, 21)
+    valid <- c(0, 12, 14, 16, 18, 21)
     validMaxEdu <- function(col){
       return(sum(col%in%valid | is.na(col)) / length(col)) 
     }
@@ -137,8 +138,6 @@ This paper is on data profiling BGT
       
     }
 
-Profiling for year 2010
-
 <table>
 <thead>
 <tr class="header">
@@ -188,7 +187,7 @@ Profiling for year 2010
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9728879</td>
-<td align="right">0.9999709</td>
+<td align="right">1.0000000</td>
 <td align="right">27906</td>
 </tr>
 <tr class="even">
@@ -205,8 +204,6 @@ Profiling for year 2010
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2011
 
 <table>
 <thead>
@@ -257,7 +254,7 @@ Profiling for year 2011
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9801127</td>
-<td align="right">0.9999848</td>
+<td align="right">1.0000000</td>
 <td align="right">26402</td>
 </tr>
 <tr class="even">
@@ -275,8 +272,6 @@ Profiling for year 2011
 </tbody>
 </table>
 
-Profiling for year 2012
-
 <table>
 <thead>
 <tr class="header">
@@ -290,61 +285,59 @@ Profiling for year 2012
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">14090686</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">366</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">57</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9745240</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">831</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9745240</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">831</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9826769</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">29499</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9826769</td>
-<td align="right">0.9999779</td>
+<td align="right">1</td>
 <td align="right">31360</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.4997426</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.1670383</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2013
 
 <table>
 <thead>
@@ -359,61 +352,59 @@ Profiling for year 2013
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">18072049</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">59</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9707383</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9707383</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9779461</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">32801</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9779461</td>
-<td align="right">0.9999761</td>
+<td align="right">1</td>
 <td align="right">34443</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.4677514</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.1565640</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2014
 
 <table>
 <thead>
@@ -464,7 +455,7 @@ Profiling for year 2014
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9801636</td>
-<td align="right">0.9999694</td>
+<td align="right">1.0000000</td>
 <td align="right">36237</td>
 </tr>
 <tr class="even">
@@ -482,8 +473,6 @@ Profiling for year 2014
 </tbody>
 </table>
 
-Profiling for year 2015
-
 <table>
 <thead>
 <tr class="header">
@@ -497,61 +486,59 @@ Profiling for year 2015
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">20828263</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">59</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9746747</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9746747</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">833</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9918737</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">36649</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9918737</td>
-<td align="right">0.9999438</td>
+<td align="right">1</td>
 <td align="right">38749</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.5145077</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.1734663</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2016
 
 <table>
 <thead>
@@ -566,61 +553,59 @@ Profiling for year 2016
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">23500839</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">366</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">58</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9736071</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">832</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9736071</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">832</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9926837</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">38235</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9926837</td>
-<td align="right">0.9999565</td>
+<td align="right">1</td>
 <td align="right">40430</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.5001087</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.1661879</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2017
 
 <table>
 <thead>
@@ -628,69 +613,67 @@ Profiling for year 2017
 <th align="left">variable</th>
 <th align="right">completeness</th>
 <th align="right">validity</th>
-<th align="right">uniqueness</th> 
+<th align="right">uniqueness</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">22259806</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">58</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9742542</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">834</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9742542</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">834</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9918083</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">37936</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9918083</td>
-<td align="right">0.9999628</td>
+<td align="right">1</td>
 <td align="right">40190</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.5286905</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.1756633</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">5</td>
 </tr>
 </tbody>
 </table>
 
-Profiling for year 2018
-
 <table>
 <thead>
 <tr class="header">
@@ -704,61 +687,59 @@ Profiling for year 2018
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">28769736</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">58</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9716869</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">832</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9716869</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">832</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9820593</td>
-<td align="right">1.0000000</td>
+<td align="right">1</td>
 <td align="right">38558</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9820593</td>
-<td align="right">0.9999618</td>
+<td align="right">1</td>
 <td align="right">40857</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.8960728</td>
-<td align="right">0.6089642</td>
+<td align="right">1</td>
 <td align="right">6</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.8236399</td>
-<td align="right">0.3464684</td>
+<td align="right">1</td>
 <td align="right">6</td>
 </tr>
 </tbody>
 </table>
-
-Profiling for year 2019 
 
 <table>
 <thead>
@@ -773,55 +754,55 @@ Profiling for year 2019
 <tr class="odd">
 <td align="left">id</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1.000000</td>
 <td align="right">33452673</td>
 </tr>
 <tr class="even">
 <td align="left">jobdate</td>
 <td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
+<td align="right">1.000000</td>
 <td align="right">365</td>
 </tr>
 <tr class="odd">
 <td align="left">state</td>
 <td align="right">0.9999690</td>
-<td align="right">0.9999690</td>
+<td align="right">0.999969</td>
 <td align="right">58</td>
 </tr>
 <tr class="even">
 <td align="left">soc</td>
 <td align="right">0.9711764</td>
-<td align="right">1.0000000</td>
+<td align="right">1.000000</td>
 <td align="right">833</td>
 </tr>
 <tr class="odd">
 <td align="left">socname</td>
 <td align="right">0.9711764</td>
-<td align="right">1.0000000</td>
+<td align="right">1.000000</td>
 <td align="right">833</td>
 </tr>
 <tr class="even">
 <td align="left">lat</td>
 <td align="right">0.9910704</td>
-<td align="right">1.0000000</td>
+<td align="right">1.000000</td>
 <td align="right">38150</td>
 </tr>
 <tr class="odd">
 <td align="left">lon</td>
 <td align="right">0.9910704</td>
-<td align="right">0.9999631</td>
+<td align="right">1.000000</td>
 <td align="right">40377</td>
 </tr>
 <tr class="even">
 <td align="left">minedu</td>
 <td align="right">0.9994033</td>
-<td align="right">0.5143879</td>
+<td align="right">1.000000</td>
 <td align="right">6</td>
 </tr>
 <tr class="odd">
 <td align="left">maxedu</td>
 <td align="right">0.9999813</td>
-<td align="right">0.1763560</td>
+<td align="right">1.000000</td>
 <td align="right">6</td>
 </tr>
 </tbody>
