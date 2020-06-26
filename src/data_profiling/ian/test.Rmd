@@ -2,20 +2,201 @@
 title: "Data Profiling"
 author: "Ian MacLeod"
 date: "6/22/2020"
-output: html_document
-
----
+output: md_document
+always_allow_html: true
+--- 
 
 This paper is on data profiling BGT
 
 
 
 
+```{r, echo = F, warning = F, message = F}
+library(RPostgreSQL)
+library(ggplot2)
+library(stringr)
+library(dplyr)
+library(knitr) 
+#------------------ DATABASE TABLES-------------------#
+
+# db_usr is defined in .Renviron in the Home directory
+# db_pwd is defined in .Renviron in the Home directory
+
+#Connects to the database
+conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
+                               dbname = "sdad",
+                               host = "postgis1",
+                               port = 5432,
+                               user = Sys.getenv(x = "DB_USR"),
+                               password = Sys.getenv(x = "DB_PWD"))  
+```
+
+
+```{r, message = F, warning = F}
+#sarah's %completeness function
+completeness <- function(x){
+  (length(x) - sum(is.na(x))) / length(x) 
+}
+
+#My uniqueness function
+getUni <- function(col){
+  return(sum(!is.na(unique(col))))  
+}
+
+#id
+#Assuming that a valid jobid is between 6 12 characters long
+validId <- function(col){
+  return(sum(between(nchar(col),6,12) | is.na(col)) / length(col)) 
+}
+
+#Validate jobdate by looking at the year (maybe go back to)
+validDate <- function(column, yr){
+  return(sum(str_detect(column, as.character(yr)) | is.na(column)) / length(column)) 
+}
+
+#Validate state
+#c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
+
+
+other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
+validState <- function(col){
+  return(sum(col%in%state.name | col%in%other_places | is.na(col)) / length(col))  
+}
+
+#Validate soc
+#Looks like soc is two digits followed by a dash followed by 4 digits
+validSoc <- function(col){
+  return(sum(str_detect(col, "\\d+-\\d\\d\\d\\d") | is.na(col)) / length(col))
+} 
+
+
+#validate socname
+#For this variable I am just going to see if any occupation names have any digits in them. If they do, they won't be counted as valid
+validSocname <- function(col){
+  return(sum(!str_detect(col, "[:digit:]") | is.na(col)) / length(col)) 
+}
+
+
+#Validate lat
+#Since the US is in lat range 0 to 90 (Northern Hemisphere) I looked at the number of ranges between 0 and 90
+validLat <- function(col){
+  return(sum(col >= 0 & col <= 90 | is.na(col)) / length(col))
+}
+
+#prof[prof$variable == j, "validity"]  <- (sum(tbl[, j][!is.na(tbl[,j])] < 0 |( 133 < tbl[, j][!is.na(tbl[,j])] & tbl[, j][!is.na(tbl[,j])] < 172)) + sum(is.na(tbl[,j])))/length(tbl[,j])
+
+
+#Validate lon
+#Since the US is West of the prime meridian, valid longitude values will be in the negatives (or between 133 and 172)
+
+validLong <- function(col){
+  return(sum(sign(col) == -1 | is.na(col) | between(col, 132, 173)) / length(col))
+}
+
+#validate minedu
+#Does 0 mean there are no education requirements? #add zero
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid <- c(0, 12, 14, 16, 18, 21)
+validMinEdu <- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col))
+}
+
+#validate maxedu
+#12,14,16,18,and 21 were used to represent edu for all of the years. 2018 and 2019 had 0 as an entry, however, so I did not count these as valid
+valid <- c(0, 12, 14, 16, 18, 21)
+validMaxEdu <- function(col){
+  return(sum(col%in%valid | is.na(col)) / length(col)) 
+}
+```
 ```{r}
-print("Hello World")
-```
+year <- 2010:2019 
+col_names = c("id","jobdate", "state", "soc", "socname", "lat", "lon", "minedu", "maxedu")
+
+for(i in year){
+  #create df validity, completeness, and uniqueness
+  prof <<- data.frame(variable = col_names, 
+                      completeness = numeric(length = length(col_names)),
+                      validity = numeric(length = length(col_names)), 
+                      uniqueness = numeric(length = length(col_names)))
+  
+  
+  for(col in col_names){
+    tbl <- RPostgreSQL::dbGetQuery(
+      conn = conn, 
+      statement = paste("SELECT ", col, " FROM bgt_job.jolts_comparison_", i, sep = ""))
+    
+    prof[prof$variable == col, "completeness"] <- completeness(tbl[, col])
+    prof[prof$variable == col, "uniqueness"] <- getUni(tbl[, col])
+    
+    #testing jobdate validity
+    if(col == "jobdate"){
+      prof[prof$variable == col, "validity"] <- validDate(tbl[, col], i)
+    }
+    
+    #Testing for state
+    if(col == "id"){
+      prof[prof$variable == col, "validity"] <- validId(tbl[, col])
+    }
+    
+    if(col == "state"){
+      prof[prof$variable == col, "validity"] <- validState(tbl[, col])
+    }
+    
+    if(col == "soc"){
+      prof[prof$variable == col, "validity"] <- validSoc(tbl[, col]) 
+    }
+    
+    if(col == "socname"){
+      prof[prof$variable == col, "validity"] <- validSocname(tbl[, col]) 
+    }
+    
+    if(col == "lat"){
+      prof[prof$variable == col, "validity"] <- validLat(tbl[, col])
+    }
+    
+    if(col == "lon"){
+      prof[prof$variable == col, "validity"] <- validLong(tbl[, col])
+    }
+    
+    if(col == "minedu"){
+      prof[prof$variable == col, "validity"] <- validMinEdu(tbl[, col])
+    }
+    
+    if(col == "maxedu"){
+      prof[prof$variable == col, "validity"] <- validMaxEdu(tbl[, col])
+    }
+  } 
+  assign(paste("prof", i, sep = ""), prof)
+  
+  
+  
+}
 
 
-```{r, echo = F, message = F, warning = F}
-print("Hello World")
+
 ```
+
+```{r, echo = F} 
+
+knitr::kable(prof2010)
+#2011 data profile
+knitr::kable(prof2011)
+#2012 data profile
+knitr::kable(prof2012) 
+#2013 data profile
+knitr::kable(prof2013)
+#2014 data profile
+knitr::kable(prof2014)
+#2015 data profile
+knitr::kable(prof2015)
+#2016 data profile
+knitr::kable(prof2016) 
+#2017 data profile
+knitr::kable(prof2017)
+#2018 data profile
+knitr::kable(prof2018)
+#2019 data profile
+knitr::kable(prof2019) 
+``` 
+ 
+ 
