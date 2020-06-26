@@ -5,6 +5,8 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
 
+library(ggplot2)
+
 df <- data.frame(year = 2010:2019, job_ads = numeric(length = length(2010:2019)))
 
 
@@ -19,4 +21,4 @@ for (y in 2010:2019){
 }
 
 library(ggplot2)
-ggplot(data=df, aes(x=year, y=job_ads)) + geom_line()
+ggplot(data=df, aes(x=year, y=job_ads)) + geom_col()
