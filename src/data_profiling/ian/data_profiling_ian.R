@@ -2,7 +2,7 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)   
+library(knitr)    
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -45,7 +45,7 @@ validDate <- function(column, yr){
 
 #Validate state
 #c(state.name, "District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau")
-
+ 
 
 other_places = c("District of Columbia", "Puerto Rico", "Virgin Islands of the U.S.", "Guam", "American Samoa", "Northern Mariana Islands", "Palau", "Marshall Islands", "Federated States of Micronesia")
 validState <- function(col){

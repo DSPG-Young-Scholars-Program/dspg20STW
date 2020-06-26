@@ -16,7 +16,7 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)
+library(knitr) 
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -176,7 +176,7 @@ for(i in year){
 
 ```
 
-```{r, echo = F}
+```{r, echo = F} 
 
 knitr::kable(prof2010)
 #2011 data profile

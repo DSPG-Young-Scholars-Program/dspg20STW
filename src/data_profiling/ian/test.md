@@ -2,7 +2,7 @@ This paper is on data profiling BGT
 
     #sarah's %completeness function
     completeness <- function(x){
-      (length(x) - sum(is.na(x))) / length(x) 
+      (length(x) - sum(is.na(x))) / length(x)  
     }
 
     #My uniqueness function
@@ -777,7 +777,7 @@ This paper is on data profiling BGT
 <td align="left">state</td>
 <td align="right">0.9999690</td>
 <td align="right">1</td>
-<td align="right">58</td>
+<td align="right">58</td>  
 </tr>
 <tr class="even">
 <td align="left">soc</td>
