@@ -11,9 +11,6 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
 
-tbl <- RPostgreSQL::dbGetQuery(
-  conn = conn, 
-  statement = "SELECT state FROM bgt_job.jolts_comparison_2010")
 
 compare_years <- function(years){
   
@@ -65,7 +62,7 @@ ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) +
   labs(y = '', 
        x = "", 
        title = "Comparison of JOLTS and BGT Job Estimates by Year",
-       subtitle= "Blue dots show JOLTS job openings estimates, and red dots show BGT job-ads estimates.")
+       subtitle= "Blue dots show JOLTS job openings estimates, \nand red dots show BGT job-ads estimates.")
 
 ###########--------------- Comparison of Total Jobs by Year and Region ---------------########### 
 

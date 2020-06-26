@@ -31,7 +31,7 @@ data <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, heade
 
 
 # to acquire region tables, U = not seasonally adjusted, L = in thousands, JO = job openings, only available at total non farm level
-region <- data %>% filter(grepl(pattern = "JTU.+\\D{2}JOL|JTU00000000JOL", x = series_id))
+region <- jolts %>% filter(grepl(pattern = "JTU.+\\D{2}JOL|JTU00000000JOL", x = series_id))
 
 
 # to acquire industry tables
