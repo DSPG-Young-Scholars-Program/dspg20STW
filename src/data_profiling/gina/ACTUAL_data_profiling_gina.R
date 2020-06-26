@@ -1,15 +1,8 @@
----
-title: "BGT Data Profiling"
-author: "Gina Fendley"
-date: "6/22/2020"
-output: html_document
-always_allow_html: true
----
-Data profiling for Burning Glass Technologies job-ad data from 2010 to 2019.
+#------------------ DATABASE TABLES-------------------#
 
+# db_usr is defined in .Renviron in the Home directory
+# db_pwd is defined in .Renviron in the Home directory
 
-```{r, echo = F, message = F, warning = F}
-# connection, functions, and libraries
 
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
@@ -27,13 +20,6 @@ uniqueness_function <- function(x){
 }
 
 library(lubridate)
-library(knitr)
-install.packages("kableExtra")
-library(kableExtra)
-```
-
-```{r, echo = F, message = F, warning = F}
-# profiling function
 
 prof_function <- function(year){
   # create a table
@@ -88,74 +74,7 @@ prof_function <- function(year){
   }
   assign(paste("prof", year, sep = ""), prof, envir = .GlobalEnv)
 }
-```
 
-2010
-```{r, echo = F, message = F, warning = F}
+
 prof_function(2010)
-kable(prof2010) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2011
-```{r, echo = F, message = F, warning = F}
 prof_function(2011)
-kable(prof2011) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2012
-```{r, echo = F, message = F, warning = F}
-prof_function(2012)
-kable(prof2012) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2013
-```{r, echo = F, message = F, warning = F}
-prof_function(2013)
-kable(prof2013) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2014
-```{r, echo = F, message = F, warning = F}
-prof_function(2014)
-kable(prof2014) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2015
-```{r, echo = F, message = F, warning = F}
-prof_function(2015)
-kable(prof2015) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2016
-```{r, echo = F, message = F, warning = F}
-prof_function(2016)
-kable(prof2016) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2017
-```{r, echo = F, message = F, warning = F}
-prof_function(2017)
-kable(prof2017) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2018
-```{r, echo = F, message = F, warning = F}
-prof_function(2018)
-kable(prof2018) %>%
-  kable_styling("striped", full_width = F)
-```
-
-2019
-```{r, echo = F, message = F, warning = F}
-prof_function(2019)
-kable(prof2019) %>%
-  kable_styling("striped", full_width = F)
-```
