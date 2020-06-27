@@ -64,7 +64,7 @@ compare_years <- function(years){
       summarize(JobOpenings = sum(value))
     
     
-    total[total$variable == "jolts" & total$year == y, "value"] <- tbl[, "count"]
+    total[total$variable == "jolts" & total$year == y, "value"] <- tbl2[tbl2$year == y, 'JobOpenings']
     
     
   }
@@ -77,3 +77,7 @@ compare_years <- function(years){
 }
 
 #Want to plot two scatterplots of different color, each one representing BGT and Jolts total jobs
+
+ggplot(total, aes(x = year, y = value, color = variable)) + geom_point() + labs(y = "Total Job Openings", colour = "Dataset") + 
+    scale_x_continuous(name = " ", breaks = c(2010, 2013, 2016, 2019)) + ggtitle("BGT vs Jolts") + 
+    theme(plot.title = element_text(hjust = 0.5))
