@@ -83,4 +83,4 @@ ggplot(total, aes(x = year, y = value, color = variable)) + geom_point() + labs(
     theme(plot.title = element_text(hjust = 0.5))
 
 ggplot(total, aes(x = factor(variable), y = value)) + geom_boxplot() + ggtitle("BGT vs Jolts") + labs(y = "Job Openings", x = "Dataset") + 
-  theme(plot.title = element_text(hjust = .5))
+  theme(plot.title = element_text(hjust = .5)) 
