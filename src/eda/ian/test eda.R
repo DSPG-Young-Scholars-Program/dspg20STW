@@ -2,7 +2,8 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)   
+library(knitr)
+library(tidyr)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -43,16 +44,36 @@ compare_years <- function(years){
   for(y in years){
     
     #Query that looks at the BGT data, and grabs the data for the year where for any of the states or DC (since JOLTS only deals with those locations)
-    tbl <- RPostgreSQL::dbGetQuery(
+    tbl <- RPostgreSQL::dbGetQuery( 
       conn = conn,
+      #This line of code gets the count of distinct job ids from the bgt data based on year and location within the US
       statement = paste("SELECT COUNT(DISTINCT id) FROM bgt_job.jolts_comparison_", y, " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),  sep = "")
     )
     
     total[total$variable == "bgt" & total$year == y, "value"] <- tbl[, "count"]
     
     
+    tbl2 <- jolts%>%
+      #Querying to find rows with a specific id and y
+      filter(series_id == "JTS00000000JOL" & year == y) %>%
+      #After getting the specified rows, select only the series_id, year, and value column
+      select(series_id, year, value) %>%
+      #changes or mutates the value column by multiplying each value by 1000 (since the numbers are in 1000s in the jolts data)
+      mutate(value = value * 1000) %>%
+      group_by(year) %>%
+      summarize(JobOpenings = sum(value))
+    
+    
+    total[total$variable == "jolts" & total$year == y, "value"] <- tbl[, "count"]
+    
+    
   }
+  total_wide <<- spread(total, variable, value)
   
-  print(total)
+  total <<- total
   
-}  
+   
+  
+}
+
+#Want to plot two scatterplots of different color, each one representing BGT and Jolts total jobs
