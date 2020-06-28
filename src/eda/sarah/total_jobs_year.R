@@ -48,7 +48,7 @@ compare_years <- function(years){
 compare_years(2010:2019)
 
 
-ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) + 
+gg <- ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) + 
   geom_segment() + 
   geom_point(y = total_wide$jolts, color = "blue", size = 2)+
   geom_point(y = total_wide$bgt, color = "red", size = 2) +
@@ -63,6 +63,7 @@ ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) +
        x = "", 
        title = "Comparison of JOLTS and BGT Job Estimates by Year",
        subtitle= "Blue dots show JOLTS job openings estimates, \nand red dots show BGT job-ads estimates.")
+
 
 ###########--------------- Comparison of Total Jobs by Year and Region ---------------########### 
 
