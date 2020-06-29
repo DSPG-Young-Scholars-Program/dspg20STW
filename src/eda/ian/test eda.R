@@ -37,6 +37,7 @@ compare_years <- function(years){
     value = numeric(length = 2 * length(years))
   )
   
+  
   #Reading in jolts job openings txt
   jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
   
@@ -82,5 +83,84 @@ ggplot(total, aes(x = year, y = value, color = variable)) + geom_point() + labs(
     scale_x_continuous(name = " ", breaks = c(2010, 2013, 2016, 2019)) + ggtitle("BGT vs Jolts") + 
     theme(plot.title = element_text(hjust = 0.5))
 
-ggplot(total, aes(x = factor(variable), y = value)) + geom_boxplot() + ggtitle("BGT vs Jolts") + labs(y = "Job Openings", x = "Dataset") + 
+options(scipen = 10000)
+ggplot(total, aes(x = factor(variable), y = value)) + geom_boxplot() + ggtitle("BGT vs Jolts 2010-2019") + labs(y = "Job Openings", x = "Dataset") + 
   theme(plot.title = element_text(hjust = .5)) 
+
+#50% of the bgt data had less than 20000000 job openings between 2010 and 2019
+#Jolts highest total job openings in a year came in 2019, with a total of 85803000 job postings
+
+
+#Looking at the quantiles
+joltData <- total[total$variable == 'jolts', ]
+print(quantile(joltData$value))
+
+bgt_data <- total[total$variable == 'bgt', ]
+print(quantile(bgt_data$value))
+
+
+compare_years_region <- function(years){
+  
+  total <- data.frame(
+    region = rep(rep(c("South", "Northeast", "West", "Midwest"), 10), each = 2),
+    year = rep(rep(years, each = 4), each = 2), 
+    variable = rep(c("jolts", "bgt"), 40), 
+    value = numeric(length = 80)
+  )
+  
+  
+  
+  lookup <- data.frame(region = c("NE", "SO", "WE", "MW"), name = c("Northeast", "South", "West", "Midwest"))
+  
+  
+  
+  jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
+  
+  states <- data.frame(state.name, state.region)
+  states <- rbind(states, c("District of Columbia", "South"))
+  levels(states$state.region)[levels(states$state.region) == "North Central"] <- "Midwest"
+  
+  for(y in years){
+    
+    #jolts
+    
+    region <- jolts %>%
+      filter(grepl(pattern = "JTU.+\\D{2}JOL", x = series_id) & year == y) %>%
+      mutate(region = lookup$name[match(substr(series_id, start = 10, stop = 11), lookup$region)]) %>%
+      select(year, region, value) %>%
+      group_by(year, region) %>%
+      summarise(value = sum(value) * 100)
+    
+    total[total$year == y & total$variable == "jolts", "value"] <- region$value[match(total[total$year == y & total$variable == "jolts", "region"], region$region)]
+    
+    
+    #bgt
+    
+    tbl <- RPostgreSQL::dbGetQuery(
+      conn = conn, 
+      statement = paste("SELECT COUNT(DISTINCT id), state 
+                    FROM bgt_job.jolts_comparison_", 2010, 
+                        " WHERE state 
+                      IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
+                        " GROUP BY state",  sep = ""))
+    
+    tbl <- merge(tbl, states, by.x = "state", by.y = "state.name")
+    
+    tbl <- tbl %>%
+      select(state.region, count) %>%
+      group_by(state.region) %>%
+      summarise(value = sum(count)) %>%
+      rename(region = state.region)
+    
+    total[total$year == y & total$variable == "bgt", "value"] <- tbl$value[match(total[total$year == y & total$variable == "bgt", "region"], tbl$region)]
+    
+  }
+  
+  total <<- total
+  total_wide <<- spread(total, variable, value)
+  
+  
+  
+}
+
+compare_years_region(2010:2019)
