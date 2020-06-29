@@ -4,6 +4,7 @@ library(stringr)
 library(dplyr)
 library(knitr)
 library(tidyr)
+library(gridExtra)
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -139,7 +140,7 @@ compare_years_region <- function(years){
     tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
       statement = paste("SELECT COUNT(DISTINCT id), state 
-                    FROM bgt_job.jolts_comparison_", 2010, 
+                    FROM bgt_job.jolts_comparison_", y, 
                         " WHERE state 
                       IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
                         " GROUP BY state",  sep = ""))
@@ -164,3 +165,25 @@ compare_years_region <- function(years){
 }
 
 compare_years_region(2010:2019)
+
+#--------------------------------------------------------
+
+
+par(mfrow = c(1,2))
+options(scipen = 10000)
+x <- ggplot(total_wide, aes(x = year, y = bgt, color = factor(region))) + geom_point() + 
+  labs(y = "Job Openings per Region", color = "Region") + ggtitle("Burning Glass Technologies (BGT)") +
+  scale_x_continuous(name = " ", breaks = c(2010, 2012, 2014, 2016, 2018))
+
+options(scipen = 10000)
+y <- ggplot(total_wide, aes(x = year, y = jolts, color = factor(region))) + geom_point() + 
+  labs(y = "Job Openings per Region", color = "Region") + ggtitle("Job Openings and Labor Turnover Survey (Jolts)") +
+  scale_x_continuous(name = " ", breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+  theme(plot.title = element_text(hjust = .5))
+
+grid.arrange(x, y, nrow = 1)
+
+#boxplot visual where each boxplot represents a region and is color coordinated based on bgt or jolts; y axis is value
+ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
+  geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
+  theme(plot.title = element_text(hjust = .5))
