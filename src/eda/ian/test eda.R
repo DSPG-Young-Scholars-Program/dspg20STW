@@ -130,7 +130,7 @@ compare_years_region <- function(years){
       mutate(region = lookup$name[match(substr(series_id, start = 10, stop = 11), lookup$region)]) %>%
       select(year, region, value) %>%
       group_by(year, region) %>%
-      summarise(value = sum(value) * 100)
+      summarise(value = sum(value) * 1000)
     
     total[total$year == y & total$variable == "jolts", "value"] <- region$value[match(total[total$year == y & total$variable == "jolts", "region"], region$region)]
     
@@ -184,17 +184,9 @@ y <- ggplot(total_wide, aes(x = year, y = jolts, color = factor(region))) + geom
 grid.arrange(x, y, nrow = 1)
  
 #boxplot visual where each boxplot represents a region and is color coordinated based on bgt or jolts; y axis is value
+options(scipen = 10000)
 ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
   geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
   theme(plot.title = element_text(hjust = .5)) + labs(x = "Region", y = "Job Openings between 2010-2019") +
-  scale_y_continuous(breaks = seq(0,12000000, 1000000))
+  scale_y_continuous(breaks = seq(0,30000000, 3000000))
 
-#In the midwest, 50% of total annual job openings from BGT reported 4571784 or less total job openings between 2010-2019. Jolts median was about
-#1375900 
-
-#Looking at the South between 2010 and 2019, BGT had reported a totalof 11,830,095 total job openings in 2019
-#Jolts also reported their highest total in 2019 in the South as well, at 3214300
-
-#Do different regions tend to report different amounts of total job postings?
-
-#Find the mean of total job estimates
