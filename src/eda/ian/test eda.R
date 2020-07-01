@@ -2,7 +2,7 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)
+library(knitr) 
 library(tidyr)
 library(gridExtra)
 #------------------ DATABASE TABLES-------------------#
