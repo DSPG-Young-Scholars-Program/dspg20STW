@@ -169,17 +169,11 @@ compare_years_region(2010:2019)
 #--------------------------------------------------------
 
 
-#Scatterplot that has both jolts vs bgt for each region 
-ggplot(total, aes(x = year, y = value, color = region, shape = variable)) + geom_point() + 
-  scale_y_continuous(breaks = seq(0, 33000000, 3000000)) + ggtitle("Total Job Openings BGT vs JOLTS") + 
-  theme(plot.title = element_text(hjust = .5)) + labs(y = "Number of Job Openings") + 
-  scale_x_continuous(breaks = c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)) +
-  theme_classic()
 
 
 
 #boxplot visual where each boxplot represents a region and is color coordinated based on bgt or jolts; y axis is value
-
+options(scipen = 10000)
 ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
   geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
   theme(plot.title = element_text(hjust = .5)) + 
@@ -188,6 +182,31 @@ ggplot(total, aes(x = factor(region), y = value, fill = variable)) +
   theme_classic() 
 
 
+ggplot(total, aes(x = year, y = value, color = region)) + 
+  geom_point() + 
+  facet_grid(rows = vars(variable)) + 
+  ggtitle("Total Job Openings BGT vs Jolts") + 
+  labs(y = "Number of Job Openings") + 
+  scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)) +
+  theme_classic()
+
+
+
+
+
+
+
+
+
 
 #Industry------------- 
 x <- read.table("data/original/jt.industry.txt", fill = TRUE)
+
+bgt <- RPostgreSQL::dbGetQuery(
+  conn = conn,
+  statement = "SELECT A.id,  B.sector
+  FROM bgt_job.jolts_comparison_2010 A
+  JOIN bgt_job.main B
+  ON A.id = B.id")
+ 
