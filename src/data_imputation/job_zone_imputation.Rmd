@@ -2,13 +2,17 @@
 title: "Job Zone Imputations (2010)"
 author: "Sarah McDonald"
 date: "7/1/2020"
-output: md_document
-always_allow_html: true
+output: html_document
+#output: md_document
+#always_allow_html: true
 ---
 
 Load packages and BGT 2010 data:
 ```{r, warning=F, message = F}
 library(dplyr)
+library(tidyr)
+
+source("job_zones.R")
 
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
@@ -28,6 +32,7 @@ bgt <- RPostgreSQL::dbGetQuery(
   FROM bgt_job.jolts_comparison_2010 A
   JOIN bgt_job.main B
   ON A.id = B.id")
+
 ```
 
 
@@ -51,6 +56,9 @@ share <- data.frame("Job Zone and Minedu" = nrow(bgt %>% filter(is.na(job_zone)=
                     "Neither Job Zone nor Minedu" = nrow(bgt %>% filter(is.na(job_zone)==TRUE & is.na(minedu)==TRUE))/nrow(bgt)
 )
 
+
+job_zones(2010:2019)
+
 knitr::kable(share)
 ```
 
@@ -61,7 +69,7 @@ tbl <- bgt %>% filter(is.na(job_zone)==FALSE & is.na(minedu)==FALSE) %>%
   group_by(job_zone, minedu) %>%
   summarise(Count.of.IDs = n())
 
-knitr::kable(tbl)
+knitr::kable(counts_wide)
 ```
 
 
