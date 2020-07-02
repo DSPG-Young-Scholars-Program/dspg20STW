@@ -49,7 +49,7 @@ compare_years <- function(years){
     tbl <- RPostgreSQL::dbGetQuery( 
       conn = conn,
       #This line of code gets the count of distinct job ids from the bgt data based on year and location within the US
-      statement = paste("SELECT COUNT(DISTINCT id) FROM bgt_job.jolts_comparison_", y, " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),  sep = "")
+      statement = paste("SELECT COUNT(DISTINCT id) FROM bgt_job.jolts_comparison_", 2010, " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),  sep = "")
     )
     
     total[total$variable == "bgt" & total$year == y, "value"] <- tbl[, "count"]
@@ -78,18 +78,18 @@ compare_years <- function(years){
   
 }
 
+compare_years(2010:2019)
 
 
-ggplot(total, aes(x = year, y = value, color = variable)) + geom_point() + labs(y = "Total Job Openings", colour = "Dataset") + 
-    scale_x_continuous(name = " ", breaks = c(2010, 2013, 2016, 2019)) + ggtitle("BGT vs Jolts") + 
-    theme(plot.title = element_text(hjust = 0.5))
+ggplot(total, aes(x = year, y = value)) + 
+  geom_point() + 
+  facet_grid(rows = vars(variable)) + 
+  ggtitle("Total Job Openings BGT vs Jolts") + 
+  labs(y = "Number of Job Openings") +  
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)) +
+  theme(plot.title = element_text(hjust = .5))
 
-options(scipen = 10000)
-ggplot(total, aes(x = factor(variable), y = value)) + geom_boxplot() + ggtitle("BGT vs Jolts 2010-2019") + labs(y = "Job Openings", x = "Dataset") + 
-  theme(plot.title = element_text(hjust = .5)) 
 
-#50% of the bgt data had less than 20000000 job openings between 2010 and 2019
-#Jolts highest total job openings in a year came in 2019, with a total of 85803000 job postings
 
 
 #Looking at the quantiles
