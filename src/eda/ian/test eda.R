@@ -81,15 +81,16 @@ compare_years <- function(years){
 compare_years(2010:2019)
 
 
+#New graph for presentation
 ggplot(total, aes(x = year, y = value)) + 
-  geom_point() + 
-  facet_grid(rows = vars(variable)) + 
+  geom_point(colour = "#232D4B") + 
+  facet_wrap(~ variable) + 
   ggtitle("Total Job Openings BGT vs Jolts") + 
   labs(y = "Number of Job Openings") +  
-  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)) +
-  theme(plot.title = element_text(hjust = .5))
-
-
+  scale_x_continuous(breaks = c(2010,2012,2014,2016,2018)) +
+  scale_y_continuous(breaks = seq(0,90000000, 10000000)) +
+  theme(plot.title = element_text(hjust = .5)) + 
+  theme(strip.background = element_rect(fill="#E57200"))
 
 
 #Looking at the quantiles
@@ -181,12 +182,13 @@ ggplot(total, aes(x = factor(region), y = value, fill = variable)) +
   labs(x = "Region", y = "Job Openings between 2010-2019") +
   scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
   theme_classic() 
+#For midwest jolts estimates, 50% of total job openings between 2010 and 2019 reported 13,759,000 or less openings
 
 
 ggplot(total, aes(x = year, y = value, color = region)) + 
   geom_point() + 
   facet_grid(rows = vars(variable)) + 
-  ggtitle("Total Job Openings BGT vs Jolts") + 
+  ggtitle("Total Job Openings BGT vs Jolts per Region") + 
   labs(y = "Number of Job Openings") + 
   scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)) +
