@@ -49,7 +49,7 @@ compare_years <- function(years){
     tbl <- RPostgreSQL::dbGetQuery( 
       conn = conn,
       #This line of code gets the count of distinct job ids from the bgt data based on year and location within the US
-      statement = paste("SELECT COUNT(DISTINCT id) FROM bgt_job.jolts_comparison_", 2010, " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),  sep = "")
+      statement = paste("SELECT COUNT(DISTINCT id) FROM bgt_job.jolts_comparison_", y, " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),  sep = "")
     )
     
     total[total$variable == "bgt" & total$year == y, "value"] <- tbl[, "count"]
@@ -100,6 +100,7 @@ bgt_data <- total[total$variable == 'bgt', ]
 print(quantile(bgt_data$value))
 
 
+#comparing over region
 compare_years_region <- function(years){
   
   total <- data.frame(
