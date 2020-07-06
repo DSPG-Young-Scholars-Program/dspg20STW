@@ -175,25 +175,31 @@ compare_years_region(2010:2019)
 
 
 #boxplot visual where each boxplot represents a region and is color coordinated based on bgt or jolts; y axis is value
+ 
+#For midwest jolts estimates, 50% of total job openings between 2010 and 2019 reported 13,759,000 or less openings
+
+
 options(scipen = 10000)
 ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
   geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
   theme(plot.title = element_text(hjust = .5)) + 
   labs(x = "Region", y = "Job Openings between 2010-2019") +
   scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
-  theme_classic() 
-#For midwest jolts estimates, 50% of total job openings between 2010 and 2019 reported 13,759,000 or less openings
+  scale_fill_manual(values = c("#E57200", "#232D4B")) +
+  theme_classic()
+
+
 
 
 ggplot(total, aes(x = year, y = value, color = region)) + 
   geom_point() + 
-  facet_grid(rows = vars(variable)) + 
+  facet_wrap(~ variable) + 
   ggtitle("Total Job Openings BGT vs Jolts per Region") + 
   labs(y = "Number of Job Openings") + 
   scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
-  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)) +
-  theme_classic()
-
+  scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+  theme(strip.background = element_rect(fill="#E57200")) +
+  scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
 
 
 
