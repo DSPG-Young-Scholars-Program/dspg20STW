@@ -4,7 +4,7 @@ library(stringr)
 library(dplyr)
 library(knitr) 
 library(tidyr)
-library(gridExtra)
+library(gridExtra) 
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
@@ -14,7 +14,7 @@ library(gridExtra)
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(), 
                                dbname = "sdad",
                                host = "postgis1", 
-                               port = 5432, 
+                               port = 5432,  
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
 
@@ -190,7 +190,7 @@ ggplot(total, aes(x = factor(region), y = value, fill = variable)) +
 
 
 
-
+options(scipen = 10000)
 ggplot(total, aes(x = year, y = value, color = region)) + 
   geom_point() + 
   facet_wrap(~ variable) + 
@@ -201,9 +201,34 @@ ggplot(total, aes(x = year, y = value, color = region)) +
   theme(strip.background = element_rect(fill="#E57200")) +
   scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
 
+#-----
+options(scipen = 10000)
+ggplot(total, aes(x = year, y = value, color = variable)) + 
+  geom_point() + 
+  ggtitle("Total Job Openings BGT vs Jolts per Region") + 
+  labs(y = "Number of Job Openings") + 
+  scale_y_continuous(breaks = seq(0, 30000000, 5000000)) +  
+  scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+  theme(strip.background = element_rect(fill="#E57200")) +
+  scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B")) +
+  facet_wrap(~region) + 
+  theme(plot.title = element_text(hjust = .5)) +
+  theme_minimal() +
+  theme(strip.background = element_rect(fill="#E57200"))
 
-
-
+options(scipen = 10000)
+ggplot(total, aes(x = year, y = value, color = variable)) + 
+  geom_point() + 
+  ggtitle("Total Job Openings BGT vs Jolts per Region") + 
+  labs(y = "Number of Job Openings") + 
+  scale_y_continuous(breaks = seq(0, 30000000, 5000000)) +  
+  scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+  theme(strip.background = element_rect(fill="#E57200")) +
+  scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B")) +
+  facet_wrap(~region) + 
+  theme(plot.title = element_text(hjust = .5)) +
+  theme_classic() +
+  theme(strip.background = element_rect(fill="#E57200"))
 
 
 
