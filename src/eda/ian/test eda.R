@@ -81,16 +81,16 @@ compare_years <- function(years){
 compare_years(2010:2019)
 
 
-#New graph for presentation
-ggplot(total, aes(x = year, y = value)) + 
-  geom_point(colour = "#232D4B") + 
-  facet_wrap(~ variable) + 
-  ggtitle("Total Job Openings BGT vs Jolts") + 
-  labs(y = "Number of Job Openings") +  
-  scale_x_continuous(breaks = c(2010,2012,2014,2016,2018)) +
-  scale_y_continuous(breaks = seq(0,90000000, 10000000)) +
-  theme(plot.title = element_text(hjust = .5)) + 
-  theme(strip.background = element_rect(fill="#E57200"))
+
+#ggplot(total, aes(x = year, y = value)) + 
+ # geom_point(colour = "#232D4B") + 
+  #facet_wrap(~ variable) + 
+  #ggtitle("Total Job Openings BGT vs Jolts") + 
+  #labs(y = "Number of Job Openings") +  
+  #scale_x_continuous(breaks = c(2010,2012,2014,2016,2018)) +
+  #scale_y_continuous(breaks = seq(0,90000000, 10000000)) +
+  #theme(plot.title = element_text(hjust = .5)) + 
+  #theme(strip.background = element_rect(fill="#E57200"))
 
 
 #Looking at the quantiles
@@ -179,27 +179,27 @@ compare_years_region(2010:2019)
 #For midwest jolts estimates, 50% of total job openings between 2010 and 2019 reported 13,759,000 or less openings
 
 
-options(scipen = 10000)
-ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
-  geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
-  theme(plot.title = element_text(hjust = .5)) + 
-  labs(x = "Region", y = "Job Openings between 2010-2019") +
-  scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
-  scale_fill_manual(values = c("#E57200", "#232D4B")) +
-  theme_classic()
+#options(scipen = 10000)
+#ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
+ # geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
+  #theme(plot.title = element_text(hjust = .5)) + 
+  #labs(x = "Region", y = "Job Openings between 2010-2019") +
+  #scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
+  #scale_fill_manual(values = c("#E57200", "#232D4B")) +
+  #theme_classic()
 
 
 
-options(scipen = 10000)
-ggplot(total, aes(x = year, y = value, color = region)) + 
-  geom_point() + 
-  facet_wrap(~ variable) + 
-  ggtitle("Total Job Openings BGT vs Jolts per Region") + 
-  labs(y = "Number of Job Openings") + 
-  scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
-  scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
-  theme(strip.background = element_rect(fill="#E57200")) +
-  scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
+#options(scipen = 10000)
+#ggplot(total, aes(x = year, y = value, color = region)) + 
+  #geom_point() + 
+  #facet_wrap(~ variable) + 
+  #ggtitle("Total Job Openings BGT vs Jolts per Region") + 
+  #labs(y = "Number of Job Openings") + 
+  #scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
+  #scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+  #theme(strip.background = element_rect(fill="#E57200")) +
+  #scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
 
 #Presentation plots
 options(scipen = 10000)
@@ -236,13 +236,5 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
 
 
 
-#Industry------------- 
-x <- read.table("data/original/jt.industry.txt", fill = TRUE)
 
-bgt <- RPostgreSQL::dbGetQuery(
-  conn = conn,
-  statement = "SELECT A.id,  B.sector
-  FROM bgt_job.jolts_comparison_2010 A
-  JOIN bgt_job.main B
-  ON A.id = B.id")
  
