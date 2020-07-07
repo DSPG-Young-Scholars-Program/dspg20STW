@@ -236,5 +236,20 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
 
 
 
-
+options(scipen = 10000)
+ggplot(total, aes(x = year, y = value, color = variable)) +
+  geom_point(size= 3) +
+  scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +
+  scale_x_continuous(breaks = c(2010:2019)) +
+  scale_color_manual(values=c("#E57200", "#232D4B")) +
+  facet_wrap(~region) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = .5, size = 20),
+        plot.subtitle = element_text(size = 12),
+        axis.title.x = element_blank(),
+        legend.position = "none",
+        strip.text.x = element_text(face = "bold",size = 12)) +
+  labs(title = "BGT Job Ads vs JOLTS Job Openings by Region and Year",
+       y = "Number of Job Openings/Ads",
+       subtitle = "Blue dots represent JOLTS Job Openings Estimates, \nand orange dots represent BGT Job Ads.")
  
