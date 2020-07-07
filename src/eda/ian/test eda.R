@@ -201,7 +201,7 @@ ggplot(total, aes(x = year, y = value, color = region)) +
   theme(strip.background = element_rect(fill="#E57200")) +
   scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
 
-#-----
+#Presentation plots
 options(scipen = 10000)
 ggplot(total, aes(x = year, y = value, color = variable)) + 
   geom_point() + 
