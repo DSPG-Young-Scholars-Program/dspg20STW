@@ -214,7 +214,8 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
   facet_wrap(~region) + 
   theme(plot.title = element_text(hjust = .5)) +
   theme_minimal() +
-  theme(strip.background = element_rect(fill="#E57200"))
+  theme(strip.background = element_rect(fill="#E57200")) +
+  theme(axis.title.x = element_blank())
 
 options(scipen = 10000)
 ggplot(total, aes(x = year, y = value, color = variable)) + 
@@ -228,7 +229,8 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
   facet_wrap(~region) + 
   theme(plot.title = element_text(hjust = .5)) +
   theme_classic() +
-  theme(strip.background = element_rect(fill="#E57200"))
+  theme(strip.background = element_rect(fill="#E57200")) +
+  theme(axis.title.x = element_blank())
 
 
 
