@@ -249,7 +249,9 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
         axis.title.x = element_blank(),
         legend.position = "none",
         strip.text.x = element_text(face = "bold",size = 12)) +
-  labs(title = "BGT Job Ads vs JOLTS Job Openings by Region and Year",
+  labs(title = "BGT Job Ads vs JOLTS Job Openings by Region and Year", 
        y = "Number of Job Openings/Ads",
        subtitle = "Blue dots represent JOLTS Job Openings Estimates, \nand orange dots represent BGT Job Ads.")
- 
+
+
+print("Hello")
