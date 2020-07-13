@@ -243,7 +243,7 @@ ggplot(total, aes(x = year, y = value, color = variable)) +
   scale_x_continuous(breaks = c(2010:2019)) +
   scale_color_manual(values=c("#E57200", "#232D4B")) +
   facet_wrap(~region) +
-  theme_minimal() +
+  theme_minimal() + 
   theme(plot.title = element_text(hjust = .5, size = 20),
         plot.subtitle = element_text(size = 12),
         axis.title.x = element_blank(),
