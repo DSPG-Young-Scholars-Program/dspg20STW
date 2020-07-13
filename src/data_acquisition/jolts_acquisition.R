@@ -8,9 +8,9 @@ library(readxl)
 #COMPOSITE SYNTHETIC ESTIMATES (February 2001-December 2018)
 #EXTENDED COMPOSITE SYNTHETIC ESTIMATES (January 2019-September 2019)
 
-#download.file(url = "https://www.bls.gov/jlt/jlt_statedata_q3_2019.xlsx", destfile = "data/original/jlt_statedata_q3_2019.xlsx")
+download.file(url = "https://www.bls.gov/jlt/jlt_statedata_q4_2019.xlsx", destfile = "data/original/jlt_statedata_q4_2019.xlsx")
 
-state <- read_xlsx("data/original/jlt_statedata_q3_2019.xlsx", skip = 4)
+state <- read_xlsx("data/original/jlt_statedata_q4_2019.xlsx", skip = 4)
 
 # to adjust from "level in thousands" to actual thousands
 
@@ -31,7 +31,7 @@ data <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, heade
 
 
 # to acquire region tables, U = not seasonally adjusted, L = in thousands, JO = job openings, only available at total non farm level
-region <- data %>% filter(grepl(pattern = "JTU.+\\D{2}JOL|JTU00000000JOL", x = series_id))
+region <- jolts %>% filter(grepl(pattern = "JTU.+\\D{2}JOL|JTU00000000JOL", x = series_id))
 
 
 # to acquire industry tables
