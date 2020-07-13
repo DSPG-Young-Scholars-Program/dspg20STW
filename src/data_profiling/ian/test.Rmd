@@ -2,8 +2,8 @@
 title: "Data Profiling"
 author: "Ian MacLeod"
 date: "6/22/2020"
-output: md_document
-always_allow_html: true
+output: md_document 
+always_allow_html: true 
 --- 
 
 This paper is on data profiling BGT

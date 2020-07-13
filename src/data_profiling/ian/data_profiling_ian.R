@@ -2,13 +2,13 @@ library(RPostgreSQL)
 library(ggplot2)
 library(stringr)
 library(dplyr)
-library(knitr)    
+library(knitr)       
 #------------------ DATABASE TABLES-------------------#
 
 # db_usr is defined in .Renviron in the Home directory
 # db_pwd is defined in .Renviron in the Home directory
  
-#testing
+#testing again
 
 #Connects to the database
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(), 
