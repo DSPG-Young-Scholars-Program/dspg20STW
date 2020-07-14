@@ -1,0 +1,41 @@
+---
+title: "Data Profiling"
+runtime: shiny
+output: html_document
+---
+
+
+```{r echo = FALSE}
+#rmarkdown::run('src/shiny-markdown/data-profiling-interactive.Rmd')
+#profileFor2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/src/shiny-markdown/2010.csv"
+#profileFor2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/src/shiny-markdown/2011.csv"
+
+profileFor2010 <- "src/shiny-markdown/2010.csv"
+profileFor2011 <- "src/shiny-markdown/2011.csv"
+profileFor2012 <- "src/shiny-markdown/2012.csv"
+
+selectInput("profiles", label = "Data Profile", choices = c(2010,2011,2012))
+
+```
+
+```{r echo = FALSE}
+
+myCSV <- reactive({
+  if(input$profiles == 2010){
+    read.csv(profileFor2010)
+  }else if(input$profiles == 2011){
+    read.csv(profileFor2011)
+  }else{
+    read.csv(profileFor2012)
+  }
+  })
+
+renderTable({
+  
+  myCSV()
+  
+}) 
+```
+
+
+
