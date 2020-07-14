@@ -3,6 +3,7 @@ title: "Using CIP/Major to Impute Minedu (2019)"
 author: "Sarah McDonald"
 date: "7/13/2020"
 output: md_document
+always_allow_html: true
 ---
 
 ```{r,echo = F, message = F, warning=F}
