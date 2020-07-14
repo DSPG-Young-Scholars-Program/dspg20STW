@@ -3,7 +3,7 @@ prof2010 <<- data.frame(variable = col_names,
                     validity = c(1,1,1,1,1,1,1,1,1), 
                     uniqueness = c(11687110,361,57,829,829,26580,27906,5,5))
 
-write.csv(prof2010,"src/shiny-markdown/2010.csv", row.names = FALSE)
+write.csv(prof2010,"src/shiny-markdown/2010.csv", row.names = FALSE) 
 
 prof2011 <<- data.frame(variable = col_names, 
                         completeness = c(1.0,1.0,1.0,.9761293,.9761293,.9801127,.9801127,.4911761,.1622305),
