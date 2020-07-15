@@ -75,22 +75,28 @@ profile <-function(year){
   assign(paste("prof", year, sep = ""), prof, envir = .GlobalEnv)  
 }
 
-library(data.table)
 
 profile(2010)
-fwrite(prof2010, "data/ncses_stw/prof2010.csv", row.names = F)
+#write.csv(prof2010, "data/ncses_stw/profiling_tables/prof2010.csv", row.names = F)
 profile(2011)
-write.csv(prof2011, "data/profiling_tables/prof2011.csv", row.names = F)
+#write.csv(prof2011, "data/ncses_stw/profiling_tables/prof2011.csv", row.names = F)
 profile(2012)
-write.csv(prof2012, "data/profiling_tables/prof2012.csv", row.names = F)
+#write.csv(prof2012, "data/ncses_stw/profiling_tables/prof2012.csv", row.names = F)
 profile(2013)
-write.csv(prof2013, "data/profiling_tables/prof2013.csv", row.names = F)
+#write.csv(prof2013, "data/ncses_stw/profiling_tables/prof2013.csv", row.names = F)
 profile(2014)
+#write.csv(prof2014, "data/ncses_stw/profiling_tables/prof2014.csv", row.names = F)
 profile(2015)
+#write.csv(prof2015, "data/ncses_stw/profiling_tables/prof2015.csv", row.names = F)
 profile(2016)
+#write.csv(prof2016, "data/ncses_stw/profiling_tables/prof2016.csv", row.names = F)
 profile(2017)
+#write.csv(prof2017, "data/ncses_stw/profiling_tables/prof2017.csv", row.names = F)
 profile(2018)
-proflie(2019)
+#write.csv(prof2018, "data/ncses_stw/profiling_tables/prof2018.csv", row.names = F)
+profile(2019)
+#write.csv(prof2019, "data/ncses_stw/profiling_tables/prof2019.csv", row.names = F)
+
 
 
 
