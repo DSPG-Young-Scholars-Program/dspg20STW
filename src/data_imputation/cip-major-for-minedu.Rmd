@@ -1,0 +1,72 @@
+---
+title: "Using CIP/Major to Impute Minedu (2019)"
+author: "Sarah McDonald"
+date: "7/13/2020"
+output: md_document
+always_allow_html: true
+---
+
+```{r,echo = F, message = F, warning=F}
+library(dplyr)
+conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
+                               dbname = "sdad",
+                               host = "postgis1",
+                               port = 5432,
+                               user = Sys.getenv(x = "DB_USR"),
+                               password = Sys.getenv(x = "DB_PWD"))
+
+
+
+bgt <- RPostgreSQL::dbGetQuery(
+  conn = conn, 
+  statement = "SELECT DISTINCT A.id, A.soc, A.minedu, B.onet, 
+  CASE WHEN C.cip IS NULL THEN FALSE ELSE TRUE END AS hascip,
+  CASE WHEN D.stdmajor IS NULL THEN FALSE ELSE TRUE END AS hasstdmajor
+      
+  FROM bgt_job.jolts_comparison_2019 A
+      LEFT JOIN bgt_job.main B ON A.id = B.id 
+      LEFT JOIN bgt_job.cip C ON A.id = C.id 
+      LEFT JOIN bgt_job.maj D ON A.id = D.id 
+  ")
+
+
+```
+Share of Job Ads with missing MINEDU: 
+```{r, echo =  F}
+minedu_na <- bgt %>% filter(is.na(minedu) == TRUE)
+
+print(nrow(minedu_na)/nrow(bgt))
+```
+
+Share of Job Ads with missing MINEDU, where STDMAJOR OR CIP is present (I think these variables are one-to-one).
+```{r, echo =  F}
+print(sum(minedu_na$hasstdmajor)/nrow(minedu_na))
+print(sum(minedu_na$hascip)/nrow(minedu_na))
+```
+
+Having a CIP or STDMAJOR might not necessarily indicate that at least a bachelor degree is required.
+Share of BGT job ads with less than a bachelors degree (minedu < 16), that have a CIP code:
+
+```{r,echo = F}
+nrow(bgt %>% filter(minedu < 16 & hascip== TRUE))/nrow(bgt %>% filter(minedu <16))
+```
+
+
+
+
+A few surprising Onet Titles of Job Ads with missing MINEDU (having a bachelor degree may be implied by job title, but not explicit in job posting):
+```{r, echo = F}
+titlesOfNonMatches <- RPostgreSQL::dbGetQuery(
+  conn = conn, 
+  statement = "SELECT DISTINCT B.onetname
+  FROM bgt_job.jolts_comparison_2019 A
+  LEFT JOIN bgt_job.main B ON A.id = B.id
+  WHERE A.minedu IS NULL
+  ")
+titlesOfNonMatches[6,]
+titlesOfNonMatches[431,]
+titlesOfNonMatches[301,]
+titlesOfNonMatches[338,]
+titlesOfNonMatches[91,]
+```
+

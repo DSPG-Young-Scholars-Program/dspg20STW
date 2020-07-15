@@ -1,0 +1,84 @@
+---
+title: "three-measure-comparison"
+author: "Sarah McDonald"
+date: "7/14/2020"
+#output: html_document
+output: md_document
+always_allow_html: true
+  
+---
+
+```{r, warning=F,message = F, echo = F}
+library(readxl)
+library(dplyr)
+conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
+                               dbname = "sdad",
+                               host = "postgis1",
+                               port = 5432,
+                               user = Sys.getenv(x = "DB_USR"),
+                               password = Sys.getenv(x = "DB_PWD"))
+```
+
+Gather BGT data and ONET/SOC/OCC/NCSES crosswalk:
+```{r}
+bgt <- RPostgreSQL::dbGetQuery(
+  conn = conn, 
+  statement = paste("SELECT A.minedu, B.onet
+  FROM bgt_job.jolts_comparison_2010 A
+  JOIN bgt_job.main B
+  ON A.id = B.id
+  WHERE A.state IN" , paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""), sep = ""))
+
+xwalk <- read_xlsx("/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ONETSOC_SOC_OCC_NCSES_JUL2020.xlsx", na ="NA")
+```
+
+Create an STW column based off of the PER.HS column. If PER.HS is greater than or equal to 50, categorize the ONET code as STW. 
+```{r}
+xwalk$PER.HS.STW <- ifelse(xwalk$PER.HS >= 50 & is.na(xwalk$PER.HS) == FALSE, 1, 
+                           ifelse(xwalk$PER.HS < 50 & is.na(xwalk$PER.HS) == FALSE, 0, NA))
+```
+
+Create a table with the following:
+
+- ONET Code
+
+- Mean BGT minedu
+
+- Median BGT minedu
+
+- Min BGT minedu
+
+- Max BGT minedu
+
+- Number of BGT Observations
+
+- Number of Missing BGT Observations
+
+- Proportion of Missing BGT Observations to Total BGT Observations
+
+- SDAD STW 
+
+- NCSES STW
+
+- Job Zone
+
+- ONET Survey Percent of Respondents with No More than a High School Degree
+
+- STW Based on ONET Survey
+
+```{r, message = F, warning= F}
+onet_distribution <- bgt %>%
+  group_by(onet) %>%
+  summarize(mean = round(mean(minedu, na.rm = T), 3), median = median(minedu, na.rm = T), min = ifelse(is.nan(mean) == TRUE, NA, min(minedu, na.rm = T)), 
+            max = ifelse(is.nan(mean) == TRUE, NA, max(minedu, na.rm = T)), n_obs = n(), sum_nas = sum(is.na(minedu) ==TRUE), prop_nas = round(sum_nas/n_obs, 3)) %>%
+  merge(xwalk[,c("SDADSTW", "NCSESSTW", "JobZone", "PER.HS", "ONETSOC", "PER.HS.STW")], by.x = "onet", by.y = "ONETSOC", all.x = T)
+
+head(onet_distribution)
+```
+
+How many BGT ONETs are not in the crosswalk?
+```{r}
+list_onets_not_in_xwalk <- unique(onet_distribution$onet)[!(unique(onet_distribution$onet) %in% xwalk$ONETSOC)]
+length(list_onets_not_in_xwalk)
+```
+
