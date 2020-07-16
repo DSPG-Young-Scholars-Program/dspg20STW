@@ -1,0 +1,40 @@
+---
+title: "Percent Difference Between Jolts and BGT"
+author: "Ian MacLeod"
+date: "7/16/2020"
+runtime: shiny
+output: html_document
+---
+
+```{r echo = FALSE}
+
+sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = "")
+```
+
+
+
+```{r}
+data <- reactive({
+  read.csv("data/ncses_stw/dataForInteractiveDoc/statebinsData.csv")
+})
+```
+
+
+```{r}
+library(dplyr)
+bin <- reactive({
+  viz_data <- data() %>% filter(year == input$slide)
+})
+```
+
+
+
+```{r echo=FALSE} 
+renderPlot({
+  library(statebins)
+  library(ggplot2) 
+
+  statebins(bin(), state_col = "state", value_col = "per_diff", palette = "Blues", direction = 1, round = TRUE, name = "Percent Difference") + theme_statebins() +
+  labs(title = "Percent Difference Between JOLTS and BGT Estimates by State")
+})
+
