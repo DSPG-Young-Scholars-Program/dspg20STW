@@ -1,5 +1,7 @@
 library(dplyr)
 library(tidyr)
+library(statebins)
+library(ggplot2)
 
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
@@ -60,5 +62,7 @@ data <- final_data %>%
 
 
 
+statebins(data[data$year == y, ], state_col = "state", value_col = "noBachRequired", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
+  labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
 
 
