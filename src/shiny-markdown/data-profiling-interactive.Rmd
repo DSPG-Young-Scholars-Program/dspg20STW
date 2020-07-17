@@ -1,7 +1,7 @@
 ---
 title: "Data Profiling"
 runtime: shiny
-output: html_document   
+output: html_document    
 --- 
 
 
@@ -15,9 +15,9 @@ output: html_document
 #profileFor2011 <- "src/shiny-markdown/2011.csv"
 #profileFor2012 <- "src/shiny-markdown/2012.csv" 
 #profileFor2013 <- "src/shiny-markdown/2013.csv" 
-
-prof2010 <- "data/ncses_stw/profiling_tables/prof2010.csv"
-prof2011 <- "data/ncses_stw/profiling_tables/prof2011.csv"
+ 
+prof2010 <- "data/ncses_stw/profiling_tables/prof2010.csv" 
+prof2011 <- "data/ncses_stw/profiling_tables/prof2011.csv" 
 prof2012 <- "data/ncses_stw/profiling_tables/prof2012.csv"
 prof2013 <- "data/ncses_stw/profiling_tables/prof2013.csv"
 prof2014 <- "data/ncses_stw/profiling_tables/prof2014.csv"
