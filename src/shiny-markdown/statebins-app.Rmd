@@ -1,14 +1,13 @@
 ---
 title: "Percent Difference Between Jolts and BGT"
-author: "Ian MacLeod"
-date: "7/16/2020"
+author: "DSPG20STW"
 runtime: shiny
-output: html_document
----
+output: html_document 
+--- 
 
 ```{r echo = FALSE}
 
-sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = "")   
+sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = "")     
 ```
 
 
