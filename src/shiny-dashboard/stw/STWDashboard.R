@@ -5,12 +5,11 @@ library(shinydashboard)
 library(ggplot2)
 library(dplyr)
 library(statebins)
-
+library(shinyWidgets)
 
 
 
 body <- dashboardBody(
-  
   # Main panel for displaying outputs ----
   mainPanel(
     tabsetPanel(type = "tabs",
@@ -30,7 +29,7 @@ body <- dashboardBody(
                    tags$li("lat - latitude"),
                    tags$li("lon - longitude"), 
                    tags$li("minedu - minimum education requirement"), 
-                   tags$li("maxedu - maximum education")
+                   tags$li("maxedu - maximum education") 
                  ),
                  
                  h3("Metrics"),
@@ -48,7 +47,7 @@ body <- dashboardBody(
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
                 plotOutput("statebins")
-                )#End BGT vs Jolts panel
+                )#End BGT vs Jolts panel 
     ),
   
   
@@ -60,7 +59,8 @@ body <- dashboardBody(
 ui <- dashboardPage(
    dashboardHeader(title = "DSPG20STW"),
    dashboardSidebar(),
-   body = body
+   body = body,
+   skin = "black"
   
    
 )
