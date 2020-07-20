@@ -92,6 +92,8 @@ head(rothwell, 10)
 We fix the case where registered nurses fail to meet the knowledge and education criteria (Step 5).
 ```{r}
 rothwell[rothwell$`2010 SOC Code` == "29-1141", "rothwell_STW"] <- 1
+
+#write.csv(rothwell, "/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv")
 ```
 
 Merge with OCC
