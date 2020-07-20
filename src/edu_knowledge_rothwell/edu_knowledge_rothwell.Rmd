@@ -94,4 +94,4 @@ We fix the case where registered nurses fail to meet the knowledge and education
 rothwell[rothwell$`2010 SOC Code` == "29-1141", "rothwell_STW"] <- 1
 ```
 
-
+Merge with OCC
