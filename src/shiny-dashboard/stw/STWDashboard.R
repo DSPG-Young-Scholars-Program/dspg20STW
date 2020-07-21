@@ -9,11 +9,13 @@ library(shinyWidgets)
 
 
 
+
 body <- dashboardBody(
   # Main panel for displaying outputs ----
   mainPanel(
     tabsetPanel(type = "tabs",
-                tabPanel("Who We Are"),
+                tabPanel("About",
+                         h3("Skilled Technical Workforce")),
                 
                 tabPanel("Data Profiling",
                  selectInput("prof_select", label = "Profile", choices = c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)),
@@ -35,7 +37,7 @@ body <- dashboardBody(
                  h3("Metrics"),
                  tags$ul(
                    tags$li("Completeness: The percentage of how complete the data is"),
-                   tags$li("Validity: The percentage of data elements whose attributes possess values within the range expected for a legitimate entry"),
+                   tags$li("Validity: The percentage of data elements whose attributes possess values within the range expected for a legitimate entry"), 
                    tags$li("Uniqueness: number of unique valid values that have been entered for a variable")
                  ),
                  em("Paragraph of any trends seen in the variables profiled over the years 2010-2019 (we can brainstorm on this)")
@@ -45,8 +47,10 @@ body <- dashboardBody(
                 em("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
                    job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"),
+                selectInput("select", "Choose", choices = c("national", "regional"), selected = "national"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("statebins")
+                plotOutput("statebins"),
+                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group")
                 )#End BGT vs Jolts panel 
     ),
   
@@ -112,7 +116,10 @@ server <- function(input, output) {
       prof
     }
     
-  })
+  }) 
+  
+  #rendering jolts v bgt graph
+  
   
   
   #Rendering statebins plot
@@ -127,6 +134,8 @@ server <- function(input, output) {
     
     
     },bg = "transparent")
+  
+  
   
   
 }
