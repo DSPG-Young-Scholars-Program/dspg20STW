@@ -2,17 +2,19 @@ library(shiny)
 library(dbplyr)
 library(statebins)
 library(ggplot2)
+library(shinythemes)
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(
+#Show vicki both this version and morgans template
+
+ui <- fluidPage(theme = shinytheme("cosmo"),
    h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
    h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
    
-   mainPanel(
+   
      tabsetPanel(
        type = "tabs",
        tabPanel("About"),
-       tabPanel("Profiling",
+       tabPanel("Profiling",style = "margin:20px",
                 selectInput("prof_select", label = "Profile", choices = c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)),
                 tableOutput("profile"),
                 helpText("note: All information regarding variable descriptions was taken from the Burning Glass Data Dictionary"),
@@ -39,24 +41,35 @@ ui <- fluidPage(
                 
                 ),
        
-       #end profiling tab------------------------------------------
+       #end profiling tab------------------------------------------ 
        
        
        
        tabPanel("JOLTS vs BGT",
+                style = "margin-left: 150px;",
+                style = "margin-top: 20px;",
+                style = "margin-right: 150px;",
                 em("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
                    job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"),
-                selectInput("select", "Choose", choices = c("national", "regional"), selected = "national"),
+                h3("National and Regional Comparison of Job Estimates", style = "color:#232D4B"),
+                selectInput("select", "", choices = c("national", "regional"), selected = "national"),
                 plotOutput("jobsByYear"),
+                br(),
+                br(),
+                h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
                 plotOutput("statebins"),
-                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group"))
+                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group")),
        #end Jolts vs BGT tab-----------------
+       
+       
+       tabPanel("BGT: STW vs Non-STW")
      )
-   )
+   #)
    
 )
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
