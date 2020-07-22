@@ -145,6 +145,7 @@ server <- function(input, output) {
   
   #Rendering statebins plot
   output$statebins <- renderPlot({
+    #renderPlot height and width
     data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/statebinsData.csv")
     
     viz_data <- data %>% filter(year == input$slide)
@@ -157,15 +158,29 @@ server <- function(input, output) {
   },bg = "transparent")
   
   output$summary <- renderTable({
-    summary2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2010.csv"
-    summary2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2011.csv"
-    if(input$slide == 2010){
-      table2010 <- read.csv(summary2010)
-      table2010
-    }else if(input$slide == 2011){
-      table2011 <- read.csv(summary2011)
-      table2011
-    }
+    #change x to SOC (see link)
+    #dataTable r-shiny (using datatable with r shiny)
+    #remove x column to the left
+    #create a table of definitions for codes
+    #make statebins plot bigger
+    #read in final_data from occupation_groups instead of individual csvs and filter
+    #reformat column names (capitalize, rename pct_diff, etc)
+    
+    #how should we manage our aggregated burning glass data
+    #the current location is in our symlink data/ncses_stw
+    
+    #email aaron about deployment after he gets back to us about data management
+    #walk through the deployment of the app
+    
+    data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups.csv")
+    
+    viz_data <- data %>% filter(year == input$slide)
+    
+    viz_data
+    
+    #summary2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2010.csv"
+    #summary2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2011.csv"
+    
   })
    
 }
