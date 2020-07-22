@@ -6,13 +6,11 @@ library(shinythemes)
 
 #Show vicki both this version and morgans template
 
-ui <- fluidPage(theme = shinytheme("cosmo"),
-   h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
-   h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
+ui <- fluidPage(
+   #h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
+   #h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
    
-   
-     tabsetPanel(
-       type = "tabs",
+   navbarPage("Skilled Technical Workforce",
        tabPanel("About"),
        tabPanel("Profiling",style = "margin:20px",
                 selectInput("prof_select", label = "Profile", choices = c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)),
@@ -44,8 +42,8 @@ ui <- fluidPage(theme = shinytheme("cosmo"),
        #end profiling tab------------------------------------------ 
        
        
-       
-       tabPanel("JOLTS vs BGT",
+       navbarMenu("Jolts vs BGT",
+        tabPanel("Total Job Estimates",
                 style = "margin-left: 150px;",
                 style = "margin-top: 20px;",
                 style = "margin-right: 150px;",
@@ -54,21 +52,25 @@ ui <- fluidPage(theme = shinytheme("cosmo"),
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"),
                 h3("National and Regional Comparison of Job Estimates", style = "color:#232D4B"),
                 selectInput("select", "", choices = c("national", "regional"), selected = "national"),
-                plotOutput("jobsByYear"),
-                br(),
-                br(),
+                plotOutput("jobsByYear")),
+        tabPanel("Statebins",     
                 h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
                 plotOutput("statebins"),
-                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group")),
+                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group"),
+                h3("Summary Table"),
+                tableOutput("summary")
+                
+                )),#end navbar
+                
        #end Jolts vs BGT tab-----------------
        
        
        tabPanel("BGT: STW vs Non-STW")
      )
-   #)
+   )
    
-)
+
 
 
 # Define server logic required to draw a histogram
@@ -153,9 +155,21 @@ server <- function(input, output) {
     
     
   },bg = "transparent")
+  
+  output$summary <- renderTable({
+    summary2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2010.csv"
+    summary2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2011.csv"
+    if(input$slide == 2010){
+      table2010 <- read.csv(summary2010)
+      table2010
+    }else if(input$slide == 2011){
+      table2011 <- read.csv(summary2011)
+      table2011
+    }
+  })
    
 }
 
 # Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server) 
 
