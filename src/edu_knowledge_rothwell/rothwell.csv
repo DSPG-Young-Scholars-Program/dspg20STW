@@ -1,968 +1,1111 @@
-"","2010 SOC Code","knowledge_STW","O*NET-SOC Code","Title","Percent No Bachelors","education_STW","rothwell_STW"
-"1","11-1011",0,"11-1011.00","Chief Executives",10.28,0,0
-"2","11-1011",0,"11-1011.03","Chief Sustainability Officers",3.85,0,0
-"3","11-1021",0,"11-1021.00","General and Operations Managers",51.97,1,0
-"4","11-2011",0,"11-2011.00","Advertising and Promotions Managers",31.69,0,0
-"5","11-2021",0,"11-2021.00","Marketing Managers",9.36,0,0
-"6","11-2022",0,"11-2022.00","Sales Managers",17.39,0,0
-"7","11-2031",0,"11-2031.00","Public Relations and Fundraising Managers",11.18,0,0
-"8","11-3011",0,"11-3011.00","Administrative Services Managers",71.74,1,0
-"9","11-3021",1,"11-3021.00","Computer and Information Systems Managers",35.15,0,0
-"10","11-3031",1,"11-3031.01","Treasurers and Controllers",0,0,0
-"11","11-3031",1,"11-3031.02","Financial Managers, Branch or Department",29.47,0,0
-"12","11-3051",1,"11-3051.00","Industrial Production Managers",55.26,1,1
-"13","11-3051",1,"11-3051.01","Quality Control Systems Managers",11.93,1,1
-"14","11-3051",1,"11-3051.02","Geothermal Production Managers",80.39,1,1
-"15","11-3051",1,"11-3051.03","Biofuels Production Managers",47.96,1,1
-"16","11-3051",1,"11-3051.04","Biomass Power Plant Managers",35.38,1,1
-"17","11-3051",1,"11-3051.06","Hydroelectric Production Managers",77.9,1,1
-"18","11-3061",0,"11-3061.00","Purchasing Managers",10,0,0
-"19","11-3071",0,"11-3071.01","Transportation Managers",59.21,0,0
-"20","11-3071",0,"11-3071.02","Storage and Distribution Managers",45.83,0,0
-"21","11-3071",0,"11-3071.03","Logistics Managers",13.33,0,0
-"22","11-3111",1,"11-3111.00","Compensation and Benefits Managers",0,0,0
-"23","11-3121",0,"11-3121.00","Human Resources Managers",4.35,0,0
-"24","11-3131",0,"11-3131.00","Training and Development Managers",7.4,0,0
-"25","11-9013",1,"11-9013.01","Nursery and Greenhouse Managers",55.32,1,1
-"26","11-9013",1,"11-9013.02","Farm and Ranch Managers",62.27,1,1
-"27","11-9013",1,"11-9013.03","Aquacultural Managers",52.63,1,1
-"28","11-9021",1,"11-9021.00","Construction Managers",20,0,0
-"29","11-9031",0,"11-9031.00","Education Administrators, Preschool and Childcare Center/Program",83.48,1,0
-"30","11-9032",0,"11-9032.00","Education Administrators, Elementary and Secondary School",9.13,0,0
-"31","11-9033",0,"11-9033.00","Education Administrators, Postsecondary",0,0,0
-"32","11-9039",0,"11-9039.01","Distance Learning Coordinators",0,0,0
-"33","11-9039",0,"11-9039.02","Fitness and Wellness Coordinators",0,0,0
-"34","11-9041",1,"11-9041.00","Architectural and Engineering Managers",1.64,0,0
-"35","11-9041",1,"11-9041.01","Biofuels/Biodiesel Technology and Product Development Managers",11.92,0,0
-"36","11-9051",0,"11-9051.00","Food Service Managers",94.45,1,0
-"37","11-9061",0,"11-9061.00","Funeral Service Managers",65.27,1,0
-"38","11-9071",0,"11-9071.00","Gaming Managers",68.19,1,0
-"39","11-9081",1,"11-9081.00","Lodging Managers",28.41,0,0
-"40","11-9111",0,"11-9111.00","Medical and Health Services Managers",19.23,0,0
-"41","11-9121",0,"11-9121.00","Natural Sciences Managers",0,0,0
-"42","11-9121",0,"11-9121.01","Clinical Research Coordinators",24.74,0,0
-"43","11-9121",0,"11-9121.02","Water Resource Specialists",0,0,0
-"44","11-9131",1,"11-9131.00","Postmasters and Mail Superintendents",86.55,1,1
-"45","11-9141",1,"11-9141.00","Property, Real Estate, and Community Association Managers",44,0,0
-"46","11-9151",0,"11-9151.00","Social and Community Service Managers",17.58,0,0
-"47","11-9161",0,"11-9161.00","Emergency Management Directors",24,0,0
-"48","11-9199",0,"11-9199.01","Regulatory Affairs Managers",3.57,0,0
-"49","11-9199",0,"11-9199.02","Compliance Managers",22.25,0,0
-"50","11-9199",0,"11-9199.03","Investment Fund Managers",0,0,0
-"51","11-9199",0,"11-9199.04","Supply Chain Managers",4.76,0,0
-"52","11-9199",0,"11-9199.07","Security Managers",20,0,0
-"53","11-9199",0,"11-9199.08","Loss Prevention Managers",40.91,0,0
-"54","11-9199",0,"11-9199.09","Wind Energy Operations Managers",26.02,0,0
-"55","11-9199",0,"11-9199.10","Wind Energy Project Managers",18.27,0,0
-"56","11-9199",0,"11-9199.11","Brownfield Redevelopment Specialists and Site Managers",8,0,0
-"57","13-1011",0,"13-1011.00","Agents and Business Managers of Artists, Performers, and Athletes",39.36,0,0
-"58","13-1021",1,"13-1021.00","Buyers and Purchasing Agents, Farm Products",23.17,0,0
-"59","13-1022",0,"13-1022.00","Wholesale and Retail Buyers, Except Farm Products",64.16,1,0
-"60","13-1023",0,"13-1023.00","Purchasing Agents, Except Wholesale, Retail, and Farm Products",13.05,0,0
-"61","13-1031",0,"13-1031.01","Claims Examiners, Property and Casualty Insurance",30.8,0,0
-"62","13-1031",0,"13-1031.02","Insurance Adjusters, Examiners, and Investigators",33.27,0,0
-"63","13-1032",0,"13-1032.00","Insurance Appraisers, Auto Damage",98.53,1,0
-"64","13-1041",0,"13-1041.01","Environmental Compliance Inspectors",0,0,0
-"65","13-1041",0,"13-1041.02","Licensing Examiners and Inspectors",56.22,0,0
-"66","13-1041",0,"13-1041.03","Equal Opportunity Representatives and Officers",14.07,0,0
-"67","13-1041",0,"13-1041.04","Government Property Inspectors and Investigators",60.66,0,0
-"68","13-1041",0,"13-1041.06","Coroners",70.96,0,0
-"69","13-1041",0,"13-1041.07","Regulatory Affairs Specialists",0,0,0
-"70","13-1051",1,"13-1051.00","Cost Estimators",18.19,0,0
-"71","13-1071",0,"13-1071.00","Human Resources Specialists",26.81,0,0
-"72","13-1074",0,"13-1074.00","Farm Labor Contractors",99.87,1,0
-"73","13-1075",0,"13-1075.00","Labor Relations Specialists",30,0,0
-"74","13-1081",1,"13-1081.00","Logisticians",24.99,0,0
-"75","13-1081",1,"13-1081.01","Logistics Engineers",22.73,0,0
-"76","13-1081",1,"13-1081.02","Logistics Analysts",24,0,0
-"77","13-1111",0,"13-1111.00","Management Analysts",0,0,0
-"78","13-1121",0,"13-1121.00","Meeting, Convention, and Event Planners",59.2,1,0
-"79","13-1131",0,"13-1131.00","Fundraisers",12.5,0,0
-"80","13-1141",1,"13-1141.00","Compensation, Benefits, and Job Analysis Specialists",26.1,0,0
-"81","13-1151",0,"13-1151.00","Training and Development Specialists",11.12,0,0
-"82","13-1161",1,"13-1161.00","Market Research Analysts and Marketing Specialists",0,0,0
-"83","13-1199",0,"13-1199.01","Energy Auditors",63.64,0,0
-"84","13-1199",0,"13-1199.02","Security Management Specialists",26.92,0,0
-"85","13-1199",0,"13-1199.03","Customs Brokers",80,0,0
-"86","13-1199",0,"13-1199.04","Business Continuity Planners",22.73,0,0
-"87","13-1199",0,"13-1199.05","Sustainability Specialists",7.14,0,0
-"88","13-1199",0,"13-1199.06","Online Merchants",58.72,0,0
-"89","13-2011",1,"13-2011.01","Accountants",53.56,0,0
-"90","13-2011",1,"13-2011.02","Auditors",0,0,0
-"91","13-2021",0,"13-2021.01","Assessors",94.54,1,0
-"92","13-2021",0,"13-2021.02","Appraisers, Real Estate",40,1,0
-"93","13-2031",1,"13-2031.00","Budget Analysts",23.97,0,0
-"94","13-2041",0,"13-2041.00","Credit Analysts",46.68,0,0
-"95","13-2051",1,"13-2051.00","Financial Analysts",2.42,0,0
-"96","13-2052",1,"13-2052.00","Personal Financial Advisors",7.14,0,0
-"97","13-2053",0,"13-2053.00","Insurance Underwriters",26.67,0,0
-"98","13-2061",1,"13-2061.00","Financial Examiners",4,0,0
-"99","13-2071",0,"13-2071.00","Credit Counselors",58.05,1,0
-"100","13-2071",0,"13-2071.01","Loan Counselors",74.29,1,0
-"101","13-2072",0,"13-2072.00","Loan Officers",66.03,1,0
-"102","13-2081",1,"13-2081.00","Tax Examiners and Collectors, and Revenue Agents",50.82,1,1
-"103","13-2082",0,"13-2082.00","Tax Preparers",70,1,0
-"104","13-2099",1,"13-2099.01","Financial Quantitative Analysts",0,0,0
-"105","13-2099",1,"13-2099.02","Risk Management Specialists",0,0,0
-"106","13-2099",1,"13-2099.04","Fraud Examiners, Investigators and Analysts",4,0,0
-"107","15-1111",1,"15-1111.00","Computer and Information Research Scientists",8.35,0,0
-"108","15-1121",1,"15-1121.00","Computer Systems Analysts",41.19,0,0
-"109","15-1121",1,"15-1121.01","Informatics Nurse Specialists",4.55,0,0
-"110","15-1122",1,"15-1122.00","Information Security Analysts",22.04,0,0
-"111","15-1131",1,"15-1131.00","Computer Programmers",11.51,0,0
-"112","15-1132",1,"15-1132.00","Software Developers, Applications",4.64,0,0
-"113","15-1133",1,"15-1133.00","Software Developers, Systems Software",4.79,0,0
-"114","15-1134",1,"15-1134.00","Web Developers",50.01,1,1
-"115","15-1141",1,"15-1141.00","Database Administrators",7.95,0,0
-"116","15-1142",1,"15-1142.00","Network and Computer Systems Administrators",37.51,0,0
-"117","15-1143",1,"15-1143.00","Computer Network Architects",9.1,0,0
-"118","15-1143",1,"15-1143.01","Telecommunications Engineering Specialists",52.18,0,0
-"119","15-1151",1,"15-1151.00","Computer User Support Specialists",66.79,1,1
-"120","15-1152",1,"15-1152.00","Computer Network Support Specialists",49.7,0,0
-"121","15-1199",1,"15-1199.01","Software Quality Assurance Engineers and Testers",25.92,0,0
-"122","15-1199",1,"15-1199.02","Computer Systems Engineers/Architects",13.33,0,0
-"123","15-1199",1,"15-1199.03","Web Administrators",40,0,0
-"124","15-1199",1,"15-1199.04","Geospatial Information Scientists and Technologists",0,0,0
-"125","15-1199",1,"15-1199.05","Geographic Information Systems Technicians",5.51,0,0
-"126","15-1199",1,"15-1199.06","Database Architects",4.17,0,0
-"127","15-1199",1,"15-1199.07","Data Warehousing Specialists",17.4,0,0
-"128","15-1199",1,"15-1199.08","Business Intelligence Analysts",4.17,0,0
-"129","15-1199",1,"15-1199.09","Information Technology Project Managers",33.33,0,0
-"130","15-1199",1,"15-1199.10","Search Marketing Strategists",21.74,0,0
-"131","15-1199",1,"15-1199.11","Video Game Designers",38.09,0,0
-"132","15-1199",1,"15-1199.12","Document Management Specialists",44,0,0
-"133","15-2011",1,"15-2011.00","Actuaries",0,0,0
-"134","15-2021",1,"15-2021.00","Mathematicians",0,0,0
-"135","15-2031",1,"15-2031.00","Operations Research Analysts",0,0,0
-"136","15-2041",1,"15-2041.00","Statisticians",0,0,0
-"137","15-2041",1,"15-2041.01","Biostatisticians",0,0,0
-"138","15-2041",1,"15-2041.02","Clinical Data Managers",5,0,0
-"139","17-1011",1,"17-1011.00","Architects, Except Landscape and Naval",0,0,0
-"140","17-1012",1,"17-1012.00","Landscape Architects",3.57,0,0
-"141","17-1021",1,"17-1021.00","Cartographers and Photogrammetrists",57.51,1,1
-"142","17-1022",1,"17-1022.00","Surveyors",58.07,0,0
-"143","17-1022",1,"17-1022.01","Geodetic Surveyors",20,0,0
-"144","17-2011",1,"17-2011.00","Aerospace Engineers",7.61,0,0
-"145","17-2021",1,"17-2021.00","Agricultural Engineers",0,0,0
-"146","17-2031",1,"17-2031.00","Biomedical Engineers",0,0,0
-"147","17-2041",1,"17-2041.00","Chemical Engineers",0,0,0
-"148","17-2051",1,"17-2051.00","Civil Engineers",0,0,0
-"149","17-2051",1,"17-2051.01","Transportation Engineers",0,0,0
-"150","17-2061",1,"17-2061.00","Computer Hardware Engineers",0,0,0
-"151","17-2071",1,"17-2071.00","Electrical Engineers",4.85,0,0
-"152","17-2072",1,"17-2072.00","Electronics Engineers, Except Computer",32,0,0
-"153","17-2072",1,"17-2072.01","Radio Frequency Identification Device Specialists",15.72,0,0
-"154","17-2081",1,"17-2081.00","Environmental Engineers",0,0,0
-"155","17-2081",1,"17-2081.01","Water/Wastewater Engineers",0,0,0
-"156","17-2111",1,"17-2111.01","Industrial Safety and Health Engineers",35.49,0,0
-"157","17-2111",1,"17-2111.02","Fire-Prevention and Protection Engineers",3.45,0,0
-"158","17-2111",1,"17-2111.03","Product Safety Engineers",8.7,0,0
-"159","17-2112",1,"17-2112.00","Industrial Engineers",30.8,0,0
-"160","17-2112",1,"17-2112.01","Human Factors Engineers and Ergonomists",0,0,0
-"161","17-2121",1,"17-2121.01","Marine Engineers",13.05,0,0
-"162","17-2121",1,"17-2121.02","Marine Architects",28.59,0,0
-"163","17-2131",1,"17-2131.00","Materials Engineers",2.56,0,0
-"164","17-2141",1,"17-2141.00","Mechanical Engineers",12.05,0,0
-"165","17-2141",1,"17-2141.01","Fuel Cell Engineers",0,0,0
-"166","17-2141",1,"17-2141.02","Automotive Engineers",0,0,0
-"167","17-2151",1,"17-2151.00","Mining and Geological Engineers, Including Mining Safety Engineers",1.28,0,0
-"168","17-2161",1,"17-2161.00","Nuclear Engineers",3.7,0,0
-"169","17-2171",1,"17-2171.00","Petroleum Engineers",0,0,0
-"170","17-2199",1,"17-2199.01","Biochemical Engineers",4,0,0
-"171","17-2199",1,"17-2199.02","Validation Engineers",5,0,0
-"172","17-2199",1,"17-2199.03","Energy Engineers",13.64,0,0
-"173","17-2199",1,"17-2199.04","Manufacturing Engineers",20,0,0
-"174","17-2199",1,"17-2199.05","Mechatronics Engineers",8,0,0
-"175","17-2199",1,"17-2199.06","Microsystems Engineers",0.3,0,0
-"176","17-2199",1,"17-2199.07","Photonics Engineers",4.76,0,0
-"177","17-2199",1,"17-2199.08","Robotics Engineers",20,0,0
-"178","17-2199",1,"17-2199.09","Nanosystems Engineers",0,0,0
-"179","17-2199",1,"17-2199.10","Wind Energy Engineers",5.53,0,0
-"180","17-2199",1,"17-2199.11","Solar Energy Systems Engineers",18.2,0,0
-"181","17-3011",1,"17-3011.01","Architectural Drafters",19.58,1,1
-"182","17-3011",1,"17-3011.02","Civil Drafters",80.96,1,1
-"183","17-3012",1,"17-3012.01","Electronic Drafters",91.37,1,1
-"184","17-3012",1,"17-3012.02","Electrical Drafters",76.44,1,1
-"185","17-3013",1,"17-3013.00","Mechanical Drafters",76.71,1,1
-"186","17-3021",1,"17-3021.00","Aerospace Engineering and Operations Technicians",92.08,1,1
-"187","17-3022",1,"17-3022.00","Civil Engineering Technicians",81.66,1,1
-"188","17-3023",1,"17-3023.01","Electronics Engineering Technicians",88.31,1,1
-"189","17-3023",1,"17-3023.03","Electrical Engineering Technicians",85.16,1,1
-"190","17-3024",1,"17-3024.00","Electro-Mechanical Technicians",96.78,1,1
-"191","17-3024",1,"17-3024.01","Robotics Technicians",77.27,1,1
-"192","17-3025",1,"17-3025.00","Environmental Engineering Technicians",27.08,0,0
-"193","17-3026",1,"17-3026.00","Industrial Engineering Technicians",85.35,1,1
-"194","17-3027",1,"17-3027.00","Mechanical Engineering Technicians",49.08,1,1
-"195","17-3027",1,"17-3027.01","Automotive Engineering Technicians",59.25,1,1
-"196","17-3029",1,"17-3029.01","Non-Destructive Testing Specialists",85,1,1
-"197","17-3029",1,"17-3029.02","Electrical Engineering Technologists",36.2,1,1
-"198","17-3029",1,"17-3029.03","Electromechanical Engineering Technologists",41.86,1,1
-"199","17-3029",1,"17-3029.04","Electronics Engineering Technologists",78.12,1,1
-"200","17-3029",1,"17-3029.05","Industrial Engineering Technologists",31.95,1,1
-"201","17-3029",1,"17-3029.06","Manufacturing Engineering Technologists",54.55,1,1
-"202","17-3029",1,"17-3029.07","Mechanical Engineering Technologists",51.45,1,1
-"203","17-3029",1,"17-3029.08","Photonics Technicians",72,1,1
-"204","17-3029",1,"17-3029.09","Manufacturing Production Technicians",82.62,1,1
-"205","17-3029",1,"17-3029.11","Nanotechnology Engineering Technologists",4.55,1,1
-"206","17-3029",1,"17-3029.12","Nanotechnology Engineering Technicians",50.01,1,1
-"207","17-3031",1,"17-3031.01","Surveying Technicians",95.83,1,1
-"208","17-3031",1,"17-3031.02","Mapping Technicians",46.62,1,1
-"209","19-1011",1,"19-1011.00","Animal Scientists",0,0,0
-"210","19-1012",1,"19-1012.00","Food Scientists and Technologists",0,0,0
-"211","19-1013",1,"19-1013.00","Soil and Plant Scientists",0,0,0
-"212","19-1020",1,"19-1020.01","Biologists",0,0,0
-"213","19-1021",1,"19-1021.00","Biochemists and Biophysicists",0,0,0
-"214","19-1022",1,"19-1022.00","Microbiologists",4.35,0,0
-"215","19-1023",1,"19-1023.00","Zoologists and Wildlife Biologists",0.99,0,0
-"216","19-1029",1,"19-1029.01","Bioinformatics Scientists",0,0,0
-"217","19-1029",1,"19-1029.02","Molecular and Cellular Biologists",4.35,0,0
-"218","19-1029",1,"19-1029.03","Geneticists",0,0,0
-"219","19-1031",0,"19-1031.01","Soil and Water Conservationists",23.81,0,0
-"220","19-1031",0,"19-1031.02","Range Managers",16.44,0,0
-"221","19-1031",0,"19-1031.03","Park Naturalists",0,0,0
-"222","19-1032",0,"19-1032.00","Foresters",18.47,0,0
-"223","19-1041",1,"19-1041.00","Epidemiologists",0,0,0
-"224","19-1042",1,"19-1042.00","Medical Scientists, Except Epidemiologists",0,0,0
-"225","19-2011",1,"19-2011.00","Astronomers",0,0,0
-"226","19-2012",1,"19-2012.00","Physicists",6.45,0,0
-"227","19-2021",1,"19-2021.00","Atmospheric and Space Scientists",5,0,0
-"228","19-2031",1,"19-2031.00","Chemists",4.38,0,0
-"229","19-2032",1,"19-2032.00","Materials Scientists",4.16,0,0
-"230","19-2041",1,"19-2041.00","Environmental Scientists and Specialists, Including Health",1.37,0,0
-"231","19-2041",1,"19-2041.01","Climate Change Analysts",0,0,0
-"232","19-2041",1,"19-2041.02","Environmental Restoration Planners",0,0,0
-"233","19-2041",1,"19-2041.03","Industrial Ecologists",0,0,0
-"234","19-2042",1,"19-2042.00","Geoscientists, Except Hydrologists and Geographers",0,0,0
-"235","19-2043",1,"19-2043.00","Hydrologists",0,0,0
-"236","19-2099",1,"19-2099.01","Remote Sensing Scientists and Technologists",3.57,0,0
-"237","19-3011",1,"19-3011.00","Economists",0,0,0
-"238","19-3011",1,"19-3011.01","Environmental Economists",0,0,0
-"239","19-3022",1,"19-3022.00","Survey Researchers",0,0,0
-"240","19-3031",0,"19-3031.01","School Psychologists",0,0,0
-"241","19-3031",0,"19-3031.02","Clinical Psychologists",0,0,0
-"242","19-3031",0,"19-3031.03","Counseling Psychologists",0,0,0
-"243","19-3032",1,"19-3032.00","Industrial-Organizational Psychologists",0,0,0
-"244","19-3039",1,"19-3039.01","Neuropsychologists and Clinical Neuropsychologists",0,0,0
-"245","19-3041",1,"19-3041.00","Sociologists",0,0,0
-"246","19-3051",0,"19-3051.00","Urban and Regional Planners",0,0,0
-"247","19-3091",0,"19-3091.01","Anthropologists",0,0,0
-"248","19-3091",0,"19-3091.02","Archeologists",0,0,0
-"249","19-3092",1,"19-3092.00","Geographers",0,0,0
-"250","19-3093",0,"19-3093.00","Historians",52.05,1,0
-"251","19-3094",1,"19-3094.00","Political Scientists",0,0,0
-"252","19-3099",1,"19-3099.01","Transportation Planners",0,0,0
-"253","19-4011",0,"19-4011.01","Agricultural Technicians",20.5,0,0
-"254","19-4011",0,"19-4011.02","Food Science Technicians",68.78,0,0
-"255","19-4021",1,"19-4021.00","Biological Technicians",3.79,0,0
-"256","19-4031",1,"19-4031.00","Chemical Technicians",74.23,1,1
-"257","19-4041",1,"19-4041.01","Geophysical Data Technicians",42.57,0,0
-"258","19-4041",1,"19-4041.02","Geological Sample Test Technicians",19.04,0,0
-"259","19-4051",0,"19-4051.01","Nuclear Equipment Operation Technicians",93.57,1,0
-"260","19-4051",0,"19-4051.02","Nuclear Monitoring Technicians",84.15,1,0
-"261","19-4061",0,"19-4061.00","Social Science Research Assistants",8.61,0,0
-"262","19-4061",0,"19-4061.01","City and Regional Planning Aides",15,0,0
-"263","19-4091",1,"19-4091.00","Environmental Science and Protection Technicians, Including Health",18.19,0,0
-"264","19-4092",0,"19-4092.00","Forensic Science Technicians",60.54,1,0
-"265","19-4093",0,"19-4093.00","Forest and Conservation Technicians",85.19,1,0
-"266","19-4099",1,"19-4099.01","Quality Control Analysts",56.09,0,0
-"267","19-4099",1,"19-4099.02","Precision Agriculture Technicians",25.92,0,0
-"268","19-4099",1,"19-4099.03","Remote Sensing Technicians",29.23,0,0
-"269","21-1011",0,"21-1011.00","Substance Abuse and Behavioral Disorder Counselors",24.23,0,0
-"270","21-1012",0,"21-1012.00","Educational, Guidance, School, and Vocational Counselors",6.27,0,0
-"271","21-1013",0,"21-1013.00","Marriage and Family Therapists",0,0,0
-"272","21-1014",0,"21-1014.00","Mental Health Counselors",1.48,0,0
-"273","21-1015",0,"21-1015.00","Rehabilitation Counselors",23.34,0,0
-"274","21-1021",0,"21-1021.00","Child, Family, and School Social Workers",5.51,0,0
-"275","21-1022",0,"21-1022.00","Healthcare Social Workers",0,0,0
-"276","21-1023",0,"21-1023.00","Mental Health and Substance Abuse Social Workers",10.9,0,0
-"277","21-1091",0,"21-1091.00","Health Educators",64.77,1,0
-"278","21-1092",0,"21-1092.00","Probation Officers and Correctional Treatment Specialists",7.1,0,0
-"279","21-1093",0,"21-1093.00","Social and Human Service Assistants",41.75,0,0
-"280","21-1094",0,"21-1094.00","Community Health Workers",32.83,0,0
-"281","21-2011",0,"21-2011.00","Clergy",1.22,0,0
-"282","21-2021",0,"21-2021.00","Directors, Religious Activities and Education",6.31,0,0
-"283","23-1011",0,"23-1011.00","Lawyers",0,0,0
-"284","23-1012",0,"23-1012.00","Judicial Law Clerks",14,0,0
-"285","23-1021",0,"23-1021.00","Administrative Law Judges, Adjudicators, and Hearing Officers",19.86,0,0
-"286","23-1022",0,"23-1022.00","Arbitrators, Mediators, and Conciliators",20,0,0
-"287","23-1023",0,"23-1023.00","Judges, Magistrate Judges, and Magistrates",22.94,0,0
-"288","23-2011",0,"23-2011.00","Paralegals and Legal Assistants",60.9,1,0
-"289","23-2091",1,"23-2091.00","Court Reporters",90.87,1,1
-"290","23-2093",0,"23-2093.00","Title Examiners, Abstractors, and Searchers",86.6,1,0
-"291","25-1011",1,"25-1011.00","Business Teachers, Postsecondary",0,0,0
-"292","25-1021",1,"25-1021.00","Computer Science Teachers, Postsecondary",0,0,0
-"293","25-1022",1,"25-1022.00","Mathematical Science Teachers, Postsecondary",0,0,0
-"294","25-1031",1,"25-1031.00","Architecture Teachers, Postsecondary",9.32,0,0
-"295","25-1032",1,"25-1032.00","Engineering Teachers, Postsecondary",0,0,0
-"296","25-1041",1,"25-1041.00","Agricultural Sciences Teachers, Postsecondary",1.4,0,0
-"297","25-1042",1,"25-1042.00","Biological Science Teachers, Postsecondary",1.27,0,0
-"298","25-1043",1,"25-1043.00","Forestry and Conservation Science Teachers, Postsecondary",0,0,0
-"299","25-1051",1,"25-1051.00","Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",0,0,0
-"300","25-1052",1,"25-1052.00","Chemistry Teachers, Postsecondary",0.3,0,0
-"301","25-1053",1,"25-1053.00","Environmental Science Teachers, Postsecondary",0,0,0
-"302","25-1054",1,"25-1054.00","Physics Teachers, Postsecondary",0,0,0
-"303","25-1061",0,"25-1061.00","Anthropology and Archeology Teachers, Postsecondary",0,0,0
-"304","25-1062",0,"25-1062.00","Area, Ethnic, and Cultural Studies Teachers, Postsecondary",0.17,0,0
-"305","25-1063",1,"25-1063.00","Economics Teachers, Postsecondary",0,0,0
-"306","25-1064",0,"25-1064.00","Geography Teachers, Postsecondary",0,0,0
-"307","25-1065",0,"25-1065.00","Political Science Teachers, Postsecondary",0,0,0
-"308","25-1066",1,"25-1066.00","Psychology Teachers, Postsecondary",0,0,0
-"309","25-1067",1,"25-1067.00","Sociology Teachers, Postsecondary",0,0,0
-"310","25-1071",1,"25-1071.00","Health Specialties Teachers, Postsecondary",7.53,0,0
-"311","25-1072",1,"25-1072.00","Nursing Instructors and Teachers, Postsecondary",0,0,0
-"312","25-1081",0,"25-1081.00","Education Teachers, Postsecondary",0,0,0
-"313","25-1082",1,"25-1082.00","Library Science Teachers, Postsecondary",0.93,0,0
-"314","25-1111",1,"25-1111.00","Criminal Justice and Law Enforcement Teachers, Postsecondary",20.93,0,0
-"315","25-1112",0,"25-1112.00","Law Teachers, Postsecondary",1.07,0,0
-"316","25-1113",1,"25-1113.00","Social Work Teachers, Postsecondary",0,0,0
-"317","25-1121",0,"25-1121.00","Art, Drama, and Music Teachers, Postsecondary",1.44,0,0
-"318","25-1122",0,"25-1122.00","Communications Teachers, Postsecondary",0,0,0
-"319","25-1123",0,"25-1123.00","English Language and Literature Teachers, Postsecondary",9.61,0,0
-"320","25-1124",0,"25-1124.00","Foreign Language and Literature Teachers, Postsecondary",0,0,0
-"321","25-1125",0,"25-1125.00","History Teachers, Postsecondary",0,0,0
-"322","25-1126",0,"25-1126.00","Philosophy and Religion Teachers, Postsecondary",0,0,0
-"323","25-1191",0,"25-1191.00","Graduate Teaching Assistants",1.48,0,0
-"324","25-1192",0,"25-1192.00","Home Economics Teachers, Postsecondary",2.86,0,0
-"325","25-1193",1,"25-1193.00","Recreation and Fitness Studies Teachers, Postsecondary",0,0,0
-"326","25-1194",0,"25-1194.00","Vocational Education Teachers, Postsecondary",67.55,1,0
-"327","25-2011",0,"25-2011.00","Preschool Teachers, Except Special Education",62.81,1,0
-"328","25-2012",0,"25-2012.00","Kindergarten Teachers, Except Special Education",0,0,0
-"329","25-2021",0,"25-2021.00","Elementary School Teachers, Except Special Education",3.03,0,0
-"330","25-2022",0,"25-2022.00","Middle School Teachers, Except Special and Career/Technical Education",7.86,0,0
-"331","25-2023",0,"25-2023.00","Career/Technical Education Teachers, Middle School",0.56,0,0
-"332","25-2031",0,"25-2031.00","Secondary School Teachers, Except Special and Career/Technical Education",0,0,0
-"333","25-2032",1,"25-2032.00","Career/Technical Education Teachers, Secondary School",15.41,0,0
-"334","25-2051",0,"25-2051.00","Special Education Teachers, Preschool",4.44,0,0
-"335","25-2052",0,"25-2052.00","Special Education Teachers, Kindergarten and Elementary School",0.96,0,0
-"336","25-2053",0,"25-2053.00","Special Education Teachers, Middle School",0,0,0
-"337","25-2054",0,"25-2054.00","Special Education Teachers, Secondary School",0.73,0,0
-"338","25-2059",0,"25-2059.01","Adapted Physical Education Specialists",0,0,0
-"339","25-3011",0,"25-3011.00","Adult Basic and Secondary Education and Literacy Teachers and Instructors",26.04,0,0
-"340","25-3021",0,"25-3021.00","Self-Enrichment Education Teachers",45.76,0,0
-"341","25-3099",1,"25-3099.02","Tutors",30.77,0,0
-"342","25-4011",1,"25-4011.00","Archivists",0,0,0
-"343","25-4012",0,"25-4012.00","Curators",4.85,0,0
-"344","25-4013",0,"25-4013.00","Museum Technicians and Conservators",28.79,0,0
-"345","25-4021",1,"25-4021.00","Librarians",10.46,0,0
-"346","25-4031",0,"25-4031.00","Library Technicians",68.58,1,0
-"347","25-9011",1,"25-9011.00","Audio-Visual and Multimedia Collections Specialists",37.53,0,0
-"348","25-9021",0,"25-9021.00","Farm and Home Management Advisors",0,0,0
-"349","25-9031",1,"25-9031.00","Instructional Coordinators",0,0,0
-"350","25-9031",1,"25-9031.01","Instructional Designers and Technologists",4.35,0,0
-"351","25-9041",0,"25-9041.00","Teacher Assistants",94.96,1,0
-"352","27-1011",1,"27-1011.00","Art Directors",9.33,0,0
-"353","27-1012",0,"27-1012.00","Craft Artists",72,1,0
-"354","27-1013",1,"27-1013.00","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1,1
-"355","27-1014",1,"27-1014.00","Multimedia Artists and Animators",46.91,0,0
-"356","27-1021",1,"27-1021.00","Commercial and Industrial Designers",32.08,0,0
-"357","27-1022",0,"27-1022.00","Fashion Designers",67.12,1,0
-"358","27-1023",0,"27-1023.00","Floral Designers",92.09,1,0
-"359","27-1024",1,"27-1024.00","Graphic Designers",34.61,0,0
-"360","27-1025",1,"27-1025.00","Interior Designers",9.52,0,0
-"361","27-1026",0,"27-1026.00","Merchandise Displayers and Window Trimmers",82.36,1,0
-"362","27-1027",1,"27-1027.00","Set and Exhibit Designers",8.7,0,0
-"363","27-2011",0,"27-2011.00","Actors",65.47,1,0
-"364","27-2012",0,"27-2012.01","Producers",31.94,0,0
-"365","27-2012",0,"27-2012.02","Directors- Stage, Motion Pictures, Television, and Radio",50.76,0,0
-"366","27-2012",0,"27-2012.03","Program Directors",35.27,0,0
-"367","27-2012",0,"27-2012.04","Talent Directors",30.75,0,0
-"368","27-2012",0,"27-2012.05","Technical Directors/Managers",7.51,0,0
-"369","27-2021",0,"27-2021.00","Athletes and Sports Competitors",75.54,1,0
-"370","27-2022",0,"27-2022.00","Coaches and Scouts",29.92,0,0
-"371","27-2023",0,"27-2023.00","Umpires, Referees, and Other Sports Officials",90.33,1,0
-"372","27-2031",0,"27-2031.00","Dancers",100.01,1,0
-"373","27-2032",0,"27-2032.00","Choreographers",50,0,0
-"374","27-2041",0,"27-2041.01","Music Directors",8.21,0,0
-"375","27-2041",0,"27-2041.04","Music Composers and Arrangers",61.68,0,0
-"376","27-2042",0,"27-2042.01","Singers",58.87,0,0
-"377","27-2042",0,"27-2042.02","Musicians, Instrumental",22.62,0,0
-"378","27-3011",1,"27-3011.00","Radio and Television Announcers",37.14,0,0
-"379","27-3012",0,"27-3012.00","Public Address System and Other Announcers",94.26,1,0
-"380","27-3021",0,"27-3021.00","Broadcast News Analysts",29.44,0,0
-"381","27-3022",0,"27-3022.00","Reporters and Correspondents",9.1,0,0
-"382","27-3031",0,"27-3031.00","Public Relations Specialists",0,0,0
-"383","27-3041",0,"27-3041.00","Editors",0,0,0
-"384","27-3042",1,"27-3042.00","Technical Writers",58.04,1,1
-"385","27-3043",0,"27-3043.04","Copy Writers",26.26,0,0
-"386","27-3043",0,"27-3043.05","Poets, Lyricists and Creative Writers",42.3,0,0
-"387","27-3091",0,"27-3091.00","Interpreters and Translators",13.53,0,0
-"388","27-4011",1,"27-4011.00","Audio and Video Equipment Technicians",57.32,1,1
-"389","27-4012",1,"27-4012.00","Broadcast Technicians",97.61,1,1
-"390","27-4013",0,"27-4013.00","Radio Operators",95.7,1,0
-"391","27-4014",1,"27-4014.00","Sound Engineering Technicians",93.76,1,1
-"392","27-4021",1,"27-4021.00","Photographers",84,1,1
-"393","27-4031",0,"27-4031.00","Camera Operators, Television, Video, and Motion Picture",93.1,1,0
-"394","27-4032",1,"27-4032.00","Film and Video Editors",50.19,1,1
-"395","29-1011",0,"29-1011.00","Chiropractors",10.33,0,0
-"396","29-1021",1,"29-1021.00","Dentists, General",12.79,0,0
-"397","29-1022",1,"29-1022.00","Oral and Maxillofacial Surgeons",0,0,0
-"398","29-1023",1,"29-1023.00","Orthodontists",0.06,0,0
-"399","29-1024",1,"29-1024.00","Prosthodontists",0,0,0
-"400","29-1031",0,"29-1031.00","Dietitians and Nutritionists",0,0,0
-"401","29-1041",1,"29-1041.00","Optometrists",0,0,0
-"402","29-1051",1,"29-1051.00","Pharmacists",0,0,0
-"403","29-1061",1,"29-1061.00","Anesthesiologists",0,0,0
-"404","29-1062",1,"29-1062.00","Family and General Practitioners",0,0,0
-"405","29-1063",1,"29-1063.00","Internists, General",0,0,0
-"406","29-1064",1,"29-1064.00","Obstetricians and Gynecologists",0,0,0
-"407","29-1065",1,"29-1065.00","Pediatricians, General",9.07,0,0
-"408","29-1066",1,"29-1066.00","Psychiatrists",0.47,0,0
-"409","29-1067",1,"29-1067.00","Surgeons",0,0,0
-"410","29-1069",1,"29-1069.01","Allergists and Immunologists",0,0,0
-"411","29-1069",1,"29-1069.02","Dermatologists",0,0,0
-"412","29-1069",1,"29-1069.03","Hospitalists",0,0,0
-"413","29-1069",1,"29-1069.04","Neurologists",2.4,0,0
-"414","29-1069",1,"29-1069.05","Nuclear Medicine Physicians",4.35,0,0
-"415","29-1069",1,"29-1069.06","Ophthalmologists",3.92,0,0
-"416","29-1069",1,"29-1069.07","Pathologists",0,0,0
-"417","29-1069",1,"29-1069.08","Physical Medicine and Rehabilitation Physicians",0,0,0
-"418","29-1069",1,"29-1069.09","Preventive Medicine Physicians",0,0,0
-"419","29-1069",1,"29-1069.10","Radiologists",3.21,0,0
-"420","29-1069",1,"29-1069.11","Sports Medicine Physicians",0,0,0
-"421","29-1069",1,"29-1069.12","Urologists",0,0,0
-"422","29-1071",1,"29-1071.00","Physician Assistants",0,0,0
-"423","29-1071",1,"29-1071.01","Anesthesiologist Assistants",42.69,0,0
-"424","29-1081",1,"29-1081.00","Podiatrists",15.22,0,0
-"425","29-1122",0,"29-1122.00","Occupational Therapists",0,0,0
-"426","29-1122",0,"29-1122.01","Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",4,0,0
-"427","29-1123",0,"29-1123.00","Physical Therapists",0,0,0
-"428","29-1124",0,"29-1124.00","Radiation Therapists",62.46,1,0
-"429","29-1125",0,"29-1125.00","Recreational Therapists",4,0,0
-"430","29-1125",0,"29-1125.01","Art Therapists",0,0,0
-"431","29-1125",0,"29-1125.02","Music Therapists",0,0,0
-"432","29-1126",1,"29-1126.00","Respiratory Therapists",87.9,1,1
-"433","29-1127",0,"29-1127.00","Speech-Language Pathologists",0,0,0
-"434","29-1128",1,"29-1128.00","Exercise Physiologists",0,0,0
-"435","29-1131",1,"29-1131.00","Veterinarians",0,0,0
-"436","29-1141",1,"29-1141.00","Registered Nurses",76.75,0,1
-"437","29-1141",1,"29-1141.01","Acute Care Nurses",53.57,0,1
-"438","29-1141",1,"29-1141.02","Advanced Practice Psychiatric Nurses",0,0,1
-"439","29-1141",1,"29-1141.03","Critical Care Nurses",50,0,1
-"440","29-1141",1,"29-1141.04","Clinical Nurse Specialists",0,0,1
-"441","29-1151",1,"29-1151.00","Nurse Anesthetists",0,0,0
-"442","29-1161",1,"29-1161.00","Nurse Midwives",2.7,0,0
-"443","29-1171",1,"29-1171.00","Nurse Practitioners",0,0,0
-"444","29-1181",0,"29-1181.00","Audiologists",0,0,0
-"445","29-1199",1,"29-1199.01","Acupuncturists",14.36,0,0
-"446","29-1199",1,"29-1199.04","Naturopathic Physicians",0,0,0
-"447","29-1199",1,"29-1199.05","Orthoptists",0,0,0
-"448","29-2011",0,"29-2011.00","Medical and Clinical Laboratory Technologists",31.61,0,0
-"449","29-2011",0,"29-2011.01","Cytogenetic Technologists",0,0,0
-"450","29-2011",0,"29-2011.02","Cytotechnologists",0,0,0
-"451","29-2011",0,"29-2011.03","Histotechnologists and Histologic Technicians",67.5,0,0
-"452","29-2012",0,"29-2012.00","Medical and Clinical Laboratory Technicians",36.49,0,0
-"453","29-2021",1,"29-2021.00","Dental Hygienists",78.53,1,1
-"454","29-2031",0,"29-2031.00","Cardiovascular Technologists and Technicians",93.42,1,0
-"455","29-2032",0,"29-2032.00","Diagnostic Medical Sonographers",66.47,1,0
-"456","29-2033",0,"29-2033.00","Nuclear Medicine Technologists",68.68,1,0
-"457","29-2034",0,"29-2034.00","Radiologic Technologists",90.69,1,0
-"458","29-2035",0,"29-2035.00","Magnetic Resonance Imaging Technologists",88.88,1,0
-"459","29-2041",1,"29-2041.00","Emergency Medical Technicians and Paramedics",95.11,1,1
-"460","29-2051",0,"29-2051.00","Dietetic Technicians",93.68,1,0
-"461","29-2052",0,"29-2052.00","Pharmacy Technicians",95.82,1,0
-"462","29-2053",0,"29-2053.00","Psychiatric Technicians",48.47,0,0
-"463","29-2054",0,"29-2054.00","Respiratory Therapy Technicians",64.02,1,0
-"464","29-2055",1,"29-2055.00","Surgical Technologists",100,1,1
-"465","29-2056",0,"29-2056.00","Veterinary Technologists and Technicians",93.05,1,0
-"466","29-2057",0,"29-2057.00","Ophthalmic Medical Technicians",95.65,1,0
-"467","29-2061",0,"29-2061.00","Licensed Practical and Licensed Vocational Nurses",98.74,1,0
-"468","29-2071",0,"29-2071.00","Medical Records and Health Information Technicians",99.5,1,0
-"469","29-2081",0,"29-2081.00","Opticians, Dispensing",100.01,1,0
-"470","29-2091",0,"29-2091.00","Orthotists and Prosthetists",0,0,0
-"471","29-2092",1,"29-2092.00","Hearing Aid Specialists",54.45,1,1
-"472","29-2099",0,"29-2099.01","Neurodiagnostic Technologists",78.79,1,0
-"473","29-2099",0,"29-2099.05","Ophthalmic Medical Technologists",74.08,1,0
-"474","29-2099",0,"29-2099.06","Radiologic Technicians",97.61,1,0
-"475","29-2099",0,"29-2099.07","Surgical Assistants",64.12,1,0
-"476","29-9011",1,"29-9011.00","Occupational Health and Safety Specialists",4.55,0,0
-"477","29-9012",1,"29-9012.00","Occupational Health and Safety Technicians",15,0,0
-"478","29-9091",1,"29-9091.00","Athletic Trainers",0,0,0
-"479","29-9092",1,"29-9092.00","Genetic Counselors",0,0,0
-"480","29-9099",1,"29-9099.01","Midwives",39.97,0,0
-"481","31-1011",0,"31-1011.00","Home Health Aides",99.99,1,0
-"482","31-1013",0,"31-1013.00","Psychiatric Aides",86.15,1,0
-"483","31-1014",0,"31-1014.00","Nursing Assistants",99.55,1,0
-"484","31-1015",0,"31-1015.00","Orderlies",100,1,0
-"485","31-2011",0,"31-2011.00","Occupational Therapy Assistants",81.61,1,0
-"486","31-2012",0,"31-2012.00","Occupational Therapy Aides",100,1,0
-"487","31-2021",0,"31-2021.00","Physical Therapist Assistants",99.83,1,0
-"488","31-2022",0,"31-2022.00","Physical Therapist Aides",91.51,1,0
-"489","31-9011",0,"31-9011.00","Massage Therapists",96.67,1,0
-"490","31-9091",0,"31-9091.00","Dental Assistants",92.41,1,0
-"491","31-9092",0,"31-9092.00","Medical Assistants",100,1,0
-"492","31-9093",0,"31-9093.00","Medical Equipment Preparers",82.92,1,0
-"493","31-9094",0,"31-9094.00","Medical Transcriptionists",100,1,0
-"494","31-9095",0,"31-9095.00","Pharmacy Aides",100,1,0
-"495","31-9096",0,"31-9096.00","Veterinary Assistants and Laboratory Animal Caretakers",99.78,1,0
-"496","31-9097",0,"31-9097.00","Phlebotomists",95.46,1,0
-"497","31-9099",0,"31-9099.01","Speech-Language Pathology Assistants",43.25,1,0
-"498","31-9099",0,"31-9099.02","Endoscopy Technicians",100.01,1,0
-"499","33-1011",0,"33-1011.00","First-Line Supervisors of Correctional Officers",95.25,1,0
-"500","33-1012",0,"33-1012.00","First-Line Supervisors of Police and Detectives",81.51,1,0
-"501","33-1021",0,"33-1021.01","Municipal Fire Fighting and Prevention Supervisors",87.14,1,0
-"502","33-1021",0,"33-1021.02","Forest Fire Fighting and Prevention Supervisors",77.85,1,0
-"503","33-2011",1,"33-2011.01","Municipal Firefighters",95.58,1,1
-"504","33-2011",1,"33-2011.02","Forest Firefighters",81.14,1,1
-"505","33-2021",0,"33-2021.01","Fire Inspectors",94.49,1,0
-"506","33-2021",0,"33-2021.02","Fire Investigators",95.59,1,0
-"507","33-2022",0,"33-2022.00","Forest Fire Inspectors and Prevention Specialists",75.97,1,0
-"508","33-3011",0,"33-3011.00","Bailiffs",100,1,0
-"509","33-3012",0,"33-3012.00","Correctional Officers and Jailers",100.01,1,0
-"510","33-3021",0,"33-3021.01","Police Detectives",87.23,1,0
-"511","33-3021",0,"33-3021.02","Police Identification and Records Officers",52.25,1,0
-"512","33-3021",0,"33-3021.03","Criminal Investigators and Special Agents",96.51,1,0
-"513","33-3021",0,"33-3021.05","Immigration and Customs Inspectors",70.66,1,0
-"514","33-3021",0,"33-3021.06","Intelligence Analysts",18.75,1,0
-"515","33-3031",1,"33-3031.00","Fish and Game Wardens",20.66,0,0
-"516","33-3041",0,"33-3041.00","Parking Enforcement Workers",98.56,1,0
-"517","33-3051",0,"33-3051.01","Police Patrol Officers",91.17,1,0
-"518","33-3051",0,"33-3051.03","Sheriffs and Deputy Sheriffs",98.85,1,0
-"519","33-3052",0,"33-3052.00","Transit and Railroad Police",65.67,1,0
-"520","33-9011",0,"33-9011.00","Animal Control Workers",100,1,0
-"521","33-9021",0,"33-9021.00","Private Detectives and Investigators",57.84,1,0
-"522","33-9031",0,"33-9031.00","Gaming Surveillance Officers and Gaming Investigators",100,1,0
-"523","33-9032",0,"33-9032.00","Security Guards",99.99,1,0
-"524","33-9091",0,"33-9091.00","Crossing Guards",100,1,0
-"525","33-9092",0,"33-9092.00","Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",87.23,1,0
-"526","33-9093",0,"33-9093.00","Transportation Security Screeners",100,1,0
-"527","33-9099",0,"33-9099.02","Retail Loss Prevention Specialists",89.5,1,0
-"528","35-1011",1,"35-1011.00","Chefs and Head Cooks",85.18,1,1
-"529","35-1012",0,"35-1012.00","First-Line Supervisors of Food Preparation and Serving Workers",100,1,0
-"530","35-2011",0,"35-2011.00","Cooks, Fast Food",100,1,0
-"531","35-2012",0,"35-2012.00","Cooks, Institution and Cafeteria",93.22,1,0
-"532","35-2013",0,"35-2013.00","Cooks, Private Household",100.01,1,0
-"533","35-2014",0,"35-2014.00","Cooks, Restaurant",96.48,1,0
-"534","35-2015",0,"35-2015.00","Cooks, Short Order",100,1,0
-"535","35-2021",0,"35-2021.00","Food Preparation Workers",82.92,1,0
-"536","35-3011",0,"35-3011.00","Bartenders",98.88,1,0
-"537","35-3021",0,"35-3021.00","Combined Food Preparation and Serving Workers, Including Fast Food",99.99,1,0
-"538","35-3022",0,"35-3022.00","Counter Attendants, Cafeteria, Food Concession, and Coffee Shop",96.38,1,0
-"539","35-3022",0,"35-3022.01","Baristas",94.53,1,0
-"540","35-3031",0,"35-3031.00","Waiters and Waitresses",92.92,1,0
-"541","35-3041",0,"35-3041.00","Food Servers, Nonrestaurant",97.28,1,0
-"542","35-9011",0,"35-9011.00","Dining Room and Cafeteria Attendants and Bartender Helpers",96.39,1,0
-"543","35-9021",0,"35-9021.00","Dishwashers",100.01,1,0
-"544","35-9031",0,"35-9031.00","Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",94.3,1,0
-"545","37-1011",0,"37-1011.00","First-Line Supervisors of Housekeeping and Janitorial Workers",91.67,1,0
-"546","37-1012",0,"37-1012.00","First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",68.83,1,0
-"547","37-2011",0,"37-2011.00","Janitors and Cleaners, Except Maids and Housekeeping Cleaners",91.5,1,0
-"548","37-2012",0,"37-2012.00","Maids and Housekeeping Cleaners",99.29,1,0
-"549","37-2021",0,"37-2021.00","Pest Control Workers",100,1,0
-"550","37-3011",0,"37-3011.00","Landscaping and Groundskeeping Workers",81.67,1,0
-"551","37-3012",0,"37-3012.00","Pesticide Handlers, Sprayers, and Applicators, Vegetation",87.18,1,0
-"552","37-3013",0,"37-3013.00","Tree Trimmers and Pruners",100,1,0
-"553","39-1011",0,"39-1011.00","Gaming Supervisors",92.29,1,0
-"554","39-1012",0,"39-1012.00","Slot Supervisors",100,1,0
-"555","39-1021",0,"39-1021.00","First-Line Supervisors of Personal Service Workers",65.51,1,0
-"556","39-1021",0,"39-1021.01","Spa Managers",79.01,1,0
-"557","39-2011",0,"39-2011.00","Animal Trainers",98.25,1,0
-"558","39-2021",0,"39-2021.00","Nonfarm Animal Caretakers",86.63,1,0
-"559","39-3011",0,"39-3011.00","Gaming Dealers",100,1,0
-"560","39-3012",0,"39-3012.00","Gaming and Sports Book Writers and Runners",100.01,1,0
-"561","39-3021",0,"39-3021.00","Motion Picture Projectionists",96.76,1,0
-"562","39-3031",0,"39-3031.00","Ushers, Lobby Attendants, and Ticket Takers",98.34,1,0
-"563","39-3091",0,"39-3091.00","Amusement and Recreation Attendants",99.94,1,0
-"564","39-3092",0,"39-3092.00","Costume Attendants",68.86,1,0
-"565","39-3093",0,"39-3093.00","Locker Room, Coatroom, and Dressing Room Attendants",100.01,1,0
-"566","39-4011",0,"39-4011.00","Embalmers",64.5,1,0
-"567","39-4021",0,"39-4021.00","Funeral Attendants",99.86,1,0
-"568","39-4031",0,"39-4031.00","Morticians, Undertakers, and Funeral Directors",92.83,1,0
-"569","39-5011",0,"39-5011.00","Barbers",97.06,1,0
-"570","39-5012",0,"39-5012.00","Hairdressers, Hairstylists, and Cosmetologists",100,1,0
-"571","39-5091",0,"39-5091.00","Makeup Artists, Theatrical and Performance",86.96,1,0
-"572","39-5092",0,"39-5092.00","Manicurists and Pedicurists",100,1,0
-"573","39-5093",0,"39-5093.00","Shampooers",100,1,0
-"574","39-5094",0,"39-5094.00","Skincare Specialists",100,1,0
-"575","39-6011",0,"39-6011.00","Baggage Porters and Bellhops",100.01,1,0
-"576","39-6012",0,"39-6012.00","Concierges",83.34,1,0
-"577","39-7011",0,"39-7011.00","Tour Guides and Escorts",70.47,1,0
-"578","39-7012",0,"39-7012.00","Travel Guides",84.84,1,0
-"579","39-9011",0,"39-9011.00","Childcare Workers",91.29,1,0
-"580","39-9011",0,"39-9011.01","Nannies",91.31,1,0
-"581","39-9021",0,"39-9021.00","Personal Care Aides",92.27,1,0
-"582","39-9031",0,"39-9031.00","Fitness Trainers and Aerobics Instructors",72,1,0
-"583","39-9032",0,"39-9032.00","Recreation Workers",37.9,0,0
-"584","39-9041",0,"39-9041.00","Residential Advisors",59.02,1,0
-"585","41-1011",0,"41-1011.00","First-Line Supervisors of Retail Sales Workers",99.58,1,0
-"586","41-1012",0,"41-1012.00","First-Line Supervisors of Non-Retail Sales Workers",66.29,1,0
-"587","41-2011",0,"41-2011.00","Cashiers",99.58,1,0
-"588","41-2012",0,"41-2012.00","Gaming Change Persons and Booth Cashiers",100,1,0
-"589","41-2021",0,"41-2021.00","Counter and Rental Clerks",79.75,1,0
-"590","41-2022",0,"41-2022.00","Parts Salespersons",99.5,1,0
-"591","41-2031",0,"41-2031.00","Retail Salespersons",96,1,0
-"592","41-3011",0,"41-3011.00","Advertising Sales Agents",48.14,0,0
-"593","41-3021",0,"41-3021.00","Insurance Sales Agents",53.1,1,0
-"594","41-3031",0,"41-3031.01","Sales Agents, Securities and Commodities",15.91,0,0
-"595","41-3031",0,"41-3031.02","Sales Agents, Financial Services",77.66,0,0
-"596","41-3031",0,"41-3031.03","Securities and Commodities Traders",38.41,0,0
-"597","41-3041",0,"41-3041.00","Travel Agents",85.65,1,0
-"598","41-3099",1,"41-3099.01","Energy Brokers",26.02,0,0
-"599","41-4011",0,"41-4011.00","Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",58.63,1,0
-"600","41-4011",0,"41-4011.07","Solar Sales Representatives and Assessors",57.98,1,0
-"601","41-4012",0,"41-4012.00","Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",23.39,0,0
-"602","41-9011",0,"41-9011.00","Demonstrators and Product Promoters",99.34,1,0
-"603","41-9012",0,"41-9012.00","Models",100,1,0
-"604","41-9021",0,"41-9021.00","Real Estate Brokers",46.07,0,0
-"605","41-9022",0,"41-9022.00","Real Estate Sales Agents",90.47,1,0
-"606","41-9031",1,"41-9031.00","Sales Engineers",37.11,0,0
-"607","41-9041",0,"41-9041.00","Telemarketers",100,1,0
-"608","41-9091",0,"41-9091.00","Door-To-Door Sales Workers, News and Street Vendors, and Related Workers",100,1,0
-"609","43-1011",0,"43-1011.00","First-Line Supervisors of Office and Administrative Support Workers",53.45,1,0
-"610","43-2011",0,"43-2011.00","Switchboard Operators, Including Answering Service",93.7,1,0
-"611","43-2021",0,"43-2021.00","Telephone Operators",99.99,1,0
-"612","43-3011",0,"43-3011.00","Bill and Account Collectors",78.88,1,0
-"613","43-3021",0,"43-3021.01","Statement Clerks",100,1,0
-"614","43-3021",0,"43-3021.02","Billing, Cost, and Rate Clerks",98.42,1,0
-"615","43-3031",0,"43-3031.00","Bookkeeping, Accounting, and Auditing Clerks",81.29,1,0
-"616","43-3041",0,"43-3041.00","Gaming Cage Workers",100,1,0
-"617","43-3051",0,"43-3051.00","Payroll and Timekeeping Clerks",89.3,1,0
-"618","43-3061",0,"43-3061.00","Procurement Clerks",79.81,1,0
-"619","43-3071",0,"43-3071.00","Tellers",91.68,1,0
-"620","43-4011",0,"43-4011.00","Brokerage Clerks",61.77,1,0
-"621","43-4021",0,"43-4021.00","Correspondence Clerks",96.32,1,0
-"622","43-4031",0,"43-4031.01","Court Clerks",100,1,0
-"623","43-4031",0,"43-4031.02","Municipal Clerks",59.79,1,0
-"624","43-4031",0,"43-4031.03","License Clerks",87.65,1,0
-"625","43-4041",0,"43-4041.01","Credit Authorizers",53.93,1,0
-"626","43-4041",0,"43-4041.02","Credit Checkers",77.02,1,0
-"627","43-4051",0,"43-4051.00","Customer Service Representatives",84.05,1,0
-"628","43-4051",0,"43-4051.03","Patient Representatives",19.13,1,0
-"629","43-4061",0,"43-4061.00","Eligibility Interviewers, Government Programs",58.87,1,0
-"630","43-4071",0,"43-4071.00","File Clerks",73.11,1,0
-"631","43-4081",0,"43-4081.00","Hotel, Motel, and Resort Desk Clerks",95.41,1,0
-"632","43-4111",0,"43-4111.00","Interviewers, Except Eligibility and Loan",87.64,1,0
-"633","43-4121",0,"43-4121.00","Library Assistants, Clerical",95.43,1,0
-"634","43-4131",0,"43-4131.00","Loan Interviewers and Clerks",61.75,1,0
-"635","43-4141",0,"43-4141.00","New Accounts Clerks",99.71,1,0
-"636","43-4151",0,"43-4151.00","Order Clerks",96.74,1,0
-"637","43-4161",0,"43-4161.00","Human Resources Assistants, Except Payroll and Timekeeping",65.4,1,0
-"638","43-4171",0,"43-4171.00","Receptionists and Information Clerks",97.33,1,0
-"639","43-4181",0,"43-4181.00","Reservation and Transportation Ticket Agents and Travel Clerks",99.42,1,0
-"640","43-5011",0,"43-5011.00","Cargo and Freight Agents",100,1,0
-"641","43-5011",0,"43-5011.01","Freight Forwarders",79.2,1,0
-"642","43-5021",0,"43-5021.00","Couriers and Messengers",100,1,0
-"643","43-5031",0,"43-5031.00","Police, Fire, and Ambulance Dispatchers",100.01,1,0
-"644","43-5032",0,"43-5032.00","Dispatchers, Except Police, Fire, and Ambulance",90.88,1,0
-"645","43-5041",0,"43-5041.00","Meter Readers, Utilities",97.61,1,0
-"646","43-5051",0,"43-5051.00","Postal Service Clerks",100,1,0
-"647","43-5052",0,"43-5052.00","Postal Service Mail Carriers",100,1,0
-"648","43-5053",0,"43-5053.00","Postal Service Mail Sorters, Processors, and Processing Machine Operators",100.01,1,0
-"649","43-5061",0,"43-5061.00","Production, Planning, and Expediting Clerks",75.34,1,0
-"650","43-5071",0,"43-5071.00","Shipping, Receiving, and Traffic Clerks",89.25,1,0
-"651","43-5081",0,"43-5081.01","Stock Clerks, Sales Floor",100,1,0
-"652","43-5081",0,"43-5081.02","Marking Clerks",100,1,0
-"653","43-5081",0,"43-5081.03","Stock Clerks- Stockroom, Warehouse, or Storage Yard",93.09,1,0
-"654","43-5081",0,"43-5081.04","Order Fillers, Wholesale and Retail Sales",94.89,1,0
-"655","43-5111",0,"43-5111.00","Weighers, Measurers, Checkers, and Samplers, Recordkeeping",99.49,1,0
-"656","43-6011",0,"43-6011.00","Executive Secretaries and Executive Administrative Assistants",80.15,1,0
-"657","43-6012",0,"43-6012.00","Legal Secretaries",77.14,1,0
-"658","43-6013",0,"43-6013.00","Medical Secretaries",100,1,0
-"659","43-6014",1,"43-6014.00","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1,1
-"660","43-9011",1,"43-9011.00","Computer Operators",63.94,1,1
-"661","43-9021",0,"43-9021.00","Data Entry Keyers",100,1,0
-"662","43-9022",0,"43-9022.00","Word Processors and Typists",100,1,0
-"663","43-9031",1,"43-9031.00","Desktop Publishers",65.19,1,1
-"664","43-9041",0,"43-9041.01","Insurance Claims Clerks",92.99,1,0
-"665","43-9041",0,"43-9041.02","Insurance Policy Processing Clerks",93.88,1,0
-"666","43-9051",0,"43-9051.00","Mail Clerks and Mail Machine Operators, Except Postal Service",100,1,0
-"667","43-9061",0,"43-9061.00","Office Clerks, General",99.76,1,0
-"668","43-9071",0,"43-9071.00","Office Machine Operators, Except Computer",82.57,1,0
-"669","43-9081",0,"43-9081.00","Proofreaders and Copy Markers",52.69,1,0
-"670","43-9111",1,"43-9111.00","Statistical Assistants",17.96,0,0
-"671","43-9111",1,"43-9111.01","Bioinformatics Technicians",0,0,0
-"672","45-1011",0,"45-1011.05","First-Line Supervisors of Logging Workers",79.91,1,0
-"673","45-1011",0,"45-1011.06","First-Line Supervisors of Aquacultural Workers",39.93,1,0
-"674","45-1011",0,"45-1011.07","First-Line Supervisors of Agricultural Crop and Horticultural Workers",87.06,1,0
-"675","45-1011",0,"45-1011.08","First-Line Supervisors of Animal Husbandry and Animal Care Workers",75.53,1,0
-"676","45-2011",0,"45-2011.00","Agricultural Inspectors",87.88,1,0
-"677","45-2021",0,"45-2021.00","Animal Breeders",95.94,1,0
-"678","45-2041",0,"45-2041.00","Graders and Sorters, Agricultural Products",100,1,0
-"679","45-2091",0,"45-2091.00","Agricultural Equipment Operators",99.99,1,0
-"680","45-2092",0,"45-2092.01","Nursery Workers",94.83,1,0
-"681","45-2092",0,"45-2092.02","Farmworkers and Laborers, Crop",98.83,1,0
-"682","45-2093",0,"45-2093.00","Farmworkers, Farm, Ranch, and Aquacultural Animals",99.77,1,0
-"683","45-3011",0,"45-3011.00","Fishers and Related Fishing Workers",90.98,1,0
-"684","45-3021",0,"45-3021.00","Hunters and Trappers",95.65,1,0
-"685","45-4011",0,"45-4011.00","Forest and Conservation Workers",41.98,0,0
-"686","45-4021",0,"45-4021.00","Fallers",100,1,0
-"687","45-4022",1,"45-4022.00","Logging Equipment Operators",100,1,1
-"688","45-4023",0,"45-4023.00","Log Graders and Scalers",100,1,0
-"689","47-1011",1,"47-1011.00","First-Line Supervisors of Construction Trades and Extraction Workers",100,1,1
-"690","47-1011",1,"47-1011.03","Solar Energy Installation Managers",89.47,1,1
-"691","47-2011",1,"47-2011.00","Boilermakers",100,1,1
-"692","47-2021",1,"47-2021.00","Brickmasons and Blockmasons",99.99,1,1
-"693","47-2022",1,"47-2022.00","Stonemasons",100,1,1
-"694","47-2031",1,"47-2031.01","Construction Carpenters",99.36,1,1
-"695","47-2031",1,"47-2031.02","Rough Carpenters",96.05,1,1
-"696","47-2041",0,"47-2041.00","Carpet Installers",100,1,0
-"697","47-2042",0,"47-2042.00","Floor Layers, Except Carpet, Wood, and Hard Tiles",99.99,1,0
-"698","47-2043",0,"47-2043.00","Floor Sanders and Finishers",100,1,0
-"699","47-2044",0,"47-2044.00","Tile and Marble Setters",100.01,1,0
-"700","47-2051",0,"47-2051.00","Cement Masons and Concrete Finishers",99.99,1,0
-"701","47-2053",0,"47-2053.00","Terrazzo Workers and Finishers",100.01,1,0
-"702","47-2061",0,"47-2061.00","Construction Laborers",98.78,1,0
-"703","47-2071",0,"47-2071.00","Paving, Surfacing, and Tamping Equipment Operators",100,1,0
-"704","47-2072",1,"47-2072.00","Pile-Driver Operators",100.01,1,1
-"705","47-2073",0,"47-2073.00","Operating Engineers and Other Construction Equipment Operators",100,1,0
-"706","47-2081",1,"47-2081.00","Drywall and Ceiling Tile Installers",95.18,1,1
-"707","47-2082",0,"47-2082.00","Tapers",100,1,0
-"708","47-2111",1,"47-2111.00","Electricians",92.37,1,1
-"709","47-2121",1,"47-2121.00","Glaziers",100,1,1
-"710","47-2131",0,"47-2131.00","Insulation Workers, Floor, Ceiling, and Wall",100,1,0
-"711","47-2132",0,"47-2132.00","Insulation Workers, Mechanical",100,1,0
-"712","47-2141",0,"47-2141.00","Painters, Construction and Maintenance",90.04,1,0
-"713","47-2142",0,"47-2142.00","Paperhangers",100,1,0
-"714","47-2151",1,"47-2151.00","Pipelayers",95.7,1,1
-"715","47-2152",1,"47-2152.01","Pipe Fitters and Steamfitters",100,1,1
-"716","47-2152",1,"47-2152.02","Plumbers",100,1,1
-"717","47-2161",0,"47-2161.00","Plasterers and Stucco Masons",100,1,0
-"718","47-2171",1,"47-2171.00","Reinforcing Iron and Rebar Workers",100,1,1
-"719","47-2181",1,"47-2181.00","Roofers",93.4,1,1
-"720","47-2211",0,"47-2211.00","Sheet Metal Workers",100.01,1,0
-"721","47-2221",1,"47-2221.00","Structural Iron and Steel Workers",94.98,1,1
-"722","47-2231",1,"47-2231.00","Solar Photovoltaic Installers",99.51,1,1
-"723","47-3011",1,"47-3011.00","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1,1
-"724","47-3012",1,"47-3012.00","Helpers--Carpenters",100,1,1
-"725","47-3013",1,"47-3013.00","Helpers--Electricians",100,1,1
-"726","47-3014",0,"47-3014.00","Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons",100,1,0
-"727","47-3015",1,"47-3015.00","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1,1
-"728","47-3016",0,"47-3016.00","Helpers--Roofers",83.98,1,0
-"729","47-4011",1,"47-4011.00","Construction and Building Inspectors",62.5,1,1
-"730","47-4021",1,"47-4021.00","Elevator Installers and Repairers",88.21,1,1
-"731","47-4031",0,"47-4031.00","Fence Erectors",99.99,1,0
-"732","47-4041",0,"47-4041.00","Hazardous Materials Removal Workers",86.23,1,0
-"733","47-4051",0,"47-4051.00","Highway Maintenance Workers",100,1,0
-"734","47-4061",0,"47-4061.00","Rail-Track Laying and Maintenance Equipment Operators",100,1,0
-"735","47-4071",0,"47-4071.00","Septic Tank Servicers and Sewer Pipe Cleaners",99.99,1,0
-"736","47-4091",0,"47-4091.00","Segmental Pavers",100,1,0
-"737","47-4099",1,"47-4099.02","Solar Thermal Installers and Technicians",77.54,1,1
-"738","47-4099",1,"47-4099.03","Weatherization Installers and Technicians",93.11,1,1
-"739","47-5011",1,"47-5011.00","Derrick Operators, Oil and Gas",99.99,1,1
-"740","47-5012",1,"47-5012.00","Rotary Drill Operators, Oil and Gas",91.08,1,1
-"741","47-5013",1,"47-5013.00","Service Unit Operators, Oil, Gas, and Mining",100,1,1
-"742","47-5021",1,"47-5021.00","Earth Drillers, Except Oil and Gas",99.99,1,1
-"743","47-5031",0,"47-5031.00","Explosives Workers, Ordnance Handling Experts, and Blasters",100,1,0
-"744","47-5041",1,"47-5041.00","Continuous Mining Machine Operators",100,1,1
-"745","47-5042",0,"47-5042.00","Mine Cutting and Channeling Machine Operators",100.01,1,0
-"746","47-5051",0,"47-5051.00","Rock Splitters, Quarry",81.02,1,0
-"747","47-5061",0,"47-5061.00","Roof Bolters, Mining",100,1,0
-"748","47-5071",0,"47-5071.00","Roustabouts, Oil and Gas",100,1,0
-"749","47-5081",0,"47-5081.00","Helpers--Extraction Workers",100.01,1,0
-"750","49-1011",1,"49-1011.00","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1,1
-"751","49-2011",1,"49-2011.00","Computer, Automated Teller, and Office Machine Repairers",99.63,1,1
-"752","49-2021",1,"49-2021.00","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1,1
-"753","49-2021",1,"49-2021.01","Radio Mechanics",85.85,1,1
-"754","49-2022",1,"49-2022.00","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1,1
-"755","49-2091",1,"49-2091.00","Avionics Technicians",96.67,1,1
-"756","49-2092",1,"49-2092.00","Electric Motor, Power Tool, and Related Repairers",100.01,1,1
-"757","49-2093",1,"49-2093.00","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1,1
-"758","49-2094",1,"49-2094.00","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1,1
-"759","49-2095",1,"49-2095.00","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1,1
-"760","49-2096",1,"49-2096.00","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1,1
-"761","49-2097",1,"49-2097.00","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1,1
-"762","49-2098",1,"49-2098.00","Security and Fire Alarm Systems Installers",100,1,1
-"763","49-3011",1,"49-3011.00","Aircraft Mechanics and Service Technicians",97.5,1,1
-"764","49-3021",0,"49-3021.00","Automotive Body and Related Repairers",99.99,1,0
-"765","49-3022",0,"49-3022.00","Automotive Glass Installers and Repairers",99.99,1,0
-"766","49-3023",1,"49-3023.01","Automotive Master Mechanics",100,1,1
-"767","49-3023",1,"49-3023.02","Automotive Specialty Technicians",100,1,1
-"768","49-3031",1,"49-3031.00","Bus and Truck Mechanics and Diesel Engine Specialists",100,1,1
-"769","49-3041",1,"49-3041.00","Farm Equipment Mechanics and Service Technicians",97.36,1,1
-"770","49-3042",1,"49-3042.00","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1,1
-"771","49-3043",1,"49-3043.00","Rail Car Repairers",99.99,1,1
-"772","49-3051",1,"49-3051.00","Motorboat Mechanics and Service Technicians",100,1,1
-"773","49-3052",1,"49-3052.00","Motorcycle Mechanics",100,1,1
-"774","49-3053",1,"49-3053.00","Outdoor Power Equipment and Other Small Engine Mechanics",100,1,1
-"775","49-3091",1,"49-3091.00","Bicycle Repairers",100,1,1
-"776","49-3092",1,"49-3092.00","Recreational Vehicle Service Technicians",97.91,1,1
-"777","49-3093",0,"49-3093.00","Tire Repairers and Changers",97.6,1,0
-"778","49-9011",1,"49-9011.00","Mechanical Door Repairers",100,1,1
-"779","49-9012",1,"49-9012.00","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1,1
-"780","49-9021",1,"49-9021.01","Heating and Air Conditioning Mechanics and Installers",93.31,1,1
-"781","49-9021",1,"49-9021.02","Refrigeration Mechanics and Installers",99.99,1,1
-"782","49-9031",0,"49-9031.00","Home Appliance Repairers",100.01,1,0
-"783","49-9041",1,"49-9041.00","Industrial Machinery Mechanics",88.29,1,1
-"784","49-9043",1,"49-9043.00","Maintenance Workers, Machinery",100,1,1
-"785","49-9044",1,"49-9044.00","Millwrights",100,1,1
-"786","49-9045",0,"49-9045.00","Refractory Materials Repairers, Except Brickmasons",100,1,0
-"787","49-9051",0,"49-9051.00","Electrical Power-Line Installers and Repairers",99.99,1,0
-"788","49-9052",1,"49-9052.00","Telecommunications Line Installers and Repairers",100,1,1
-"789","49-9061",1,"49-9061.00","Camera and Photographic Equipment Repairers",92.91,1,1
-"790","49-9062",1,"49-9062.00","Medical Equipment Repairers",91.51,1,1
-"791","49-9063",0,"49-9063.00","Musical Instrument Repairers and Tuners",96.42,1,0
-"792","49-9064",1,"49-9064.00","Watch Repairers",98.31,1,1
-"793","49-9071",1,"49-9071.00","Maintenance and Repair Workers, General",99.91,1,1
-"794","49-9081",1,"49-9081.00","Wind Turbine Service Technicians",98.44,1,1
-"795","49-9091",0,"49-9091.00","Coin, Vending, and Amusement Machine Servicers and Repairers",100,1,0
-"796","49-9092",1,"49-9092.00","Commercial Divers",94.97,1,1
-"797","49-9093",0,"49-9093.00","Fabric Menders, Except Garment",74.79,1,0
-"798","49-9094",1,"49-9094.00","Locksmiths and Safe Repairers",100,1,1
-"799","49-9095",1,"49-9095.00","Manufactured Building and Mobile Home Installers",100,1,1
-"800","49-9096",1,"49-9096.00","Riggers",99.67,1,1
-"801","49-9097",1,"49-9097.00","Signal and Track Switch Repairers",99.49,1,1
-"802","49-9098",0,"49-9098.00","Helpers--Installation, Maintenance, and Repair Workers",100,1,0
-"803","49-9099",1,"49-9099.01","Geothermal Technicians",97.13,1,1
-"804","51-1011",1,"51-1011.00","First-Line Supervisors of Production and Operating Workers",76.39,1,1
-"805","51-2011",0,"51-2011.00","Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",84.35,1,0
-"806","51-2021",0,"51-2021.00","Coil Winders, Tapers, and Finishers",99.99,1,0
-"807","51-2022",0,"51-2022.00","Electrical and Electronic Equipment Assemblers",100,1,0
-"808","51-2023",0,"51-2023.00","Electromechanical Equipment Assemblers",99.42,1,0
-"809","51-2031",1,"51-2031.00","Engine and Other Machine Assemblers",92.8,1,1
-"810","51-2041",1,"51-2041.00","Structural Metal Fabricators and Fitters",96.69,1,1
-"811","51-2091",0,"51-2091.00","Fiberglass Laminators and Fabricators",100.01,1,0
-"812","51-2092",0,"51-2092.00","Team Assemblers",100,1,0
-"813","51-2093",1,"51-2093.00","Timing Device Assemblers and Adjusters",95.84,1,1
-"814","51-3011",0,"51-3011.00","Bakers",100,1,0
-"815","51-3021",0,"51-3021.00","Butchers and Meat Cutters",100,1,0
-"816","51-3022",1,"51-3022.00","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1,1
-"817","51-3023",0,"51-3023.00","Slaughterers and Meat Packers",100,1,0
-"818","51-3091",0,"51-3091.00","Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",100,1,0
-"819","51-3092",0,"51-3092.00","Food Batchmakers",100,1,0
-"820","51-3093",0,"51-3093.00","Food Cooking Machine Operators and Tenders",100,1,0
-"821","51-4011",1,"51-4011.00","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1,1
-"822","51-4012",1,"51-4012.00","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1,1
-"823","51-4021",0,"51-4021.00","Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",99.55,1,0
-"824","51-4022",0,"51-4022.00","Forging Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0
-"825","51-4023",1,"51-4023.00","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,1
-"826","51-4031",0,"51-4031.00","Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0
-"827","51-4032",0,"51-4032.00","Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",91.28,1,0
-"828","51-4033",0,"51-4033.00","Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100.01,1,0
-"829","51-4034",0,"51-4034.00","Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",99.99,1,0
-"830","51-4035",0,"51-4035.00","Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",95.96,1,0
-"831","51-4041",1,"51-4041.00","Machinists",95.29,1,1
-"832","51-4051",0,"51-4051.00","Metal-Refining Furnace Operators and Tenders",100,1,0
-"833","51-4052",0,"51-4052.00","Pourers and Casters, Metal",98.73,1,0
-"834","51-4061",0,"51-4061.00","Model Makers, Metal and Plastic",100,1,0
-"835","51-4062",1,"51-4062.00","Patternmakers, Metal and Plastic",99.88,1,1
-"836","51-4071",0,"51-4071.00","Foundry Mold and Coremakers",98.51,1,0
-"837","51-4072",0,"51-4072.00","Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0
-"838","51-4081",1,"51-4081.00","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1,1
-"839","51-4111",1,"51-4111.00","Tool and Die Makers",97.37,1,1
-"840","51-4121",0,"51-4121.06","Welders, Cutters, and Welder Fitters",100.01,1,0
-"841","51-4121",0,"51-4121.07","Solderers and Brazers",99.36,1,0
-"842","51-4122",0,"51-4122.00","Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders",100,1,0
-"843","51-4191",0,"51-4191.00","Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",100,1,0
-"844","51-4192",1,"51-4192.00","Layout Workers, Metal and Plastic",100.01,1,1
-"845","51-4193",1,"51-4193.00","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1,1
-"846","51-4194",0,"51-4194.00","Tool Grinders, Filers, and Sharpeners",100.01,1,0
-"847","51-5111",1,"51-5111.00","Prepress Technicians and Workers",94.79,1,1
-"848","51-5112",0,"51-5112.00","Printing Press Operators",99.99,1,0
-"849","51-5113",0,"51-5113.00","Print Binding and Finishing Workers",100.01,1,0
-"850","51-6011",0,"51-6011.00","Laundry and Dry-Cleaning Workers",100,1,0
-"851","51-6021",0,"51-6021.00","Pressers, Textile, Garment, and Related Materials",85.85,1,0
-"852","51-6031",0,"51-6031.00","Sewing Machine Operators",99.99,1,0
-"853","51-6041",0,"51-6041.00","Shoe and Leather Workers and Repairers",98.14,1,0
-"854","51-6042",0,"51-6042.00","Shoe Machine Operators and Tenders",100,1,0
-"855","51-6051",0,"51-6051.00","Sewers, Hand",96.3,1,0
-"856","51-6052",0,"51-6052.00","Tailors, Dressmakers, and Custom Sewers",100,1,0
-"857","51-6061",0,"51-6061.00","Textile Bleaching and Dyeing Machine Operators and Tenders",83.44,1,0
-"858","51-6062",0,"51-6062.00","Textile Cutting Machine Setters, Operators, and Tenders",100,1,0
-"859","51-6063",0,"51-6063.00","Textile Knitting and Weaving Machine Setters, Operators, and Tenders",98.37,1,0
-"860","51-6064",1,"51-6064.00","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1,1
-"861","51-6091",0,"51-6091.00","Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers",100,1,0
-"862","51-6092",0,"51-6092.00","Fabric and Apparel Patternmakers",73.63,1,0
-"863","51-6093",0,"51-6093.00","Upholsterers",100,1,0
-"864","51-7011",0,"51-7011.00","Cabinetmakers and Bench Carpenters",100,1,0
-"865","51-7021",0,"51-7021.00","Furniture Finishers",100,1,0
-"866","51-7031",1,"51-7031.00","Model Makers, Wood",100,1,1
-"867","51-7032",1,"51-7032.00","Patternmakers, Wood",100,1,1
-"868","51-7041",0,"51-7041.00","Sawing Machine Setters, Operators, and Tenders, Wood",100,1,0
-"869","51-7042",0,"51-7042.00","Woodworking Machine Setters, Operators, and Tenders, Except Sawing",98.28,1,0
-"870","51-8011",1,"51-8011.00","Nuclear Power Reactor Operators",84.67,1,1
-"871","51-8012",0,"51-8012.00","Power Distributors and Dispatchers",99.99,1,0
-"872","51-8013",0,"51-8013.00","Power Plant Operators",99.63,1,0
-"873","51-8021",1,"51-8021.00","Stationary Engineers and Boiler Operators",100.01,1,1
-"874","51-8031",1,"51-8031.00","Water and Wastewater Treatment Plant and System Operators",99.49,1,1
-"875","51-8091",0,"51-8091.00","Chemical Plant and System Operators",63.22,1,0
-"876","51-8092",1,"51-8092.00","Gas Plant Operators",98.16,1,1
-"877","51-8093",0,"51-8093.00","Petroleum Pump System Operators, Refinery Operators, and Gaugers",100,1,0
-"878","51-8099",1,"51-8099.01","Biofuels Processing Technicians",100,1,1
-"879","51-8099",1,"51-8099.03","Biomass Plant Technicians",99.5,1,1
-"880","51-8099",1,"51-8099.04","Hydroelectric Plant Technicians",92.88,1,1
-"881","51-9011",1,"51-9011.00","Chemical Equipment Operators and Tenders",98.23,1,1
-"882","51-9012",0,"51-9012.00","Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",98.92,1,0
-"883","51-9021",1,"51-9021.00","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1,1
-"884","51-9022",0,"51-9022.00","Grinding and Polishing Workers, Hand",98.73,1,0
-"885","51-9023",0,"51-9023.00","Mixing and Blending Machine Setters, Operators, and Tenders",99.52,1,0
-"886","51-9031",0,"51-9031.00","Cutters and Trimmers, Hand",100,1,0
-"887","51-9032",0,"51-9032.00","Cutting and Slicing Machine Setters, Operators, and Tenders",99.7,1,0
-"888","51-9041",0,"51-9041.00","Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",96.1,1,0
-"889","51-9051",0,"51-9051.00","Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",98.16,1,0
-"890","51-9061",0,"51-9061.00","Inspectors, Testers, Sorters, Samplers, and Weighers",97.26,1,0
-"891","51-9071",0,"51-9071.01","Jewelers",95.83,1,0
-"892","51-9071",0,"51-9071.06","Gem and Diamond Workers",80.99,1,0
-"893","51-9071",0,"51-9071.07","Precious Metal Workers",99.99,1,0
-"894","51-9081",1,"51-9081.00","Dental Laboratory Technicians",92.85,1,1
-"895","51-9082",0,"51-9082.00","Medical Appliance Technicians",72.03,1,0
-"896","51-9083",0,"51-9083.00","Ophthalmic Laboratory Technicians",91.17,1,0
-"897","51-9111",0,"51-9111.00","Packaging and Filling Machine Operators and Tenders",100,1,0
-"898","51-9121",0,"51-9121.00","Coating, Painting, and Spraying Machine Setters, Operators, and Tenders",100,1,0
-"899","51-9122",0,"51-9122.00","Painters, Transportation Equipment",100,1,0
-"900","51-9123",0,"51-9123.00","Painting, Coating, and Decorating Workers",100,1,0
-"901","51-9141",0,"51-9141.00","Semiconductor Processors",99.68,1,0
-"902","51-9151",0,"51-9151.00","Photographic Process Workers and Processing Machine Operators",94.81,1,0
-"903","51-9191",0,"51-9191.00","Adhesive Bonding Machine Operators and Tenders",99.99,1,0
-"904","51-9192",0,"51-9192.00","Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",100.01,1,0
-"905","51-9193",0,"51-9193.00","Cooling and Freezing Equipment Operators and Tenders",100,1,0
-"906","51-9194",1,"51-9194.00","Etchers and Engravers",99.99,1,1
-"907","51-9195",0,"51-9195.03","Stone Cutters and Carvers, Manufacturing",99.03,1,0
-"908","51-9195",0,"51-9195.04","Glass Blowers, Molders, Benders, and Finishers",100.01,1,0
-"909","51-9195",0,"51-9195.05","Potters, Manufacturing",72.38,1,0
-"910","51-9195",0,"51-9195.07","Molding and Casting Workers",96.98,1,0
-"911","51-9196",0,"51-9196.00","Paper Goods Machine Setters, Operators, and Tenders",100.01,1,0
-"912","51-9197",0,"51-9197.00","Tire Builders",100,1,0
-"913","51-9198",0,"51-9198.00","Helpers--Production Workers",100,1,0
-"914","51-9199",1,"51-9199.01","Recycling and Reclamation Workers",91.99,1,1
-"915","53-1011",0,"53-1011.00","Aircraft Cargo Handling Supervisors",81.54,1,0
-"916","53-1021",0,"53-1021.00","First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand",84.83,1,0
-"917","53-1021",0,"53-1021.01","Recycling Coordinators",69.9,1,0
-"918","53-1031",0,"53-1031.00","First-Line Supervisors of Transportation and Material-Moving Machine and Vehicle Operators",94.06,1,0
-"919","53-2011",0,"53-2011.00","Airline Pilots, Copilots, and Flight Engineers",27.09,0,0
-"920","53-2012",0,"53-2012.00","Commercial Pilots",67.64,1,0
-"921","53-2021",0,"53-2021.00","Air Traffic Controllers",78.05,1,0
-"922","53-2022",0,"53-2022.00","Airfield Operations Specialists",55.58,1,0
-"923","53-2031",0,"53-2031.00","Flight Attendants",100,1,0
-"924","53-3011",0,"53-3011.00","Ambulance Drivers and Attendants, Except Emergency Medical Technicians",99.99,1,0
-"925","53-3021",0,"53-3021.00","Bus Drivers, Transit and Intercity",99.99,1,0
-"926","53-3022",0,"53-3022.00","Bus Drivers, School or Special Client",88,1,0
-"927","53-3031",0,"53-3031.00","Driver/Sales Workers",100,1,0
-"928","53-3032",0,"53-3032.00","Heavy and Tractor-Trailer Truck Drivers",94.53,1,0
-"929","53-3033",0,"53-3033.00","Light Truck or Delivery Services Drivers",100,1,0
-"930","53-3041",0,"53-3041.00","Taxi Drivers and Chauffeurs",94.31,1,0
-"931","53-4011",0,"53-4011.00","Locomotive Engineers",100,1,0
-"932","53-4012",0,"53-4012.00","Locomotive Firers",100,1,0
-"933","53-4013",0,"53-4013.00","Rail Yard Engineers, Dinkey Operators, and Hostlers",99.99,1,0
-"934","53-4021",0,"53-4021.00","Railroad Brake, Signal, and Switch Operators",100,1,0
-"935","53-4031",0,"53-4031.00","Railroad Conductors and Yardmasters",100,1,0
-"936","53-4041",0,"53-4041.00","Subway and Streetcar Operators",98.18,1,0
-"937","53-5011",0,"53-5011.00","Sailors and Marine Oilers",99.22,1,0
-"938","53-5021",0,"53-5021.01","Ship and Boat Captains",96.4,1,0
-"939","53-5021",0,"53-5021.02","Mates- Ship, Boat, and Barge",91.93,1,0
-"940","53-5021",0,"53-5021.03","Pilots, Ship",77.03,1,0
-"941","53-5022",0,"53-5022.00","Motorboat Operators",100,1,0
-"942","53-5031",1,"53-5031.00","Ship Engineers",98.85,1,1
-"943","53-6011",0,"53-6011.00","Bridge and Lock Tenders",100,1,0
-"944","53-6021",0,"53-6021.00","Parking Lot Attendants",99.04,1,0
-"945","53-6031",0,"53-6031.00","Automotive and Watercraft Service Attendants",100,1,0
-"946","53-6041",1,"53-6041.00","Traffic Technicians",88.33,1,1
-"947","53-6051",1,"53-6051.01","Aviation Inspectors",99.99,1,1
-"948","53-6051",1,"53-6051.07","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1,1
-"949","53-6051",1,"53-6051.08","Freight and Cargo Inspectors",44.86,1,1
-"950","53-6061",0,"53-6061.00","Transportation Attendants, Except Flight Attendants",100.01,1,0
-"951","53-7011",0,"53-7011.00","Conveyor Operators and Tenders",100,1,0
-"952","53-7021",0,"53-7021.00","Crane and Tower Operators",100,1,0
-"953","53-7031",1,"53-7031.00","Dredge Operators",100,1,1
-"954","53-7032",0,"53-7032.00","Excavating and Loading Machine and Dragline Operators",100,1,0
-"955","53-7033",1,"53-7033.00","Loading Machine Operators, Underground Mining",100,1,1
-"956","53-7041",0,"53-7041.00","Hoist and Winch Operators",100,1,0
-"957","53-7051",0,"53-7051.00","Industrial Truck and Tractor Operators",100.01,1,0
-"958","53-7061",0,"53-7061.00","Cleaners of Vehicles and Equipment",99.99,1,0
-"959","53-7062",0,"53-7062.00","Laborers and Freight, Stock, and Material Movers, Hand",100.01,1,0
-"960","53-7063",0,"53-7063.00","Machine Feeders and Offbearers",100,1,0
-"961","53-7064",0,"53-7064.00","Packers and Packagers, Hand",100,1,0
-"962","53-7071",1,"53-7071.00","Gas Compressor and Gas Pumping Station Operators",100,1,1
-"963","53-7072",1,"53-7072.00","Pump Operators, Except Wellhead Pumpers",100.01,1,1
-"964","53-7073",0,"53-7073.00","Wellhead Pumpers",100,1,0
-"965","53-7081",0,"53-7081.00","Refuse and Recyclable Material Collectors",97.79,1,0
-"966","53-7111",0,"53-7111.00","Mine Shuttle Car Operators",100,1,0
-"967","53-7121",0,"53-7121.00","Tank Car, Truck, and Ship Loaders",98.23,1,0
+"","2010 SOC Code","O*NET-SOC Code","Title","Percent No Bachelors","education_STW","knowledge_STW","rothwell_STW"
+"1","11-1011","11-1011.00","Chief Executives",10.28,0,0,0
+"2","11-1011","11-1011.03","Chief Sustainability Officers",3.85,0,0,0
+"3","11-1021","11-1021.00","General and Operations Managers",51.97,1,0,0
+"4","11-1031","11-1031.00",NA,NA,NA,NA,NA
+"5","11-2011","11-2011.00","Advertising and Promotions Managers",31.69,0,0,0
+"6","11-2011","11-2011.01",NA,NA,0,0,0
+"7","11-2021","11-2021.00","Marketing Managers",9.36,0,0,0
+"8","11-2022","11-2022.00","Sales Managers",17.39,0,0,0
+"9","11-2031","11-2031.00","Public Relations and Fundraising Managers",11.18,0,0,0
+"10","11-3011","11-3011.00","Administrative Services Managers",71.74,1,0,0
+"11","11-3021","11-3021.00","Computer and Information Systems Managers",35.15,0,1,0
+"12","11-3031","11-3031.00",NA,NA,0,1,0
+"13","11-3031","11-3031.01","Treasurers and Controllers",0,0,1,0
+"14","11-3031","11-3031.02","Financial Managers, Branch or Department",29.47,0,1,0
+"15","11-3051","11-3051.00","Industrial Production Managers",55.26,1,1,1
+"16","11-3051","11-3051.01","Quality Control Systems Managers",11.93,1,1,1
+"17","11-3051","11-3051.02","Geothermal Production Managers",80.39,1,1,1
+"18","11-3051","11-3051.03","Biofuels Production Managers",47.96,1,1,1
+"19","11-3051","11-3051.04","Biomass Power Plant Managers",35.38,1,1,1
+"20","11-3051","11-3051.05",NA,NA,1,1,1
+"21","11-3051","11-3051.06","Hydroelectric Production Managers",77.9,1,1,1
+"22","11-3061","11-3061.00","Purchasing Managers",10,0,0,0
+"23","11-3071","11-3071.00",NA,NA,0,0,0
+"24","11-3071","11-3071.01","Transportation Managers",59.21,0,0,0
+"25","11-3071","11-3071.02","Storage and Distribution Managers",45.83,0,0,0
+"26","11-3071","11-3071.03","Logistics Managers",13.33,0,0,0
+"27","11-3111","11-3111.00","Compensation and Benefits Managers",0,0,1,0
+"28","11-3121","11-3121.00","Human Resources Managers",4.35,0,0,0
+"29","11-3131","11-3131.00","Training and Development Managers",7.4,0,0,0
+"30","11-9013","11-9013.00",NA,NA,1,1,1
+"31","11-9013","11-9013.01","Nursery and Greenhouse Managers",55.32,1,1,1
+"32","11-9013","11-9013.02","Farm and Ranch Managers",62.27,1,1,1
+"33","11-9013","11-9013.03","Aquacultural Managers",52.63,1,1,1
+"34","11-9021","11-9021.00","Construction Managers",20,0,1,0
+"35","11-9031","11-9031.00","Education Administrators, Preschool and Childcare Center/Program",83.48,1,0,0
+"36","11-9032","11-9032.00","Education Administrators, Elementary and Secondary School",9.13,0,0,0
+"37","11-9033","11-9033.00","Education Administrators, Postsecondary",0,0,0,0
+"38","11-9039","11-9039.00",NA,NA,0,0,0
+"39","11-9039","11-9039.01","Distance Learning Coordinators",0,0,0,0
+"40","11-9039","11-9039.02","Fitness and Wellness Coordinators",0,0,0,0
+"41","11-9041","11-9041.00","Architectural and Engineering Managers",1.64,0,1,0
+"42","11-9041","11-9041.01","Biofuels/Biodiesel Technology and Product Development Managers",11.92,0,1,0
+"43","11-9051","11-9051.00","Food Service Managers",94.45,1,0,0
+"44","11-9061","11-9061.00","Funeral Service Managers",65.27,1,0,0
+"45","11-9071","11-9071.00","Gaming Managers",68.19,1,0,0
+"46","11-9081","11-9081.00","Lodging Managers",28.41,0,1,0
+"47","11-9111","11-9111.00","Medical and Health Services Managers",19.23,0,0,0
+"48","11-9121","11-9121.00","Natural Sciences Managers",0,0,0,0
+"49","11-9121","11-9121.01","Clinical Research Coordinators",24.74,0,0,0
+"50","11-9121","11-9121.02","Water Resource Specialists",0,0,0,0
+"51","11-9131","11-9131.00","Postmasters and Mail Superintendents",86.55,1,1,1
+"52","11-9141","11-9141.00","Property, Real Estate, and Community Association Managers",44,0,1,0
+"53","11-9151","11-9151.00","Social and Community Service Managers",17.58,0,0,0
+"54","11-9161","11-9161.00","Emergency Management Directors",24,0,0,0
+"55","11-9199","11-9199.00",NA,NA,0,0,0
+"56","11-9199","11-9199.01","Regulatory Affairs Managers",3.57,0,0,0
+"57","11-9199","11-9199.02","Compliance Managers",22.25,0,0,0
+"58","11-9199","11-9199.03","Investment Fund Managers",0,0,0,0
+"59","11-9199","11-9199.04","Supply Chain Managers",4.76,0,0,0
+"60","11-9199","11-9199.07","Security Managers",20,0,0,0
+"61","11-9199","11-9199.08","Loss Prevention Managers",40.91,0,0,0
+"62","11-9199","11-9199.09","Wind Energy Operations Managers",26.02,0,0,0
+"63","11-9199","11-9199.10","Wind Energy Project Managers",18.27,0,0,0
+"64","11-9199","11-9199.11","Brownfield Redevelopment Specialists and Site Managers",8,0,0,0
+"65","13-1011","13-1011.00","Agents and Business Managers of Artists, Performers, and Athletes",39.36,0,0,0
+"66","13-1021","13-1021.00","Buyers and Purchasing Agents, Farm Products",23.17,0,1,0
+"67","13-1022","13-1022.00","Wholesale and Retail Buyers, Except Farm Products",64.16,1,0,0
+"68","13-1023","13-1023.00","Purchasing Agents, Except Wholesale, Retail, and Farm Products",13.05,0,0,0
+"69","13-1031","13-1031.00",NA,NA,0,0,0
+"70","13-1031","13-1031.01","Claims Examiners, Property and Casualty Insurance",30.8,0,0,0
+"71","13-1031","13-1031.02","Insurance Adjusters, Examiners, and Investigators",33.27,0,0,0
+"72","13-1032","13-1032.00","Insurance Appraisers, Auto Damage",98.53,1,0,0
+"73","13-1041","13-1041.00",NA,NA,0,0,0
+"74","13-1041","13-1041.01","Environmental Compliance Inspectors",0,0,0,0
+"75","13-1041","13-1041.02","Licensing Examiners and Inspectors",56.22,0,0,0
+"76","13-1041","13-1041.03","Equal Opportunity Representatives and Officers",14.07,0,0,0
+"77","13-1041","13-1041.04","Government Property Inspectors and Investigators",60.66,0,0,0
+"78","13-1041","13-1041.06","Coroners",70.96,0,0,0
+"79","13-1041","13-1041.07","Regulatory Affairs Specialists",0,0,0,0
+"80","13-1051","13-1051.00","Cost Estimators",18.19,0,1,0
+"81","13-1071","13-1071.00","Human Resources Specialists",26.81,0,0,0
+"82","13-1074","13-1074.00","Farm Labor Contractors",99.87,1,0,0
+"83","13-1075","13-1075.00","Labor Relations Specialists",30,0,0,0
+"84","13-1081","13-1081.00","Logisticians",24.99,0,1,0
+"85","13-1081","13-1081.01","Logistics Engineers",22.73,0,1,0
+"86","13-1081","13-1081.02","Logistics Analysts",24,0,1,0
+"87","13-1111","13-1111.00","Management Analysts",0,0,0,0
+"88","13-1121","13-1121.00","Meeting, Convention, and Event Planners",59.2,1,0,0
+"89","13-1131","13-1131.00","Fundraisers",12.5,0,0,0
+"90","13-1141","13-1141.00","Compensation, Benefits, and Job Analysis Specialists",26.1,0,1,0
+"91","13-1151","13-1151.00","Training and Development Specialists",11.12,0,0,0
+"92","13-1161","13-1161.00","Market Research Analysts and Marketing Specialists",0,0,1,0
+"93","13-1199","13-1199.00",NA,NA,0,0,0
+"94","13-1199","13-1199.01","Energy Auditors",63.64,0,0,0
+"95","13-1199","13-1199.02","Security Management Specialists",26.92,0,0,0
+"96","13-1199","13-1199.03","Customs Brokers",80,0,0,0
+"97","13-1199","13-1199.04","Business Continuity Planners",22.73,0,0,0
+"98","13-1199","13-1199.05","Sustainability Specialists",7.14,0,0,0
+"99","13-1199","13-1199.06","Online Merchants",58.72,0,0,0
+"100","13-2011","13-2011.00",NA,NA,0,1,0
+"101","13-2011","13-2011.01","Accountants",53.56,0,1,0
+"102","13-2011","13-2011.02","Auditors",0,0,1,0
+"103","13-2021","13-2021.00",NA,NA,1,0,0
+"104","13-2021","13-2021.01","Assessors",94.54,1,0,0
+"105","13-2021","13-2021.02","Appraisers, Real Estate",40,1,0,0
+"106","13-2031","13-2031.00","Budget Analysts",23.97,0,1,0
+"107","13-2041","13-2041.00","Credit Analysts",46.68,0,0,0
+"108","13-2051","13-2051.00","Financial Analysts",2.42,0,1,0
+"109","13-2052","13-2052.00","Personal Financial Advisors",7.14,0,1,0
+"110","13-2053","13-2053.00","Insurance Underwriters",26.67,0,0,0
+"111","13-2061","13-2061.00","Financial Examiners",4,0,1,0
+"112","13-2071","13-2071.00","Credit Counselors",58.05,1,0,0
+"113","13-2071","13-2071.01","Loan Counselors",74.29,1,0,0
+"114","13-2072","13-2072.00","Loan Officers",66.03,1,0,0
+"115","13-2081","13-2081.00","Tax Examiners and Collectors, and Revenue Agents",50.82,1,1,1
+"116","13-2082","13-2082.00","Tax Preparers",70,1,0,0
+"117","13-2099","13-2099.00",NA,NA,0,1,0
+"118","13-2099","13-2099.01","Financial Quantitative Analysts",0,0,1,0
+"119","13-2099","13-2099.02","Risk Management Specialists",0,0,1,0
+"120","13-2099","13-2099.03",NA,NA,0,1,0
+"121","13-2099","13-2099.04","Fraud Examiners, Investigators and Analysts",4,0,1,0
+"122","15-1111","15-1111.00","Computer and Information Research Scientists",8.35,0,1,0
+"123","15-1121","15-1121.00","Computer Systems Analysts",41.19,0,1,0
+"124","15-1121","15-1121.01","Informatics Nurse Specialists",4.55,0,1,0
+"125","15-1122","15-1122.00","Information Security Analysts",22.04,0,1,0
+"126","15-1131","15-1131.00","Computer Programmers",11.51,0,1,0
+"127","15-1132","15-1132.00","Software Developers, Applications",4.64,0,1,0
+"128","15-1133","15-1133.00","Software Developers, Systems Software",4.79,0,1,0
+"129","15-1134","15-1134.00","Web Developers",50.01,1,1,1
+"130","15-1141","15-1141.00","Database Administrators",7.95,0,1,0
+"131","15-1142","15-1142.00","Network and Computer Systems Administrators",37.51,0,1,0
+"132","15-1143","15-1143.00","Computer Network Architects",9.1,0,1,0
+"133","15-1143","15-1143.01","Telecommunications Engineering Specialists",52.18,0,1,0
+"134","15-1151","15-1151.00","Computer User Support Specialists",66.79,1,1,1
+"135","15-1152","15-1152.00","Computer Network Support Specialists",49.7,0,1,0
+"136","15-1199","15-1199.00",NA,NA,0,1,0
+"137","15-1199","15-1199.01","Software Quality Assurance Engineers and Testers",25.92,0,1,0
+"138","15-1199","15-1199.02","Computer Systems Engineers/Architects",13.33,0,1,0
+"139","15-1199","15-1199.03","Web Administrators",40,0,1,0
+"140","15-1199","15-1199.04","Geospatial Information Scientists and Technologists",0,0,1,0
+"141","15-1199","15-1199.05","Geographic Information Systems Technicians",5.51,0,1,0
+"142","15-1199","15-1199.06","Database Architects",4.17,0,1,0
+"143","15-1199","15-1199.07","Data Warehousing Specialists",17.4,0,1,0
+"144","15-1199","15-1199.08","Business Intelligence Analysts",4.17,0,1,0
+"145","15-1199","15-1199.09","Information Technology Project Managers",33.33,0,1,0
+"146","15-1199","15-1199.10","Search Marketing Strategists",21.74,0,1,0
+"147","15-1199","15-1199.11","Video Game Designers",38.09,0,1,0
+"148","15-1199","15-1199.12","Document Management Specialists",44,0,1,0
+"149","15-2011","15-2011.00","Actuaries",0,0,1,0
+"150","15-2021","15-2021.00","Mathematicians",0,0,1,0
+"151","15-2031","15-2031.00","Operations Research Analysts",0,0,1,0
+"152","15-2041","15-2041.00","Statisticians",0,0,1,0
+"153","15-2041","15-2041.01","Biostatisticians",0,0,1,0
+"154","15-2041","15-2041.02","Clinical Data Managers",5,0,1,0
+"155","15-2091","15-2091.00",NA,NA,NA,1,NA
+"156","15-2099","15-2099.00",NA,NA,NA,NA,NA
+"157","17-1011","17-1011.00","Architects, Except Landscape and Naval",0,0,1,0
+"158","17-1012","17-1012.00","Landscape Architects",3.57,0,1,0
+"159","17-1021","17-1021.00","Cartographers and Photogrammetrists",57.51,1,1,1
+"160","17-1022","17-1022.00","Surveyors",58.07,0,1,0
+"161","17-1022","17-1022.01","Geodetic Surveyors",20,0,1,0
+"162","17-2011","17-2011.00","Aerospace Engineers",7.61,0,1,0
+"163","17-2021","17-2021.00","Agricultural Engineers",0,0,1,0
+"164","17-2031","17-2031.00","Biomedical Engineers",0,0,1,0
+"165","17-2041","17-2041.00","Chemical Engineers",0,0,1,0
+"166","17-2051","17-2051.00","Civil Engineers",0,0,1,0
+"167","17-2051","17-2051.01","Transportation Engineers",0,0,1,0
+"168","17-2061","17-2061.00","Computer Hardware Engineers",0,0,1,0
+"169","17-2071","17-2071.00","Electrical Engineers",4.85,0,1,0
+"170","17-2072","17-2072.00","Electronics Engineers, Except Computer",32,0,1,0
+"171","17-2072","17-2072.01","Radio Frequency Identification Device Specialists",15.72,0,1,0
+"172","17-2081","17-2081.00","Environmental Engineers",0,0,1,0
+"173","17-2081","17-2081.01","Water/Wastewater Engineers",0,0,1,0
+"174","17-2111","17-2111.00",NA,NA,0,1,0
+"175","17-2111","17-2111.01","Industrial Safety and Health Engineers",35.49,0,1,0
+"176","17-2111","17-2111.02","Fire-Prevention and Protection Engineers",3.45,0,1,0
+"177","17-2111","17-2111.03","Product Safety Engineers",8.7,0,1,0
+"178","17-2112","17-2112.00","Industrial Engineers",30.8,0,1,0
+"179","17-2112","17-2112.01","Human Factors Engineers and Ergonomists",0,0,1,0
+"180","17-2121","17-2121.00",NA,NA,0,1,0
+"181","17-2121","17-2121.01","Marine Engineers",13.05,0,1,0
+"182","17-2121","17-2121.02","Marine Architects",28.59,0,1,0
+"183","17-2131","17-2131.00","Materials Engineers",2.56,0,1,0
+"184","17-2141","17-2141.00","Mechanical Engineers",12.05,0,1,0
+"185","17-2141","17-2141.01","Fuel Cell Engineers",0,0,1,0
+"186","17-2141","17-2141.02","Automotive Engineers",0,0,1,0
+"187","17-2151","17-2151.00","Mining and Geological Engineers, Including Mining Safety Engineers",1.28,0,1,0
+"188","17-2161","17-2161.00","Nuclear Engineers",3.7,0,1,0
+"189","17-2171","17-2171.00","Petroleum Engineers",0,0,1,0
+"190","17-2199","17-2199.00",NA,NA,0,1,0
+"191","17-2199","17-2199.01","Biochemical Engineers",4,0,1,0
+"192","17-2199","17-2199.02","Validation Engineers",5,0,1,0
+"193","17-2199","17-2199.03","Energy Engineers",13.64,0,1,0
+"194","17-2199","17-2199.04","Manufacturing Engineers",20,0,1,0
+"195","17-2199","17-2199.05","Mechatronics Engineers",8,0,1,0
+"196","17-2199","17-2199.06","Microsystems Engineers",0.3,0,1,0
+"197","17-2199","17-2199.07","Photonics Engineers",4.76,0,1,0
+"198","17-2199","17-2199.08","Robotics Engineers",20,0,1,0
+"199","17-2199","17-2199.09","Nanosystems Engineers",0,0,1,0
+"200","17-2199","17-2199.10","Wind Energy Engineers",5.53,0,1,0
+"201","17-2199","17-2199.11","Solar Energy Systems Engineers",18.2,0,1,0
+"202","17-3011","17-3011.00",NA,NA,1,1,1
+"203","17-3011","17-3011.01","Architectural Drafters",19.58,1,1,1
+"204","17-3011","17-3011.02","Civil Drafters",80.96,1,1,1
+"205","17-3012","17-3012.00",NA,NA,1,1,1
+"206","17-3012","17-3012.01","Electronic Drafters",91.37,1,1,1
+"207","17-3012","17-3012.02","Electrical Drafters",76.44,1,1,1
+"208","17-3013","17-3013.00","Mechanical Drafters",76.71,1,1,1
+"209","17-3019","17-3019.00",NA,NA,NA,NA,NA
+"210","17-3021","17-3021.00","Aerospace Engineering and Operations Technicians",92.08,1,1,1
+"211","17-3022","17-3022.00","Civil Engineering Technicians",81.66,1,1,1
+"212","17-3023","17-3023.00",NA,NA,1,1,1
+"213","17-3023","17-3023.01","Electronics Engineering Technicians",88.31,1,1,1
+"214","17-3023","17-3023.03","Electrical Engineering Technicians",85.16,1,1,1
+"215","17-3024","17-3024.00","Electro-Mechanical Technicians",96.78,1,1,1
+"216","17-3024","17-3024.01","Robotics Technicians",77.27,1,1,1
+"217","17-3025","17-3025.00","Environmental Engineering Technicians",27.08,0,1,0
+"218","17-3026","17-3026.00","Industrial Engineering Technicians",85.35,1,1,1
+"219","17-3027","17-3027.00","Mechanical Engineering Technicians",49.08,1,1,1
+"220","17-3027","17-3027.01","Automotive Engineering Technicians",59.25,1,1,1
+"221","17-3029","17-3029.00",NA,NA,1,1,1
+"222","17-3029","17-3029.01","Non-Destructive Testing Specialists",85,1,1,1
+"223","17-3029","17-3029.02","Electrical Engineering Technologists",36.2,1,1,1
+"224","17-3029","17-3029.03","Electromechanical Engineering Technologists",41.86,1,1,1
+"225","17-3029","17-3029.04","Electronics Engineering Technologists",78.12,1,1,1
+"226","17-3029","17-3029.05","Industrial Engineering Technologists",31.95,1,1,1
+"227","17-3029","17-3029.06","Manufacturing Engineering Technologists",54.55,1,1,1
+"228","17-3029","17-3029.07","Mechanical Engineering Technologists",51.45,1,1,1
+"229","17-3029","17-3029.08","Photonics Technicians",72,1,1,1
+"230","17-3029","17-3029.09","Manufacturing Production Technicians",82.62,1,1,1
+"231","17-3029","17-3029.10",NA,NA,1,1,1
+"232","17-3029","17-3029.11","Nanotechnology Engineering Technologists",4.55,1,1,1
+"233","17-3029","17-3029.12","Nanotechnology Engineering Technicians",50.01,1,1,1
+"234","17-3031","17-3031.00",NA,NA,1,1,1
+"235","17-3031","17-3031.01","Surveying Technicians",95.83,1,1,1
+"236","17-3031","17-3031.02","Mapping Technicians",46.62,1,1,1
+"237","19-1011","19-1011.00","Animal Scientists",0,0,1,0
+"238","19-1012","19-1012.00","Food Scientists and Technologists",0,0,1,0
+"239","19-1013","19-1013.00","Soil and Plant Scientists",0,0,1,0
+"240","19-1020","19-1020.01","Biologists",0,0,1,0
+"241","19-1021","19-1021.00","Biochemists and Biophysicists",0,0,1,0
+"242","19-1022","19-1022.00","Microbiologists",4.35,0,1,0
+"243","19-1023","19-1023.00","Zoologists and Wildlife Biologists",0.99,0,1,0
+"244","19-1029","19-1029.00",NA,NA,0,1,0
+"245","19-1029","19-1029.01","Bioinformatics Scientists",0,0,1,0
+"246","19-1029","19-1029.02","Molecular and Cellular Biologists",4.35,0,1,0
+"247","19-1029","19-1029.03","Geneticists",0,0,1,0
+"248","19-1031","19-1031.00",NA,NA,0,0,0
+"249","19-1031","19-1031.01","Soil and Water Conservationists",23.81,0,0,0
+"250","19-1031","19-1031.02","Range Managers",16.44,0,0,0
+"251","19-1031","19-1031.03","Park Naturalists",0,0,0,0
+"252","19-1032","19-1032.00","Foresters",18.47,0,0,0
+"253","19-1041","19-1041.00","Epidemiologists",0,0,1,0
+"254","19-1042","19-1042.00","Medical Scientists, Except Epidemiologists",0,0,1,0
+"255","19-1099","19-1099.00",NA,NA,NA,NA,NA
+"256","19-2011","19-2011.00","Astronomers",0,0,1,0
+"257","19-2012","19-2012.00","Physicists",6.45,0,1,0
+"258","19-2021","19-2021.00","Atmospheric and Space Scientists",5,0,1,0
+"259","19-2031","19-2031.00","Chemists",4.38,0,1,0
+"260","19-2032","19-2032.00","Materials Scientists",4.16,0,1,0
+"261","19-2041","19-2041.00","Environmental Scientists and Specialists, Including Health",1.37,0,1,0
+"262","19-2041","19-2041.01","Climate Change Analysts",0,0,1,0
+"263","19-2041","19-2041.02","Environmental Restoration Planners",0,0,1,0
+"264","19-2041","19-2041.03","Industrial Ecologists",0,0,1,0
+"265","19-2042","19-2042.00","Geoscientists, Except Hydrologists and Geographers",0,0,1,0
+"266","19-2043","19-2043.00","Hydrologists",0,0,1,0
+"267","19-2099","19-2099.00",NA,NA,0,1,0
+"268","19-2099","19-2099.01","Remote Sensing Scientists and Technologists",3.57,0,1,0
+"269","19-3011","19-3011.00","Economists",0,0,1,0
+"270","19-3011","19-3011.01","Environmental Economists",0,0,1,0
+"271","19-3022","19-3022.00","Survey Researchers",0,0,1,0
+"272","19-3031","19-3031.00",NA,NA,0,0,0
+"273","19-3031","19-3031.01","School Psychologists",0,0,0,0
+"274","19-3031","19-3031.02","Clinical Psychologists",0,0,0,0
+"275","19-3031","19-3031.03","Counseling Psychologists",0,0,0,0
+"276","19-3032","19-3032.00","Industrial-Organizational Psychologists",0,0,1,0
+"277","19-3039","19-3039.00",NA,NA,0,1,0
+"278","19-3039","19-3039.01","Neuropsychologists and Clinical Neuropsychologists",0,0,1,0
+"279","19-3041","19-3041.00","Sociologists",0,0,1,0
+"280","19-3051","19-3051.00","Urban and Regional Planners",0,0,0,0
+"281","19-3091","19-3091.00",NA,NA,0,0,0
+"282","19-3091","19-3091.01","Anthropologists",0,0,0,0
+"283","19-3091","19-3091.02","Archeologists",0,0,0,0
+"284","19-3092","19-3092.00","Geographers",0,0,1,0
+"285","19-3093","19-3093.00","Historians",52.05,1,0,0
+"286","19-3094","19-3094.00","Political Scientists",0,0,1,0
+"287","19-3099","19-3099.00",NA,NA,0,1,0
+"288","19-3099","19-3099.01","Transportation Planners",0,0,1,0
+"289","19-4011","19-4011.00",NA,NA,0,0,0
+"290","19-4011","19-4011.01","Agricultural Technicians",20.5,0,0,0
+"291","19-4011","19-4011.02","Food Science Technicians",68.78,0,0,0
+"292","19-4021","19-4021.00","Biological Technicians",3.79,0,1,0
+"293","19-4031","19-4031.00","Chemical Technicians",74.23,1,1,1
+"294","19-4041","19-4041.00",NA,NA,0,1,0
+"295","19-4041","19-4041.01","Geophysical Data Technicians",42.57,0,1,0
+"296","19-4041","19-4041.02","Geological Sample Test Technicians",19.04,0,1,0
+"297","19-4051","19-4051.00",NA,NA,1,0,0
+"298","19-4051","19-4051.01","Nuclear Equipment Operation Technicians",93.57,1,0,0
+"299","19-4051","19-4051.02","Nuclear Monitoring Technicians",84.15,1,0,0
+"300","19-4061","19-4061.00","Social Science Research Assistants",8.61,0,0,0
+"301","19-4061","19-4061.01","City and Regional Planning Aides",15,0,0,0
+"302","19-4091","19-4091.00","Environmental Science and Protection Technicians, Including Health",18.19,0,1,0
+"303","19-4092","19-4092.00","Forensic Science Technicians",60.54,1,0,0
+"304","19-4093","19-4093.00","Forest and Conservation Technicians",85.19,1,0,0
+"305","19-4099","19-4099.00",NA,NA,0,1,0
+"306","19-4099","19-4099.01","Quality Control Analysts",56.09,0,1,0
+"307","19-4099","19-4099.02","Precision Agriculture Technicians",25.92,0,1,0
+"308","19-4099","19-4099.03","Remote Sensing Technicians",29.23,0,1,0
+"309","21-1011","21-1011.00","Substance Abuse and Behavioral Disorder Counselors",24.23,0,0,0
+"310","21-1012","21-1012.00","Educational, Guidance, School, and Vocational Counselors",6.27,0,0,0
+"311","21-1013","21-1013.00","Marriage and Family Therapists",0,0,0,0
+"312","21-1014","21-1014.00","Mental Health Counselors",1.48,0,0,0
+"313","21-1015","21-1015.00","Rehabilitation Counselors",23.34,0,0,0
+"314","21-1019","21-1019.00",NA,NA,NA,NA,NA
+"315","21-1021","21-1021.00","Child, Family, and School Social Workers",5.51,0,0,0
+"316","21-1022","21-1022.00","Healthcare Social Workers",0,0,0,0
+"317","21-1023","21-1023.00","Mental Health and Substance Abuse Social Workers",10.9,0,0,0
+"318","21-1029","21-1029.00",NA,NA,NA,NA,NA
+"319","21-1091","21-1091.00","Health Educators",64.77,1,0,0
+"320","21-1092","21-1092.00","Probation Officers and Correctional Treatment Specialists",7.1,0,0,0
+"321","21-1093","21-1093.00","Social and Human Service Assistants",41.75,0,0,0
+"322","21-1094","21-1094.00","Community Health Workers",32.83,0,0,0
+"323","21-1099","21-1099.00",NA,NA,NA,NA,NA
+"324","21-2011","21-2011.00","Clergy",1.22,0,0,0
+"325","21-2021","21-2021.00","Directors, Religious Activities and Education",6.31,0,0,0
+"326","21-2099","21-2099.00",NA,NA,NA,NA,NA
+"327","23-1011","23-1011.00","Lawyers",0,0,0,0
+"328","23-1012","23-1012.00","Judicial Law Clerks",14,0,0,0
+"329","23-1021","23-1021.00","Administrative Law Judges, Adjudicators, and Hearing Officers",19.86,0,0,0
+"330","23-1022","23-1022.00","Arbitrators, Mediators, and Conciliators",20,0,0,0
+"331","23-1023","23-1023.00","Judges, Magistrate Judges, and Magistrates",22.94,0,0,0
+"332","23-2011","23-2011.00","Paralegals and Legal Assistants",60.9,1,0,0
+"333","23-2091","23-2091.00","Court Reporters",90.87,1,1,1
+"334","23-2093","23-2093.00","Title Examiners, Abstractors, and Searchers",86.6,1,0,0
+"335","23-2099","23-2099.00",NA,NA,NA,NA,NA
+"336","25-1011","25-1011.00","Business Teachers, Postsecondary",0,0,1,0
+"337","25-1021","25-1021.00","Computer Science Teachers, Postsecondary",0,0,1,0
+"338","25-1022","25-1022.00","Mathematical Science Teachers, Postsecondary",0,0,1,0
+"339","25-1031","25-1031.00","Architecture Teachers, Postsecondary",9.32,0,1,0
+"340","25-1032","25-1032.00","Engineering Teachers, Postsecondary",0,0,1,0
+"341","25-1041","25-1041.00","Agricultural Sciences Teachers, Postsecondary",1.4,0,1,0
+"342","25-1042","25-1042.00","Biological Science Teachers, Postsecondary",1.27,0,1,0
+"343","25-1043","25-1043.00","Forestry and Conservation Science Teachers, Postsecondary",0,0,1,0
+"344","25-1051","25-1051.00","Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",0,0,1,0
+"345","25-1052","25-1052.00","Chemistry Teachers, Postsecondary",0.3,0,1,0
+"346","25-1053","25-1053.00","Environmental Science Teachers, Postsecondary",0,0,1,0
+"347","25-1054","25-1054.00","Physics Teachers, Postsecondary",0,0,1,0
+"348","25-1061","25-1061.00","Anthropology and Archeology Teachers, Postsecondary",0,0,0,0
+"349","25-1062","25-1062.00","Area, Ethnic, and Cultural Studies Teachers, Postsecondary",0.17,0,0,0
+"350","25-1063","25-1063.00","Economics Teachers, Postsecondary",0,0,1,0
+"351","25-1064","25-1064.00","Geography Teachers, Postsecondary",0,0,0,0
+"352","25-1065","25-1065.00","Political Science Teachers, Postsecondary",0,0,0,0
+"353","25-1066","25-1066.00","Psychology Teachers, Postsecondary",0,0,1,0
+"354","25-1067","25-1067.00","Sociology Teachers, Postsecondary",0,0,1,0
+"355","25-1069","25-1069.00",NA,NA,NA,NA,NA
+"356","25-1071","25-1071.00","Health Specialties Teachers, Postsecondary",7.53,0,1,0
+"357","25-1072","25-1072.00","Nursing Instructors and Teachers, Postsecondary",0,0,1,0
+"358","25-1081","25-1081.00","Education Teachers, Postsecondary",0,0,0,0
+"359","25-1082","25-1082.00","Library Science Teachers, Postsecondary",0.93,0,1,0
+"360","25-1111","25-1111.00","Criminal Justice and Law Enforcement Teachers, Postsecondary",20.93,0,1,0
+"361","25-1112","25-1112.00","Law Teachers, Postsecondary",1.07,0,0,0
+"362","25-1113","25-1113.00","Social Work Teachers, Postsecondary",0,0,1,0
+"363","25-1121","25-1121.00","Art, Drama, and Music Teachers, Postsecondary",1.44,0,0,0
+"364","25-1122","25-1122.00","Communications Teachers, Postsecondary",0,0,0,0
+"365","25-1123","25-1123.00","English Language and Literature Teachers, Postsecondary",9.61,0,0,0
+"366","25-1124","25-1124.00","Foreign Language and Literature Teachers, Postsecondary",0,0,0,0
+"367","25-1125","25-1125.00","History Teachers, Postsecondary",0,0,0,0
+"368","25-1126","25-1126.00","Philosophy and Religion Teachers, Postsecondary",0,0,0,0
+"369","25-1191","25-1191.00","Graduate Teaching Assistants",1.48,0,0,0
+"370","25-1192","25-1192.00","Home Economics Teachers, Postsecondary",2.86,0,0,0
+"371","25-1193","25-1193.00","Recreation and Fitness Studies Teachers, Postsecondary",0,0,1,0
+"372","25-1194","25-1194.00","Vocational Education Teachers, Postsecondary",67.55,1,0,0
+"373","25-1199","25-1199.00",NA,NA,NA,NA,NA
+"374","25-2011","25-2011.00","Preschool Teachers, Except Special Education",62.81,1,0,0
+"375","25-2012","25-2012.00","Kindergarten Teachers, Except Special Education",0,0,0,0
+"376","25-2021","25-2021.00","Elementary School Teachers, Except Special Education",3.03,0,0,0
+"377","25-2022","25-2022.00","Middle School Teachers, Except Special and Career/Technical Education",7.86,0,0,0
+"378","25-2023","25-2023.00","Career/Technical Education Teachers, Middle School",0.56,0,0,0
+"379","25-2031","25-2031.00","Secondary School Teachers, Except Special and Career/Technical Education",0,0,0,0
+"380","25-2032","25-2032.00","Career/Technical Education Teachers, Secondary School",15.41,0,1,0
+"381","25-2051","25-2051.00","Special Education Teachers, Preschool",4.44,0,0,0
+"382","25-2052","25-2052.00","Special Education Teachers, Kindergarten and Elementary School",0.96,0,0,0
+"383","25-2053","25-2053.00","Special Education Teachers, Middle School",0,0,0,0
+"384","25-2054","25-2054.00","Special Education Teachers, Secondary School",0.73,0,0,0
+"385","25-2059","25-2059.00",NA,NA,0,0,0
+"386","25-2059","25-2059.01","Adapted Physical Education Specialists",0,0,0,0
+"387","25-3011","25-3011.00","Adult Basic and Secondary Education and Literacy Teachers and Instructors",26.04,0,0,0
+"388","25-3021","25-3021.00","Self-Enrichment Education Teachers",45.76,0,0,0
+"389","25-3099","25-3099.00",NA,NA,0,1,0
+"390","25-3099","25-3099.02","Tutors",30.77,0,1,0
+"391","25-4011","25-4011.00","Archivists",0,0,1,0
+"392","25-4012","25-4012.00","Curators",4.85,0,0,0
+"393","25-4013","25-4013.00","Museum Technicians and Conservators",28.79,0,0,0
+"394","25-4021","25-4021.00","Librarians",10.46,0,1,0
+"395","25-4031","25-4031.00","Library Technicians",68.58,1,0,0
+"396","25-9011","25-9011.00","Audio-Visual and Multimedia Collections Specialists",37.53,0,1,0
+"397","25-9021","25-9021.00","Farm and Home Management Advisors",0,0,0,0
+"398","25-9031","25-9031.00","Instructional Coordinators",0,0,1,0
+"399","25-9031","25-9031.01","Instructional Designers and Technologists",4.35,0,1,0
+"400","25-9041","25-9041.00","Teacher Assistants",94.96,1,0,0
+"401","25-9099","25-9099.00",NA,NA,NA,NA,NA
+"402","27-1011","27-1011.00","Art Directors",9.33,0,1,0
+"403","27-1012","27-1012.00","Craft Artists",72,1,0,0
+"404","27-1013","27-1013.00","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1,1,1
+"405","27-1014","27-1014.00","Multimedia Artists and Animators",46.91,0,1,0
+"406","27-1019","27-1019.00",NA,NA,NA,NA,NA
+"407","27-1021","27-1021.00","Commercial and Industrial Designers",32.08,0,1,0
+"408","27-1022","27-1022.00","Fashion Designers",67.12,1,0,0
+"409","27-1023","27-1023.00","Floral Designers",92.09,1,0,0
+"410","27-1024","27-1024.00","Graphic Designers",34.61,0,1,0
+"411","27-1025","27-1025.00","Interior Designers",9.52,0,1,0
+"412","27-1026","27-1026.00","Merchandise Displayers and Window Trimmers",82.36,1,0,0
+"413","27-1027","27-1027.00","Set and Exhibit Designers",8.7,0,1,0
+"414","27-1029","27-1029.00",NA,NA,NA,NA,NA
+"415","27-2011","27-2011.00","Actors",65.47,1,0,0
+"416","27-2012","27-2012.00",NA,NA,0,0,0
+"417","27-2012","27-2012.01","Producers",31.94,0,0,0
+"418","27-2012","27-2012.02","Directors- Stage, Motion Pictures, Television, and Radio",50.76,0,0,0
+"419","27-2012","27-2012.03","Program Directors",35.27,0,0,0
+"420","27-2012","27-2012.04","Talent Directors",30.75,0,0,0
+"421","27-2012","27-2012.05","Technical Directors/Managers",7.51,0,0,0
+"422","27-2021","27-2021.00","Athletes and Sports Competitors",75.54,1,0,0
+"423","27-2022","27-2022.00","Coaches and Scouts",29.92,0,0,0
+"424","27-2023","27-2023.00","Umpires, Referees, and Other Sports Officials",90.33,1,0,0
+"425","27-2031","27-2031.00","Dancers",100.01,1,0,0
+"426","27-2032","27-2032.00","Choreographers",50,0,0,0
+"427","27-2041","27-2041.00",NA,NA,0,0,0
+"428","27-2041","27-2041.01","Music Directors",8.21,0,0,0
+"429","27-2041","27-2041.04","Music Composers and Arrangers",61.68,0,0,0
+"430","27-2042","27-2042.00",NA,NA,0,0,0
+"431","27-2042","27-2042.01","Singers",58.87,0,0,0
+"432","27-2042","27-2042.02","Musicians, Instrumental",22.62,0,0,0
+"433","27-2099","27-2099.00",NA,NA,NA,NA,NA
+"434","27-3011","27-3011.00","Radio and Television Announcers",37.14,0,1,0
+"435","27-3012","27-3012.00","Public Address System and Other Announcers",94.26,1,0,0
+"436","27-3021","27-3021.00","Broadcast News Analysts",29.44,0,0,0
+"437","27-3022","27-3022.00","Reporters and Correspondents",9.1,0,0,0
+"438","27-3031","27-3031.00","Public Relations Specialists",0,0,0,0
+"439","27-3041","27-3041.00","Editors",0,0,0,0
+"440","27-3042","27-3042.00","Technical Writers",58.04,1,1,1
+"441","27-3043","27-3043.00",NA,NA,0,0,0
+"442","27-3043","27-3043.04","Copy Writers",26.26,0,0,0
+"443","27-3043","27-3043.05","Poets, Lyricists and Creative Writers",42.3,0,0,0
+"444","27-3091","27-3091.00","Interpreters and Translators",13.53,0,0,0
+"445","27-3099","27-3099.00",NA,NA,NA,NA,NA
+"446","27-4011","27-4011.00","Audio and Video Equipment Technicians",57.32,1,1,1
+"447","27-4012","27-4012.00","Broadcast Technicians",97.61,1,1,1
+"448","27-4013","27-4013.00","Radio Operators",95.7,1,0,0
+"449","27-4014","27-4014.00","Sound Engineering Technicians",93.76,1,1,1
+"450","27-4021","27-4021.00","Photographers",84,1,1,1
+"451","27-4031","27-4031.00","Camera Operators, Television, Video, and Motion Picture",93.1,1,0,0
+"452","27-4032","27-4032.00","Film and Video Editors",50.19,1,1,1
+"453","27-4099","27-4099.00",NA,NA,NA,NA,NA
+"454","29-1011","29-1011.00","Chiropractors",10.33,0,0,0
+"455","29-1021","29-1021.00","Dentists, General",12.79,0,1,0
+"456","29-1022","29-1022.00","Oral and Maxillofacial Surgeons",0,0,1,0
+"457","29-1023","29-1023.00","Orthodontists",0.06,0,1,0
+"458","29-1024","29-1024.00","Prosthodontists",0,0,1,0
+"459","29-1029","29-1029.00",NA,NA,NA,NA,NA
+"460","29-1031","29-1031.00","Dietitians and Nutritionists",0,0,0,0
+"461","29-1041","29-1041.00","Optometrists",0,0,1,0
+"462","29-1051","29-1051.00","Pharmacists",0,0,1,0
+"463","29-1061","29-1061.00","Anesthesiologists",0,0,1,0
+"464","29-1062","29-1062.00","Family and General Practitioners",0,0,1,0
+"465","29-1063","29-1063.00","Internists, General",0,0,1,0
+"466","29-1064","29-1064.00","Obstetricians and Gynecologists",0,0,1,0
+"467","29-1065","29-1065.00","Pediatricians, General",9.07,0,1,0
+"468","29-1066","29-1066.00","Psychiatrists",0.47,0,1,0
+"469","29-1067","29-1067.00","Surgeons",0,0,1,0
+"470","29-1069","29-1069.00",NA,NA,0,1,0
+"471","29-1069","29-1069.01","Allergists and Immunologists",0,0,1,0
+"472","29-1069","29-1069.02","Dermatologists",0,0,1,0
+"473","29-1069","29-1069.03","Hospitalists",0,0,1,0
+"474","29-1069","29-1069.04","Neurologists",2.4,0,1,0
+"475","29-1069","29-1069.05","Nuclear Medicine Physicians",4.35,0,1,0
+"476","29-1069","29-1069.06","Ophthalmologists",3.92,0,1,0
+"477","29-1069","29-1069.07","Pathologists",0,0,1,0
+"478","29-1069","29-1069.08","Physical Medicine and Rehabilitation Physicians",0,0,1,0
+"479","29-1069","29-1069.09","Preventive Medicine Physicians",0,0,1,0
+"480","29-1069","29-1069.10","Radiologists",3.21,0,1,0
+"481","29-1069","29-1069.11","Sports Medicine Physicians",0,0,1,0
+"482","29-1069","29-1069.12","Urologists",0,0,1,0
+"483","29-1071","29-1071.00","Physician Assistants",0,0,1,0
+"484","29-1071","29-1071.01","Anesthesiologist Assistants",42.69,0,1,0
+"485","29-1081","29-1081.00","Podiatrists",15.22,0,1,0
+"486","29-1122","29-1122.00","Occupational Therapists",0,0,0,0
+"487","29-1122","29-1122.01","Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",4,0,0,0
+"488","29-1123","29-1123.00","Physical Therapists",0,0,0,0
+"489","29-1124","29-1124.00","Radiation Therapists",62.46,1,0,0
+"490","29-1125","29-1125.00","Recreational Therapists",4,0,0,0
+"491","29-1125","29-1125.01","Art Therapists",0,0,0,0
+"492","29-1125","29-1125.02","Music Therapists",0,0,0,0
+"493","29-1126","29-1126.00","Respiratory Therapists",87.9,1,1,1
+"494","29-1127","29-1127.00","Speech-Language Pathologists",0,0,0,0
+"495","29-1128","29-1128.00","Exercise Physiologists",0,0,1,0
+"496","29-1129","29-1129.00",NA,NA,NA,NA,NA
+"497","29-1131","29-1131.00","Veterinarians",0,0,1,0
+"498","29-1141","29-1141.00","Registered Nurses",76.75,0,1,1
+"499","29-1141","29-1141.01","Acute Care Nurses",53.57,0,1,1
+"500","29-1141","29-1141.02","Advanced Practice Psychiatric Nurses",0,0,1,1
+"501","29-1141","29-1141.03","Critical Care Nurses",50,0,1,1
+"502","29-1141","29-1141.04","Clinical Nurse Specialists",0,0,1,1
+"503","29-1151","29-1151.00","Nurse Anesthetists",0,0,1,0
+"504","29-1161","29-1161.00","Nurse Midwives",2.7,0,1,0
+"505","29-1171","29-1171.00","Nurse Practitioners",0,0,1,0
+"506","29-1181","29-1181.00","Audiologists",0,0,0,0
+"507","29-1199","29-1199.00",NA,NA,0,1,0
+"508","29-1199","29-1199.01","Acupuncturists",14.36,0,1,0
+"509","29-1199","29-1199.04","Naturopathic Physicians",0,0,1,0
+"510","29-1199","29-1199.05","Orthoptists",0,0,1,0
+"511","29-2011","29-2011.00","Medical and Clinical Laboratory Technologists",31.61,0,0,0
+"512","29-2011","29-2011.01","Cytogenetic Technologists",0,0,0,0
+"513","29-2011","29-2011.02","Cytotechnologists",0,0,0,0
+"514","29-2011","29-2011.03","Histotechnologists and Histologic Technicians",67.5,0,0,0
+"515","29-2012","29-2012.00","Medical and Clinical Laboratory Technicians",36.49,0,0,0
+"516","29-2021","29-2021.00","Dental Hygienists",78.53,1,1,1
+"517","29-2031","29-2031.00","Cardiovascular Technologists and Technicians",93.42,1,0,0
+"518","29-2032","29-2032.00","Diagnostic Medical Sonographers",66.47,1,0,0
+"519","29-2033","29-2033.00","Nuclear Medicine Technologists",68.68,1,0,0
+"520","29-2034","29-2034.00","Radiologic Technologists",90.69,1,0,0
+"521","29-2035","29-2035.00","Magnetic Resonance Imaging Technologists",88.88,1,0,0
+"522","29-2041","29-2041.00","Emergency Medical Technicians and Paramedics",95.11,1,1,1
+"523","29-2051","29-2051.00","Dietetic Technicians",93.68,1,0,0
+"524","29-2052","29-2052.00","Pharmacy Technicians",95.82,1,0,0
+"525","29-2053","29-2053.00","Psychiatric Technicians",48.47,0,0,0
+"526","29-2054","29-2054.00","Respiratory Therapy Technicians",64.02,1,0,0
+"527","29-2055","29-2055.00","Surgical Technologists",100,1,1,1
+"528","29-2056","29-2056.00","Veterinary Technologists and Technicians",93.05,1,0,0
+"529","29-2057","29-2057.00","Ophthalmic Medical Technicians",95.65,1,0,0
+"530","29-2061","29-2061.00","Licensed Practical and Licensed Vocational Nurses",98.74,1,0,0
+"531","29-2071","29-2071.00","Medical Records and Health Information Technicians",99.5,1,0,0
+"532","29-2081","29-2081.00","Opticians, Dispensing",100.01,1,0,0
+"533","29-2091","29-2091.00","Orthotists and Prosthetists",0,0,0,0
+"534","29-2092","29-2092.00","Hearing Aid Specialists",54.45,1,1,1
+"535","29-2099","29-2099.00",NA,NA,1,0,0
+"536","29-2099","29-2099.01","Neurodiagnostic Technologists",78.79,1,0,0
+"537","29-2099","29-2099.05","Ophthalmic Medical Technologists",74.08,1,0,0
+"538","29-2099","29-2099.06","Radiologic Technicians",97.61,1,0,0
+"539","29-2099","29-2099.07","Surgical Assistants",64.12,1,0,0
+"540","29-9011","29-9011.00","Occupational Health and Safety Specialists",4.55,0,1,0
+"541","29-9012","29-9012.00","Occupational Health and Safety Technicians",15,0,1,0
+"542","29-9091","29-9091.00","Athletic Trainers",0,0,1,0
+"543","29-9092","29-9092.00","Genetic Counselors",0,0,1,0
+"544","29-9099","29-9099.00",NA,NA,0,1,0
+"545","29-9099","29-9099.01","Midwives",39.97,0,1,0
+"546","31-1011","31-1011.00","Home Health Aides",99.99,1,0,0
+"547","31-1013","31-1013.00","Psychiatric Aides",86.15,1,0,0
+"548","31-1014","31-1014.00","Nursing Assistants",99.55,1,0,0
+"549","31-1015","31-1015.00","Orderlies",100,1,0,0
+"550","31-2011","31-2011.00","Occupational Therapy Assistants",81.61,1,0,0
+"551","31-2012","31-2012.00","Occupational Therapy Aides",100,1,0,0
+"552","31-2021","31-2021.00","Physical Therapist Assistants",99.83,1,0,0
+"553","31-2022","31-2022.00","Physical Therapist Aides",91.51,1,0,0
+"554","31-9011","31-9011.00","Massage Therapists",96.67,1,0,0
+"555","31-9091","31-9091.00","Dental Assistants",92.41,1,0,0
+"556","31-9092","31-9092.00","Medical Assistants",100,1,0,0
+"557","31-9093","31-9093.00","Medical Equipment Preparers",82.92,1,0,0
+"558","31-9094","31-9094.00","Medical Transcriptionists",100,1,0,0
+"559","31-9095","31-9095.00","Pharmacy Aides",100,1,0,0
+"560","31-9096","31-9096.00","Veterinary Assistants and Laboratory Animal Caretakers",99.78,1,0,0
+"561","31-9097","31-9097.00","Phlebotomists",95.46,1,0,0
+"562","31-9099","31-9099.00",NA,NA,1,0,0
+"563","31-9099","31-9099.01","Speech-Language Pathology Assistants",43.25,1,0,0
+"564","31-9099","31-9099.02","Endoscopy Technicians",100.01,1,0,0
+"565","33-1011","33-1011.00","First-Line Supervisors of Correctional Officers",95.25,1,0,0
+"566","33-1012","33-1012.00","First-Line Supervisors of Police and Detectives",81.51,1,0,0
+"567","33-1021","33-1021.00",NA,NA,1,0,0
+"568","33-1021","33-1021.01","Municipal Fire Fighting and Prevention Supervisors",87.14,1,0,0
+"569","33-1021","33-1021.02","Forest Fire Fighting and Prevention Supervisors",77.85,1,0,0
+"570","33-1099","33-1099.00",NA,NA,NA,NA,NA
+"571","33-2011","33-2011.00",NA,NA,1,1,1
+"572","33-2011","33-2011.01","Municipal Firefighters",95.58,1,1,1
+"573","33-2011","33-2011.02","Forest Firefighters",81.14,1,1,1
+"574","33-2021","33-2021.00",NA,NA,1,0,0
+"575","33-2021","33-2021.01","Fire Inspectors",94.49,1,0,0
+"576","33-2021","33-2021.02","Fire Investigators",95.59,1,0,0
+"577","33-2022","33-2022.00","Forest Fire Inspectors and Prevention Specialists",75.97,1,0,0
+"578","33-3011","33-3011.00","Bailiffs",100,1,0,0
+"579","33-3012","33-3012.00","Correctional Officers and Jailers",100.01,1,0,0
+"580","33-3021","33-3021.00",NA,NA,1,0,0
+"581","33-3021","33-3021.01","Police Detectives",87.23,1,0,0
+"582","33-3021","33-3021.02","Police Identification and Records Officers",52.25,1,0,0
+"583","33-3021","33-3021.03","Criminal Investigators and Special Agents",96.51,1,0,0
+"584","33-3021","33-3021.05","Immigration and Customs Inspectors",70.66,1,0,0
+"585","33-3021","33-3021.06","Intelligence Analysts",18.75,1,0,0
+"586","33-3031","33-3031.00","Fish and Game Wardens",20.66,0,1,0
+"587","33-3041","33-3041.00","Parking Enforcement Workers",98.56,1,0,0
+"588","33-3051","33-3051.00",NA,NA,1,0,0
+"589","33-3051","33-3051.01","Police Patrol Officers",91.17,1,0,0
+"590","33-3051","33-3051.03","Sheriffs and Deputy Sheriffs",98.85,1,0,0
+"591","33-3052","33-3052.00","Transit and Railroad Police",65.67,1,0,0
+"592","33-9011","33-9011.00","Animal Control Workers",100,1,0,0
+"593","33-9021","33-9021.00","Private Detectives and Investigators",57.84,1,0,0
+"594","33-9031","33-9031.00","Gaming Surveillance Officers and Gaming Investigators",100,1,0,0
+"595","33-9032","33-9032.00","Security Guards",99.99,1,0,0
+"596","33-9091","33-9091.00","Crossing Guards",100,1,0,0
+"597","33-9092","33-9092.00","Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",87.23,1,0,0
+"598","33-9093","33-9093.00","Transportation Security Screeners",100,1,0,0
+"599","33-9099","33-9099.00",NA,NA,1,0,0
+"600","33-9099","33-9099.02","Retail Loss Prevention Specialists",89.5,1,0,0
+"601","35-1011","35-1011.00","Chefs and Head Cooks",85.18,1,1,1
+"602","35-1012","35-1012.00","First-Line Supervisors of Food Preparation and Serving Workers",100,1,0,0
+"603","35-2011","35-2011.00","Cooks, Fast Food",100,1,0,0
+"604","35-2012","35-2012.00","Cooks, Institution and Cafeteria",93.22,1,0,0
+"605","35-2013","35-2013.00","Cooks, Private Household",100.01,1,0,0
+"606","35-2014","35-2014.00","Cooks, Restaurant",96.48,1,0,0
+"607","35-2015","35-2015.00","Cooks, Short Order",100,1,0,0
+"608","35-2019","35-2019.00",NA,NA,NA,NA,NA
+"609","35-2021","35-2021.00","Food Preparation Workers",82.92,1,0,0
+"610","35-3011","35-3011.00","Bartenders",98.88,1,0,0
+"611","35-3021","35-3021.00","Combined Food Preparation and Serving Workers, Including Fast Food",99.99,1,0,0
+"612","35-3022","35-3022.00","Counter Attendants, Cafeteria, Food Concession, and Coffee Shop",96.38,1,0,0
+"613","35-3022","35-3022.01","Baristas",94.53,1,0,0
+"614","35-3031","35-3031.00","Waiters and Waitresses",92.92,1,0,0
+"615","35-3041","35-3041.00","Food Servers, Nonrestaurant",97.28,1,0,0
+"616","35-9011","35-9011.00","Dining Room and Cafeteria Attendants and Bartender Helpers",96.39,1,0,0
+"617","35-9021","35-9021.00","Dishwashers",100.01,1,0,0
+"618","35-9031","35-9031.00","Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",94.3,1,0,0
+"619","35-9099","35-9099.00",NA,NA,NA,NA,NA
+"620","37-1011","37-1011.00","First-Line Supervisors of Housekeeping and Janitorial Workers",91.67,1,0,0
+"621","37-1012","37-1012.00","First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",68.83,1,0,0
+"622","37-2011","37-2011.00","Janitors and Cleaners, Except Maids and Housekeeping Cleaners",91.5,1,0,0
+"623","37-2012","37-2012.00","Maids and Housekeeping Cleaners",99.29,1,0,0
+"624","37-2019","37-2019.00",NA,NA,NA,NA,NA
+"625","37-2021","37-2021.00","Pest Control Workers",100,1,0,0
+"626","37-3011","37-3011.00","Landscaping and Groundskeeping Workers",81.67,1,0,0
+"627","37-3012","37-3012.00","Pesticide Handlers, Sprayers, and Applicators, Vegetation",87.18,1,0,0
+"628","37-3013","37-3013.00","Tree Trimmers and Pruners",100,1,0,0
+"629","37-3019","37-3019.00",NA,NA,NA,NA,NA
+"630","39-1011","39-1011.00","Gaming Supervisors",92.29,1,0,0
+"631","39-1012","39-1012.00","Slot Supervisors",100,1,0,0
+"632","39-1021","39-1021.00","First-Line Supervisors of Personal Service Workers",65.51,1,0,0
+"633","39-1021","39-1021.01","Spa Managers",79.01,1,0,0
+"634","39-2011","39-2011.00","Animal Trainers",98.25,1,0,0
+"635","39-2021","39-2021.00","Nonfarm Animal Caretakers",86.63,1,0,0
+"636","39-3011","39-3011.00","Gaming Dealers",100,1,0,0
+"637","39-3012","39-3012.00","Gaming and Sports Book Writers and Runners",100.01,1,0,0
+"638","39-3019","39-3019.00",NA,NA,NA,NA,NA
+"639","39-3021","39-3021.00","Motion Picture Projectionists",96.76,1,0,0
+"640","39-3031","39-3031.00","Ushers, Lobby Attendants, and Ticket Takers",98.34,1,0,0
+"641","39-3091","39-3091.00","Amusement and Recreation Attendants",99.94,1,0,0
+"642","39-3092","39-3092.00","Costume Attendants",68.86,1,0,0
+"643","39-3093","39-3093.00","Locker Room, Coatroom, and Dressing Room Attendants",100.01,1,0,0
+"644","39-3099","39-3099.00",NA,NA,NA,NA,NA
+"645","39-4011","39-4011.00","Embalmers",64.5,1,0,0
+"646","39-4021","39-4021.00","Funeral Attendants",99.86,1,0,0
+"647","39-4031","39-4031.00","Morticians, Undertakers, and Funeral Directors",92.83,1,0,0
+"648","39-5011","39-5011.00","Barbers",97.06,1,0,0
+"649","39-5012","39-5012.00","Hairdressers, Hairstylists, and Cosmetologists",100,1,0,0
+"650","39-5091","39-5091.00","Makeup Artists, Theatrical and Performance",86.96,1,0,0
+"651","39-5092","39-5092.00","Manicurists and Pedicurists",100,1,0,0
+"652","39-5093","39-5093.00","Shampooers",100,1,0,0
+"653","39-5094","39-5094.00","Skincare Specialists",100,1,0,0
+"654","39-6011","39-6011.00","Baggage Porters and Bellhops",100.01,1,0,0
+"655","39-6012","39-6012.00","Concierges",83.34,1,0,0
+"656","39-7011","39-7011.00","Tour Guides and Escorts",70.47,1,0,0
+"657","39-7012","39-7012.00","Travel Guides",84.84,1,0,0
+"658","39-9011","39-9011.00","Childcare Workers",91.29,1,0,0
+"659","39-9011","39-9011.01","Nannies",91.31,1,0,0
+"660","39-9021","39-9021.00","Personal Care Aides",92.27,1,0,0
+"661","39-9031","39-9031.00","Fitness Trainers and Aerobics Instructors",72,1,0,0
+"662","39-9032","39-9032.00","Recreation Workers",37.9,0,0,0
+"663","39-9041","39-9041.00","Residential Advisors",59.02,1,0,0
+"664","39-9099","39-9099.00",NA,NA,NA,NA,NA
+"665","41-1011","41-1011.00","First-Line Supervisors of Retail Sales Workers",99.58,1,0,0
+"666","41-1012","41-1012.00","First-Line Supervisors of Non-Retail Sales Workers",66.29,1,0,0
+"667","41-2011","41-2011.00","Cashiers",99.58,1,0,0
+"668","41-2012","41-2012.00","Gaming Change Persons and Booth Cashiers",100,1,0,0
+"669","41-2021","41-2021.00","Counter and Rental Clerks",79.75,1,0,0
+"670","41-2022","41-2022.00","Parts Salespersons",99.5,1,0,0
+"671","41-2031","41-2031.00","Retail Salespersons",96,1,0,0
+"672","41-3011","41-3011.00","Advertising Sales Agents",48.14,0,0,0
+"673","41-3021","41-3021.00","Insurance Sales Agents",53.1,1,0,0
+"674","41-3031","41-3031.00",NA,NA,0,0,0
+"675","41-3031","41-3031.01","Sales Agents, Securities and Commodities",15.91,0,0,0
+"676","41-3031","41-3031.02","Sales Agents, Financial Services",77.66,0,0,0
+"677","41-3031","41-3031.03","Securities and Commodities Traders",38.41,0,0,0
+"678","41-3041","41-3041.00","Travel Agents",85.65,1,0,0
+"679","41-3099","41-3099.00",NA,NA,0,1,0
+"680","41-3099","41-3099.01","Energy Brokers",26.02,0,1,0
+"681","41-4011","41-4011.00","Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",58.63,1,0,0
+"682","41-4011","41-4011.07","Solar Sales Representatives and Assessors",57.98,1,0,0
+"683","41-4012","41-4012.00","Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",23.39,0,0,0
+"684","41-9011","41-9011.00","Demonstrators and Product Promoters",99.34,1,0,0
+"685","41-9012","41-9012.00","Models",100,1,0,0
+"686","41-9021","41-9021.00","Real Estate Brokers",46.07,0,0,0
+"687","41-9022","41-9022.00","Real Estate Sales Agents",90.47,1,0,0
+"688","41-9031","41-9031.00","Sales Engineers",37.11,0,1,0
+"689","41-9041","41-9041.00","Telemarketers",100,1,0,0
+"690","41-9091","41-9091.00","Door-To-Door Sales Workers, News and Street Vendors, and Related Workers",100,1,0,0
+"691","41-9099","41-9099.00",NA,NA,NA,NA,NA
+"692","43-1011","43-1011.00","First-Line Supervisors of Office and Administrative Support Workers",53.45,1,0,0
+"693","43-2011","43-2011.00","Switchboard Operators, Including Answering Service",93.7,1,0,0
+"694","43-2021","43-2021.00","Telephone Operators",99.99,1,0,0
+"695","43-2099","43-2099.00",NA,NA,NA,NA,NA
+"696","43-3011","43-3011.00","Bill and Account Collectors",78.88,1,0,0
+"697","43-3021","43-3021.00",NA,NA,1,0,0
+"698","43-3021","43-3021.01","Statement Clerks",100,1,0,0
+"699","43-3021","43-3021.02","Billing, Cost, and Rate Clerks",98.42,1,0,0
+"700","43-3031","43-3031.00","Bookkeeping, Accounting, and Auditing Clerks",81.29,1,0,0
+"701","43-3041","43-3041.00","Gaming Cage Workers",100,1,0,0
+"702","43-3051","43-3051.00","Payroll and Timekeeping Clerks",89.3,1,0,0
+"703","43-3061","43-3061.00","Procurement Clerks",79.81,1,0,0
+"704","43-3071","43-3071.00","Tellers",91.68,1,0,0
+"705","43-3099","43-3099.00",NA,NA,NA,NA,NA
+"706","43-4011","43-4011.00","Brokerage Clerks",61.77,1,0,0
+"707","43-4021","43-4021.00","Correspondence Clerks",96.32,1,0,0
+"708","43-4031","43-4031.00",NA,NA,1,0,0
+"709","43-4031","43-4031.01","Court Clerks",100,1,0,0
+"710","43-4031","43-4031.02","Municipal Clerks",59.79,1,0,0
+"711","43-4031","43-4031.03","License Clerks",87.65,1,0,0
+"712","43-4041","43-4041.00",NA,NA,1,0,0
+"713","43-4041","43-4041.01","Credit Authorizers",53.93,1,0,0
+"714","43-4041","43-4041.02","Credit Checkers",77.02,1,0,0
+"715","43-4051","43-4051.00","Customer Service Representatives",84.05,1,0,0
+"716","43-4051","43-4051.03","Patient Representatives",19.13,1,0,0
+"717","43-4061","43-4061.00","Eligibility Interviewers, Government Programs",58.87,1,0,0
+"718","43-4071","43-4071.00","File Clerks",73.11,1,0,0
+"719","43-4081","43-4081.00","Hotel, Motel, and Resort Desk Clerks",95.41,1,0,0
+"720","43-4111","43-4111.00","Interviewers, Except Eligibility and Loan",87.64,1,0,0
+"721","43-4121","43-4121.00","Library Assistants, Clerical",95.43,1,0,0
+"722","43-4131","43-4131.00","Loan Interviewers and Clerks",61.75,1,0,0
+"723","43-4141","43-4141.00","New Accounts Clerks",99.71,1,0,0
+"724","43-4151","43-4151.00","Order Clerks",96.74,1,0,0
+"725","43-4161","43-4161.00","Human Resources Assistants, Except Payroll and Timekeeping",65.4,1,0,0
+"726","43-4171","43-4171.00","Receptionists and Information Clerks",97.33,1,0,0
+"727","43-4181","43-4181.00","Reservation and Transportation Ticket Agents and Travel Clerks",99.42,1,0,0
+"728","43-4199","43-4199.00",NA,NA,NA,NA,NA
+"729","43-5011","43-5011.00","Cargo and Freight Agents",100,1,0,0
+"730","43-5011","43-5011.01","Freight Forwarders",79.2,1,0,0
+"731","43-5021","43-5021.00","Couriers and Messengers",100,1,0,0
+"732","43-5031","43-5031.00","Police, Fire, and Ambulance Dispatchers",100.01,1,0,0
+"733","43-5032","43-5032.00","Dispatchers, Except Police, Fire, and Ambulance",90.88,1,0,0
+"734","43-5041","43-5041.00","Meter Readers, Utilities",97.61,1,0,0
+"735","43-5051","43-5051.00","Postal Service Clerks",100,1,0,0
+"736","43-5052","43-5052.00","Postal Service Mail Carriers",100,1,0,0
+"737","43-5053","43-5053.00","Postal Service Mail Sorters, Processors, and Processing Machine Operators",100.01,1,0,0
+"738","43-5061","43-5061.00","Production, Planning, and Expediting Clerks",75.34,1,0,0
+"739","43-5071","43-5071.00","Shipping, Receiving, and Traffic Clerks",89.25,1,0,0
+"740","43-5081","43-5081.00",NA,NA,1,0,0
+"741","43-5081","43-5081.01","Stock Clerks, Sales Floor",100,1,0,0
+"742","43-5081","43-5081.02","Marking Clerks",100,1,0,0
+"743","43-5081","43-5081.03","Stock Clerks- Stockroom, Warehouse, or Storage Yard",93.09,1,0,0
+"744","43-5081","43-5081.04","Order Fillers, Wholesale and Retail Sales",94.89,1,0,0
+"745","43-5111","43-5111.00","Weighers, Measurers, Checkers, and Samplers, Recordkeeping",99.49,1,0,0
+"746","43-6011","43-6011.00","Executive Secretaries and Executive Administrative Assistants",80.15,1,0,0
+"747","43-6012","43-6012.00","Legal Secretaries",77.14,1,0,0
+"748","43-6013","43-6013.00","Medical Secretaries",100,1,0,0
+"749","43-6014","43-6014.00","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1,1,1
+"750","43-9011","43-9011.00","Computer Operators",63.94,1,1,1
+"751","43-9021","43-9021.00","Data Entry Keyers",100,1,0,0
+"752","43-9022","43-9022.00","Word Processors and Typists",100,1,0,0
+"753","43-9031","43-9031.00","Desktop Publishers",65.19,1,1,1
+"754","43-9041","43-9041.00",NA,NA,1,0,0
+"755","43-9041","43-9041.01","Insurance Claims Clerks",92.99,1,0,0
+"756","43-9041","43-9041.02","Insurance Policy Processing Clerks",93.88,1,0,0
+"757","43-9051","43-9051.00","Mail Clerks and Mail Machine Operators, Except Postal Service",100,1,0,0
+"758","43-9061","43-9061.00","Office Clerks, General",99.76,1,0,0
+"759","43-9071","43-9071.00","Office Machine Operators, Except Computer",82.57,1,0,0
+"760","43-9081","43-9081.00","Proofreaders and Copy Markers",52.69,1,0,0
+"761","43-9111","43-9111.00","Statistical Assistants",17.96,0,1,0
+"762","43-9111","43-9111.01","Bioinformatics Technicians",0,0,1,0
+"763","43-9199","43-9199.00",NA,NA,NA,NA,NA
+"764","45-1011","45-1011.00",NA,NA,1,0,0
+"765","45-1011","45-1011.05","First-Line Supervisors of Logging Workers",79.91,1,0,0
+"766","45-1011","45-1011.06","First-Line Supervisors of Aquacultural Workers",39.93,1,0,0
+"767","45-1011","45-1011.07","First-Line Supervisors of Agricultural Crop and Horticultural Workers",87.06,1,0,0
+"768","45-1011","45-1011.08","First-Line Supervisors of Animal Husbandry and Animal Care Workers",75.53,1,0,0
+"769","45-2011","45-2011.00","Agricultural Inspectors",87.88,1,0,0
+"770","45-2021","45-2021.00","Animal Breeders",95.94,1,0,0
+"771","45-2041","45-2041.00","Graders and Sorters, Agricultural Products",100,1,0,0
+"772","45-2091","45-2091.00","Agricultural Equipment Operators",99.99,1,0,0
+"773","45-2092","45-2092.00",NA,NA,1,0,0
+"774","45-2092","45-2092.01","Nursery Workers",94.83,1,0,0
+"775","45-2092","45-2092.02","Farmworkers and Laborers, Crop",98.83,1,0,0
+"776","45-2093","45-2093.00","Farmworkers, Farm, Ranch, and Aquacultural Animals",99.77,1,0,0
+"777","45-2099","45-2099.00",NA,NA,NA,NA,NA
+"778","45-3011","45-3011.00","Fishers and Related Fishing Workers",90.98,1,0,0
+"779","45-3021","45-3021.00","Hunters and Trappers",95.65,1,0,0
+"780","45-4011","45-4011.00","Forest and Conservation Workers",41.98,0,0,0
+"781","45-4021","45-4021.00","Fallers",100,1,0,0
+"782","45-4022","45-4022.00","Logging Equipment Operators",100,1,1,1
+"783","45-4023","45-4023.00","Log Graders and Scalers",100,1,0,0
+"784","45-4029","45-4029.00",NA,NA,NA,NA,NA
+"785","47-1011","47-1011.00","First-Line Supervisors of Construction Trades and Extraction Workers",100,1,1,1
+"786","47-1011","47-1011.03","Solar Energy Installation Managers",89.47,1,1,1
+"787","47-2011","47-2011.00","Boilermakers",100,1,1,1
+"788","47-2021","47-2021.00","Brickmasons and Blockmasons",99.99,1,1,1
+"789","47-2022","47-2022.00","Stonemasons",100,1,1,1
+"790","47-2031","47-2031.00",NA,NA,1,1,1
+"791","47-2031","47-2031.01","Construction Carpenters",99.36,1,1,1
+"792","47-2031","47-2031.02","Rough Carpenters",96.05,1,1,1
+"793","47-2041","47-2041.00","Carpet Installers",100,1,0,0
+"794","47-2042","47-2042.00","Floor Layers, Except Carpet, Wood, and Hard Tiles",99.99,1,0,0
+"795","47-2043","47-2043.00","Floor Sanders and Finishers",100,1,0,0
+"796","47-2044","47-2044.00","Tile and Marble Setters",100.01,1,0,0
+"797","47-2051","47-2051.00","Cement Masons and Concrete Finishers",99.99,1,0,0
+"798","47-2053","47-2053.00","Terrazzo Workers and Finishers",100.01,1,0,0
+"799","47-2061","47-2061.00","Construction Laborers",98.78,1,0,0
+"800","47-2071","47-2071.00","Paving, Surfacing, and Tamping Equipment Operators",100,1,0,0
+"801","47-2072","47-2072.00","Pile-Driver Operators",100.01,1,1,1
+"802","47-2073","47-2073.00","Operating Engineers and Other Construction Equipment Operators",100,1,0,0
+"803","47-2081","47-2081.00","Drywall and Ceiling Tile Installers",95.18,1,1,1
+"804","47-2082","47-2082.00","Tapers",100,1,0,0
+"805","47-2111","47-2111.00","Electricians",92.37,1,1,1
+"806","47-2121","47-2121.00","Glaziers",100,1,1,1
+"807","47-2131","47-2131.00","Insulation Workers, Floor, Ceiling, and Wall",100,1,0,0
+"808","47-2132","47-2132.00","Insulation Workers, Mechanical",100,1,0,0
+"809","47-2141","47-2141.00","Painters, Construction and Maintenance",90.04,1,0,0
+"810","47-2142","47-2142.00","Paperhangers",100,1,0,0
+"811","47-2151","47-2151.00","Pipelayers",95.7,1,1,1
+"812","47-2152","47-2152.00",NA,NA,1,1,1
+"813","47-2152","47-2152.01","Pipe Fitters and Steamfitters",100,1,1,1
+"814","47-2152","47-2152.02","Plumbers",100,1,1,1
+"815","47-2161","47-2161.00","Plasterers and Stucco Masons",100,1,0,0
+"816","47-2171","47-2171.00","Reinforcing Iron and Rebar Workers",100,1,1,1
+"817","47-2181","47-2181.00","Roofers",93.4,1,1,1
+"818","47-2211","47-2211.00","Sheet Metal Workers",100.01,1,0,0
+"819","47-2221","47-2221.00","Structural Iron and Steel Workers",94.98,1,1,1
+"820","47-2231","47-2231.00","Solar Photovoltaic Installers",99.51,1,1,1
+"821","47-3011","47-3011.00","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1,1,1
+"822","47-3012","47-3012.00","Helpers--Carpenters",100,1,1,1
+"823","47-3013","47-3013.00","Helpers--Electricians",100,1,1,1
+"824","47-3014","47-3014.00","Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons",100,1,0,0
+"825","47-3015","47-3015.00","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1,1,1
+"826","47-3016","47-3016.00","Helpers--Roofers",83.98,1,0,0
+"827","47-3019","47-3019.00",NA,NA,NA,NA,NA
+"828","47-4011","47-4011.00","Construction and Building Inspectors",62.5,1,1,1
+"829","47-4021","47-4021.00","Elevator Installers and Repairers",88.21,1,1,1
+"830","47-4031","47-4031.00","Fence Erectors",99.99,1,0,0
+"831","47-4041","47-4041.00","Hazardous Materials Removal Workers",86.23,1,0,0
+"832","47-4051","47-4051.00","Highway Maintenance Workers",100,1,0,0
+"833","47-4061","47-4061.00","Rail-Track Laying and Maintenance Equipment Operators",100,1,0,0
+"834","47-4071","47-4071.00","Septic Tank Servicers and Sewer Pipe Cleaners",99.99,1,0,0
+"835","47-4091","47-4091.00","Segmental Pavers",100,1,0,0
+"836","47-4099","47-4099.00",NA,NA,1,1,1
+"837","47-4099","47-4099.02","Solar Thermal Installers and Technicians",77.54,1,1,1
+"838","47-4099","47-4099.03","Weatherization Installers and Technicians",93.11,1,1,1
+"839","47-5011","47-5011.00","Derrick Operators, Oil and Gas",99.99,1,1,1
+"840","47-5012","47-5012.00","Rotary Drill Operators, Oil and Gas",91.08,1,1,1
+"841","47-5013","47-5013.00","Service Unit Operators, Oil, Gas, and Mining",100,1,1,1
+"842","47-5021","47-5021.00","Earth Drillers, Except Oil and Gas",99.99,1,1,1
+"843","47-5031","47-5031.00","Explosives Workers, Ordnance Handling Experts, and Blasters",100,1,0,0
+"844","47-5041","47-5041.00","Continuous Mining Machine Operators",100,1,1,1
+"845","47-5042","47-5042.00","Mine Cutting and Channeling Machine Operators",100.01,1,0,0
+"846","47-5049","47-5049.00",NA,NA,NA,NA,NA
+"847","47-5051","47-5051.00","Rock Splitters, Quarry",81.02,1,0,0
+"848","47-5061","47-5061.00","Roof Bolters, Mining",100,1,0,0
+"849","47-5071","47-5071.00","Roustabouts, Oil and Gas",100,1,0,0
+"850","47-5081","47-5081.00","Helpers--Extraction Workers",100.01,1,0,0
+"851","47-5099","47-5099.00",NA,NA,NA,NA,NA
+"852","49-1011","49-1011.00","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1,1,1
+"853","49-2011","49-2011.00","Computer, Automated Teller, and Office Machine Repairers",99.63,1,1,1
+"854","49-2021","49-2021.00","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1,1,1
+"855","49-2021","49-2021.01","Radio Mechanics",85.85,1,1,1
+"856","49-2022","49-2022.00","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1,1,1
+"857","49-2091","49-2091.00","Avionics Technicians",96.67,1,1,1
+"858","49-2092","49-2092.00","Electric Motor, Power Tool, and Related Repairers",100.01,1,1,1
+"859","49-2093","49-2093.00","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1,1,1
+"860","49-2094","49-2094.00","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1,1,1
+"861","49-2095","49-2095.00","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1,1,1
+"862","49-2096","49-2096.00","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1,1,1
+"863","49-2097","49-2097.00","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1,1,1
+"864","49-2098","49-2098.00","Security and Fire Alarm Systems Installers",100,1,1,1
+"865","49-3011","49-3011.00","Aircraft Mechanics and Service Technicians",97.5,1,1,1
+"866","49-3021","49-3021.00","Automotive Body and Related Repairers",99.99,1,0,0
+"867","49-3022","49-3022.00","Automotive Glass Installers and Repairers",99.99,1,0,0
+"868","49-3023","49-3023.00",NA,NA,1,1,1
+"869","49-3023","49-3023.01","Automotive Master Mechanics",100,1,1,1
+"870","49-3023","49-3023.02","Automotive Specialty Technicians",100,1,1,1
+"871","49-3031","49-3031.00","Bus and Truck Mechanics and Diesel Engine Specialists",100,1,1,1
+"872","49-3041","49-3041.00","Farm Equipment Mechanics and Service Technicians",97.36,1,1,1
+"873","49-3042","49-3042.00","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1,1,1
+"874","49-3043","49-3043.00","Rail Car Repairers",99.99,1,1,1
+"875","49-3051","49-3051.00","Motorboat Mechanics and Service Technicians",100,1,1,1
+"876","49-3052","49-3052.00","Motorcycle Mechanics",100,1,1,1
+"877","49-3053","49-3053.00","Outdoor Power Equipment and Other Small Engine Mechanics",100,1,1,1
+"878","49-3091","49-3091.00","Bicycle Repairers",100,1,1,1
+"879","49-3092","49-3092.00","Recreational Vehicle Service Technicians",97.91,1,1,1
+"880","49-3093","49-3093.00","Tire Repairers and Changers",97.6,1,0,0
+"881","49-9011","49-9011.00","Mechanical Door Repairers",100,1,1,1
+"882","49-9012","49-9012.00","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1,1,1
+"883","49-9021","49-9021.00",NA,NA,1,1,1
+"884","49-9021","49-9021.01","Heating and Air Conditioning Mechanics and Installers",93.31,1,1,1
+"885","49-9021","49-9021.02","Refrigeration Mechanics and Installers",99.99,1,1,1
+"886","49-9031","49-9031.00","Home Appliance Repairers",100.01,1,0,0
+"887","49-9041","49-9041.00","Industrial Machinery Mechanics",88.29,1,1,1
+"888","49-9043","49-9043.00","Maintenance Workers, Machinery",100,1,1,1
+"889","49-9044","49-9044.00","Millwrights",100,1,1,1
+"890","49-9045","49-9045.00","Refractory Materials Repairers, Except Brickmasons",100,1,0,0
+"891","49-9051","49-9051.00","Electrical Power-Line Installers and Repairers",99.99,1,0,0
+"892","49-9052","49-9052.00","Telecommunications Line Installers and Repairers",100,1,1,1
+"893","49-9061","49-9061.00","Camera and Photographic Equipment Repairers",92.91,1,1,1
+"894","49-9062","49-9062.00","Medical Equipment Repairers",91.51,1,1,1
+"895","49-9063","49-9063.00","Musical Instrument Repairers and Tuners",96.42,1,0,0
+"896","49-9064","49-9064.00","Watch Repairers",98.31,1,1,1
+"897","49-9069","49-9069.00",NA,NA,NA,NA,NA
+"898","49-9071","49-9071.00","Maintenance and Repair Workers, General",99.91,1,1,1
+"899","49-9081","49-9081.00","Wind Turbine Service Technicians",98.44,1,1,1
+"900","49-9091","49-9091.00","Coin, Vending, and Amusement Machine Servicers and Repairers",100,1,0,0
+"901","49-9092","49-9092.00","Commercial Divers",94.97,1,1,1
+"902","49-9093","49-9093.00","Fabric Menders, Except Garment",74.79,1,0,0
+"903","49-9094","49-9094.00","Locksmiths and Safe Repairers",100,1,1,1
+"904","49-9095","49-9095.00","Manufactured Building and Mobile Home Installers",100,1,1,1
+"905","49-9096","49-9096.00","Riggers",99.67,1,1,1
+"906","49-9097","49-9097.00","Signal and Track Switch Repairers",99.49,1,1,1
+"907","49-9098","49-9098.00","Helpers--Installation, Maintenance, and Repair Workers",100,1,0,0
+"908","49-9099","49-9099.00",NA,NA,1,1,1
+"909","49-9099","49-9099.01","Geothermal Technicians",97.13,1,1,1
+"910","51-1011","51-1011.00","First-Line Supervisors of Production and Operating Workers",76.39,1,1,1
+"911","51-2011","51-2011.00","Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",84.35,1,0,0
+"912","51-2021","51-2021.00","Coil Winders, Tapers, and Finishers",99.99,1,0,0
+"913","51-2022","51-2022.00","Electrical and Electronic Equipment Assemblers",100,1,0,0
+"914","51-2023","51-2023.00","Electromechanical Equipment Assemblers",99.42,1,0,0
+"915","51-2031","51-2031.00","Engine and Other Machine Assemblers",92.8,1,1,1
+"916","51-2041","51-2041.00","Structural Metal Fabricators and Fitters",96.69,1,1,1
+"917","51-2091","51-2091.00","Fiberglass Laminators and Fabricators",100.01,1,0,0
+"918","51-2092","51-2092.00","Team Assemblers",100,1,0,0
+"919","51-2093","51-2093.00","Timing Device Assemblers and Adjusters",95.84,1,1,1
+"920","51-2099","51-2099.00",NA,NA,NA,NA,NA
+"921","51-3011","51-3011.00","Bakers",100,1,0,0
+"922","51-3021","51-3021.00","Butchers and Meat Cutters",100,1,0,0
+"923","51-3022","51-3022.00","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1,1,1
+"924","51-3023","51-3023.00","Slaughterers and Meat Packers",100,1,0,0
+"925","51-3091","51-3091.00","Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",100,1,0,0
+"926","51-3092","51-3092.00","Food Batchmakers",100,1,0,0
+"927","51-3093","51-3093.00","Food Cooking Machine Operators and Tenders",100,1,0,0
+"928","51-3099","51-3099.00",NA,NA,NA,NA,NA
+"929","51-4011","51-4011.00","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1,1,1
+"930","51-4012","51-4012.00","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1,1,1
+"931","51-4021","51-4021.00","Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",99.55,1,0,0
+"932","51-4022","51-4022.00","Forging Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0,0
+"933","51-4023","51-4023.00","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,1,1
+"934","51-4031","51-4031.00","Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0,0
+"935","51-4032","51-4032.00","Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",91.28,1,0,0
+"936","51-4033","51-4033.00","Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100.01,1,0,0
+"937","51-4034","51-4034.00","Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",99.99,1,0,0
+"938","51-4035","51-4035.00","Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",95.96,1,0,0
+"939","51-4041","51-4041.00","Machinists",95.29,1,1,1
+"940","51-4051","51-4051.00","Metal-Refining Furnace Operators and Tenders",100,1,0,0
+"941","51-4052","51-4052.00","Pourers and Casters, Metal",98.73,1,0,0
+"942","51-4061","51-4061.00","Model Makers, Metal and Plastic",100,1,0,0
+"943","51-4062","51-4062.00","Patternmakers, Metal and Plastic",99.88,1,1,1
+"944","51-4071","51-4071.00","Foundry Mold and Coremakers",98.51,1,0,0
+"945","51-4072","51-4072.00","Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",100,1,0,0
+"946","51-4081","51-4081.00","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1,1,1
+"947","51-4111","51-4111.00","Tool and Die Makers",97.37,1,1,1
+"948","51-4121","51-4121.00",NA,NA,1,0,0
+"949","51-4121","51-4121.06","Welders, Cutters, and Welder Fitters",100.01,1,0,0
+"950","51-4121","51-4121.07","Solderers and Brazers",99.36,1,0,0
+"951","51-4122","51-4122.00","Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders",100,1,0,0
+"952","51-4191","51-4191.00","Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",100,1,0,0
+"953","51-4192","51-4192.00","Layout Workers, Metal and Plastic",100.01,1,1,1
+"954","51-4193","51-4193.00","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1,1,1
+"955","51-4194","51-4194.00","Tool Grinders, Filers, and Sharpeners",100.01,1,0,0
+"956","51-4199","51-4199.00",NA,NA,NA,NA,NA
+"957","51-5111","51-5111.00","Prepress Technicians and Workers",94.79,1,1,1
+"958","51-5112","51-5112.00","Printing Press Operators",99.99,1,0,0
+"959","51-5113","51-5113.00","Print Binding and Finishing Workers",100.01,1,0,0
+"960","51-6011","51-6011.00","Laundry and Dry-Cleaning Workers",100,1,0,0
+"961","51-6021","51-6021.00","Pressers, Textile, Garment, and Related Materials",85.85,1,0,0
+"962","51-6031","51-6031.00","Sewing Machine Operators",99.99,1,0,0
+"963","51-6041","51-6041.00","Shoe and Leather Workers and Repairers",98.14,1,0,0
+"964","51-6042","51-6042.00","Shoe Machine Operators and Tenders",100,1,0,0
+"965","51-6051","51-6051.00","Sewers, Hand",96.3,1,0,0
+"966","51-6052","51-6052.00","Tailors, Dressmakers, and Custom Sewers",100,1,0,0
+"967","51-6061","51-6061.00","Textile Bleaching and Dyeing Machine Operators and Tenders",83.44,1,0,0
+"968","51-6062","51-6062.00","Textile Cutting Machine Setters, Operators, and Tenders",100,1,0,0
+"969","51-6063","51-6063.00","Textile Knitting and Weaving Machine Setters, Operators, and Tenders",98.37,1,0,0
+"970","51-6064","51-6064.00","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1,1,1
+"971","51-6091","51-6091.00","Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers",100,1,0,0
+"972","51-6092","51-6092.00","Fabric and Apparel Patternmakers",73.63,1,0,0
+"973","51-6093","51-6093.00","Upholsterers",100,1,0,0
+"974","51-6099","51-6099.00",NA,NA,NA,NA,NA
+"975","51-7011","51-7011.00","Cabinetmakers and Bench Carpenters",100,1,0,0
+"976","51-7021","51-7021.00","Furniture Finishers",100,1,0,0
+"977","51-7031","51-7031.00","Model Makers, Wood",100,1,1,1
+"978","51-7032","51-7032.00","Patternmakers, Wood",100,1,1,1
+"979","51-7041","51-7041.00","Sawing Machine Setters, Operators, and Tenders, Wood",100,1,0,0
+"980","51-7042","51-7042.00","Woodworking Machine Setters, Operators, and Tenders, Except Sawing",98.28,1,0,0
+"981","51-7099","51-7099.00",NA,NA,NA,NA,NA
+"982","51-8011","51-8011.00","Nuclear Power Reactor Operators",84.67,1,1,1
+"983","51-8012","51-8012.00","Power Distributors and Dispatchers",99.99,1,0,0
+"984","51-8013","51-8013.00","Power Plant Operators",99.63,1,0,0
+"985","51-8021","51-8021.00","Stationary Engineers and Boiler Operators",100.01,1,1,1
+"986","51-8031","51-8031.00","Water and Wastewater Treatment Plant and System Operators",99.49,1,1,1
+"987","51-8091","51-8091.00","Chemical Plant and System Operators",63.22,1,0,0
+"988","51-8092","51-8092.00","Gas Plant Operators",98.16,1,1,1
+"989","51-8093","51-8093.00","Petroleum Pump System Operators, Refinery Operators, and Gaugers",100,1,0,0
+"990","51-8099","51-8099.00",NA,NA,1,1,1
+"991","51-8099","51-8099.01","Biofuels Processing Technicians",100,1,1,1
+"992","51-8099","51-8099.02",NA,NA,1,1,1
+"993","51-8099","51-8099.03","Biomass Plant Technicians",99.5,1,1,1
+"994","51-8099","51-8099.04","Hydroelectric Plant Technicians",92.88,1,1,1
+"995","51-9011","51-9011.00","Chemical Equipment Operators and Tenders",98.23,1,1,1
+"996","51-9012","51-9012.00","Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",98.92,1,0,0
+"997","51-9021","51-9021.00","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1,1,1
+"998","51-9022","51-9022.00","Grinding and Polishing Workers, Hand",98.73,1,0,0
+"999","51-9023","51-9023.00","Mixing and Blending Machine Setters, Operators, and Tenders",99.52,1,0,0
+"1000","51-9031","51-9031.00","Cutters and Trimmers, Hand",100,1,0,0
+"1001","51-9032","51-9032.00","Cutting and Slicing Machine Setters, Operators, and Tenders",99.7,1,0,0
+"1002","51-9041","51-9041.00","Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",96.1,1,0,0
+"1003","51-9051","51-9051.00","Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",98.16,1,0,0
+"1004","51-9061","51-9061.00","Inspectors, Testers, Sorters, Samplers, and Weighers",97.26,1,0,0
+"1005","51-9071","51-9071.00",NA,NA,1,0,0
+"1006","51-9071","51-9071.01","Jewelers",95.83,1,0,0
+"1007","51-9071","51-9071.06","Gem and Diamond Workers",80.99,1,0,0
+"1008","51-9071","51-9071.07","Precious Metal Workers",99.99,1,0,0
+"1009","51-9081","51-9081.00","Dental Laboratory Technicians",92.85,1,1,1
+"1010","51-9082","51-9082.00","Medical Appliance Technicians",72.03,1,0,0
+"1011","51-9083","51-9083.00","Ophthalmic Laboratory Technicians",91.17,1,0,0
+"1012","51-9111","51-9111.00","Packaging and Filling Machine Operators and Tenders",100,1,0,0
+"1013","51-9121","51-9121.00","Coating, Painting, and Spraying Machine Setters, Operators, and Tenders",100,1,0,0
+"1014","51-9122","51-9122.00","Painters, Transportation Equipment",100,1,0,0
+"1015","51-9123","51-9123.00","Painting, Coating, and Decorating Workers",100,1,0,0
+"1016","51-9141","51-9141.00","Semiconductor Processors",99.68,1,0,0
+"1017","51-9151","51-9151.00","Photographic Process Workers and Processing Machine Operators",94.81,1,0,0
+"1018","51-9191","51-9191.00","Adhesive Bonding Machine Operators and Tenders",99.99,1,0,0
+"1019","51-9192","51-9192.00","Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",100.01,1,0,0
+"1020","51-9193","51-9193.00","Cooling and Freezing Equipment Operators and Tenders",100,1,0,0
+"1021","51-9194","51-9194.00","Etchers and Engravers",99.99,1,1,1
+"1022","51-9195","51-9195.00",NA,NA,1,0,0
+"1023","51-9195","51-9195.03","Stone Cutters and Carvers, Manufacturing",99.03,1,0,0
+"1024","51-9195","51-9195.04","Glass Blowers, Molders, Benders, and Finishers",100.01,1,0,0
+"1025","51-9195","51-9195.05","Potters, Manufacturing",72.38,1,0,0
+"1026","51-9195","51-9195.07","Molding and Casting Workers",96.98,1,0,0
+"1027","51-9196","51-9196.00","Paper Goods Machine Setters, Operators, and Tenders",100.01,1,0,0
+"1028","51-9197","51-9197.00","Tire Builders",100,1,0,0
+"1029","51-9198","51-9198.00","Helpers--Production Workers",100,1,0,0
+"1030","51-9199","51-9199.00",NA,NA,1,1,1
+"1031","51-9199","51-9199.01","Recycling and Reclamation Workers",91.99,1,1,1
+"1032","53-1011","53-1011.00","Aircraft Cargo Handling Supervisors",81.54,1,0,0
+"1033","53-1021","53-1021.00","First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand",84.83,1,0,0
+"1034","53-1021","53-1021.01","Recycling Coordinators",69.9,1,0,0
+"1035","53-1031","53-1031.00","First-Line Supervisors of Transportation and Material-Moving Machine and Vehicle Operators",94.06,1,0,0
+"1036","53-2011","53-2011.00","Airline Pilots, Copilots, and Flight Engineers",27.09,0,0,0
+"1037","53-2012","53-2012.00","Commercial Pilots",67.64,1,0,0
+"1038","53-2021","53-2021.00","Air Traffic Controllers",78.05,1,0,0
+"1039","53-2022","53-2022.00","Airfield Operations Specialists",55.58,1,0,0
+"1040","53-2031","53-2031.00","Flight Attendants",100,1,0,0
+"1041","53-3011","53-3011.00","Ambulance Drivers and Attendants, Except Emergency Medical Technicians",99.99,1,0,0
+"1042","53-3021","53-3021.00","Bus Drivers, Transit and Intercity",99.99,1,0,0
+"1043","53-3022","53-3022.00","Bus Drivers, School or Special Client",88,1,0,0
+"1044","53-3031","53-3031.00","Driver/Sales Workers",100,1,0,0
+"1045","53-3032","53-3032.00","Heavy and Tractor-Trailer Truck Drivers",94.53,1,0,0
+"1046","53-3033","53-3033.00","Light Truck or Delivery Services Drivers",100,1,0,0
+"1047","53-3041","53-3041.00","Taxi Drivers and Chauffeurs",94.31,1,0,0
+"1048","53-3099","53-3099.00",NA,NA,NA,NA,NA
+"1049","53-4011","53-4011.00","Locomotive Engineers",100,1,0,0
+"1050","53-4012","53-4012.00","Locomotive Firers",100,1,0,0
+"1051","53-4013","53-4013.00","Rail Yard Engineers, Dinkey Operators, and Hostlers",99.99,1,0,0
+"1052","53-4021","53-4021.00","Railroad Brake, Signal, and Switch Operators",100,1,0,0
+"1053","53-4031","53-4031.00","Railroad Conductors and Yardmasters",100,1,0,0
+"1054","53-4041","53-4041.00","Subway and Streetcar Operators",98.18,1,0,0
+"1055","53-4099","53-4099.00",NA,NA,NA,NA,NA
+"1056","53-5011","53-5011.00","Sailors and Marine Oilers",99.22,1,0,0
+"1057","53-5021","53-5021.00",NA,NA,1,0,0
+"1058","53-5021","53-5021.01","Ship and Boat Captains",96.4,1,0,0
+"1059","53-5021","53-5021.02","Mates- Ship, Boat, and Barge",91.93,1,0,0
+"1060","53-5021","53-5021.03","Pilots, Ship",77.03,1,0,0
+"1061","53-5022","53-5022.00","Motorboat Operators",100,1,0,0
+"1062","53-5031","53-5031.00","Ship Engineers",98.85,1,1,1
+"1063","53-6011","53-6011.00","Bridge and Lock Tenders",100,1,0,0
+"1064","53-6021","53-6021.00","Parking Lot Attendants",99.04,1,0,0
+"1065","53-6031","53-6031.00","Automotive and Watercraft Service Attendants",100,1,0,0
+"1066","53-6041","53-6041.00","Traffic Technicians",88.33,1,1,1
+"1067","53-6051","53-6051.00",NA,NA,1,1,1
+"1068","53-6051","53-6051.01","Aviation Inspectors",99.99,1,1,1
+"1069","53-6051","53-6051.07","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1,1,1
+"1070","53-6051","53-6051.08","Freight and Cargo Inspectors",44.86,1,1,1
+"1071","53-6061","53-6061.00","Transportation Attendants, Except Flight Attendants",100.01,1,0,0
+"1072","53-6099","53-6099.00",NA,NA,NA,NA,NA
+"1073","53-7011","53-7011.00","Conveyor Operators and Tenders",100,1,0,0
+"1074","53-7021","53-7021.00","Crane and Tower Operators",100,1,0,0
+"1075","53-7031","53-7031.00","Dredge Operators",100,1,1,1
+"1076","53-7032","53-7032.00","Excavating and Loading Machine and Dragline Operators",100,1,0,0
+"1077","53-7033","53-7033.00","Loading Machine Operators, Underground Mining",100,1,1,1
+"1078","53-7041","53-7041.00","Hoist and Winch Operators",100,1,0,0
+"1079","53-7051","53-7051.00","Industrial Truck and Tractor Operators",100.01,1,0,0
+"1080","53-7061","53-7061.00","Cleaners of Vehicles and Equipment",99.99,1,0,0
+"1081","53-7062","53-7062.00","Laborers and Freight, Stock, and Material Movers, Hand",100.01,1,0,0
+"1082","53-7063","53-7063.00","Machine Feeders and Offbearers",100,1,0,0
+"1083","53-7064","53-7064.00","Packers and Packagers, Hand",100,1,0,0
+"1084","53-7071","53-7071.00","Gas Compressor and Gas Pumping Station Operators",100,1,1,1
+"1085","53-7072","53-7072.00","Pump Operators, Except Wellhead Pumpers",100.01,1,1,1
+"1086","53-7073","53-7073.00","Wellhead Pumpers",100,1,0,0
+"1087","53-7081","53-7081.00","Refuse and Recyclable Material Collectors",97.79,1,0,0
+"1088","53-7111","53-7111.00","Mine Shuttle Car Operators",100,1,0,0
+"1089","53-7121","53-7121.00","Tank Car, Truck, and Ship Loaders",98.23,1,0,0
+"1090","53-7199","53-7199.00",NA,NA,NA,NA,NA
+"1091","55-1011","55-1011.00",NA,NA,NA,NA,NA
+"1092","55-1012","55-1012.00",NA,NA,NA,NA,NA
+"1093","55-1013","55-1013.00",NA,NA,NA,NA,NA
+"1094","55-1014","55-1014.00",NA,NA,NA,NA,NA
+"1095","55-1015","55-1015.00",NA,NA,NA,NA,NA
+"1096","55-1016","55-1016.00",NA,NA,NA,NA,NA
+"1097","55-1017","55-1017.00",NA,NA,NA,NA,NA
+"1098","55-1019","55-1019.00",NA,NA,NA,NA,NA
+"1099","55-2011","55-2011.00",NA,NA,NA,NA,NA
+"1100","55-2012","55-2012.00",NA,NA,NA,NA,NA
+"1101","55-2013","55-2013.00",NA,NA,NA,NA,NA
+"1102","55-3011","55-3011.00",NA,NA,NA,NA,NA
+"1103","55-3012","55-3012.00",NA,NA,NA,NA,NA
+"1104","55-3013","55-3013.00",NA,NA,NA,NA,NA
+"1105","55-3014","55-3014.00",NA,NA,NA,NA,NA
+"1106","55-3015","55-3015.00",NA,NA,NA,NA,NA
+"1107","55-3016","55-3016.00",NA,NA,NA,NA,NA
+"1108","55-3017","55-3017.00",NA,NA,NA,NA,NA
+"1109","55-3018","55-3018.00",NA,NA,NA,NA,NA
+"1110","55-3019","55-3019.00",NA,NA,NA,NA,NA

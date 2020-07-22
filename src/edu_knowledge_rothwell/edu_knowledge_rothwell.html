@@ -199,7 +199,7 @@ knowledge &lt;- knowledge[knowledge$`Scale Name` == &quot;Level&quot;, ]
 
 
 knowledge &lt;- merge(knowledge[, c(&quot;O*NET-SOC Code&quot;, &quot;Element Name&quot;,  &quot;Scale Name&quot;, &quot;Data Value&quot;)], xwalk_soc[, c(&quot;O*NET-SOC 2010 Code&quot;, &quot;2010 SOC Code&quot;)],
-      by.x = &quot;O*NET-SOC Code&quot;, by.y = &quot;O*NET-SOC 2010 Code&quot;)</code></pre>
+      by.x = &quot;O*NET-SOC Code&quot;, by.y = &quot;O*NET-SOC 2010 Code&quot;, all =  T)</code></pre>
 <p>Potentially STW competency categories are listed in the variable <em>element_stw</em>.</p>
 <p>The mean knowledge score is computed for each SOC and competency category (Step 2, Step 4). O*NET Categories with at least a 4.5 and competency categories defined in <em>element_stw</em> will be further considered for STW.</p>
 <pre class="r"><code>element_stw &lt;- c(
@@ -214,25 +214,32 @@ knowledge &lt;- merge(knowledge[, c(&quot;O*NET-SOC Code&quot;, &quot;Element Na
 knowledge_soc &lt;- knowledge %&gt;% 
   group_by(`2010 SOC Code`, `Element Name`) %&gt;% # group by SOC, competency category
   summarize(`Mean Data Value` = mean(`Data Value`)) %&gt;% #take mean for each SOC, competency category grouping
-  mutate(`Category STW Indicator` = ifelse(`Element Name` %in% element_stw &amp; `Mean Data Value`&gt;= 4.5, 1, 0)) %&gt;% # if STW competency category and mean value is greater than 4.5, that specific SOC, competency category combination is considered STW for knowledge
+  mutate(`Category STW Indicator` = ifelse(`Element Name` %in% element_stw &amp; `Mean Data Value`&gt;= 4.5, 1, 
+                                           ifelse(is.na(`Element Name`)==T|is.na(`Mean Data Value`)==TRUE, NA, 0))) #%&gt;% # if STW competency category and mean value is greater than 4.5, that specific SOC, competency category combination is considered STW for knowledge</code></pre>
+<pre><code>## `summarise()` regrouping output by '2010 SOC Code' (override with `.groups` argument)</code></pre>
+<pre class="r"><code>knowledge_soc &lt;- knowledge_soc %&gt;%
+  select(!`Element Name` &amp; !`Mean Data Value`) %&gt;%
   group_by(`2010 SOC Code`) %&gt;%
-  summarize(knowledge_STW = ifelse(sum(`Category STW Indicator`) &gt; 0, 1, 0)) # to pass the knowledge STW definition, only one of the SOC, copetency category combinations must have a 1</code></pre>
+  summarize(knowledge_STW = ifelse(length(`2010 SOC Code`)==1 &amp; is.na(`Category STW Indicator`)==T, NA, 
+                                   ifelse(length(`2010 SOC Code`)&gt;1 &amp; sum(`Category STW Indicator`, na.rm = T) &gt; 0,1, 0))) %&gt;% summarize(knowledge_STW = unique(knowledge_STW))</code></pre>
 <pre><code>## `summarise()` regrouping output by '2010 SOC Code' (override with `.groups` argument)</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre class="r"><code>head(knowledge_soc,10)</code></pre>
+<pre class="r"><code># to pass the knowledge STW definition, only one of the SOC, copetency category combinations must have a 1
+
+head(knowledge_soc,10)</code></pre>
 <pre><code>## # A tibble: 10 x 2
 ##    `2010 SOC Code` knowledge_STW
 ##    &lt;chr&gt;                   &lt;dbl&gt;
 ##  1 11-1011                     0
 ##  2 11-1021                     0
-##  3 11-2011                     0
-##  4 11-2021                     0
-##  5 11-2022                     0
-##  6 11-2031                     0
-##  7 11-3011                     0
-##  8 11-3021                     1
-##  9 11-3031                     1
-## 10 11-3051                     1</code></pre>
+##  3 11-1031                    NA
+##  4 11-2011                     0
+##  5 11-2021                     0
+##  6 11-2022                     0
+##  7 11-2031                     0
+##  8 11-3011                     0
+##  9 11-3021                     1
+## 10 11-3031                     1</code></pre>
 <p>We then download the Education data and calculate the percentage of respondents without a bachelor's degree (Step 3). We then take the mean percentage of respondents with less than a bachelor’s degree for each SOC code (Step 4).</p>
 <pre class="r"><code>#download.file(url = &quot;https://www.onetcenter.org/dl_files/database/db_24_3_excel/Education%2C%20Training%2C%20and%20Experience.xlsx&quot;, destfile = &quot;/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/original/onet/education.xlsx&quot;)
 
@@ -240,20 +247,21 @@ education &lt;- read_xlsx(&quot;/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw
 education &lt;- education[education$`Element Name` == &quot;Required Level of Education&quot;, c(&quot;O*NET-SOC Code&quot;,&quot;Title&quot;,  &quot;Category&quot;, &quot;Data Value&quot;)]
 
 education &lt;- merge(education, xwalk_soc[, c(&quot;O*NET-SOC 2010 Code&quot;, &quot;2010 SOC Code&quot;)],
-      by.x = &quot;O*NET-SOC Code&quot;, by.y = &quot;O*NET-SOC 2010 Code&quot;)
+      by.x = &quot;O*NET-SOC Code&quot;, by.y = &quot;O*NET-SOC 2010 Code&quot;, all = T)
 
 education &lt;- education  %&gt;%
-  mutate(hasbach = ifelse(Category &gt; 5, &quot;bach&quot;, &quot;nobach&quot;)) %&gt;% # if category is greater than 5, the percentage cooresponds to bachelor's degree or higher.
-    filter(hasbach == &quot;nobach&quot;) %&gt;%
-    select(-hasbach)%&gt;%
-  select(!Category) %&gt;%
-  group_by(`O*NET-SOC Code`, `Title`,  `2010 SOC Code`) %&gt;%
-  summarize(`Percent No Bachelors` = sum(`Data Value`)) # calculate the percentage of respondents for each O*NET without a bachelor's degree</code></pre>
-<pre><code>## `summarise()` regrouping output by 'O*NET-SOC Code', 'Title' (override with `.groups` argument)</code></pre>
-<pre class="r"><code>education_soc &lt;- education %&gt;%
+  mutate(hasbach = ifelse(Category &lt;= 5, &quot;nobach&quot;, ifelse(Category &gt; 5, &quot;bach&quot;, NA))) %&gt;% # if category is greater than 5, the percentage cooresponds to bachelor's degree or higher.
+  group_by(`O*NET-SOC Code`, `Title`,  `2010 SOC Code`, hasbach) %&gt;%
+  summarize(`Percent No Bachelors` = sum(`Data Value`)) %&gt;%
+  filter(hasbach == &quot;nobach&quot;|is.na(hasbach)==TRUE) %&gt;%
+  select(!hasbach)</code></pre>
+<pre><code>## `summarise()` regrouping output by 'O*NET-SOC Code', 'Title', '2010 SOC Code' (override with `.groups` argument)</code></pre>
+<pre class="r"><code># calculate the percentage of respondents for each O*NET without a bachelor's degree
+
+education_soc &lt;- education %&gt;%
   group_by(`2010 SOC Code`) %&gt;%
-  summarize(`Mean Percent No Bachelors` = mean(`Percent No Bachelors`), 
-            education_STW = ifelse(`Mean Percent No Bachelors`&gt; 50, 1, 0)) # take the mean percentage of respondents with less than a bachelor’s degree for each SOC code</code></pre>
+  summarize(`Mean Percent No Bachelors` = mean(`Percent No Bachelors`, na.rm = T), 
+            education_STW = ifelse(`Mean Percent No Bachelors`&gt; 50, 1, ifelse(is.na(`Mean Percent No Bachelors`)==T, NA, 0))) # take the mean percentage of respondents with less than a bachelor’s degree for each SOC code</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre class="r"><code>head(education_soc, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 3
@@ -261,56 +269,48 @@ education &lt;- education  %&gt;%
 ##    &lt;chr&gt;                                 &lt;dbl&gt;         &lt;dbl&gt;
 ##  1 11-1011                                7.06             0
 ##  2 11-1021                               52.0              1
-##  3 11-2011                               31.7              0
-##  4 11-2021                                9.36             0
-##  5 11-2022                               17.4              0
-##  6 11-2031                               11.2              0
-##  7 11-3011                               71.7              1
-##  8 11-3021                               35.2              0
-##  9 11-3031                               14.7              0
-## 10 11-3051                               51.5              1</code></pre>
+##  3 11-1031                              NaN               NA
+##  4 11-2011                               31.7              0
+##  5 11-2021                                9.36             0
+##  6 11-2022                               17.4              0
+##  7 11-2031                               11.2              0
+##  8 11-3011                               71.7              1
+##  9 11-3021                               35.2              0
+## 10 11-3031                               14.7              0</code></pre>
 <pre class="r"><code>education &lt;- merge(education, education_soc[, c(&quot;2010 SOC Code&quot;, &quot;education_STW&quot; )], by = &quot;2010 SOC Code&quot;)</code></pre>
 <p>Finally, we merge our knowledge and education findings together. If there is a &quot;1&quot; in both the knowledge and education tables, then a SOC code is categorized as STW.</p>
-<pre class="r"><code>rothwell &lt;- merge(knowledge_soc, education, by = &quot;2010 SOC Code&quot;)
+<pre class="r"><code>rothwell &lt;- merge(education, knowledge_soc, by = &quot;2010 SOC Code&quot;, all =  T)
 
-rothwell$rothwell_STW &lt;- ifelse(rothwell$knowledge_STW == 1 &amp; rothwell$education_STW ==1, 1, 0)
+rothwell$rothwell_STW &lt;- ifelse(rothwell$knowledge_STW == 1 &amp; rothwell$education_STW ==1, 1, ifelse(is.na(rothwell$knowledge_STW) == T &amp; is.na(rothwell$education_STW) ==T, NA, 0))
 
 head(rothwell, 10)</code></pre>
-<pre><code>##    2010 SOC Code knowledge_STW O*NET-SOC Code
-## 1        11-1011             0     11-1011.00
-## 2        11-1011             0     11-1011.03
-## 3        11-1021             0     11-1021.00
-## 4        11-2011             0     11-2011.00
-## 5        11-2021             0     11-2021.00
-## 6        11-2022             0     11-2022.00
-## 7        11-2031             0     11-2031.00
-## 8        11-3011             0     11-3011.00
-## 9        11-3021             1     11-3021.00
-## 10       11-3031             1     11-3031.01
-##                                        Title Percent No Bachelors education_STW
-## 1                           Chief Executives                10.28             0
-## 2              Chief Sustainability Officers                 3.85             0
-## 3            General and Operations Managers                51.97             1
-## 4        Advertising and Promotions Managers                31.69             0
-## 5                         Marketing Managers                 9.36             0
-## 6                             Sales Managers                17.39             0
-## 7  Public Relations and Fundraising Managers                11.18             0
-## 8           Administrative Services Managers                71.74             1
-## 9  Computer and Information Systems Managers                35.15             0
-## 10                Treasurers and Controllers                 0.00             0
-##    rothwell_STW
-## 1             0
-## 2             0
-## 3             0
-## 4             0
-## 5             0
-## 6             0
-## 7             0
-## 8             0
-## 9             0
-## 10            0</code></pre>
+<pre><code>##    2010 SOC Code O*NET-SOC Code                                     Title
+## 1        11-1011     11-1011.00                          Chief Executives
+## 2        11-1011     11-1011.03             Chief Sustainability Officers
+## 3        11-1021     11-1021.00           General and Operations Managers
+## 4        11-1031     11-1031.00                                      &lt;NA&gt;
+## 5        11-2011     11-2011.00       Advertising and Promotions Managers
+## 6        11-2011     11-2011.01                                      &lt;NA&gt;
+## 7        11-2021     11-2021.00                        Marketing Managers
+## 8        11-2022     11-2022.00                            Sales Managers
+## 9        11-2031     11-2031.00 Public Relations and Fundraising Managers
+## 10       11-3011     11-3011.00          Administrative Services Managers
+##    Percent No Bachelors education_STW knowledge_STW rothwell_STW
+## 1                 10.28             0             0            0
+## 2                  3.85             0             0            0
+## 3                 51.97             1             0            0
+## 4                    NA            NA            NA           NA
+## 5                 31.69             0             0            0
+## 6                    NA             0             0            0
+## 7                  9.36             0             0            0
+## 8                 17.39             0             0            0
+## 9                 11.18             0             0            0
+## 10                71.74             1             0            0</code></pre>
 <p>We fix the case where registered nurses fail to meet the knowledge and education criteria (Step 5).</p>
-<pre class="r"><code>rothwell[rothwell$`2010 SOC Code` == &quot;29-1141&quot;, &quot;rothwell_STW&quot;] &lt;- 1</code></pre>
+<pre class="r"><code>rothwell[rothwell$`2010 SOC Code` == &quot;29-1141&quot;, &quot;rothwell_STW&quot;] &lt;- 1
+
+#write.csv(rothwell, &quot;/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv&quot;)</code></pre>
+<p>Merge with OCC</p>
 
 
 
