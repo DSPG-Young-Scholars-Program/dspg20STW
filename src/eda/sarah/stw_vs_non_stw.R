@@ -46,8 +46,7 @@ occ <- data.frame()
 xwalk <- read.csv("src/edu_knowledge_rothwell/rothwell.csv")
 
 for(year in 2010:2019){
-  year = 2019
-  
+
     tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
       statement = paste("SELECT EXTRACT(YEAR FROM A.jobdate) AS year, A.state, B.onet, COUNT(DISTINCT(A.id)) AS bgt
@@ -73,17 +72,23 @@ for(year in 2010:2019){
     occ <- rbind(occ, tbl)
 }
 
-final_data <- merge(bach[, c("state", "year", "noBachRequired")], occ,  by = c("state", "year"))
+final_data <- merge(bach[, c("state", "year", "nobach")], occ,  by = c("state", "year"))
+
+final_data$nobach <- round(final_data$nobach, 4)
+
+#write.csv(final_data, "/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/stw_edu.csv", row.names = F)
+
+final_data <- read.csv("data/ncses_stw/stw_edu.csv")
 
 y = 2019
 
 data <- final_data %>% 
   filter(year == y) %>%
-  arrange(desc(noBachRequired))
+  arrange(desc(nobach))
 
 
 
-statebins(data[data$year == y, ], state_col = "state", value_col = "noBachRequired", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
+statebins(data[data$year == y, ], state_col = "state", value_col = "nobach", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
   labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
 
 
