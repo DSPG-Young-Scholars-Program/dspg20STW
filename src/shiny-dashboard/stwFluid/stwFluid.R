@@ -2,7 +2,9 @@ library(shiny)
 library(dbplyr)
 library(statebins)
 library(ggplot2)
-library(shinythemes)
+library(shinythemes) 
+library(plyr)
+ 
 
 #Show vicki both this version and morgans template
 
@@ -53,10 +55,10 @@ ui <- fluidPage(
                 h3("National and Regional Comparison of Job Estimates", style = "color:#232D4B"),
                 selectInput("select", "", choices = c("national", "regional"), selected = "national"),
                 plotOutput("jobsByYear")),
-        tabPanel("Statebins",     
+        tabPanel("Statebins",align = "center",     
                 h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("statebins"),
+                plotOutput("statebins", width = "700", height = "500"),
                 p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group"),
                 h3("Summary Table"),
                 tableOutput("summary")
@@ -120,7 +122,7 @@ server <- function(input, output) {
       prof
     }
     
-  }) 
+  })  
   
   output$jobsByYear <- renderPlot({
     if(input$select == "national"){
@@ -145,25 +147,25 @@ server <- function(input, output) {
   
   #Rendering statebins plot
   output$statebins <- renderPlot({
+    
     #renderPlot height and width
     data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/statebinsData.csv")
     
-    viz_data <- data %>% filter(year == input$slide)
+    viz_data <- data %>% filter(year == input$slide) 
     
     statebins(viz_data, state_col = "state", value_col = "per_diff", palette = "Blues", direction = 1, round = TRUE, name = "Percent Difference") + theme_statebins() +
       labs(title = "Percent Difference Between JOLTS and BGT Estimates by State")
     
+  }) 
     
-    
-  },bg = "transparent")
-  
+  #Summary table
   output$summary <- renderTable({
     #change x to SOC (see link)
-    #dataTable r-shiny (using datatable with r shiny)
+  
     #remove x column to the left
     #create a table of definitions for codes
-    #make statebins plot bigger
-    #read in final_data from occupation_groups instead of individual csvs and filter
+    
+    
     #reformat column names (capitalize, rename pct_diff, etc)
     
     #how should we manage our aggregated burning glass data
@@ -174,12 +176,39 @@ server <- function(input, output) {
     
     data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups.csv")
     
-    viz_data <- data %>% filter(year == input$slide)
+    
+    names(data)[names(data) == "state"] <- "State"
+    names(data)[names(data) == "year"] <- "Year"
+    names(data)[names(data) == "per_diff"] <- "Percent Difference"
+    names(data)[names(data) == "X11"] <- "SOC11"
+    names(data)[names(data) == "X13"] <- "SOC13"
+    names(data)[names(data) == "X15"] <- "SOC15"
+    names(data)[names(data) == "X17"] <- "SOC17"
+    names(data)[names(data) == "X19"] <- "SOC19"
+    names(data)[names(data) == "X21"] <- "SOC21"
+    names(data)[names(data) == "X23"] <- "SOC23"
+    names(data)[names(data) == "X25"] <- "SOC25"
+    names(data)[names(data) == "X27"] <- "SOC27"
+    names(data)[names(data) == "X27"] <- "SOC27"
+    names(data)[names(data) == "X29"] <- "SOC29"
+    names(data)[names(data) == "X31"] <- "SOC31"
+    names(data)[names(data) == "X33"] <- "SOC33"
+    names(data)[names(data) == "X35"] <- "SOC35"
+    names(data)[names(data) == "X37"] <- "SOC37"
+    names(data)[names(data) == "X39"] <- "SOC39"
+    names(data)[names(data) == "X41"] <- "SOC41"
+    names(data)[names(data) == "X43"] <- "SOC43"
+    names(data)[names(data) == "X45"] <- "SOC45"
+    names(data)[names(data) == "X47"] <- "SOC47"
+    names(data)[names(data) == "X49"] <- "SOC49"
+    names(data)[names(data) == "X51"] <- "SOC51"
+    names(data)[names(data) == "X53"] <- "SOC53"
+    names(data)[names(data) == "X55"] <- "SOC55"
+    
+  
+    viz_data <- data %>% filter(Year == input$slide)
     
     viz_data
-    
-    #summary2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2010.csv"
-    #summary2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups2011.csv"
     
   })
    
