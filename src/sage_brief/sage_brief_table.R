@@ -1,8 +1,7 @@
 
-library(readxl)
 library(dplyr)
 library(tidyr)
-xwalk <- read_xlsx("/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/ONETSOC_SOC_OCC_NCSES_JUL2020.xlsx")
+xwalk <- read.csv("/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv")
 
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
@@ -74,10 +73,11 @@ bgt <- bgt %>%
             "nacips" = sum(nacips))
 
 
-bgt <- merge(bgt, xwalk[,c("ONETSOC", "NCSESSTW")], by.x = "onet", by.y = "ONETSOC", all.x = T)
+bgt <- merge(bgt, xwalk[,c("X2010.SOC.Code", "O.NET.SOC.Code", "Title","Percent.No.Bachelors", "rothwell_STW" )], by.x = "onet", by.y = "O.NET.SOC.Code", all.x = T)
 
-bgt <- bgt %>% filter(NCSESSTW == 1)
+stw <- bgt %>% filter(rothwell_STW == 1)
 
+write.csv(stw, "src/edu_knowledge_rothwell/stw_edu_region.csv", row.names = F)
 
 
 
