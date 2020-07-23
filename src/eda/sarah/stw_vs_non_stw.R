@@ -12,41 +12,62 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
 
 bach <- data.frame()
 for(year in 2010:2019){
-  
-    tbl <- RPostgreSQL::dbGetQuery(
+
+      tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
-      statement = paste("SELECT COUNT(DISTINCT id) as bgt, 
-                          EXTRACT(YEAR FROM jobdate) AS year,
-                          state, 
-                          CASE WHEN minedu IS NULL THEN 'missingBach'
-                                WHEN minedu < 16 THEN 'noBachRequired'
-                                WHEN minedu >= 16 THEN 'bachRequired'
-                               END AS bach
-                        FROM bgt_job.jolts_comparison_", year, 
-                        " WHERE state 
+      statement = paste("SELECT COUNT(DISTINCT A.id) as bgt, 
+                          EXTRACT(YEAR FROM A.jobdate) AS year,
+                          A.state, A.minedu, CASE WHEN B.cip IS NOT NULL THEN TRUE ELSE FALSE END hascip
+                        FROM bgt_job.jolts_comparison_", year, " A LEFT JOIN bgt_job.cip B ON A.id = B.id",
+                        " WHERE A.state 
                           IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
-                        " GROUP BY state, year, bach",  sep = ""))
+                        " GROUP BY A.state, A.minedu, year, hascip",  sep = ""))
     
-    tbl <- tbl %>% spread(key = bach, value = bgt)
-    tbl <- tbl[,c(1,2,5,3,4)]
-    tbl <- tbl %>% mutate(round(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]), 4))
+
+    tbl$hasbach <- ifelse(is.na(tbl$minedu)==TRUE & tbl$hascip == TRUE, TRUE, 
+                          ifelse(is.na(tbl$minedu)==TRUE & tbl$hascip == FALSE, FALSE, 
+                                 ifelse(tbl$minedu >14, TRUE, FALSE)))
+    
+    
+   tbl <-  tbl %>% select(bgt, year, state, hasbach) %>% group_by(year, state, hasbach) %>% summarize(bgt = sum(bgt))
+    tbl<- tbl %>% spread( key = hasbach, value = bgt) %>% rename(bach = "TRUE", nobach = "FALSE")  
+    
+    tbl <- tbl %>% mutate(total = nobach + bach, nobach = nobach/total, bach = bach/total) %>% select(!total)
     
     bach <- rbind(tbl, bach)
 
 }
 
 
+
+
 occ <- data.frame()
+
+xwalk <- read.csv("src/edu_knowledge_rothwell/rothwell.csv")
+
 for(year in 2010:2019){
+  year = 2019
   
     tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
-      statement = paste("SELECT EXTRACT(YEAR FROM jobdate) AS year, state, SUBSTRING(soc from 1 for 2) AS occ, COUNT(DISTINCT(id)) AS bgt
-                      FROM bgt_job.jolts_comparison_", year, 
-                        " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
-                        " GROUP BY  year, occ, state", sep = ""))
+      statement = paste("SELECT EXTRACT(YEAR FROM A.jobdate) AS year, A.state, B.onet, COUNT(DISTINCT(A.id)) AS bgt
+                      FROM bgt_job.jolts_comparison_", year, " A LEFT JOIN bgt_job.main B ON A.id = B.id",
+                        " WHERE A.state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
+                        " GROUP BY  year, B.onet, A.state", sep = ""))
     
-    tbl <- tbl %>% spread(key = occ, value = bgt)
+    tbl_original <- tbl
+   
+    
+    tbl<- merge(tbl, xwalk[,c("O.NET.SOC.Code","rothwell_STW")], by.x = "onet", by.y = "O.NET.SOC.Code", all.x = T)
+    
+    tbl$occ <- substr(tbl$onet, start = 1, stop = 2)
+    tbl <- tbl %>% select(!onet)%>% filter(rothwell_STW == 1)  %>% group_by(year, state, occ) %>% summarize(bgt = sum(bgt)) 
+    
+    tbl <-  tbl  %>% spread(key = occ, value = bgt)
+    
+    tbl[is.na(tbl)] <- 0
+    tbl <- as.data.frame(tbl)
+
     tbl <- tbl %>% mutate(round(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]), 4))
     
     occ <- rbind(occ, tbl)

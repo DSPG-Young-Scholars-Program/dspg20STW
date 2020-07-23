@@ -77,10 +77,6 @@ bgt <- merge(bgt, xwalk[,c("X2010.SOC.Code", "O.NET.SOC.Code", "Title","Percent.
 
 stw <- bgt %>% filter(rothwell_STW == 1)
 
-write.csv(stw, "src/edu_knowledge_rothwell/stw_edu_region.csv", row.names = F)
-
-
-
-
+#write.csv(stw, "src/sage_brief/stw_edu_region.csv", row.names = F)
 
 
