@@ -1,12 +1,16 @@
 library(shiny) 
-library(dbplyr)
+library(dplyr)
 library(statebins)
 library(ggplot2)
-library(shinythemes) 
-library(plyr)
- 
 
-#Show vicki both this version and morgans template
+#move everything to where it needs to be
+#open up a shinyappsio account
+#aggregated data needs to be below stwFluid.R "dspg20STW/src/shiny-dashboard/stwFluid"
+#Email Aaron about any shiny dashboard questions
+#remove x column to the left
+#create a table of definitions for codes
+#Add second region plot
+#Begin filling out paragraphs
 
 ui <- fluidPage(
    #h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
@@ -79,16 +83,16 @@ ui <- fluidPage(
 server <- function(input, output) {
   #rendering profiling table
   output$profile <- renderTable({
-    prof2010 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2010.csv"
-    prof2011 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2011.csv"
-    prof2012 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2012.csv"
-    prof2013 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2013.csv"
-    prof2014 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2014.csv"
-    prof2015 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2015.csv"
-    prof2016 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2016.csv"
-    prof2017 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2017.csv"
-    prof2018 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2018.csv"
-    prof2019 <- "/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/profiling_tables/prof2019.csv"
+    prof2010 <- "prof2010.csv"
+    prof2011 <- "prof2011.csv"
+    prof2012 <- "prof2012.csv"
+    prof2013 <- "prof2013.csv"
+    prof2014 <- "prof2014.csv"
+    prof2015 <- "prof2015.csv"
+    prof2016 <- "prof2016.csv"
+    prof2017 <- "prof2017.csv"
+    prof2018 <- "prof2018.csv"
+    prof2019 <- "prof2019.csv"
     
     if(input$prof_select == 2010){
       prof <- read.csv(prof2010)
@@ -126,7 +130,7 @@ server <- function(input, output) {
   
   output$jobsByYear <- renderPlot({
     if(input$select == "national"){
-      total_wide <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/jobsByYear.csv")
+      total_wide <- read.csv("jobsByYear.csv")
       ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) + 
         geom_segment(color = "grey60") + 
         geom_point(y = total_wide$bgt, color = "#E57200", size = 3)+
@@ -149,7 +153,7 @@ server <- function(input, output) {
   output$statebins <- renderPlot({
     
     #renderPlot height and width
-    data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/statebinsData.csv")
+    data <- read.csv("statebinsData.csv")
     
     viz_data <- data %>% filter(year == input$slide) 
     
@@ -160,21 +164,12 @@ server <- function(input, output) {
     
   #Summary table
   output$summary <- renderTable({
-    #change x to SOC (see link)
   
-    #remove x column to the left
-    #create a table of definitions for codes
-    
-    
-    #reformat column names (capitalize, rename pct_diff, etc)
-    
-    #how should we manage our aggregated burning glass data
-    #the current location is in our symlink data/ncses_stw
-    
+  
     #email aaron about deployment after he gets back to us about data management
     #walk through the deployment of the app
     
-    data <- read.csv("/sfs/qumulo/qhome/itm3f/git/dspg20STW/data/ncses_stw/dataForInteractiveDoc/occupation_groups.csv")
+    data <- read.csv("occupation_groups.csv")
     
     
     names(data)[names(data) == "state"] <- "State"
@@ -204,6 +199,8 @@ server <- function(input, output) {
     names(data)[names(data) == "X51"] <- "SOC51"
     names(data)[names(data) == "X53"] <- "SOC53"
     names(data)[names(data) == "X55"] <- "SOC55"
+    
+    
     
   
     viz_data <- data %>% filter(Year == input$slide)

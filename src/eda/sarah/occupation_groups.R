@@ -1,3 +1,6 @@
+library(data.table)
+
+#run first
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
                                host = "postgis1",
@@ -7,6 +10,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
 
 source("src/eda/sarah/state_year_aggregation.R")
 
+#run second
 state_year_jolts_bgt_table_maker(2010:2019)
 
 bgt <- data.frame()
@@ -27,19 +31,21 @@ for(year in 2010:2019){
   bgt <- rbind(bgt, tbl)
 }
 
-
+#write this as a csv instead and filter by year
 final_data <- merge(state_year_bgt_jolts_2010_2019[, c("state", "year", "per_diff")], bgt, by = c("state", "year"))
 
+write.csv(final_data, "data/ncses_stw/dataForInteractiveDoc/occupation_groups.csv")
 
-y = 2010
+y = 2011
 
 data <- final_data %>% 
   filter(year == y) %>%
   arrange(desc(per_diff))
 
 
+colnames(final_data) <- c("State", "Year", "Percent Difference", "SOC 11", "SOC 13", "SOC 15", "SOC 17", "SOC 19", "SOC 21",
+                          "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33", "SOC 35", "SOC 37", "SOC 39", "SOC 41",
+                          "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53" ,"SOC 55")
 
 
-
-
-
+write.csv(final_data, "data/ncses_stw/dataForInteractiveDoc/occupation_groups_cleaned.csv")

@@ -1,6 +1,7 @@
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(RPostgreSQL)
 
 ###########--------------- Comparison of Total Jobs by Year ---------------########### 
 
@@ -19,7 +20,7 @@ compare_years <- function(years){
     variable = c(rep("jolts", length(years)), rep ("bgt", length(years))) , 
     value = numeric(length = 2 * length(years)))
   
-  jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
+  jolts <- read.table("data/ncses_stw/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
   
   
   for(y in years){
@@ -81,7 +82,7 @@ compare_years_region <- function(years){
   lookup <- data.frame(region = c("NE", "SO", "WE", "MW"), name = c("Northeast", "South", "West", "Midwest"))
   
   # open jolts
-  jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
+  jolts <- read.table("data/ncses_stw/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
   
   # state to region look up table
   states <- data.frame(state.name, state.region)
