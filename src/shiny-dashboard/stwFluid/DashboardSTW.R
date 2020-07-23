@@ -6,11 +6,13 @@ library(ggplot2)
 
 #open up a shinyappsio account
 
-#Email Aaron about any shiny dashboard questions
+#Add logos 
 
-#create a table of definitions for codes
+#Email Aaron about any shiny dashboard questions 
 
 #Begin filling out paragraphs
+
+#Work on STW v non-STW tab
 
 ui <- fluidPage(
    #h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
@@ -31,7 +33,6 @@ ui <- fluidPage(
                   DSPG young scholars conduct research at the intersection of statistics, computation, and the social sciences to determine how information 
                   generated within every community can be leveraged to improve quality of life and inform public policy. ", style = "color:#232D4B"),
                 h2("Skilled Techinical Workforce Project", style = "color:#E57200"),
-                h2("Datasets", style = "color:#E57200")
                 ),
                 
        tabPanel("Profiling",style = "margin:20px",
@@ -76,12 +77,19 @@ ui <- fluidPage(
                 h3("National and Regional Comparison of Job Estimates", style = "color:#232D4B"),
                 selectInput("select", "", choices = c("national", "regional"), selected = "national"),
                 plotOutput("jobsByYearOrRegion")),
-        tabPanel("Statebins",align = "center",     
-                h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
-                sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("statebins", width = "700", height = "500"),
-                p("Below the map, show a summary stats table with the states ordered by percent difference (smallest to largest) and across the top are the 23 major occupation groups - the cells will have the percent of BGT jobs ads classified into each group"),
-                h3("Summary Table"),
+        
+        
+        tabPanel("Statebins",
+                fluidRow(column(3,
+                                h3("SOC Definitions"),
+                                tableOutput("definitions"),
+                                
+                              ),
+                         column(7,
+                                h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
+                                sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
+                                plotOutput("statebins", width = "700", height = "500")  
+                                )),
                 tableOutput("summary")
                 
                 )),#end navbar
@@ -89,9 +97,15 @@ ui <- fluidPage(
        #end Jolts vs BGT tab-----------------
        
        
-       tabPanel("BGT: STW vs Non-STW"),
+       tabPanel("BGT: STW vs Non-STW",
+                sliderInput("slide2", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
+                plotOutput("stw")
+                
+                
+                
+                ),
        
-       #end STW vs Non-STW
+       #end STW vs Non-STW-------------
        tabPanel(
          "Data Sources"
        )
@@ -148,7 +162,7 @@ server <- function(input, output) {
       prof
     }
     
-  })  
+  }, width = "50%")  
   
   output$jobsByYearOrRegion <- renderPlot({
     if(input$select == "national"){
@@ -204,6 +218,15 @@ server <- function(input, output) {
       labs(title = "Percent Difference Between JOLTS and BGT Estimates by State")
     
   }) 
+  
+  
+  #SOC definitions
+  output$definitions <- renderTable({
+    def <- read.csv("socDefinitions.csv")
+    
+    def$X <- NULL
+    def
+  })
     
   #Summary table
   output$summary <- renderTable({
@@ -250,8 +273,29 @@ server <- function(input, output) {
   
     viz_data <- data %>% filter(Year == input$slide)
     
-    viz_data
+    viz_data 
     
+  })
+  
+  #STW vs non-STW output
+  output$stw <- renderPlot({
+    
+    data <- read.csv("stw_edu.csv")
+    
+    #viz_data <- data %>% filter(year == input$slide2) 
+    
+    #y = input$slide2
+    
+    
+    
+    #data <- final_data %>% 
+      #filter(year == y) %>%
+      #arrange(desc(nobach))
+    
+    
+    
+    statebins(data[data$year == input$slide2, ], state_col = "state", value_col = "nobach", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
+      labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
   })
    
 }

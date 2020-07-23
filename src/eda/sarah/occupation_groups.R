@@ -48,4 +48,7 @@ colnames(final_data) <- c("State", "Year", "Percent Difference", "SOC 11", "SOC 
                           "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53" ,"SOC 55")
 
 
-write.csv(final_data, "data/ncses_stw/dataForInteractiveDoc/occupation_groups_cleaned.csv")
+df <- read.csv("data/ncses_stw/stw_edu.csv")
+
+
+
