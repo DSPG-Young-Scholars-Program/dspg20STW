@@ -214,7 +214,7 @@ total_wide_region$per_diff <- (abs(total_wide_region$jolts - total_wide_region$b
 
 ggplot(total_wide_region, aes(x = year, xend = year, y = bgt, yend = jolts)) + 
   geom_segment(color = "grey60") +
-  geom_text(aes(x = year+0.32, y = bgt+ ((jolts-bgt)/2), label = paste(round(per_diff, 2), "%", sep = ""))) +
+  #geom_text(aes(x = year+0.32, y = bgt+ ((jolts-bgt)/2), label = paste(round(per_diff, 2), "%", sep = ""))) +
   geom_point(y = total_wide_region$bgt, color = "#E57200", size = 3)+
   geom_point(y = total_wide_region$jolts, color = "#232D4B", size = 3) +
   scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  

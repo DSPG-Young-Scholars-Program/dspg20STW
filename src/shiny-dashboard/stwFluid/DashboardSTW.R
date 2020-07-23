@@ -2,14 +2,14 @@ library(shiny)
 library(dplyr)
 library(statebins)
 library(ggplot2)
+ 
 
-#move everything to where it needs to be
 #open up a shinyappsio account
-#aggregated data needs to be below stwFluid.R "dspg20STW/src/shiny-dashboard/stwFluid"
+
 #Email Aaron about any shiny dashboard questions
-#remove x column to the left
+
 #create a table of definitions for codes
-#Add second region plot
+
 #Begin filling out paragraphs
 
 ui <- fluidPage(
@@ -17,10 +17,27 @@ ui <- fluidPage(
    #h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
    
    navbarPage("Skilled Technical Workforce",
-       tabPanel("About"),
+       tabPanel("About",style = "margin:80px",
+                h1("SDAD/DSPG", style = "color: #E57200"),
+                p("The Social and Decision Analytics Division (SDAD) is one of three research divisions within the Biocomplexity Institute and Initiative at the University of Virginia. 
+                  SDAD combines expertise in statistics and social and behavioral sciences to develop evidence-based research 
+                  and quantitative methods to inform policy decision-making and evaluation. 
+                  The researchers at SDAD span many disciplines including statistics, economics, sociology, psychology, 
+                  political science, policy, health IT, public health, program evaluation, and data science. 
+                  The SDAD office is located near our nation's capital in Arlington, VA. You can learn more about us at",
+                  tags$a(href="https://biocomplexity.virginia.edu/social-decision-analytics.", "https://biocomplexity.virginia.edu/social-decision-analytics."), style = "color:#232D4B"),
+                p("The Data Science for the Public Good (DSPG) Young Scholars program is a summer immersive program held at SDAD. Entering its seventh year, the program engages students from across the country 
+                  to work together on projects that address state, federal, and local government challenges around critical social issues relevant in the world today. 
+                  DSPG young scholars conduct research at the intersection of statistics, computation, and the social sciences to determine how information 
+                  generated within every community can be leveraged to improve quality of life and inform public policy. ", style = "color:#232D4B"),
+                h2("Skilled Techinical Workforce Project", style = "color:#E57200"),
+                h2("Datasets", style = "color:#E57200")
+                ),
+                
        tabPanel("Profiling",style = "margin:20px",
                 selectInput("prof_select", label = "Profile", choices = c(2010,2011,2012,2013,2014,2015,2016,2017,2018,2019)),
                 tableOutput("profile"),
+                hr(),
                 helpText("note: All information regarding variable descriptions was taken from the Burning Glass Data Dictionary"),
                 h3("Variables"),
                 tags$ul(
@@ -58,7 +75,7 @@ ui <- fluidPage(
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"),
                 h3("National and Regional Comparison of Job Estimates", style = "color:#232D4B"),
                 selectInput("select", "", choices = c("national", "regional"), selected = "national"),
-                plotOutput("jobsByYear")),
+                plotOutput("jobsByYearOrRegion")),
         tabPanel("Statebins",align = "center",     
                 h3("Percent Difference Between Jolts and BGT", style = "color:#232D4B"),
                 sliderInput("slide", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
@@ -72,7 +89,12 @@ ui <- fluidPage(
        #end Jolts vs BGT tab-----------------
        
        
-       tabPanel("BGT: STW vs Non-STW")
+       tabPanel("BGT: STW vs Non-STW"),
+       
+       #end STW vs Non-STW
+       tabPanel(
+         "Data Sources"
+       )
      )
    )
    
@@ -128,7 +150,7 @@ server <- function(input, output) {
     
   })  
   
-  output$jobsByYear <- renderPlot({
+  output$jobsByYearOrRegion <- renderPlot({
     if(input$select == "national"){
       total_wide <- read.csv("jobsByYear.csv")
       ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) + 
@@ -146,6 +168,27 @@ server <- function(input, output) {
              x = "", 
              title = "Comparison of JOLTS and BGT Job Estimates by Year",
              subtitle= "Blue dots show JOLTS job openings estimates, \nand red dots show BGT job-ads estimates.")
+    }else{
+      total_wide_region <- read.csv("total_wide_region.csv")
+      ggplot(total_wide_region, aes(x = year, xend = year, y = bgt, yend = jolts)) + 
+        geom_segment(color = "grey60") +
+        #geom_text(aes(x = year+0.32, y = bgt+ ((jolts-bgt)/2), label = paste(round(per_diff, 2), "%", sep = ""))) +
+        geom_point(y = total_wide_region$bgt, color = "#E57200", size = 3)+
+        geom_point(y = total_wide_region$jolts, color = "#232D4B", size = 3) +
+        scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  
+        scale_x_continuous(breaks = c(2010:2019)) + 
+        scale_color_manual(values=c("#E57200", "#232D4B")) +
+        facet_wrap(~region) + 
+        theme_minimal() +
+        theme(plot.title = element_text(hjust = .5, size = 20), 
+              plot.subtitle = element_text(size = 12),
+              axis.title.x = element_blank(), 
+              legend.position = "none", 
+              strip.text.x = element_text(face = "bold",size = 12)) +
+        labs(title = "BGT Job Ads vs JOLTS Job Openings by Region and Year",
+             y = "Number of Job Openings/Ads",
+             subtitle = "Blue dots represent JOLTS Job Openings Estimates, \nand orange dots represent BGT Job Ads.") 
+      
     }
   })
   
@@ -171,6 +214,8 @@ server <- function(input, output) {
     
     data <- read.csv("occupation_groups.csv")
     
+    #removes the x column by setting it to NULL
+    data$X <- NULL
     
     names(data)[names(data) == "state"] <- "State"
     names(data)[names(data) == "year"] <- "Year"
