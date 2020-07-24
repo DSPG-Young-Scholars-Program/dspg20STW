@@ -86,8 +86,6 @@ data <- final_data %>%
   filter(year == y) %>%
   arrange(desc(nobach))
 
-
-
 statebins(data[data$year == y, ], state_col = "state", value_col = "nobach", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
   labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
 
