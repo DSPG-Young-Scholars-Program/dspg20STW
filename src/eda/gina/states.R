@@ -8,10 +8,12 @@ library(readxl)
 library(dplyr)
 library(statebins)
 library(ggplot2)
+library(tidyr)
+library(lubridate)
 
 
 # state year
-state <- read_xlsx("data/original/jlt_statedata_q4_2019.xlsx", skip = 4)
+state <- read_xlsx("data/ncses_stw/original/jlt_statedata_q4_2019.xlsx", skip = 4)
 
 state <- state %>% mutate(`Job Openings` = `Job Openings` * 1000, 
                           Hires = Hires * 1000, 
@@ -46,7 +48,7 @@ statebins(new, state_col = "State", value_col = "per_diff", palette = "Blues",
 
 
 # state/month GINA START HERE
-state <- read_xlsx("data/original/jlt_statedata_q4_2019.xlsx", skip = 4)
+state <- read_xlsx("data/ncses_stw/original/jlt_statedata_q4_2019.xlsx", skip = 4)
 
 state <- state %>% mutate(`jolts` = `Job Openings` * 1000, 
                           Hires = Hires * 1000, 
@@ -89,10 +91,18 @@ new$diff <- new$jolts - new$bgt
 new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100
 
 #######
+new$Month2 <- ifelse(nchar(new$Month) == 1, paste("0", as.character(new$Month), sep = ""), as.character(new$Month))
 
-ggplot(subset(new, State %in% c("Virginia"))) + 
-  geom_point(aes(x=Year, y=bgt),color="#E57200") + 
-  geom_point(aes(x=Year, y=jolts),color="#232D4B") + theme_minimal() +
-  scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 100000)) +
-  scale_x_continuous(breaks = 2010:2019) +
-  labs(title = "Virginia", x = "") 
+gina <- new %>%
+  unite(date, c("Year", "Month2"), sep = "-", remove = F)
+
+gina$time <- as_date(parse_date_time(gina$date, "ym"))
+
+
+#######
+
+ggplot(subset(gina, State %in% c("Virginia"))) + 
+  geom_line(aes(x=time, y=bgt),color="#E57200") + 
+  geom_line(aes(x=time, y=jolts),color="#232D4B") + theme_minimal() +
+  scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") 
