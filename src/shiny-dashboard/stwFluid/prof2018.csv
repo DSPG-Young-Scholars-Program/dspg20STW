@@ -1,0 +1,10 @@
+"variable","completeness","validity","uniqueness"
+"id",1,1,28769736
+"jobdate",1,1,365
+"state",1,1,58
+"soc",0.9717,1,832
+"socname",0.9717,1,832
+"lat",0.9821,1,38558
+"lon",0.9821,1,40857
+"minedu",0.8961,1,6
+"maxedu",0.8236,1,6

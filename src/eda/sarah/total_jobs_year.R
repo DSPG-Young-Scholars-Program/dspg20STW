@@ -1,6 +1,7 @@
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(RPostgreSQL)
 
 ###########--------------- Comparison of Total Jobs by Year ---------------########### 
 
@@ -19,7 +20,7 @@ compare_years <- function(years){
     variable = c(rep("jolts", length(years)), rep ("bgt", length(years))) , 
     value = numeric(length = 2 * length(years)))
   
-  jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
+  jolts <- read.table("data/ncses_stw/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
   
   
   for(y in years){
@@ -81,7 +82,7 @@ compare_years_region <- function(years){
   lookup <- data.frame(region = c("NE", "SO", "WE", "MW"), name = c("Northeast", "South", "West", "Midwest"))
   
   # open jolts
-  jolts <- read.table("data/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
+  jolts <- read.table("data/ncses_stw/original/jt.data.2.JobOpenings.txt", fill = TRUE, header = TRUE)
   
   # state to region look up table
   states <- data.frame(state.name, state.region)
@@ -213,7 +214,7 @@ total_wide_region$per_diff <- (abs(total_wide_region$jolts - total_wide_region$b
 
 ggplot(total_wide_region, aes(x = year, xend = year, y = bgt, yend = jolts)) + 
   geom_segment(color = "grey60") +
-  geom_text(aes(x = year+0.32, y = bgt+ ((jolts-bgt)/2), label = paste(round(per_diff, 2), "%", sep = ""))) +
+  #geom_text(aes(x = year+0.32, y = bgt+ ((jolts-bgt)/2), label = paste(round(per_diff, 2), "%", sep = ""))) +
   geom_point(y = total_wide_region$bgt, color = "#E57200", size = 3)+
   geom_point(y = total_wide_region$jolts, color = "#232D4B", size = 3) +
   scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  
@@ -267,7 +268,7 @@ ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) +
                      name ="Number of Job Openings/Ads",
                      limits = c(0, 90000000),
                      expand = c(0, 0))+
-  theme_minimal() +
+  theme_minimal() + 
   theme(legend.position="bottom",
         legend.title = element_blank(), 
         plot.title = element_text(hjust = .5, size = 20), 

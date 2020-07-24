@@ -50,7 +50,7 @@ state_year_jolts_bgt_table_maker <- function(years){
 
       new$diff <- new$jolts - new$bgt
 
-      new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100
+      new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100 
 
       assign(paste("state_year_bgt_jolts", min(years), max(years), sep = "_"), new, .GlobalEnv)
 }
