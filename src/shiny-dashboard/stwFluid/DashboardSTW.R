@@ -17,9 +17,14 @@ library(ggplot2)
 ui <- fluidPage(
    #h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
    #h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
-   
    navbarPage("Skilled Technical Workforce",
        tabPanel("About",style = "margin:80px",
+                
+                #Trying to render an image here
+                tags$img(src='nsf.jpg', height = 50, width = 50, align = "right"),
+                
+                
+                
                 h1("SDAD/DSPG", style = "color: #E57200"),
                 p("The Social and Decision Analytics Division (SDAD) is one of three research divisions within the Biocomplexity Institute and Initiative at the University of Virginia. 
                   SDAD combines expertise in statistics and social and behavioral sciences to develop evidence-based research 
@@ -99,8 +104,8 @@ ui <- fluidPage(
        
        tabPanel("BGT: STW vs Non-STW",
                 sliderInput("slide2", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("stw"),
-                
+                plotOutput("stw", width = "700", height = "500"),
+                tableOutput("stwTable")
                 
                 ),
        
@@ -116,6 +121,7 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+
   #rendering profiling table
   output$profile <- renderTable({
     prof2010 <- "prof2010.csv"
@@ -296,6 +302,14 @@ server <- function(input, output) {
     statebins(data[data$year == input$slide2, ], state_col = "state", value_col = "nobach", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
       labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
   })
+  
+  output$stwTable <- renderTable({
+    table <- read.csv("stw_edu.csv")
+    viz_data <- table%>%filter(year == input$slide2)
+    viz_data
+  })
+  
+  
 
   
    
