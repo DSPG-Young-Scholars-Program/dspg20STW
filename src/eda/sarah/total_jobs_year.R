@@ -268,7 +268,7 @@ ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) +
                      name ="Number of Job Openings/Ads",
                      limits = c(0, 90000000),
                      expand = c(0, 0))+
-  theme_minimal() +
+  theme_minimal() + 
   theme(legend.position="bottom",
         legend.title = element_blank(), 
         plot.title = element_text(hjust = .5, size = 20), 

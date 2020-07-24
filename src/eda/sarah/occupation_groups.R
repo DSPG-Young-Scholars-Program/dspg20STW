@@ -7,7 +7,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
-
+ 
 source("src/eda/sarah/state_year_aggregation.R")
 
 #run second

@@ -99,8 +99,7 @@ ui <- fluidPage(
        
        tabPanel("BGT: STW vs Non-STW",
                 sliderInput("slide2", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("stw")
-                
+                plotOutput("stw"),
                 
                 
                 ),
@@ -273,7 +272,7 @@ server <- function(input, output) {
   
     viz_data <- data %>% filter(Year == input$slide)
     
-    viz_data 
+    viz_data   
     
   })
   
@@ -297,6 +296,8 @@ server <- function(input, output) {
     statebins(data[data$year == input$slide2, ], state_col = "state", value_col = "nobach", palette = "Blues", direction = 1, round = TRUE, name = "Percent of Job Ads") + theme_statebins() +
       labs(title = "Percent of BGT Job Ads That Do Not Require a College Degree by State")
   })
+
+  
    
 }
 
