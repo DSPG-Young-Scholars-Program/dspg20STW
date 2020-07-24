@@ -111,7 +111,19 @@ ui <- fluidPage(
        
        #end STW vs Non-STW-------------
        tabPanel(
-         "Data Sources"
+         "Data Sources",
+         fluidRow(
+           column(3, h3("Burning Glass Technologies")),
+           column(6, p("Burning Glass Technologies is a market analytics firm based in Boston that uses AI to collect and host a massive repository
+                       of workforce and employment data."))
+         ),
+         fluidRow(style = "margin-top:200px",
+           column(3, h3("Job Openings and Labor Turnover Survey")),
+           column(7, h3("Insert stuff about JOLTS here"))
+         ),
+         fluidRow(style = "margin-top:200px",
+          column(3, h3("Occupational Employment Statistics")),
+          column(7, h3("Insert stuff about OES here")))
        )
      )
    )
