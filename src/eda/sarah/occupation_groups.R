@@ -17,7 +17,7 @@ bgt <- data.frame()
 for(year in 2010:2019){
   library(dplyr)
   library(tidyr)
- 
+  
   tbl <- RPostgreSQL::dbGetQuery(
     conn = conn, 
     statement = paste("SELECT EXTRACT(YEAR FROM jobdate) AS year, state, SUBSTRING(soc from 1 for 2) AS occ, COUNT(DISTINCT(id)) AS bgt

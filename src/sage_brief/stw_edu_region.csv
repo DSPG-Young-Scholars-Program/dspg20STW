@@ -1,0 +1,742 @@
+"onet","state.region","N","minedu_0","minedu_12","minedu_14","minedu_16","minedu_18","minedu_21","minedu_<NA>","nacips","X2010.SOC.Code","Title","Percent.No.Bachelors","rothwell_STW"
+"11-3051.00","Midwest",8024,2240,1377,310,4001,85,10,1,1,"11-3051","Industrial Production Managers",55.26,1
+"11-3051.00","Northeast",6024,1795,864,197,3044,86,38,0,0,"11-3051","Industrial Production Managers",55.26,1
+"11-3051.00","South",11250,2994,2544,396,5136,159,21,0,0,"11-3051","Industrial Production Managers",55.26,1
+"11-3051.00","West",10160,3329,1633,292,4747,126,26,7,4,"11-3051","Industrial Production Managers",55.26,1
+"11-3051.01","Midwest",9479,2164,652,390,6121,137,13,2,0,"11-3051","Quality Control Systems Managers",11.93,1
+"11-3051.01","South",13708,3182,1171,512,8551,262,27,3,1,"11-3051","Quality Control Systems Managers",11.93,1
+"11-3051.01","West",11801,2734,808,423,7576,228,32,0,0,"11-3051","Quality Control Systems Managers",11.93,1
+"11-3051.01","Northeast",7486,1716,305,201,5023,214,21,6,0,"11-3051","Quality Control Systems Managers",11.93,1
+"11-3051.02","South",2,2,0,0,0,0,0,0,0,"11-3051","Geothermal Production Managers",80.39,1
+"11-3051.03","South",2,1,0,0,0,1,0,0,0,"11-3051","Biofuels Production Managers",47.96,1
+"11-3051.04","Midwest",5,5,0,0,0,0,0,0,0,"11-3051","Biomass Power Plant Managers",35.38,1
+"11-3051.04","South",2,1,0,0,1,0,0,0,0,"11-3051","Biomass Power Plant Managers",35.38,1
+"11-3051.05","Northeast",13,9,0,0,4,0,0,0,0,"11-3051",NA,NA,1
+"11-3051.05","Midwest",15,9,4,0,2,0,0,0,0,"11-3051",NA,NA,1
+"11-3051.05","West",15,5,2,0,8,0,0,0,0,"11-3051",NA,NA,1
+"11-3051.05","South",29,6,15,0,8,0,0,0,0,"11-3051",NA,NA,1
+"11-3051.06","South",10,5,5,0,0,0,0,0,0,"11-3051","Hydroelectric Production Managers",77.9,1
+"11-3051.06","Midwest",6,4,1,0,1,0,0,0,0,"11-3051","Hydroelectric Production Managers",77.9,1
+"11-3051.06","West",13,6,3,0,4,0,0,0,0,"11-3051","Hydroelectric Production Managers",77.9,1
+"11-9013.01","Midwest",135,73,17,6,39,0,0,0,0,"11-9013","Nursery and Greenhouse Managers",55.32,1
+"11-9013.01","West",203,82,20,17,82,2,0,0,0,"11-9013","Nursery and Greenhouse Managers",55.32,1
+"11-9013.01","South",250,103,58,8,74,6,1,0,0,"11-9013","Nursery and Greenhouse Managers",55.32,1
+"11-9013.01","Northeast",133,63,25,3,41,1,0,0,0,"11-9013","Nursery and Greenhouse Managers",55.32,1
+"11-9013.02","Midwest",635,346,83,14,183,5,3,1,0,"11-9013","Farm and Ranch Managers",62.27,1
+"11-9013.02","West",926,596,134,18,170,5,3,0,0,"11-9013","Farm and Ranch Managers",62.27,1
+"11-9013.02","South",728,420,106,35,160,4,1,2,0,"11-9013","Farm and Ranch Managers",62.27,1
+"11-9013.02","Northeast",552,317,96,45,75,19,0,0,0,"11-9013","Farm and Ranch Managers",62.27,1
+"11-9013.03","Midwest",202,115,51,11,24,0,1,0,0,"11-9013","Aquacultural Managers",52.63,1
+"11-9013.03","West",843,251,344,76,169,3,0,0,0,"11-9013","Aquacultural Managers",52.63,1
+"11-9013.03","South",362,75,115,49,117,5,0,1,1,"11-9013","Aquacultural Managers",52.63,1
+"11-9013.03","Northeast",189,91,40,6,50,1,1,0,0,"11-9013","Aquacultural Managers",52.63,1
+"11-9131.00","Northeast",22,16,6,0,0,0,0,0,0,"11-9131","Postmasters and Mail Superintendents",86.55,1
+"11-9131.00","Midwest",51,44,4,0,0,3,0,0,0,"11-9131","Postmasters and Mail Superintendents",86.55,1
+"11-9131.00","West",278,100,136,9,26,5,2,0,0,"11-9131","Postmasters and Mail Superintendents",86.55,1
+"11-9131.00","South",40,31,3,1,1,3,1,0,0,"11-9131","Postmasters and Mail Superintendents",86.55,1
+"13-2081.00","West",6699,2332,1059,114,3078,83,33,0,0,"13-2081","Tax Examiners and Collectors, and Revenue Agents",50.82,1
+"13-2081.00","Northeast",4230,1301,465,72,2276,90,26,0,0,"13-2081","Tax Examiners and Collectors, and Revenue Agents",50.82,1
+"13-2081.00","Midwest",5071,1415,888,165,2545,38,20,0,0,"13-2081","Tax Examiners and Collectors, and Revenue Agents",50.82,1
+"13-2081.00","South",9118,2848,1567,302,4232,131,38,0,0,"13-2081","Tax Examiners and Collectors, and Revenue Agents",50.82,1
+"15-1134.00","Northeast",37853,20428,386,327,15971,558,181,2,0,"15-1134","Web Developers",50.01,1
+"15-1134.00","South",62629,31880,1454,856,27342,772,316,9,2,"15-1134","Web Developers",50.01,1
+"15-1134.00","West",71126,37629,997,490,30234,1318,450,8,3,"15-1134","Web Developers",50.01,1
+"15-1134.00","Midwest",29625,15397,727,480,12423,407,191,0,0,"15-1134","Web Developers",50.01,1
+"15-1151.00","Northeast",45953,22446,5469,4836,12578,386,199,39,25,"15-1151","Computer User Support Specialists",66.79,1
+"15-1151.00","West",80835,41052,13550,7424,17764,548,447,50,37,"15-1151","Computer User Support Specialists",66.79,1
+"15-1151.00","South",106382,49541,20220,11159,24293,645,454,70,38,"15-1151","Computer User Support Specialists",66.79,1
+"15-1151.00","Midwest",54111,25912,8961,7239,11428,292,251,28,21,"15-1151","Computer User Support Specialists",66.79,1
+"17-1021.00","West",136,49,16,11,50,8,2,0,0,"17-1021","Cartographers and Photogrammetrists",57.51,1
+"17-1021.00","South",163,66,23,8,59,7,0,0,0,"17-1021","Cartographers and Photogrammetrists",57.51,1
+"17-1021.00","Midwest",64,17,10,3,33,1,0,0,0,"17-1021","Cartographers and Photogrammetrists",57.51,1
+"17-1021.00","Northeast",31,14,10,1,4,0,2,0,0,"17-1021","Cartographers and Photogrammetrists",57.51,1
+"17-3011.01","South",638,403,76,67,91,1,0,0,0,"17-3011","Architectural Drafters",19.58,1
+"17-3011.01","Midwest",370,198,19,97,53,3,0,0,0,"17-3011","Architectural Drafters",19.58,1
+"17-3011.01","Northeast",329,184,27,62,50,6,0,0,0,"17-3011","Architectural Drafters",19.58,1
+"17-3011.01","West",637,396,80,57,98,1,5,0,0,"17-3011","Architectural Drafters",19.58,1
+"17-3011.02","Midwest",970,406,115,277,172,0,0,0,0,"17-3011","Civil Drafters",80.96,1
+"17-3011.02","West",2174,1045,276,443,410,0,0,0,0,"17-3011","Civil Drafters",80.96,1
+"17-3011.02","Northeast",649,219,73,171,186,0,0,0,0,"17-3011","Civil Drafters",80.96,1
+"17-3011.02","South",2759,1247,405,551,556,0,0,0,0,"17-3011","Civil Drafters",80.96,1
+"17-3012.01","Midwest",239,63,76,36,56,6,2,0,0,"17-3012","Electronic Drafters",91.37,1
+"17-3012.01","Northeast",241,79,23,38,92,6,3,0,0,"17-3012","Electronic Drafters",91.37,1
+"17-3012.01","West",959,367,38,70,341,112,31,0,0,"17-3012","Electronic Drafters",91.37,1
+"17-3012.01","South",441,161,112,64,71,23,9,1,0,"17-3012","Electronic Drafters",91.37,1
+"17-3012.02","Midwest",1716,535,175,473,521,6,6,0,0,"17-3012","Electrical Drafters",76.44,1
+"17-3012.02","Northeast",902,267,62,189,353,24,6,1,0,"17-3012","Electrical Drafters",76.44,1
+"17-3012.02","West",2901,947,326,445,1012,118,53,0,0,"17-3012","Electrical Drafters",76.44,1
+"17-3012.02","South",2749,1047,382,552,712,39,14,3,3,"17-3012","Electrical Drafters",76.44,1
+"17-3013.00","Midwest",3263,1323,331,1123,486,0,0,0,0,"17-3013","Mechanical Drafters",76.71,1
+"17-3013.00","South",4826,2175,882,1176,593,0,0,0,0,"17-3013","Mechanical Drafters",76.71,1
+"17-3013.00","West",4049,1880,674,820,675,0,0,0,0,"17-3013","Mechanical Drafters",76.71,1
+"17-3013.00","Northeast",1831,746,251,543,288,0,0,3,0,"17-3013","Mechanical Drafters",76.71,1
+"17-3021.00","Midwest",119,40,43,6,30,0,0,0,0,"17-3021","Aerospace Engineering and Operations Technicians",92.08,1
+"17-3021.00","Northeast",91,32,21,7,31,0,0,0,0,"17-3021","Aerospace Engineering and Operations Technicians",92.08,1
+"17-3021.00","West",357,155,125,24,53,0,0,0,0,"17-3021","Aerospace Engineering and Operations Technicians",92.08,1
+"17-3021.00","South",366,107,100,24,133,2,0,0,0,"17-3021","Aerospace Engineering and Operations Technicians",92.08,1
+"17-3022.00","West",3429,1151,1150,333,586,162,12,35,4,"17-3022","Civil Engineering Technicians",81.66,1
+"17-3022.00","Midwest",2401,577,1002,448,316,46,2,10,0,"17-3022","Civil Engineering Technicians",81.66,1
+"17-3022.00","Northeast",1251,285,494,127,297,36,6,6,2,"17-3022","Civil Engineering Technicians",81.66,1
+"17-3022.00","South",4975,1248,2343,497,716,91,5,75,0,"17-3022","Civil Engineering Technicians",81.66,1
+"17-3023.01","West",10768,4350,3538,2052,711,39,4,74,50,"17-3023","Electronics Engineering Technicians",88.31,1
+"17-3023.01","South",13574,5044,5362,2220,768,83,6,91,62,"17-3023","Electronics Engineering Technicians",88.31,1
+"17-3023.01","Midwest",8528,3071,2990,1924,499,21,3,20,17,"17-3023","Electronics Engineering Technicians",88.31,1
+"17-3023.01","Northeast",4718,1789,1622,971,298,24,3,11,11,"17-3023","Electronics Engineering Technicians",88.31,1
+"17-3023.03","South",754,178,298,129,135,11,3,0,0,"17-3023","Electrical Engineering Technicians",85.16,1
+"17-3023.03","West",456,180,87,70,108,8,3,0,0,"17-3023","Electrical Engineering Technicians",85.16,1
+"17-3023.03","Midwest",402,132,115,97,50,7,1,0,0,"17-3023","Electrical Engineering Technicians",85.16,1
+"17-3023.03","Northeast",228,55,58,61,50,1,3,0,0,"17-3023","Electrical Engineering Technicians",85.16,1
+"17-3024.00","Midwest",3104,1032,1310,603,143,6,6,4,0,"17-3024","Electro-Mechanical Technicians",96.78,1
+"17-3024.00","Northeast",1920,712,801,309,95,3,0,0,0,"17-3024","Electro-Mechanical Technicians",96.78,1
+"17-3024.00","South",5153,1827,2189,812,269,35,1,20,0,"17-3024","Electro-Mechanical Technicians",96.78,1
+"17-3024.00","West",4072,1622,1491,685,227,33,6,8,0,"17-3024","Electro-Mechanical Technicians",96.78,1
+"17-3024.01","Midwest",1088,486,376,154,65,4,3,0,0,"17-3024","Robotics Technicians",77.27,1
+"17-3024.01","Northeast",366,154,116,44,51,1,0,0,0,"17-3024","Robotics Technicians",77.27,1
+"17-3024.01","South",1074,494,388,94,94,3,1,0,0,"17-3024","Robotics Technicians",77.27,1
+"17-3024.01","West",658,333,179,58,81,4,3,0,0,"17-3024","Robotics Technicians",77.27,1
+"17-3026.00","Northeast",9676,5068,3634,522,369,68,3,12,4,"17-3026","Industrial Engineering Technicians",85.35,1
+"17-3026.00","South",34784,16231,14768,1503,1203,196,16,867,10,"17-3026","Industrial Engineering Technicians",85.35,1
+"17-3026.00","West",20563,10390,8330,840,723,260,6,14,0,"17-3026","Industrial Engineering Technicians",85.35,1
+"17-3026.00","Midwest",23913,12111,9872,1130,690,66,32,12,0,"17-3026","Industrial Engineering Technicians",85.35,1
+"17-3027.00","West",3011,1351,1110,329,194,20,3,4,1,"17-3027","Mechanical Engineering Technicians",49.08,1
+"17-3027.00","Midwest",2099,796,802,299,165,27,5,5,3,"17-3027","Mechanical Engineering Technicians",49.08,1
+"17-3027.00","South",3650,1680,1321,382,223,27,12,5,1,"17-3027","Mechanical Engineering Technicians",49.08,1
+"17-3027.00","Northeast",1591,622,540,236,171,22,0,0,0,"17-3027","Mechanical Engineering Technicians",49.08,1
+"17-3027.01","Northeast",11,0,0,0,11,0,0,0,0,"17-3027","Automotive Engineering Technicians",59.25,1
+"17-3027.01","South",2,1,1,0,0,0,0,0,0,"17-3027","Automotive Engineering Technicians",59.25,1
+"17-3027.01","West",3,1,2,0,0,0,0,0,0,"17-3027","Automotive Engineering Technicians",59.25,1
+"17-3029.00","Midwest",7269,1934,2218,837,2197,51,10,22,13,"17-3029",NA,NA,1
+"17-3029.00","West",11645,4057,2895,996,3369,176,66,86,50,"17-3029",NA,NA,1
+"17-3029.00","South",15349,4436,4619,1397,4526,182,45,144,52,"17-3029",NA,NA,1
+"17-3029.00","Northeast",5477,1772,1328,443,1820,81,21,12,7,"17-3029",NA,NA,1
+"17-3029.01","South",1694,634,888,77,93,0,0,2,0,"17-3029","Non-Destructive Testing Specialists",85,1
+"17-3029.01","West",1238,534,548,44,95,0,0,17,0,"17-3029","Non-Destructive Testing Specialists",85,1
+"17-3029.01","Midwest",707,233,380,58,35,0,0,1,0,"17-3029","Non-Destructive Testing Specialists",85,1
+"17-3029.01","Northeast",517,147,295,19,56,0,0,0,0,"17-3029","Non-Destructive Testing Specialists",85,1
+"17-3029.02","Midwest",9,2,2,1,4,0,0,0,0,"17-3029","Electrical Engineering Technologists",36.2,1
+"17-3029.02","West",32,14,0,0,18,0,0,0,0,"17-3029","Electrical Engineering Technologists",36.2,1
+"17-3029.02","South",2,2,0,0,0,0,0,0,0,"17-3029","Electrical Engineering Technologists",36.2,1
+"17-3029.02","Northeast",8,6,0,0,2,0,0,0,0,"17-3029","Electrical Engineering Technologists",36.2,1
+"17-3029.03","West",5,0,0,1,4,0,0,0,0,"17-3029","Electromechanical Engineering Technologists",41.86,1
+"17-3029.03","South",5,0,0,0,5,0,0,0,0,"17-3029","Electromechanical Engineering Technologists",41.86,1
+"17-3029.03","Northeast",1,1,0,0,0,0,0,0,0,"17-3029","Electromechanical Engineering Technologists",41.86,1
+"17-3029.03","Midwest",5,0,0,0,5,0,0,0,0,"17-3029","Electromechanical Engineering Technologists",41.86,1
+"17-3029.04","Midwest",11,3,4,3,1,0,0,0,0,"17-3029","Electronics Engineering Technologists",78.12,1
+"17-3029.04","West",106,13,16,56,19,1,1,0,0,"17-3029","Electronics Engineering Technologists",78.12,1
+"17-3029.04","Northeast",9,3,2,1,2,1,0,0,0,"17-3029","Electronics Engineering Technologists",78.12,1
+"17-3029.04","South",25,8,3,8,6,0,0,0,0,"17-3029","Electronics Engineering Technologists",78.12,1
+"17-3029.05","Midwest",128,27,25,32,44,0,0,0,0,"17-3029","Industrial Engineering Technologists",31.95,1
+"17-3029.05","West",211,49,57,21,73,7,4,0,0,"17-3029","Industrial Engineering Technologists",31.95,1
+"17-3029.05","South",404,41,166,59,124,13,1,0,0,"17-3029","Industrial Engineering Technologists",31.95,1
+"17-3029.05","Northeast",65,7,23,5,27,3,0,0,0,"17-3029","Industrial Engineering Technologists",31.95,1
+"17-3029.06","South",14,9,0,1,4,0,0,0,0,"17-3029","Manufacturing Engineering Technologists",54.55,1
+"17-3029.06","Northeast",6,0,0,0,6,0,0,0,0,"17-3029","Manufacturing Engineering Technologists",54.55,1
+"17-3029.06","Midwest",11,3,2,2,4,0,0,0,0,"17-3029","Manufacturing Engineering Technologists",54.55,1
+"17-3029.06","West",19,14,2,0,3,0,0,0,0,"17-3029","Manufacturing Engineering Technologists",54.55,1
+"17-3029.07","Midwest",450,142,48,32,221,7,0,0,0,"17-3029","Mechanical Engineering Technologists",51.45,1
+"17-3029.07","South",794,159,132,53,433,14,3,0,0,"17-3029","Mechanical Engineering Technologists",51.45,1
+"17-3029.07","West",592,180,84,31,288,9,0,0,0,"17-3029","Mechanical Engineering Technologists",51.45,1
+"17-3029.07","Northeast",223,64,27,14,114,4,0,0,0,"17-3029","Mechanical Engineering Technologists",51.45,1
+"17-3029.08","South",481,332,123,13,10,1,2,0,0,"17-3029","Photonics Technicians",72,1
+"17-3029.08","Northeast",218,137,66,7,8,0,0,0,0,"17-3029","Photonics Technicians",72,1
+"17-3029.08","West",381,221,93,47,19,1,0,0,0,"17-3029","Photonics Technicians",72,1
+"17-3029.08","Midwest",254,145,66,30,11,0,2,0,0,"17-3029","Photonics Technicians",72,1
+"17-3029.09","Northeast",6258,2214,3039,498,491,0,0,16,3,"17-3029","Manufacturing Production Technicians",82.62,1
+"17-3029.09","Midwest",10970,4255,5517,787,411,0,0,0,0,"17-3029","Manufacturing Production Technicians",82.62,1
+"17-3029.09","South",12250,4357,6274,937,667,0,0,15,0,"17-3029","Manufacturing Production Technicians",82.62,1
+"17-3029.09","West",12107,4625,5675,1044,742,0,0,21,9,"17-3029","Manufacturing Production Technicians",82.62,1
+"17-3029.10","South",32,13,18,1,0,0,0,0,0,"17-3029",NA,NA,1
+"17-3029.10","Northeast",12,2,5,5,0,0,0,0,0,"17-3029",NA,NA,1
+"17-3029.10","West",29,11,11,4,3,0,0,0,0,"17-3029",NA,NA,1
+"17-3029.10","Midwest",10,4,3,0,3,0,0,0,0,"17-3029",NA,NA,1
+"17-3029.11","South",4,1,0,0,3,0,0,0,0,"17-3029","Nanotechnology Engineering Technologists",4.55,1
+"17-3029.11","Northeast",2,0,2,0,0,0,0,0,0,"17-3029","Nanotechnology Engineering Technologists",4.55,1
+"17-3029.11","West",5,1,0,2,1,0,1,0,0,"17-3029","Nanotechnology Engineering Technologists",4.55,1
+"17-3029.12","West",111,39,63,0,4,0,0,5,0,"17-3029","Nanotechnology Engineering Technicians",50.01,1
+"17-3029.12","Midwest",27,13,11,2,1,0,0,0,0,"17-3029","Nanotechnology Engineering Technicians",50.01,1
+"17-3029.12","Northeast",37,22,13,1,1,0,0,0,0,"17-3029","Nanotechnology Engineering Technicians",50.01,1
+"17-3029.12","South",23,12,11,0,0,0,0,0,0,"17-3029","Nanotechnology Engineering Technicians",50.01,1
+"17-3031.01","South",2547,969,1460,49,69,0,0,0,0,"17-3031","Surveying Technicians",95.83,1
+"17-3031.01","Midwest",476,160,260,37,18,0,0,1,0,"17-3031","Surveying Technicians",95.83,1
+"17-3031.01","Northeast",489,167,253,28,41,0,0,0,0,"17-3031","Surveying Technicians",95.83,1
+"17-3031.01","West",911,383,442,28,58,0,0,0,0,"17-3031","Surveying Technicians",95.83,1
+"17-3031.02","Midwest",714,252,160,40,262,0,0,0,0,"17-3031","Mapping Technicians",46.62,1
+"17-3031.02","West",1147,471,198,75,402,0,0,1,1,"17-3031","Mapping Technicians",46.62,1
+"17-3031.02","South",1341,435,372,89,443,0,0,2,0,"17-3031","Mapping Technicians",46.62,1
+"17-3031.02","Northeast",407,156,86,29,136,0,0,0,0,"17-3031","Mapping Technicians",46.62,1
+"19-4031.00","South",1447,288,331,173,594,31,28,2,1,"19-4031","Chemical Technicians",74.23,1
+"19-4031.00","Midwest",1031,170,306,148,343,37,25,2,0,"19-4031","Chemical Technicians",74.23,1
+"19-4031.00","Northeast",1282,172,212,100,744,29,23,2,2,"19-4031","Chemical Technicians",74.23,1
+"19-4031.00","West",2193,403,320,162,1241,46,19,2,0,"19-4031","Chemical Technicians",74.23,1
+"23-2091.00","Midwest",66,47,17,0,2,0,0,0,0,"23-2091","Court Reporters",90.87,1
+"23-2091.00","West",63,50,8,0,5,0,0,0,0,"23-2091","Court Reporters",90.87,1
+"23-2091.00","South",162,100,56,1,5,0,0,0,0,"23-2091","Court Reporters",90.87,1
+"23-2091.00","Northeast",91,63,9,1,15,1,2,0,0,"23-2091","Court Reporters",90.87,1
+"27-1013.00","West",4647,3540,309,49,710,34,5,0,0,"27-1013","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1
+"27-1013.00","Midwest",1807,988,563,42,194,16,4,0,0,"27-1013","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1
+"27-1013.00","Northeast",1840,1298,177,31,296,34,2,2,0,"27-1013","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1
+"27-1013.00","South",2888,2112,336,43,359,31,7,0,0,"27-1013","Fine Artists, Including Painters, Sculptors, and Illustrators",64.62,1
+"27-3042.00","West",10705,3729,469,302,5964,161,79,1,0,"27-3042","Technical Writers",58.04,1
+"27-3042.00","South",13694,4132,848,622,7809,218,59,6,0,"27-3042","Technical Writers",58.04,1
+"27-3042.00","Northeast",5231,1660,191,153,2864,207,156,0,0,"27-3042","Technical Writers",58.04,1
+"27-3042.00","Midwest",4479,1441,234,262,2426,89,27,0,0,"27-3042","Technical Writers",58.04,1
+"27-4011.00","Northeast",1793,767,621,100,292,10,3,0,0,"27-4011","Audio and Video Equipment Technicians",57.32,1
+"27-4011.00","Midwest",1812,663,737,148,254,6,1,3,0,"27-4011","Audio and Video Equipment Technicians",57.32,1
+"27-4011.00","West",4099,1813,1611,140,499,29,6,1,0,"27-4011","Audio and Video Equipment Technicians",57.32,1
+"27-4011.00","South",5080,2119,2003,291,634,23,10,0,0,"27-4011","Audio and Video Equipment Technicians",57.32,1
+"27-4012.00","Northeast",1118,511,183,56,363,4,1,0,0,"27-4012","Broadcast Technicians",97.61,1
+"27-4012.00","South",2338,1090,713,98,417,17,2,1,0,"27-4012","Broadcast Technicians",97.61,1
+"27-4012.00","West",1758,944,398,91,310,10,3,2,0,"27-4012","Broadcast Technicians",97.61,1
+"27-4012.00","Midwest",1180,588,327,86,170,7,2,0,0,"27-4012","Broadcast Technicians",97.61,1
+"27-4014.00","Midwest",740,249,319,43,117,12,0,0,0,"27-4014","Sound Engineering Technicians",93.76,1
+"27-4014.00","South",1301,428,530,97,218,22,6,0,0,"27-4014","Sound Engineering Technicians",93.76,1
+"27-4014.00","Northeast",702,371,136,16,148,29,2,0,0,"27-4014","Sound Engineering Technicians",93.76,1
+"27-4014.00","West",1716,761,318,88,492,29,28,0,0,"27-4014","Sound Engineering Technicians",93.76,1
+"27-4021.00","South",6995,4001,2027,188,747,20,0,12,0,"27-4021","Photographers",84,1
+"27-4021.00","West",6195,3988,1529,130,530,16,2,0,0,"27-4021","Photographers",84,1
+"27-4021.00","Midwest",3702,2025,1195,92,376,4,5,5,0,"27-4021","Photographers",84,1
+"27-4021.00","Northeast",2988,1623,817,119,381,44,4,0,0,"27-4021","Photographers",84,1
+"27-4032.00","South",775,516,55,12,191,1,0,0,0,"27-4032","Film and Video Editors",50.19,1
+"27-4032.00","Midwest",264,170,23,8,63,0,0,0,0,"27-4032","Film and Video Editors",50.19,1
+"27-4032.00","West",1100,783,34,12,264,7,0,0,0,"27-4032","Film and Video Editors",50.19,1
+"27-4032.00","Northeast",693,482,18,14,162,17,0,0,0,"27-4032","Film and Video Editors",50.19,1
+"29-1126.00","West",7970,6094,0,1045,758,44,4,25,0,"29-1126","Respiratory Therapists",87.9,1
+"29-1126.00","Northeast",4364,3112,0,725,489,35,3,0,0,"29-1126","Respiratory Therapists",87.9,1
+"29-1126.00","South",13155,8560,0,2831,1682,72,2,8,1,"29-1126","Respiratory Therapists",87.9,1
+"29-1126.00","Midwest",8699,5735,0,1955,969,26,9,5,2,"29-1126","Respiratory Therapists",87.9,1
+"29-1141.00","South",451855,62648,11986,230649,140844,5204,243,281,218,"29-1141","Registered Nurses",76.75,1
+"29-1141.00","West",315223,61507,10288,137375,100664,4921,343,125,93,"29-1141","Registered Nurses",76.75,1
+"29-1141.00","Northeast",184963,26856,5364,77315,71272,3816,208,132,124,"29-1141","Registered Nurses",76.75,1
+"29-1141.00","Midwest",238795,34879,5785,116572,78797,2426,229,107,83,"29-1141","Registered Nurses",76.75,1
+"29-1141.01","Midwest",58,14,6,24,14,0,0,0,0,"29-1141","Acute Care Nurses",53.57,1
+"29-1141.01","South",64,21,5,18,16,1,3,0,0,"29-1141","Acute Care Nurses",53.57,1
+"29-1141.01","West",39,17,1,8,12,1,0,0,0,"29-1141","Acute Care Nurses",53.57,1
+"29-1141.01","Northeast",42,3,2,5,31,1,0,0,0,"29-1141","Acute Care Nurses",53.57,1
+"29-1141.02","South",1028,419,76,4,396,113,15,5,5,"29-1141","Advanced Practice Psychiatric Nurses",0,1
+"29-1141.02","West",720,389,44,8,202,63,14,0,0,"29-1141","Advanced Practice Psychiatric Nurses",0,1
+"29-1141.02","Northeast",357,176,25,11,96,45,3,1,1,"29-1141","Advanced Practice Psychiatric Nurses",0,1
+"29-1141.02","Midwest",477,234,22,2,110,90,19,0,0,"29-1141","Advanced Practice Psychiatric Nurses",0,1
+"29-1141.03","West",47236,13493,455,21926,10736,551,65,10,7,"29-1141","Critical Care Nurses",50,1
+"29-1141.03","South",64365,13857,804,32673,16229,580,120,102,62,"29-1141","Critical Care Nurses",50,1
+"29-1141.03","Northeast",19350,5430,232,7698,5675,266,42,7,7,"29-1141","Critical Care Nurses",50,1
+"29-1141.03","Midwest",31498,7880,286,14671,8264,287,106,4,1,"29-1141","Critical Care Nurses",50,1
+"29-1141.04","West",773,377,0,0,0,368,28,0,0,"29-1141","Clinical Nurse Specialists",0,1
+"29-1141.04","South",512,247,0,0,0,259,6,0,0,"29-1141","Clinical Nurse Specialists",0,1
+"29-1141.04","Northeast",435,197,0,0,0,237,0,1,0,"29-1141","Clinical Nurse Specialists",0,1
+"29-1141.04","Midwest",484,146,0,0,0,336,2,0,0,"29-1141","Clinical Nurse Specialists",0,1
+"29-2021.00","West",3544,2565,0,565,332,16,66,0,0,"29-2021","Dental Hygienists",78.53,1
+"29-2021.00","South",4756,3461,0,881,334,7,73,0,0,"29-2021","Dental Hygienists",78.53,1
+"29-2021.00","Midwest",3881,2844,0,546,299,177,14,1,1,"29-2021","Dental Hygienists",78.53,1
+"29-2021.00","Northeast",1677,1376,0,162,65,38,36,0,0,"29-2021","Dental Hygienists",78.53,1
+"29-2041.00","South",11983,5450,6244,280,0,0,0,9,2,"29-2041","Emergency Medical Technicians and Paramedics",95.11,1
+"29-2041.00","Midwest",6946,2973,3885,88,0,0,0,0,0,"29-2041","Emergency Medical Technicians and Paramedics",95.11,1
+"29-2041.00","Northeast",3905,1551,2191,155,0,0,0,8,0,"29-2041","Emergency Medical Technicians and Paramedics",95.11,1
+"29-2041.00","West",5933,3004,2809,107,0,0,0,13,0,"29-2041","Emergency Medical Technicians and Paramedics",95.11,1
+"29-2055.00","Midwest",10435,7320,2737,374,0,0,0,4,0,"29-2055","Surgical Technologists",100,1
+"29-2055.00","Northeast",6182,4451,1592,139,0,0,0,0,0,"29-2055","Surgical Technologists",100,1
+"29-2055.00","West",15015,11094,3807,112,0,0,0,2,0,"29-2055","Surgical Technologists",100,1
+"29-2055.00","South",18895,11934,6416,537,0,0,0,8,0,"29-2055","Surgical Technologists",100,1
+"29-2092.00","West",467,114,341,0,12,0,0,0,0,"29-2092","Hearing Aid Specialists",54.45,1
+"29-2092.00","Midwest",336,95,221,15,5,0,0,0,0,"29-2092","Hearing Aid Specialists",54.45,1
+"29-2092.00","Northeast",166,41,122,3,0,0,0,0,0,"29-2092","Hearing Aid Specialists",54.45,1
+"29-2092.00","South",823,221,584,6,12,0,0,0,0,"29-2092","Hearing Aid Specialists",54.45,1
+"33-2011.01","Midwest",807,339,452,5,7,1,1,2,0,"33-2011","Municipal Firefighters",95.58,1
+"33-2011.01","West",1558,781,712,15,33,11,0,6,0,"33-2011","Municipal Firefighters",95.58,1
+"33-2011.01","South",1539,661,842,9,11,9,0,7,0,"33-2011","Municipal Firefighters",95.58,1
+"33-2011.01","Northeast",269,136,112,9,8,2,1,1,0,"33-2011","Municipal Firefighters",95.58,1
+"33-2011.02","West",167,92,60,0,12,3,0,0,0,"33-2011","Forest Firefighters",81.14,1
+"33-2011.02","Northeast",38,32,3,1,2,0,0,0,0,"33-2011","Forest Firefighters",81.14,1
+"33-2011.02","Midwest",56,36,18,1,1,0,0,0,0,"33-2011","Forest Firefighters",81.14,1
+"33-2011.02","South",236,141,89,3,2,0,1,0,0,"33-2011","Forest Firefighters",81.14,1
+"35-1011.00","West",19993,12606,3554,1897,1808,52,52,24,15,"35-1011","Chefs and Head Cooks",85.18,1
+"35-1011.00","Midwest",11281,6301,1825,1728,1407,15,5,0,0,"35-1011","Chefs and Head Cooks",85.18,1
+"35-1011.00","Northeast",11387,6900,1625,1484,1329,39,9,1,0,"35-1011","Chefs and Head Cooks",85.18,1
+"35-1011.00","South",23251,13684,3760,3367,2364,61,15,0,0,"35-1011","Chefs and Head Cooks",85.18,1
+"43-6014.00","Northeast",74544,30836,25575,5182,12377,407,153,14,0,"43-6014","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1
+"43-6014.00","South",147240,57842,62923,8557,16544,834,363,177,68,"43-6014","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1
+"43-6014.00","Midwest",76107,31186,31683,5019,7678,360,162,19,2,"43-6014","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1
+"43-6014.00","West",134527,63688,47065,7114,15540,683,382,55,5,"43-6014","Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",89.01,1
+"43-9011.00","West",945,346,482,69,41,5,2,0,0,"43-9011","Computer Operators",63.94,1
+"43-9011.00","Northeast",725,218,405,46,56,0,0,0,0,"43-9011","Computer Operators",63.94,1
+"43-9011.00","Midwest",909,266,516,72,54,0,1,0,0,"43-9011","Computer Operators",63.94,1
+"43-9011.00","South",1710,519,929,119,137,2,1,3,0,"43-9011","Computer Operators",63.94,1
+"43-9031.00","South",224,115,27,21,61,0,0,0,0,"43-9031","Desktop Publishers",65.19,1
+"43-9031.00","Northeast",115,65,9,5,34,1,1,0,0,"43-9031","Desktop Publishers",65.19,1
+"43-9031.00","West",145,100,16,7,20,1,1,0,0,"43-9031","Desktop Publishers",65.19,1
+"43-9031.00","Midwest",72,35,16,12,9,0,0,0,0,"43-9031","Desktop Publishers",65.19,1
+"45-4022.00","South",67,48,19,0,0,0,0,0,0,"45-4022","Logging Equipment Operators",100,1
+"45-4022.00","Midwest",71,36,34,0,0,1,0,0,0,"45-4022","Logging Equipment Operators",100,1
+"45-4022.00","West",55,35,16,0,4,0,0,0,0,"45-4022","Logging Equipment Operators",100,1
+"45-4022.00","Northeast",27,21,6,0,0,0,0,0,0,"45-4022","Logging Equipment Operators",100,1
+"47-1011.00","Northeast",3505,1913,783,70,702,36,0,1,0,"47-1011","First-Line Supervisors of Construction Trades and Extraction Workers",100,1
+"47-1011.00","Midwest",6201,3512,1509,162,1004,13,1,0,0,"47-1011","First-Line Supervisors of Construction Trades and Extraction Workers",100,1
+"47-1011.00","South",14235,7980,3729,309,2139,69,5,4,0,"47-1011","First-Line Supervisors of Construction Trades and Extraction Workers",100,1
+"47-1011.00","West",10105,5836,2015,235,1915,53,1,50,47,"47-1011","First-Line Supervisors of Construction Trades and Extraction Workers",100,1
+"47-1011.03","West",318,171,25,7,115,0,0,0,0,"47-1011","Solar Energy Installation Managers",89.47,1
+"47-1011.03","Northeast",82,48,1,2,30,1,0,0,0,"47-1011","Solar Energy Installation Managers",89.47,1
+"47-1011.03","Midwest",138,85,12,0,40,1,0,0,0,"47-1011","Solar Energy Installation Managers",89.47,1
+"47-1011.03","South",306,192,6,1,99,8,0,0,0,"47-1011","Solar Energy Installation Managers",89.47,1
+"47-2011.00","West",208,171,30,7,0,0,0,0,0,"47-2011","Boilermakers",100,1
+"47-2011.00","Midwest",114,60,49,5,0,0,0,0,0,"47-2011","Boilermakers",100,1
+"47-2011.00","South",531,290,201,40,0,0,0,0,0,"47-2011","Boilermakers",100,1
+"47-2011.00","Northeast",82,46,28,8,0,0,0,0,0,"47-2011","Boilermakers",100,1
+"47-2021.00","West",235,197,38,0,0,0,0,0,0,"47-2021","Brickmasons and Blockmasons",99.99,1
+"47-2021.00","Northeast",218,183,35,0,0,0,0,0,0,"47-2021","Brickmasons and Blockmasons",99.99,1
+"47-2021.00","South",529,435,94,0,0,0,0,0,0,"47-2021","Brickmasons and Blockmasons",99.99,1
+"47-2021.00","Midwest",518,431,87,0,0,0,0,0,0,"47-2021","Brickmasons and Blockmasons",99.99,1
+"47-2022.00","Midwest",191,165,25,1,0,0,0,0,0,"47-2022","Stonemasons",100,1
+"47-2022.00","Northeast",232,212,20,0,0,0,0,0,0,"47-2022","Stonemasons",100,1
+"47-2022.00","South",208,168,38,0,2,0,0,0,0,"47-2022","Stonemasons",100,1
+"47-2022.00","West",141,120,21,0,0,0,0,0,0,"47-2022","Stonemasons",100,1
+"47-2031.01","Northeast",976,666,310,0,0,0,0,0,0,"47-2031","Construction Carpenters",99.36,1
+"47-2031.01","West",2707,2072,633,0,0,0,0,2,0,"47-2031","Construction Carpenters",99.36,1
+"47-2031.01","South",3229,2327,902,0,0,0,0,0,0,"47-2031","Construction Carpenters",99.36,1
+"47-2031.01","Midwest",2286,1593,693,0,0,0,0,0,0,"47-2031","Construction Carpenters",99.36,1
+"47-2031.02","South",9361,7660,1695,0,0,0,0,6,0,"47-2031","Rough Carpenters",96.05,1
+"47-2031.02","West",5659,4809,846,0,0,0,0,4,0,"47-2031","Rough Carpenters",96.05,1
+"47-2031.02","Midwest",6543,5703,840,0,0,0,0,0,0,"47-2031","Rough Carpenters",96.05,1
+"47-2031.02","Northeast",3491,2976,514,0,0,0,0,1,0,"47-2031","Rough Carpenters",96.05,1
+"47-2072.00","South",15,15,0,0,0,0,0,0,0,"47-2072","Pile-Driver Operators",100.01,1
+"47-2072.00","West",11,6,5,0,0,0,0,0,0,"47-2072","Pile-Driver Operators",100.01,1
+"47-2081.00","South",1320,1202,118,0,0,0,0,0,0,"47-2081","Drywall and Ceiling Tile Installers",95.18,1
+"47-2081.00","West",1114,1017,97,0,0,0,0,0,0,"47-2081","Drywall and Ceiling Tile Installers",95.18,1
+"47-2081.00","Northeast",299,270,29,0,0,0,0,0,0,"47-2081","Drywall and Ceiling Tile Installers",95.18,1
+"47-2081.00","Midwest",838,719,119,0,0,0,0,0,0,"47-2081","Drywall and Ceiling Tile Installers",95.18,1
+"47-2111.00","Northeast",6088,4212,1750,119,0,0,0,7,0,"47-2111","Electricians",92.37,1
+"47-2111.00","South",21528,14874,6176,470,0,0,0,8,0,"47-2111","Electricians",92.37,1
+"47-2111.00","Midwest",11681,7851,3439,391,0,0,0,0,0,"47-2111","Electricians",92.37,1
+"47-2111.00","West",14152,10299,3637,204,0,0,0,12,0,"47-2111","Electricians",92.37,1
+"47-2121.00","South",2115,1851,264,0,0,0,0,0,0,"47-2121","Glaziers",100,1
+"47-2121.00","West",2059,1754,304,0,0,0,0,1,0,"47-2121","Glaziers",100,1
+"47-2121.00","Midwest",1042,828,212,0,0,0,0,2,1,"47-2121","Glaziers",100,1
+"47-2121.00","Northeast",624,543,81,0,0,0,0,0,0,"47-2121","Glaziers",100,1
+"47-2151.00","Midwest",196,149,47,0,0,0,0,0,0,"47-2151","Pipelayers",95.7,1
+"47-2151.00","West",375,303,70,2,0,0,0,0,0,"47-2151","Pipelayers",95.7,1
+"47-2151.00","South",803,596,198,9,0,0,0,0,0,"47-2151","Pipelayers",95.7,1
+"47-2151.00","Northeast",48,31,17,0,0,0,0,0,0,"47-2151","Pipelayers",95.7,1
+"47-2152.01","South",5667,4076,1591,0,0,0,0,0,0,"47-2152","Pipe Fitters and Steamfitters",100,1
+"47-2152.01","Midwest",1582,1171,411,0,0,0,0,0,0,"47-2152","Pipe Fitters and Steamfitters",100,1
+"47-2152.01","Northeast",1002,748,254,0,0,0,0,0,0,"47-2152","Pipe Fitters and Steamfitters",100,1
+"47-2152.01","West",2511,1896,614,0,0,0,0,1,0,"47-2152","Pipe Fitters and Steamfitters",100,1
+"47-2152.02","Northeast",2679,1969,703,7,0,0,0,0,0,"47-2152","Plumbers",100,1
+"47-2152.02","South",10003,7266,2696,36,0,0,0,5,0,"47-2152","Plumbers",100,1
+"47-2152.02","West",5835,4653,1160,19,0,0,0,3,0,"47-2152","Plumbers",100,1
+"47-2152.02","Midwest",3733,2843,873,17,0,0,0,0,0,"47-2152","Plumbers",100,1
+"47-2171.00","South",120,110,5,0,0,5,0,0,0,"47-2171","Reinforcing Iron and Rebar Workers",100,1
+"47-2171.00","Northeast",3,3,0,0,0,0,0,0,0,"47-2171","Reinforcing Iron and Rebar Workers",100,1
+"47-2171.00","Midwest",26,24,2,0,0,0,0,0,0,"47-2171","Reinforcing Iron and Rebar Workers",100,1
+"47-2171.00","West",14,13,1,0,0,0,0,0,0,"47-2171","Reinforcing Iron and Rebar Workers",100,1
+"47-2181.00","South",4456,3817,639,0,0,0,0,0,0,"47-2181","Roofers",93.4,1
+"47-2181.00","West",2342,2044,298,0,0,0,0,0,0,"47-2181","Roofers",93.4,1
+"47-2181.00","Midwest",2951,2542,409,0,0,0,0,0,0,"47-2181","Roofers",93.4,1
+"47-2181.00","Northeast",1415,1218,197,0,0,0,0,0,0,"47-2181","Roofers",93.4,1
+"47-2221.00","West",671,564,107,0,0,0,0,0,0,"47-2221","Structural Iron and Steel Workers",94.98,1
+"47-2221.00","South",1911,1262,649,0,0,0,0,0,0,"47-2221","Structural Iron and Steel Workers",94.98,1
+"47-2221.00","Northeast",312,246,65,0,0,0,0,1,0,"47-2221","Structural Iron and Steel Workers",94.98,1
+"47-2221.00","Midwest",797,660,137,0,0,0,0,0,0,"47-2221","Structural Iron and Steel Workers",94.98,1
+"47-2231.00","Northeast",493,363,113,2,15,0,0,0,0,"47-2231","Solar Photovoltaic Installers",99.51,1
+"47-2231.00","South",1108,900,184,9,15,0,0,0,0,"47-2231","Solar Photovoltaic Installers",99.51,1
+"47-2231.00","Midwest",293,207,81,1,2,2,0,0,0,"47-2231","Solar Photovoltaic Installers",99.51,1
+"47-2231.00","West",2146,1542,564,16,17,7,0,0,0,"47-2231","Solar Photovoltaic Installers",99.51,1
+"47-3011.00","Northeast",57,48,5,0,0,4,0,0,0,"47-3011","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1
+"47-3011.00","South",113,104,3,0,4,2,0,0,0,"47-3011","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1
+"47-3011.00","Midwest",154,147,7,0,0,0,0,0,0,"47-3011","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1
+"47-3011.00","West",48,34,14,0,0,0,0,0,0,"47-3011","Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",93.77,1
+"47-3012.00","Midwest",359,330,29,0,0,0,0,0,0,"47-3012","Helpers--Carpenters",100,1
+"47-3012.00","Northeast",459,395,64,0,0,0,0,0,0,"47-3012","Helpers--Carpenters",100,1
+"47-3012.00","South",1114,952,160,0,1,1,0,0,0,"47-3012","Helpers--Carpenters",100,1
+"47-3012.00","West",215,186,28,0,0,1,0,0,0,"47-3012","Helpers--Carpenters",100,1
+"47-3013.00","Midwest",349,274,72,3,0,0,0,0,0,"47-3013","Helpers--Electricians",100,1
+"47-3013.00","South",2335,1885,442,3,0,0,0,5,0,"47-3013","Helpers--Electricians",100,1
+"47-3013.00","Northeast",243,205,37,1,0,0,0,0,0,"47-3013","Helpers--Electricians",100,1
+"47-3013.00","West",391,293,94,4,0,0,0,0,0,"47-3013","Helpers--Electricians",100,1
+"47-3015.00","Midwest",172,144,28,0,0,0,0,0,0,"47-3015","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1
+"47-3015.00","Northeast",125,99,25,1,0,0,0,0,0,"47-3015","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1
+"47-3015.00","South",973,752,220,1,0,0,0,0,0,"47-3015","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1
+"47-3015.00","West",311,218,93,0,0,0,0,0,0,"47-3015","Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",90.3,1
+"47-4011.00","West",4764,2317,1773,203,432,31,1,7,0,"47-4011","Construction and Building Inspectors",62.5,1
+"47-4011.00","Midwest",2373,965,1017,168,213,8,2,0,0,"47-4011","Construction and Building Inspectors",62.5,1
+"47-4011.00","Northeast",2585,1054,836,164,515,12,3,1,0,"47-4011","Construction and Building Inspectors",62.5,1
+"47-4011.00","South",6947,2481,3602,273,492,52,5,42,0,"47-4011","Construction and Building Inspectors",62.5,1
+"47-4021.00","Northeast",89,57,26,3,2,0,1,0,0,"47-4021","Elevator Installers and Repairers",88.21,1
+"47-4021.00","Midwest",145,71,71,1,2,0,0,0,0,"47-4021","Elevator Installers and Repairers",88.21,1
+"47-4021.00","South",250,158,85,2,3,2,0,0,0,"47-4021","Elevator Installers and Repairers",88.21,1
+"47-4021.00","West",188,125,52,1,7,3,0,0,0,"47-4021","Elevator Installers and Repairers",88.21,1
+"47-4099.00","South",931,369,532,20,7,2,1,0,0,"47-4099",NA,NA,1
+"47-4099.00","Northeast",129,77,43,5,2,2,0,0,0,"47-4099",NA,NA,1
+"47-4099.00","West",396,230,144,10,9,3,0,0,0,"47-4099",NA,NA,1
+"47-4099.00","Midwest",318,158,148,10,2,0,0,0,0,"47-4099",NA,NA,1
+"47-4099.02","South",26,17,6,0,3,0,0,0,0,"47-4099","Solar Thermal Installers and Technicians",77.54,1
+"47-4099.02","West",32,15,7,0,10,0,0,0,0,"47-4099","Solar Thermal Installers and Technicians",77.54,1
+"47-4099.02","Midwest",18,12,6,0,0,0,0,0,0,"47-4099","Solar Thermal Installers and Technicians",77.54,1
+"47-4099.02","Northeast",8,8,0,0,0,0,0,0,0,"47-4099","Solar Thermal Installers and Technicians",77.54,1
+"47-4099.03","Northeast",100,70,30,0,0,0,0,0,0,"47-4099","Weatherization Installers and Technicians",93.11,1
+"47-4099.03","South",111,61,45,5,0,0,0,0,0,"47-4099","Weatherization Installers and Technicians",93.11,1
+"47-4099.03","West",155,69,82,4,0,0,0,0,0,"47-4099","Weatherization Installers and Technicians",93.11,1
+"47-4099.03","Midwest",101,36,59,6,0,0,0,0,0,"47-4099","Weatherization Installers and Technicians",93.11,1
+"47-5011.00","Midwest",6,6,0,0,0,0,0,0,0,"47-5011","Derrick Operators, Oil and Gas",99.99,1
+"47-5011.00","West",5,2,1,0,0,2,0,0,0,"47-5011","Derrick Operators, Oil and Gas",99.99,1
+"47-5011.00","South",9,6,3,0,0,0,0,0,0,"47-5011","Derrick Operators, Oil and Gas",99.99,1
+"47-5012.00","Northeast",82,42,40,0,0,0,0,0,0,"47-5012","Rotary Drill Operators, Oil and Gas",91.08,1
+"47-5012.00","South",504,235,265,4,0,0,0,0,0,"47-5012","Rotary Drill Operators, Oil and Gas",91.08,1
+"47-5012.00","West",243,83,158,2,0,0,0,0,0,"47-5012","Rotary Drill Operators, Oil and Gas",91.08,1
+"47-5012.00","Midwest",129,63,60,6,0,0,0,0,0,"47-5012","Rotary Drill Operators, Oil and Gas",91.08,1
+"47-5013.00","Northeast",47,39,8,0,0,0,0,0,0,"47-5013","Service Unit Operators, Oil, Gas, and Mining",100,1
+"47-5013.00","South",374,178,190,0,4,2,0,0,0,"47-5013","Service Unit Operators, Oil, Gas, and Mining",100,1
+"47-5013.00","Midwest",101,46,54,0,1,0,0,0,0,"47-5013","Service Unit Operators, Oil, Gas, and Mining",100,1
+"47-5013.00","West",143,53,87,0,3,0,0,0,0,"47-5013","Service Unit Operators, Oil, Gas, and Mining",100,1
+"47-5021.00","Midwest",249,166,77,0,6,0,0,0,0,"47-5021","Earth Drillers, Except Oil and Gas",99.99,1
+"47-5021.00","South",439,233,160,1,8,32,5,0,0,"47-5021","Earth Drillers, Except Oil and Gas",99.99,1
+"47-5021.00","West",302,136,152,0,3,11,0,0,0,"47-5021","Earth Drillers, Except Oil and Gas",99.99,1
+"47-5021.00","Northeast",76,49,20,1,3,3,0,0,0,"47-5021","Earth Drillers, Except Oil and Gas",99.99,1
+"47-5041.00","West",136,35,60,0,5,36,0,0,0,"47-5041","Continuous Mining Machine Operators",100,1
+"47-5041.00","Midwest",24,8,13,1,1,1,0,0,0,"47-5041","Continuous Mining Machine Operators",100,1
+"47-5041.00","South",36,22,10,0,3,1,0,0,0,"47-5041","Continuous Mining Machine Operators",100,1
+"47-5041.00","Northeast",13,6,5,0,2,0,0,0,0,"47-5041","Continuous Mining Machine Operators",100,1
+"49-1011.00","West",30681,13219,11235,1475,4522,210,16,4,1,"49-1011","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1
+"49-1011.00","Midwest",23378,9230,8264,1610,4123,134,17,0,0,"49-1011","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1
+"49-1011.00","Northeast",13429,5603,4291,800,2608,112,14,1,0,"49-1011","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1
+"49-1011.00","South",44830,18390,17324,2269,6654,149,30,14,3,"49-1011","First-Line Supervisors of Mechanics, Installers, and Repairers",88.25,1
+"49-2011.00","West",988,545,320,92,20,7,4,0,0,"49-2011","Computer, Automated Teller, and Office Machine Repairers",99.63,1
+"49-2011.00","Midwest",710,332,283,63,25,7,0,0,0,"49-2011","Computer, Automated Teller, and Office Machine Repairers",99.63,1
+"49-2011.00","Northeast",643,308,253,50,22,6,4,0,0,"49-2011","Computer, Automated Teller, and Office Machine Repairers",99.63,1
+"49-2011.00","South",1220,592,484,82,36,19,1,6,0,"49-2011","Computer, Automated Teller, and Office Machine Repairers",99.63,1
+"49-2021.00","West",316,12,304,0,0,0,0,0,0,"49-2021","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1
+"49-2021.00","Midwest",409,11,398,0,0,0,0,0,0,"49-2021","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1
+"49-2021.00","South",517,20,497,0,0,0,0,0,0,"49-2021","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1
+"49-2021.00","Northeast",231,8,223,0,0,0,0,0,0,"49-2021","Radio, Cellular, and Tower Equipment Installers and Repairers",94.48,1
+"49-2021.01","Northeast",238,115,63,60,0,0,0,0,0,"49-2021","Radio Mechanics",85.85,1
+"49-2021.01","West",702,378,209,115,0,0,0,0,0,"49-2021","Radio Mechanics",85.85,1
+"49-2021.01","Midwest",147,68,58,21,0,0,0,0,0,"49-2021","Radio Mechanics",85.85,1
+"49-2021.01","South",421,237,124,60,0,0,0,0,0,"49-2021","Radio Mechanics",85.85,1
+"49-2022.00","Northeast",4116,2739,1275,102,0,0,0,0,0,"49-2022","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1
+"49-2022.00","West",8966,5959,2683,308,0,0,0,16,0,"49-2022","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1
+"49-2022.00","Midwest",6280,3921,2212,146,0,0,0,1,0,"49-2022","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1
+"49-2022.00","South",12072,7709,4017,344,0,0,0,2,0,"49-2022","Telecommunications Equipment Installers and Repairers, Except Line Installers",82.57,1
+"49-2091.00","Northeast",249,116,74,33,26,0,0,0,0,"49-2091","Avionics Technicians",96.67,1
+"49-2091.00","West",1690,666,804,120,100,0,0,0,0,"49-2091","Avionics Technicians",96.67,1
+"49-2091.00","Midwest",680,252,341,46,41,0,0,0,0,"49-2091","Avionics Technicians",96.67,1
+"49-2091.00","South",1961,675,1034,127,125,0,0,0,0,"49-2091","Avionics Technicians",96.67,1
+"49-2092.00","Northeast",103,73,25,0,3,0,1,1,0,"49-2092","Electric Motor, Power Tool, and Related Repairers",100.01,1
+"49-2092.00","South",658,363,242,11,36,4,2,0,0,"49-2092","Electric Motor, Power Tool, and Related Repairers",100.01,1
+"49-2092.00","Midwest",299,162,121,5,10,1,0,0,0,"49-2092","Electric Motor, Power Tool, and Related Repairers",100.01,1
+"49-2092.00","West",337,192,128,7,5,5,0,0,0,"49-2092","Electric Motor, Power Tool, and Related Repairers",100.01,1
+"49-2093.00","South",61,43,16,0,2,0,0,0,0,"49-2093","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1
+"49-2093.00","West",27,17,1,2,7,0,0,0,0,"49-2093","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1
+"49-2093.00","Northeast",13,11,0,0,2,0,0,0,0,"49-2093","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1
+"49-2093.00","Midwest",23,12,6,3,2,0,0,0,0,"49-2093","Electrical and Electronics Installers and Repairers, Transportation Equipment",85.65,1
+"49-2094.00","West",132,75,29,10,18,0,0,0,0,"49-2094","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1
+"49-2094.00","Midwest",75,37,11,14,13,0,0,0,0,"49-2094","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1
+"49-2094.00","Northeast",46,18,3,9,16,0,0,0,0,"49-2094","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1
+"49-2094.00","South",197,129,30,22,16,0,0,0,0,"49-2094","Electrical and Electronics Repairers, Commercial and Industrial Equipment",100.01,1
+"49-2095.00","South",605,322,207,54,22,0,0,0,0,"49-2095","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1
+"49-2095.00","Northeast",56,30,20,1,5,0,0,0,0,"49-2095","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1
+"49-2095.00","West",207,117,49,9,31,0,0,1,0,"49-2095","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1
+"49-2095.00","Midwest",204,101,66,17,20,0,0,0,0,"49-2095","Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",97.61,1
+"49-2096.00","Northeast",52,24,25,3,0,0,0,0,0,"49-2096","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1
+"49-2096.00","West",396,368,24,4,0,0,0,0,0,"49-2096","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1
+"49-2096.00","South",348,257,79,12,0,0,0,0,0,"49-2096","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1
+"49-2096.00","Midwest",123,68,46,9,0,0,0,0,0,"49-2096","Electronic Equipment Installers and Repairers, Motor Vehicles",100,1
+"49-2097.00","Midwest",1963,1317,643,3,0,0,0,0,0,"49-2097","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1
+"49-2097.00","South",3614,2411,1190,13,0,0,0,0,0,"49-2097","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1
+"49-2097.00","West",2814,1819,968,27,0,0,0,0,0,"49-2097","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1
+"49-2097.00","Northeast",973,652,316,5,0,0,0,0,0,"49-2097","Electronic Home Entertainment Equipment Installers and Repairers",87.37,1
+"49-2098.00","South",5680,3151,2367,157,0,0,0,5,4,"49-2098","Security and Fire Alarm Systems Installers",100,1
+"49-2098.00","West",3868,2160,1566,133,0,0,0,9,0,"49-2098","Security and Fire Alarm Systems Installers",100,1
+"49-2098.00","Northeast",1509,835,642,32,0,0,0,0,0,"49-2098","Security and Fire Alarm Systems Installers",100,1
+"49-2098.00","Midwest",1991,1000,934,57,0,0,0,0,0,"49-2098","Security and Fire Alarm Systems Installers",100,1
+"49-3011.00","West",5165,2232,2863,68,0,0,0,2,0,"49-3011","Aircraft Mechanics and Service Technicians",97.5,1
+"49-3011.00","Northeast",1230,695,522,1,0,0,0,12,0,"49-3011","Aircraft Mechanics and Service Technicians",97.5,1
+"49-3011.00","Midwest",2158,1089,1038,29,0,0,0,2,0,"49-3011","Aircraft Mechanics and Service Technicians",97.5,1
+"49-3011.00","South",6334,2988,3270,36,0,0,0,40,0,"49-3011","Aircraft Mechanics and Service Technicians",97.5,1
+"49-3023.01","West",2970,2023,912,35,0,0,0,0,0,"49-3023","Automotive Master Mechanics",100,1
+"49-3023.01","Midwest",2947,1945,954,48,0,0,0,0,0,"49-3023","Automotive Master Mechanics",100,1
+"49-3023.01","South",4196,2781,1306,105,0,0,0,4,0,"49-3023","Automotive Master Mechanics",100,1
+"49-3023.01","Northeast",1725,1341,358,21,0,0,0,5,0,"49-3023","Automotive Master Mechanics",100,1
+"49-3023.02","South",71142,41219,29228,585,0,0,0,110,8,"49-3023","Automotive Specialty Technicians",100,1
+"49-3023.02","Midwest",40584,25573,14457,551,0,0,0,3,2,"49-3023","Automotive Specialty Technicians",100,1
+"49-3023.02","West",43510,24990,18000,493,0,0,0,27,0,"49-3023","Automotive Specialty Technicians",100,1
+"49-3023.02","Northeast",22407,14077,8152,163,0,0,0,15,0,"49-3023","Automotive Specialty Technicians",100,1
+"49-3031.00","Northeast",7193,3918,3254,21,0,0,0,0,0,"49-3031","Bus and Truck Mechanics and Diesel Engine Specialists",100,1
+"49-3031.00","West",10967,6445,4316,201,0,0,0,5,0,"49-3031","Bus and Truck Mechanics and Diesel Engine Specialists",100,1
+"49-3031.00","South",19988,10858,8990,138,0,0,0,2,0,"49-3031","Bus and Truck Mechanics and Diesel Engine Specialists",100,1
+"49-3031.00","Midwest",14692,8801,5516,374,0,0,0,1,0,"49-3031","Bus and Truck Mechanics and Diesel Engine Specialists",100,1
+"49-3041.00","West",460,269,179,9,3,0,0,0,0,"49-3041","Farm Equipment Mechanics and Service Technicians",97.36,1
+"49-3041.00","Northeast",213,73,135,5,0,0,0,0,0,"49-3041","Farm Equipment Mechanics and Service Technicians",97.36,1
+"49-3041.00","South",864,382,465,16,1,0,0,0,0,"49-3041","Farm Equipment Mechanics and Service Technicians",97.36,1
+"49-3041.00","Midwest",633,189,398,44,2,0,0,0,0,"49-3041","Farm Equipment Mechanics and Service Technicians",97.36,1
+"49-3042.00","West",4516,2672,1749,94,0,0,0,1,0,"49-3042","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1
+"49-3042.00","Northeast",2280,1593,656,29,0,0,0,2,0,"49-3042","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1
+"49-3042.00","South",7366,3826,3406,115,0,0,0,19,0,"49-3042","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1
+"49-3042.00","Midwest",3422,1976,1360,86,0,0,0,0,0,"49-3042","Mobile Heavy Equipment Mechanics, Except Engines",100.01,1
+"49-3043.00","Midwest",107,65,38,2,2,0,0,0,0,"49-3043","Rail Car Repairers",99.99,1
+"49-3043.00","Northeast",39,22,14,0,2,0,1,0,0,"49-3043","Rail Car Repairers",99.99,1
+"49-3043.00","West",112,62,35,4,11,0,0,0,0,"49-3043","Rail Car Repairers",99.99,1
+"49-3043.00","South",279,127,149,3,0,0,0,0,0,"49-3043","Rail Car Repairers",99.99,1
+"49-3051.00","West",209,144,61,0,2,1,1,0,0,"49-3051","Motorboat Mechanics and Service Technicians",100,1
+"49-3051.00","South",193,136,55,0,0,2,0,0,0,"49-3051","Motorboat Mechanics and Service Technicians",100,1
+"49-3051.00","Northeast",67,59,7,0,1,0,0,0,0,"49-3051","Motorboat Mechanics and Service Technicians",100,1
+"49-3051.00","Midwest",52,43,9,0,0,0,0,0,0,"49-3051","Motorboat Mechanics and Service Technicians",100,1
+"49-3052.00","West",136,114,19,0,3,0,0,0,0,"49-3052","Motorcycle Mechanics",100,1
+"49-3052.00","South",154,121,27,0,4,0,2,0,0,"49-3052","Motorcycle Mechanics",100,1
+"49-3052.00","Northeast",24,16,8,0,0,0,0,0,0,"49-3052","Motorcycle Mechanics",100,1
+"49-3052.00","Midwest",92,59,28,0,3,1,1,0,0,"49-3052","Motorcycle Mechanics",100,1
+"49-3053.00","South",850,406,443,1,0,0,0,0,0,"49-3053","Outdoor Power Equipment and Other Small Engine Mechanics",100,1
+"49-3053.00","Northeast",156,89,65,2,0,0,0,0,0,"49-3053","Outdoor Power Equipment and Other Small Engine Mechanics",100,1
+"49-3053.00","West",278,142,126,10,0,0,0,0,0,"49-3053","Outdoor Power Equipment and Other Small Engine Mechanics",100,1
+"49-3053.00","Midwest",489,267,220,2,0,0,0,0,0,"49-3053","Outdoor Power Equipment and Other Small Engine Mechanics",100,1
+"49-3091.00","South",703,680,23,0,0,0,0,0,0,"49-3091","Bicycle Repairers",100,1
+"49-3091.00","Midwest",591,572,19,0,0,0,0,0,0,"49-3091","Bicycle Repairers",100,1
+"49-3091.00","West",780,716,64,0,0,0,0,0,0,"49-3091","Bicycle Repairers",100,1
+"49-3091.00","Northeast",429,420,9,0,0,0,0,0,0,"49-3091","Bicycle Repairers",100,1
+"49-3092.00","West",591,387,196,2,4,1,0,1,0,"49-3092","Recreational Vehicle Service Technicians",97.91,1
+"49-3092.00","Northeast",99,59,40,0,0,0,0,0,0,"49-3092","Recreational Vehicle Service Technicians",97.91,1
+"49-3092.00","South",461,313,138,3,4,3,0,0,0,"49-3092","Recreational Vehicle Service Technicians",97.91,1
+"49-3092.00","Midwest",276,202,68,0,5,1,0,0,0,"49-3092","Recreational Vehicle Service Technicians",97.91,1
+"49-9011.00","West",646,402,234,3,3,4,0,0,0,"49-9011","Mechanical Door Repairers",100,1
+"49-9011.00","Midwest",543,340,196,1,3,2,1,0,0,"49-9011","Mechanical Door Repairers",100,1
+"49-9011.00","Northeast",203,159,37,1,4,1,0,1,0,"49-9011","Mechanical Door Repairers",100,1
+"49-9011.00","South",924,600,306,3,6,7,1,1,1,"49-9011","Mechanical Door Repairers",100,1
+"49-9012.00","Midwest",1669,676,694,299,0,0,0,0,0,"49-9012","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1
+"49-9012.00","Northeast",764,348,288,126,0,0,0,2,0,"49-9012","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1
+"49-9012.00","West",1819,858,721,240,0,0,0,0,0,"49-9012","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1
+"49-9012.00","South",3864,1475,1905,483,0,0,0,1,1,"49-9012","Control and Valve Installers and Repairers, Except Mechanical Door",98.56,1
+"49-9021.01","West",17342,10595,6375,328,0,0,0,44,42,"49-9021","Heating and Air Conditioning Mechanics and Installers",93.31,1
+"49-9021.01","Northeast",7645,4527,2847,230,0,0,0,41,30,"49-9021","Heating and Air Conditioning Mechanics and Installers",93.31,1
+"49-9021.01","South",28190,15595,11978,570,0,0,0,47,37,"49-9021","Heating and Air Conditioning Mechanics and Installers",93.31,1
+"49-9021.01","Midwest",11846,6962,4492,369,0,0,0,23,19,"49-9021","Heating and Air Conditioning Mechanics and Installers",93.31,1
+"49-9021.02","West",1618,655,917,46,0,0,0,0,0,"49-9021","Refrigeration Mechanics and Installers",99.99,1
+"49-9021.02","Northeast",594,232,352,10,0,0,0,0,0,"49-9021","Refrigeration Mechanics and Installers",99.99,1
+"49-9021.02","Midwest",1393,459,919,15,0,0,0,0,0,"49-9021","Refrigeration Mechanics and Installers",99.99,1
+"49-9021.02","South",2955,1190,1745,20,0,0,0,0,0,"49-9021","Refrigeration Mechanics and Installers",99.99,1
+"49-9041.00","Midwest",8807,4069,4435,302,0,0,0,1,0,"49-9041","Industrial Machinery Mechanics",88.29,1
+"49-9041.00","Northeast",5155,2399,2620,132,0,0,0,4,0,"49-9041","Industrial Machinery Mechanics",88.29,1
+"49-9041.00","South",12642,5638,6605,376,0,0,0,23,1,"49-9041","Industrial Machinery Mechanics",88.29,1
+"49-9041.00","West",8875,4376,4319,175,0,0,0,5,2,"49-9041","Industrial Machinery Mechanics",88.29,1
+"49-9043.00","South",683,275,314,32,59,3,0,0,0,"49-9043","Maintenance Workers, Machinery",100,1
+"49-9043.00","West",567,204,281,23,48,8,2,1,0,"49-9043","Maintenance Workers, Machinery",100,1
+"49-9043.00","Midwest",775,283,400,54,38,0,0,0,0,"49-9043","Maintenance Workers, Machinery",100,1
+"49-9043.00","Northeast",600,316,252,14,14,2,2,0,0,"49-9043","Maintenance Workers, Machinery",100,1
+"49-9044.00","West",1233,977,247,9,0,0,0,0,0,"49-9044","Millwrights",100,1
+"49-9044.00","South",2250,1572,631,47,0,0,0,0,0,"49-9044","Millwrights",100,1
+"49-9044.00","Midwest",1599,1274,314,11,0,0,0,0,0,"49-9044","Millwrights",100,1
+"49-9044.00","Northeast",605,505,96,4,0,0,0,0,0,"49-9044","Millwrights",100,1
+"49-9052.00","South",6529,3545,2828,156,0,0,0,0,0,"49-9052","Telecommunications Line Installers and Repairers",100,1
+"49-9052.00","Northeast",1737,903,778,56,0,0,0,0,0,"49-9052","Telecommunications Line Installers and Repairers",100,1
+"49-9052.00","Midwest",3238,1594,1600,44,0,0,0,0,0,"49-9052","Telecommunications Line Installers and Repairers",100,1
+"49-9052.00","West",3977,2188,1739,49,0,0,0,1,0,"49-9052","Telecommunications Line Installers and Repairers",100,1
+"49-9061.00","Midwest",54,38,14,0,2,0,0,0,0,"49-9061","Camera and Photographic Equipment Repairers",92.91,1
+"49-9061.00","Northeast",21,13,4,3,1,0,0,0,0,"49-9061","Camera and Photographic Equipment Repairers",92.91,1
+"49-9061.00","West",57,28,15,3,11,0,0,0,0,"49-9061","Camera and Photographic Equipment Repairers",92.91,1
+"49-9061.00","South",52,33,16,2,1,0,0,0,0,"49-9061","Camera and Photographic Equipment Repairers",92.91,1
+"49-9062.00","Midwest",3279,638,1768,715,158,0,0,0,0,"49-9062","Medical Equipment Repairers",91.51,1
+"49-9062.00","West",3662,1135,1753,604,168,0,0,2,0,"49-9062","Medical Equipment Repairers",91.51,1
+"49-9062.00","Northeast",2053,449,1009,458,137,0,0,0,0,"49-9062","Medical Equipment Repairers",91.51,1
+"49-9062.00","South",5545,1305,3090,934,213,0,0,3,1,"49-9062","Medical Equipment Repairers",91.51,1
+"49-9064.00","South",137,82,38,4,13,0,0,0,0,"49-9064","Watch Repairers",98.31,1
+"49-9064.00","West",124,84,33,7,0,0,0,0,0,"49-9064","Watch Repairers",98.31,1
+"49-9064.00","Northeast",79,69,8,2,0,0,0,0,0,"49-9064","Watch Repairers",98.31,1
+"49-9064.00","Midwest",60,36,20,0,4,0,0,0,0,"49-9064","Watch Repairers",98.31,1
+"49-9071.00","West",98930,51857,43489,3511,0,0,0,73,28,"49-9071","Maintenance and Repair Workers, General",99.91,1
+"49-9071.00","Northeast",40439,21346,17156,1911,0,0,0,26,4,"49-9071","Maintenance and Repair Workers, General",99.91,1
+"49-9071.00","South",135952,67156,64100,4376,0,0,0,320,83,"49-9071","Maintenance and Repair Workers, General",99.91,1
+"49-9071.00","Midwest",76387,38140,34394,3830,0,0,0,23,16,"49-9071","Maintenance and Repair Workers, General",99.91,1
+"49-9081.00","West",807,358,395,26,24,4,0,0,0,"49-9081","Wind Turbine Service Technicians",98.44,1
+"49-9081.00","Northeast",311,115,164,20,11,1,0,0,0,"49-9081","Wind Turbine Service Technicians",98.44,1
+"49-9081.00","Midwest",863,276,524,36,25,2,0,0,0,"49-9081","Wind Turbine Service Technicians",98.44,1
+"49-9081.00","South",1099,423,591,48,30,7,0,0,0,"49-9081","Wind Turbine Service Technicians",98.44,1
+"49-9092.00","West",177,68,62,3,44,0,0,0,0,"49-9092","Commercial Divers",94.97,1
+"49-9092.00","Midwest",114,55,32,0,27,0,0,0,0,"49-9092","Commercial Divers",94.97,1
+"49-9092.00","South",239,96,70,4,68,1,0,0,0,"49-9092","Commercial Divers",94.97,1
+"49-9092.00","Northeast",69,47,5,1,15,1,0,0,0,"49-9092","Commercial Divers",94.97,1
+"49-9094.00","Northeast",259,177,76,6,0,0,0,0,0,"49-9094","Locksmiths and Safe Repairers",100,1
+"49-9094.00","South",959,561,392,4,0,0,0,2,0,"49-9094","Locksmiths and Safe Repairers",100,1
+"49-9094.00","West",741,531,208,2,0,0,0,0,0,"49-9094","Locksmiths and Safe Repairers",100,1
+"49-9094.00","Midwest",317,185,130,2,0,0,0,0,0,"49-9094","Locksmiths and Safe Repairers",100,1
+"49-9095.00","South",353,272,55,1,14,6,5,0,0,"49-9095","Manufactured Building and Mobile Home Installers",100,1
+"49-9095.00","Northeast",90,73,8,0,5,4,0,0,0,"49-9095","Manufactured Building and Mobile Home Installers",100,1
+"49-9095.00","West",239,175,40,1,22,0,1,0,0,"49-9095","Manufactured Building and Mobile Home Installers",100,1
+"49-9095.00","Midwest",254,200,31,1,17,1,4,0,0,"49-9095","Manufactured Building and Mobile Home Installers",100,1
+"49-9096.00","Midwest",181,96,85,0,0,0,0,0,0,"49-9096","Riggers",99.67,1
+"49-9096.00","South",1424,919,505,0,0,0,0,0,0,"49-9096","Riggers",99.67,1
+"49-9096.00","West",716,428,288,0,0,0,0,0,0,"49-9096","Riggers",99.67,1
+"49-9096.00","Northeast",175,102,73,0,0,0,0,0,0,"49-9096","Riggers",99.67,1
+"49-9097.00","South",82,25,41,14,2,0,0,0,0,"49-9097","Signal and Track Switch Repairers",99.49,1
+"49-9097.00","Midwest",135,69,61,4,0,0,1,0,0,"49-9097","Signal and Track Switch Repairers",99.49,1
+"49-9097.00","Northeast",31,21,6,1,2,1,0,0,0,"49-9097","Signal and Track Switch Repairers",99.49,1
+"49-9097.00","West",71,28,25,13,5,0,0,0,0,"49-9097","Signal and Track Switch Repairers",99.49,1
+"49-9099.00","Midwest",3818,1691,1999,128,0,0,0,0,0,"49-9099",NA,NA,1
+"49-9099.00","Northeast",2130,1001,1071,58,0,0,0,0,0,"49-9099",NA,NA,1
+"49-9099.00","South",7142,2811,4245,81,0,0,0,5,0,"49-9099",NA,NA,1
+"49-9099.00","West",5166,2529,2531,101,0,0,0,5,0,"49-9099",NA,NA,1
+"49-9099.01","South",149,29,109,2,8,1,0,0,0,"49-9099","Geothermal Technicians",97.13,1
+"49-9099.01","Midwest",49,14,29,3,3,0,0,0,0,"49-9099","Geothermal Technicians",97.13,1
+"49-9099.01","Northeast",45,16,12,10,6,1,0,0,0,"49-9099","Geothermal Technicians",97.13,1
+"49-9099.01","West",138,38,90,3,7,0,0,0,0,"49-9099","Geothermal Technicians",97.13,1
+"51-1011.00","West",16879,6316,5191,768,4366,167,47,24,3,"51-1011","First-Line Supervisors of Production and Operating Workers",76.39,1
+"51-1011.00","Midwest",24691,8277,8419,1506,6382,87,16,4,3,"51-1011","First-Line Supervisors of Production and Operating Workers",76.39,1
+"51-1011.00","Northeast",10225,3494,2997,544,2999,138,46,7,2,"51-1011","First-Line Supervisors of Production and Operating Workers",76.39,1
+"51-1011.00","South",25698,8672,8887,1374,6409,266,51,39,2,"51-1011","First-Line Supervisors of Production and Operating Workers",76.39,1
+"51-2031.00","South",170,71,88,3,8,0,0,0,0,"51-2031","Engine and Other Machine Assemblers",92.8,1
+"51-2031.00","Midwest",707,391,244,49,21,2,0,0,0,"51-2031","Engine and Other Machine Assemblers",92.8,1
+"51-2031.00","West",132,80,50,0,2,0,0,0,0,"51-2031","Engine and Other Machine Assemblers",92.8,1
+"51-2031.00","Northeast",79,35,39,2,3,0,0,0,0,"51-2031","Engine and Other Machine Assemblers",92.8,1
+"51-2041.00","South",375,282,85,0,6,2,0,0,0,"51-2041","Structural Metal Fabricators and Fitters",96.69,1
+"51-2041.00","Midwest",139,99,40,0,0,0,0,0,0,"51-2041","Structural Metal Fabricators and Fitters",96.69,1
+"51-2041.00","West",184,124,49,10,1,0,0,0,0,"51-2041","Structural Metal Fabricators and Fitters",96.69,1
+"51-2041.00","Northeast",74,63,9,0,1,1,0,0,0,"51-2041","Structural Metal Fabricators and Fitters",96.69,1
+"51-2093.00","Northeast",1,1,0,0,0,0,0,0,0,"51-2093","Timing Device Assemblers and Adjusters",95.84,1
+"51-2093.00","West",3,2,1,0,0,0,0,0,0,"51-2093","Timing Device Assemblers and Adjusters",95.84,1
+"51-2093.00","Midwest",8,6,2,0,0,0,0,0,0,"51-2093","Timing Device Assemblers and Adjusters",95.84,1
+"51-2093.00","South",24,19,1,0,3,0,1,0,0,"51-2093","Timing Device Assemblers and Adjusters",95.84,1
+"51-3022.00","Northeast",651,365,27,18,16,222,3,0,0,"51-3022","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1
+"51-3022.00","South",791,514,97,5,6,169,0,0,0,"51-3022","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1
+"51-3022.00","Midwest",510,332,96,6,4,71,1,0,0,"51-3022","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1
+"51-3022.00","West",787,499,86,1,0,201,0,0,0,"51-3022","Meat, Poultry, and Fish Cutters and Trimmers",98.7,1
+"51-4011.00","South",5573,2876,2548,98,49,1,1,0,0,"51-4011","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1
+"51-4011.00","West",4873,2916,1781,100,70,4,0,2,0,"51-4011","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1
+"51-4011.00","Northeast",3471,1810,1513,103,32,12,0,1,0,"51-4011","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1
+"51-4011.00","Midwest",8291,4706,3331,174,65,3,1,11,0,"51-4011","Computer-Controlled Machine Tool Operators, Metal and Plastic",87.89,1
+"51-4012.00","West",1547,987,355,69,133,0,0,3,0,"51-4012","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1
+"51-4012.00","South",1816,1132,444,87,153,0,0,0,0,"51-4012","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1
+"51-4012.00","Midwest",1797,1074,463,119,140,0,0,1,0,"51-4012","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1
+"51-4012.00","Northeast",939,580,236,55,68,0,0,0,0,"51-4012","Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",90.48,1
+"51-4023.00","South",139,85,49,1,2,1,1,0,0,"51-4023","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4023.00","Midwest",113,60,49,0,4,0,0,0,0,"51-4023","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4023.00","Northeast",52,32,20,0,0,0,0,0,0,"51-4023","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4023.00","West",107,68,39,0,0,0,0,0,0,"51-4023","Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4041.00","South",8743,4371,4124,169,59,14,0,6,0,"51-4041","Machinists",95.29,1
+"51-4041.00","West",7996,4297,3368,239,76,4,4,8,0,"51-4041","Machinists",95.29,1
+"51-4041.00","Midwest",9127,4984,3835,226,60,5,2,15,0,"51-4041","Machinists",95.29,1
+"51-4041.00","Northeast",4332,2324,1898,74,33,1,1,1,1,"51-4041","Machinists",95.29,1
+"51-4062.00","West",133,83,19,6,19,0,6,0,0,"51-4062","Patternmakers, Metal and Plastic",99.88,1
+"51-4062.00","South",81,45,10,2,23,0,1,0,0,"51-4062","Patternmakers, Metal and Plastic",99.88,1
+"51-4062.00","Northeast",63,44,7,2,10,0,0,0,0,"51-4062","Patternmakers, Metal and Plastic",99.88,1
+"51-4062.00","Midwest",53,37,7,0,8,1,0,0,0,"51-4062","Patternmakers, Metal and Plastic",99.88,1
+"51-4081.00","West",197,117,80,0,0,0,0,0,0,"51-4081","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4081.00","Midwest",311,153,153,5,0,0,0,0,0,"51-4081","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4081.00","Northeast",129,64,58,5,2,0,0,0,0,"51-4081","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4081.00","South",395,159,214,14,8,0,0,0,0,"51-4081","Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",100,1
+"51-4111.00","West",535,274,219,19,17,4,0,2,0,"51-4111","Tool and Die Makers",97.37,1
+"51-4111.00","Midwest",2380,1375,897,81,22,2,3,0,0,"51-4111","Tool and Die Makers",97.37,1
+"51-4111.00","South",1100,552,486,40,19,1,1,1,0,"51-4111","Tool and Die Makers",97.37,1
+"51-4111.00","Northeast",630,364,246,13,5,1,0,1,0,"51-4111","Tool and Die Makers",97.37,1
+"51-4192.00","West",346,226,104,8,7,0,1,0,0,"51-4192","Layout Workers, Metal and Plastic",100.01,1
+"51-4192.00","South",753,576,163,10,2,0,2,0,0,"51-4192","Layout Workers, Metal and Plastic",100.01,1
+"51-4192.00","Midwest",99,74,25,0,0,0,0,0,0,"51-4192","Layout Workers, Metal and Plastic",100.01,1
+"51-4192.00","Northeast",92,73,17,0,1,1,0,0,0,"51-4192","Layout Workers, Metal and Plastic",100.01,1
+"51-4193.00","Northeast",84,43,31,2,7,1,0,0,0,"51-4193","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1
+"51-4193.00","West",182,112,67,0,2,0,0,1,0,"51-4193","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1
+"51-4193.00","Midwest",203,117,83,0,0,1,2,0,0,"51-4193","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1
+"51-4193.00","South",165,109,55,0,1,0,0,0,0,"51-4193","Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",96.57,1
+"51-5111.00","West",1090,739,309,33,0,0,0,9,0,"51-5111","Prepress Technicians and Workers",94.79,1
+"51-5111.00","South",1234,745,463,26,0,0,0,0,0,"51-5111","Prepress Technicians and Workers",94.79,1
+"51-5111.00","Midwest",811,455,323,32,0,0,0,1,0,"51-5111","Prepress Technicians and Workers",94.79,1
+"51-5111.00","Northeast",457,304,138,15,0,0,0,0,0,"51-5111","Prepress Technicians and Workers",94.79,1
+"51-6064.00","West",150,97,35,1,10,1,2,4,4,"51-6064","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1
+"51-6064.00","South",812,559,225,1,20,4,3,0,0,"51-6064","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1
+"51-6064.00","Northeast",128,81,35,3,7,1,1,0,0,"51-6064","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1
+"51-6064.00","Midwest",193,120,71,1,1,0,0,0,0,"51-6064","Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",100,1
+"51-7031.00","West",17,10,7,0,0,0,0,0,0,"51-7031","Model Makers, Wood",100,1
+"51-7031.00","Midwest",21,8,12,0,1,0,0,0,0,"51-7031","Model Makers, Wood",100,1
+"51-7031.00","South",11,5,4,0,2,0,0,0,0,"51-7031","Model Makers, Wood",100,1
+"51-7031.00","Northeast",5,2,1,1,1,0,0,0,0,"51-7031","Model Makers, Wood",100,1
+"51-7032.00","South",3,3,0,0,0,0,0,0,0,"51-7032","Patternmakers, Wood",100,1
+"51-7032.00","Midwest",18,5,1,0,12,0,0,0,0,"51-7032","Patternmakers, Wood",100,1
+"51-7032.00","Northeast",1,0,0,0,1,0,0,0,0,"51-7032","Patternmakers, Wood",100,1
+"51-8011.00","Northeast",163,99,45,3,11,0,5,0,0,"51-8011","Nuclear Power Reactor Operators",84.67,1
+"51-8011.00","South",316,139,113,10,40,10,4,0,0,"51-8011","Nuclear Power Reactor Operators",84.67,1
+"51-8011.00","Midwest",172,61,71,3,20,1,16,0,0,"51-8011","Nuclear Power Reactor Operators",84.67,1
+"51-8011.00","West",231,110,73,5,30,7,6,0,0,"51-8011","Nuclear Power Reactor Operators",84.67,1
+"51-8021.00","Midwest",836,295,491,25,23,1,1,0,0,"51-8021","Stationary Engineers and Boiler Operators",100.01,1
+"51-8021.00","Northeast",710,290,401,0,5,7,2,5,0,"51-8021","Stationary Engineers and Boiler Operators",100.01,1
+"51-8021.00","West",918,428,444,18,22,6,0,0,0,"51-8021","Stationary Engineers and Boiler Operators",100.01,1
+"51-8021.00","South",970,414,505,9,41,0,0,1,0,"51-8021","Stationary Engineers and Boiler Operators",100.01,1
+"51-8031.00","Midwest",1390,474,739,57,120,0,0,0,0,"51-8031","Water and Wastewater Treatment Plant and System Operators",99.49,1
+"51-8031.00","South",2705,792,1634,89,190,0,0,0,0,"51-8031","Water and Wastewater Treatment Plant and System Operators",99.49,1
+"51-8031.00","Northeast",901,303,513,28,57,0,0,0,0,"51-8031","Water and Wastewater Treatment Plant and System Operators",99.49,1
+"51-8031.00","West",2024,696,1091,64,173,0,0,0,0,"51-8031","Water and Wastewater Treatment Plant and System Operators",99.49,1
+"51-8092.00","Midwest",126,48,72,1,5,0,0,0,0,"51-8092","Gas Plant Operators",98.16,1
+"51-8092.00","South",231,86,102,5,37,1,0,0,0,"51-8092","Gas Plant Operators",98.16,1
+"51-8092.00","West",147,63,40,4,36,4,0,0,0,"51-8092","Gas Plant Operators",98.16,1
+"51-8092.00","Northeast",63,24,22,0,17,0,0,0,0,"51-8092","Gas Plant Operators",98.16,1
+"51-8099.00","Midwest",136,52,75,5,4,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.00","West",96,65,27,1,3,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.00","South",320,173,140,0,6,0,0,1,0,"51-8099",NA,NA,1
+"51-8099.00","Northeast",88,35,51,0,2,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.01","Midwest",4,2,0,0,1,1,0,0,0,"51-8099","Biofuels Processing Technicians",100,1
+"51-8099.01","South",14,3,4,0,7,0,0,0,0,"51-8099","Biofuels Processing Technicians",100,1
+"51-8099.01","Northeast",4,2,1,0,1,0,0,0,0,"51-8099","Biofuels Processing Technicians",100,1
+"51-8099.01","West",7,6,0,0,1,0,0,0,0,"51-8099","Biofuels Processing Technicians",100,1
+"51-8099.02","West",104,71,18,1,14,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.02","South",105,60,33,2,10,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.02","Northeast",50,37,8,1,4,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.02","Midwest",72,53,17,0,2,0,0,0,0,"51-8099",NA,NA,1
+"51-8099.03","Midwest",2,2,0,0,0,0,0,0,0,"51-8099","Biomass Plant Technicians",99.5,1
+"51-8099.03","South",16,2,12,0,2,0,0,0,0,"51-8099","Biomass Plant Technicians",99.5,1
+"51-8099.03","West",13,12,1,0,0,0,0,0,0,"51-8099","Biomass Plant Technicians",99.5,1
+"51-8099.03","Northeast",2,1,0,1,0,0,0,0,0,"51-8099","Biomass Plant Technicians",99.5,1
+"51-8099.04","South",6,6,0,0,0,0,0,0,0,"51-8099","Hydroelectric Plant Technicians",92.88,1
+"51-8099.04","West",42,30,11,0,1,0,0,0,0,"51-8099","Hydroelectric Plant Technicians",92.88,1
+"51-8099.04","Midwest",7,0,6,0,1,0,0,0,0,"51-8099","Hydroelectric Plant Technicians",92.88,1
+"51-8099.04","Northeast",2,0,2,0,0,0,0,0,0,"51-8099","Hydroelectric Plant Technicians",92.88,1
+"51-9011.00","Northeast",593,190,372,3,25,3,0,0,0,"51-9011","Chemical Equipment Operators and Tenders",98.23,1
+"51-9011.00","South",1250,461,720,23,39,6,1,0,0,"51-9011","Chemical Equipment Operators and Tenders",98.23,1
+"51-9011.00","West",535,174,319,4,25,7,3,3,0,"51-9011","Chemical Equipment Operators and Tenders",98.23,1
+"51-9011.00","Midwest",1114,311,755,21,24,2,1,0,0,"51-9011","Chemical Equipment Operators and Tenders",98.23,1
+"51-9021.00","West",261,161,83,7,6,4,0,0,0,"51-9021","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1
+"51-9021.00","Midwest",485,305,168,1,10,1,0,0,0,"51-9021","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1
+"51-9021.00","South",426,236,174,5,8,2,1,0,0,"51-9021","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1
+"51-9021.00","Northeast",133,82,48,0,2,1,0,0,0,"51-9021","Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",100.01,1
+"51-9081.00","South",1715,1320,332,22,41,0,0,0,0,"51-9081","Dental Laboratory Technicians",92.85,1
+"51-9081.00","West",1513,1204,267,9,33,0,0,0,0,"51-9081","Dental Laboratory Technicians",92.85,1
+"51-9081.00","Midwest",1201,881,279,21,20,0,0,0,0,"51-9081","Dental Laboratory Technicians",92.85,1
+"51-9081.00","Northeast",647,524,105,4,14,0,0,0,0,"51-9081","Dental Laboratory Technicians",92.85,1
+"51-9194.00","Midwest",170,85,79,3,3,0,0,0,0,"51-9194","Etchers and Engravers",99.99,1
+"51-9194.00","West",148,94,52,1,1,0,0,0,0,"51-9194","Etchers and Engravers",99.99,1
+"51-9194.00","South",168,95,65,3,4,1,0,0,0,"51-9194","Etchers and Engravers",99.99,1
+"51-9194.00","Northeast",102,66,26,4,6,0,0,0,0,"51-9194","Etchers and Engravers",99.99,1
+"51-9199.00","Northeast",22784,12075,9654,190,755,88,16,6,4,"51-9199",NA,NA,1
+"51-9199.00","West",40266,23471,14712,500,1267,201,17,98,20,"51-9199",NA,NA,1
+"51-9199.00","South",54377,29927,22628,424,1041,176,47,134,8,"51-9199",NA,NA,1
+"51-9199.00","Midwest",51477,28890,21443,371,609,129,20,15,0,"51-9199",NA,NA,1
+"51-9199.01","Midwest",223,129,93,0,1,0,0,0,0,"51-9199","Recycling and Reclamation Workers",91.99,1
+"51-9199.01","Northeast",64,25,38,0,1,0,0,0,0,"51-9199","Recycling and Reclamation Workers",91.99,1
+"51-9199.01","West",263,143,100,8,12,0,0,0,0,"51-9199","Recycling and Reclamation Workers",91.99,1
+"51-9199.01","South",275,157,107,1,10,0,0,0,0,"51-9199","Recycling and Reclamation Workers",91.99,1
+"53-5031.00","Midwest",33,20,2,3,8,0,0,0,0,"53-5031","Ship Engineers",98.85,1
+"53-5031.00","West",30,16,5,0,9,0,0,0,0,"53-5031","Ship Engineers",98.85,1
+"53-5031.00","Northeast",11,6,3,0,2,0,0,0,0,"53-5031","Ship Engineers",98.85,1
+"53-5031.00","South",88,29,51,0,7,1,0,0,0,"53-5031","Ship Engineers",98.85,1
+"53-6041.00","West",575,259,187,29,98,1,1,0,0,"53-6041","Traffic Technicians",88.33,1
+"53-6041.00","South",743,456,236,8,37,2,0,4,0,"53-6041","Traffic Technicians",88.33,1
+"53-6041.00","Midwest",305,196,77,7,25,0,0,0,0,"53-6041","Traffic Technicians",88.33,1
+"53-6041.00","Northeast",172,98,31,16,26,0,1,0,0,"53-6041","Traffic Technicians",88.33,1
+"53-6051.01","West",354,140,203,9,2,0,0,0,0,"53-6051","Aviation Inspectors",99.99,1
+"53-6051.01","Northeast",80,33,46,1,0,0,0,0,0,"53-6051","Aviation Inspectors",99.99,1
+"53-6051.01","Midwest",140,60,73,1,6,0,0,0,0,"53-6051","Aviation Inspectors",99.99,1
+"53-6051.01","South",443,196,232,10,5,0,0,0,0,"53-6051","Aviation Inspectors",99.99,1
+"53-6051.07","Northeast",342,190,138,6,8,0,0,0,0,"53-6051","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1
+"53-6051.07","Midwest",525,182,322,3,15,3,0,0,0,"53-6051","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1
+"53-6051.07","West",601,332,242,7,19,0,1,0,0,"53-6051","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1
+"53-6051.07","South",883,381,450,8,39,4,1,0,0,"53-6051","Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",100,1
+"53-6051.08","Northeast",27,19,7,0,0,0,1,0,0,"53-6051","Freight and Cargo Inspectors",44.86,1
+"53-6051.08","West",33,12,10,0,0,3,8,0,0,"53-6051","Freight and Cargo Inspectors",44.86,1
+"53-6051.08","Midwest",32,22,7,0,3,0,0,0,0,"53-6051","Freight and Cargo Inspectors",44.86,1
+"53-6051.08","South",68,33,17,0,5,7,3,3,0,"53-6051","Freight and Cargo Inspectors",44.86,1
+"53-7031.00","West",12,11,0,0,0,1,0,0,0,"53-7031","Dredge Operators",100,1
+"53-7031.00","Northeast",3,3,0,0,0,0,0,0,0,"53-7031","Dredge Operators",100,1
+"53-7031.00","Midwest",5,5,0,0,0,0,0,0,0,"53-7031","Dredge Operators",100,1
+"53-7031.00","South",19,19,0,0,0,0,0,0,0,"53-7031","Dredge Operators",100,1
+"53-7033.00","Northeast",260,141,95,1,0,23,0,0,0,"53-7033","Loading Machine Operators, Underground Mining",100,1
+"53-7033.00","South",1668,734,881,5,3,45,0,0,0,"53-7033","Loading Machine Operators, Underground Mining",100,1
+"53-7033.00","West",726,392,302,0,2,30,0,0,0,"53-7033","Loading Machine Operators, Underground Mining",100,1
+"53-7033.00","Midwest",647,357,281,0,0,9,0,0,0,"53-7033","Loading Machine Operators, Underground Mining",100,1
+"53-7071.00","Northeast",54,15,27,4,8,0,0,0,0,"53-7071","Gas Compressor and Gas Pumping Station Operators",100,1
+"53-7071.00","South",376,102,251,10,12,1,0,0,0,"53-7071","Gas Compressor and Gas Pumping Station Operators",100,1
+"53-7071.00","Midwest",133,51,63,11,8,0,0,0,0,"53-7071","Gas Compressor and Gas Pumping Station Operators",100,1
+"53-7071.00","West",160,61,82,10,7,0,0,0,0,"53-7071","Gas Compressor and Gas Pumping Station Operators",100,1
+"53-7072.00","Midwest",311,134,168,3,6,0,0,0,0,"53-7072","Pump Operators, Except Wellhead Pumpers",100.01,1
+"53-7072.00","Northeast",158,63,70,6,18,1,0,0,0,"53-7072","Pump Operators, Except Wellhead Pumpers",100.01,1
+"53-7072.00","West",639,362,266,0,11,0,0,0,0,"53-7072","Pump Operators, Except Wellhead Pumpers",100.01,1
+"53-7072.00","South",889,421,464,1,2,1,0,0,0,"53-7072","Pump Operators, Except Wellhead Pumpers",100.01,1
