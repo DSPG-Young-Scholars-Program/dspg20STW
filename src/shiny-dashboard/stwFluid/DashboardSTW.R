@@ -2,7 +2,7 @@ library(shiny)
 library(dplyr)
 library(statebins)
 library(ggplot2)
- 
+  
 
 #open up a shinyappsio account
 
@@ -245,7 +245,7 @@ server <- function(input, output) {
     def
   })
     
-  #Summary table
+  #Summary table 
   output$summary <- renderTable({
   
   
