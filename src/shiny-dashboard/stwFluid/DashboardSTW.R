@@ -103,11 +103,19 @@ ui <- fluidPage(
        
        
        tabPanel("BGT: STW vs Non-STW",
-                sliderInput("slide2", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
-                plotOutput("stw", width = "700", height = "500"),
-                tableOutput("stwTable")
+                sidebarLayout(
+                  sidebarPanel(
+                    sliderInput("slide2", "Year", min = 2010, max = 2019, value = 2014, sep = ""),
+                    selectInput("definition", "SOC Definition", choice = c("1", "2", "3"))
+                  ),#end sidebar panel
                 
-                ),
+                #style = "margin-left:300px",
+                mainPanel(
+                 plotOutput("stw", width = "700", height = "500"),
+                 tableOutput("stwTable")
+                )
+                )
+       ),#end sidebar layout
        
        #end STW vs Non-STW-------------
        tabPanel(
