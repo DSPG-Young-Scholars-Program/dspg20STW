@@ -19,7 +19,7 @@ ui <- fluidPage(
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
   HTML('<script>try{Typekit.load();}catch(e){}</script>'),
   theme = "theme.css",
-  title = "DSPG2020STW",
+  title = "DSPG2020STW", 
   
    #h1("Skilled Technical Workforce", align = "center", style = "color: #232D4B"),
    #h3("Data Science for the Public Good", align = "center", style = "color: #E57200"), 
@@ -165,21 +165,17 @@ ui <- fluidPage(
          style = "margin-right: 120px;",
          fluidRow(
            column(3, h4("Burning Glass Technologies (BGT)")),
-           column(7, wellPanel(p("Burning Glass Technologies is a market analytics firm based in Boston, MA, that uses AI technologies to collect and host a massive repository of 
-                       workforce and employment data. Data are collected using a web-crawling technique that uses computer programs called spiders to browse approximately 50,000+ online job boards,
-                       corporate websites, and other places where job ads are posted and extract more than 70 variables per advertisement to create this repository of jobs data.")))
+           column(7, wellPanel(p("Burning Glass Technologies is a market analytics firm based in Boston, MA, that uses AI technologies to collect and host a massive repository of workforce and employment data. Data are collected using a web-crawling technique that uses computer programs called spiders to browse approximately 50,000+ online job boards, corporate websites, and other places where job ads are posted and extract more than 70 variables per advertisement to create this repository of jobs data.")))
          ),
          hr(),
          fluidRow(style = "margin-top:100px",
                   column(3, h4("Job Openings and Labor Turnover Survery (JOLTS)")),
-                  column(7, wellPanel(p("The Job Openings and Labor Turnover Survery (JOLTS) is a federal survey conducted on approximately 16,000 occupations, collecting 
-                              data on factors such as total employment, job openings, hires, quits, layoffs, and other seperations. This data will be used to benchmark against the Burning Glass data.")))
+                  column(7, wellPanel(p("Job Openings and Labor Turnover Survey (JOLTS) estimates are based on a national sample of approximately 16,000 establishments, reporting data on factors such as total employment, job openings, hires, quits, layoffs, and other separations. While the current national sample size is designed to support estimates for major industries at the national level and total nonfarm estimates at the regional level, the Bureau of Labor Statistics (BLS) is currently researching the possibility of leveraging the sample to produce model-assisted estimates at the state total nonfarm level. We use both the national and state estimates to benchmark the BGT data. ")))
          ),
          hr(),
          fluidRow(style = "margin-top:100px",
                   column(3, h4("Occupational Employment Statistics (OES)")),
-                  column(7, wellPanel(p("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nunc justo, fringilla quis facilisis ut, posuere ut urna. Aenean varius, massa vel pellentesque viverra, risus tortor ultricies lectus, at sollicitudin nisl lorem ac tortor. Integer luctus diam et nibh faucibus consequat. Maecenas malesuada sagittis faucibus. Etiam odio quam, lacinia quis aliquam eu, consectetur quis dolor. Aenean vitae nunc purus. 
-                              Vestibulum congue mi at augue elementum cursus. Duis nec arcu euismod, bibendum mauris a, ullamcorper purus. Cras lobortis vehicula rhoncus. Quisque et lacus in lorem gravida maximus."))))
+                  column(7, wellPanel(p("The Occupational Employment Statistics (OES) program produces employment and wage estimates annually for nearly 800 occupations. These estimates are available for the nation as a whole, for individual states, and for metropolitan and nonmetropolitan areas; national occupational estimates for specific industries are also available. The OES data are used for comparisons with the BGT data."))))
        )
      )
    )  
