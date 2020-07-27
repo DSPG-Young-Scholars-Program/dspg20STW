@@ -3,7 +3,7 @@ library(dplyr)
 library(statebins)
 library(ggplot2)
 library(data.table)
-
+library(rsconnect)
 #open up a shinyappsio account
 
 #Add logos 
@@ -187,7 +187,7 @@ ui <- fluidPage(
 
 
 
-# Define server logic required to draw a histogram
+
 server <- function(input, output) {
 
   #rendering profiling table
