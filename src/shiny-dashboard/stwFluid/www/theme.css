@@ -1,0 +1,45 @@
+h2 {
+   font-family: bodoni-urw, serif;
+   font-weight: 900;
+   font-style: italic;
+   font-size: 30px;
+   text-transform: uppercase;
+}
+
+h1 {
+  color: #F17E1D;
+  font-family: franklin-gothic-urw, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h3 {
+  font-family: franklin-gothic-urw-comp, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #1B3766;
+}
+
+h4 {
+  font-family: franklin-gothic-urw;
+  font-weight: bold;
+  font-size: 24px;
+  color: #F17E1D;
+}
+
+body {
+  font-family: franklin-gothic-urw;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+
+.container {
+    width: 100%;
+    white-space: nowrap;
+}
