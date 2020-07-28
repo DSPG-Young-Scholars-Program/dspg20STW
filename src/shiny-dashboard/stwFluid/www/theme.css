@@ -1,4 +1,5 @@
 h2 {
+  color: #E57200;
    font-family: bodoni-urw, serif;
    font-weight: 900;
    font-style: italic;
@@ -7,13 +8,24 @@ h2 {
 }
 
 h1 {
-  color: #F17E1D;
+  color: #1B3766;
   font-family: franklin-gothic-urw, sans-serif;
   font-style: normal;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 36px;
   text-transform: uppercase;
   text-align: center;
+}
+
+h5 {
+  display:inline-block; 
+  box-shadow: inset 0 -0.4em 0 0 #9fbf7a80;
+  font-family: franklin-gothic-urw-comp, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #1B3766;
 }
 
 h3 {
@@ -25,11 +37,12 @@ h3 {
   color: #1B3766;
 }
 
+
 h4 {
   font-family: franklin-gothic-urw;
   font-weight: bold;
   font-size: 24px;
-  color: #F17E1D;
+  color: #E57200;
 }
 
 body {
@@ -38,8 +51,22 @@ body {
   font-size: 18px;
 }
 
+.navbar-default {
+    background-color: white;
+}
+                          .navbar-default .navbar-nav > .active > a, 
+                           .navbar-default .navbar-nav > .active > a:focus, 
+                           .navbar-default .navbar-nav > .active > a:hover {
+                                color: white;
+                                background-color: #9fbf7a80;
+                            }
 
-.container {
-    width: 100%;
-    white-space: nowrap;
+#img-id{
+  position: fixed;
+  right: 10px;
+  top: 5px;
+}
+
+.tab-pane {
+  margin: 0px 20px 0px 20px;
 }

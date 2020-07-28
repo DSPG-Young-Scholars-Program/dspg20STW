@@ -23,7 +23,11 @@ library(readxl)
 xwalk <- read_xls("data/ncses_stw/original/onet/2010_to_SOC_Crosswalk.xls", skip = 3)
 
 soc_region_chart <- merge(soc_region, xwalk[, c("2010 SOC Code", "2010 SOC Title")], by.x = "X2010.SOC.Code", by.y = "2010 SOC Code", all.x = T)
- ggplot(soc_region_chart, aes(state.region, `2010 SOC Title`, fill= per)) + 
+ 
+
+
+
+ggplot(soc_region_chart, aes(state.region, `2010 SOC Title`, fill= per)) + 
   geom_tile() + 
   scale_fill_gradient(low = "white",high = "blue", na.value = "grey60", limits = c(0, 1))+
    scale_x_discrete(position = "top") + 
@@ -34,6 +38,22 @@ soc_region_chart <- merge(soc_region, xwalk[, c("2010 SOC Code", "2010 SOC Title
          legend.position="bottom", 
          plot.margin = margin(0, 0, 0, 0, "cm"),
          legend.title = element_text(size = 8))
+
+
+ggplot(soc_region_chart[substr(soc_region_chart$X2010.SOC.Code, start = 1, stop = 2)== "51", ], aes(state.region, `2010 SOC Title`, fill= per)) + 
+  geom_tile() + 
+  scale_fill_gradient(low = "white",high = "blue", na.value = "grey60", limits = c(0, 1))+
+  scale_x_discrete(position = "top") + 
+  theme_minimal() +
+  labs(x = "", y = "", fill = "Share of Job Ads\n Requesting Less Than \na Bachelor's Degree")+#, 
+  #title = " Share of Job Ads \nRequesting Less Than a \nBachelor's Degree by SOC Code", subtitle = "For Major Occupation Group 17 \n(Architecture and Engineering Occupations)")+
+  theme(aspect.ratio = 3/1, 
+        legend.position="bottom", 
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        legend.title = element_text(size = 8))
+
+
+
  
  # soc specific
  ggplot(soc_region_chart[substr(soc_region_chart$X2010.SOC.Code, start = 1, stop = 2)== "51", ], 
