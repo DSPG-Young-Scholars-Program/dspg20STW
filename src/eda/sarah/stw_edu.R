@@ -3,6 +3,11 @@ library(tidyr)
 library(statebins)
 library(ggplot2)
 
+
+#### THIS SCRIPT CREATES A TABLE THAT LOOKS AT THE PERCENTAGE OF JOB ADS THAT DO NOT REQUIRE A BACHELOR'S DEGREE BY
+#### STATE AND YEAR, PLOTTED IN STATEBINS, AS WELL AS  PERCENTAGE OF STW JOBS IN EACH MAJOR OCCUPATION GROUP BY STATE AND YEAR
+
+
 conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                dbname = "sdad",
                                host = "postgis1",
@@ -23,7 +28,7 @@ for(year in 2010:2019){
                           IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
                         " GROUP BY A.state, A.minedu, year, hascip",  sep = ""))
     
-
+    # when minedu is missing, if the job ad has a cip code, we assume the job requires a bachelor's degree
     tbl$hasbach <- ifelse(is.na(tbl$minedu)==TRUE & tbl$hascip == TRUE, TRUE, 
                           ifelse(is.na(tbl$minedu)==TRUE & tbl$hascip == FALSE, FALSE, 
                                  ifelse(tbl$minedu >14, TRUE, FALSE)))

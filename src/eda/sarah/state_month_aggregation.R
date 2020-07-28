@@ -1,4 +1,9 @@
-
+library(readxl)
+library(dplyr)
+library(statebins)
+library(ggplot2)
+library(tidyr)
+library(lubridate)
 #---------------------------------------- BGT-JOLTS STATE/MONTH Aggregation-----------------------------------------------#
 state <- read_xlsx("data/original/ncses_stw/jlt_statedata_q4_2019.xlsx", skip = 4)
 
@@ -42,7 +47,45 @@ new$diff <- new$jolts - new$bgt
 # per_diff
 new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100
 
+####### Gina created the month percent difference tables/chart below
+new$Month2 <- ifelse(nchar(new$Month) == 1, paste("0", as.character(new$Month), sep = ""), as.character(new$Month))
 
+gina <- new %>%
+  unite(date, c("Year", "Month2"), sep = "-", remove = F)
+
+gina$time <- as_date(parse_date_time(gina$date, "ym"))
+
+
+
+#######
+gina$time <- as_date(parse_date_time(gina$date, "ym"))
+
+
+# change the state to see differences between JOLTS and BGT by month, year, and state
+# count difference
+ggplot(subset(gina, State %in% c("Virginia"))) + 
+  geom_line(aes(x=time, y=bgt),color="#E57200") + 
+  geom_line(aes(x=time, y=jolts),color="#232D4B") + 
+    theme_minimal() +
+  scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "")
+
+# percent difference
+ggplot(subset(gina, State %in% c("Virginia"))) + 
+  geom_line(aes(x=time, y=per_diff),color="#E57200") + 
+  theme_minimal() +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") 
+
+# plots all percent difference
+ggplot(gina) + 
+  geom_line(aes(x=time, y=per_diff),color="#E57200") + 
+  theme_minimal() +
+  #scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") +
+  facet_wrap(~State, ncol = 7)
+
+# we will need this for the shiny app
+#write.csv(gina, "src/shiny-dashboard/stwFluid/per_diff_state.csv", row.names = F)
 
 
 
