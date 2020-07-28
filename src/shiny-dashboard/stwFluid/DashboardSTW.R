@@ -5,7 +5,7 @@ library(ggplot2)
 library(data.table)
 library(rsconnect)
 library(DT)
-library(lubridate)
+library(lubridate) 
 
 statesWithDc <- c(state.name, "District of Columbia")
 
