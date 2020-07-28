@@ -8,6 +8,7 @@ library(DT)
 library(lubridate) 
 
 statesWithDc <- c(state.name, "District of Columbia")
+region_per_diff <- read.csv("regional_per_diff.csv")
 
 ui <- fluidPage(
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
@@ -18,11 +19,11 @@ ui <- fluidPage(
    navbarPage( title = "Skilled Technical Workforce",
 
        tabPanel("About",
-                fluidRow(column(3, tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left", )),
+                fluidRow(column(3, tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" )),
                          column(6, h1("Skilled Techinical Workforce")),
                          column(3, tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"))
                          ),
-                
+                h5("Project"),
                 p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high 
                   level of knowledge in a technical domain such as computers, mathematics, healthcare, architecture, engineering, construction, or extraction. 
                   The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
@@ -71,9 +72,11 @@ ui <- fluidPage(
        fluidRow(h4("Discussion"), 
                 p("Note: All information regarding variable descriptions was taken from the Burning Glass Data Dictionary"),
                 br(),
-                p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable that include a value. If the observation is indicated with “NA”, then the observation is not complete. We measured completeness for each variable by counting the number of non NA values and dividing it by the total number of observations.
+                p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
+                  that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
+                  counting the number of non missing values and dividing it by the total number of observations.
                   Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
-                tags$li("id: the observation is unique, i.e. does not appear more than once"),
+                p(tags$ul(tags$li("id: the observation is unique, i.e. does not appear more than once"),
                 tags$li("jobdate: the observation is in the format YYYY-MM-DD and contained within the range of January 1st for December 31st of the specified year"),
                 tags$li("state: the observation is one of the 50 states, the District of Columbia, or a U.S. territory"),
                 tags$li("soc: the observation has seven characters"),
@@ -81,11 +84,11 @@ ui <- fluidPage(
                 tags$li("lat: the observation is greater than zero"),
                 tags$li("lon: the observation is less than zero"),
                 tags$li("minedu: the observation is either 0, 12, 14, 16, 18, or 21"),
-                tags$li("maxedu: the observation is either 0, 12, 14, 16, 18, or 21"),
-                br(),
+                tags$li("maxedu: the observation is either 0, 12, 14, 16, 18, or 21"))),
                 p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
-
- The last measure is uniqueness. Uniqueness is the number of valid, unique observations. If two or more observations are identical, together they add a value of 1 to the uniqueness measure. We obtained uniqueness by counting the number of distinct values for the variable.")
+                  The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
+                  If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
+                  We obtained uniqueness by counting the number of distinct values for the variable.")
                 )
        ),
        
@@ -103,7 +106,11 @@ ui <- fluidPage(
                                 selectInput("select", "", choices = c("National", "Regional"), selected = "National"),
                                 plotOutput("jobsByYearOrRegion")),
                          column(2)),
-                
+                fluidRow(column(2),
+                         column(8, align = "center", h4("BGT/JOLTS Percent Difference by Region and Year"),
+                                fluidRow(dataTableOutput("region_per_diff"))),
+                         column(2)), 
+                br(),
                 fluidRow(p("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
                    job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
                    23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"))
@@ -115,27 +122,19 @@ ui <- fluidPage(
         tabPanel("State Comparisons", 
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
              fluidRow(width = 12, column(5), 
-                      column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
-                      column(5)),
+                      column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
+           
              fluidRow(column(1), 
                       column(10, plotOutput("statebins", width= "100%", height = "600px")),
                       column(1)),
-             
-             fluidRow(column(1, selectInput("stateGina", "Select State", choices = (statesWithDc))),
-                      column(10, plotOutput("gina")),
-                      column(1)),
-             
-            # use gina's time chart code here
-             
-            # gina<-  read.csv("per_diff_state.csv")
-             
-            # ggplot(subset(gina, State %in% c("Virginia"))) + 
-             #  geom_line(aes(x=time, y=per_diff),color="#E57200")  + 
-              # theme_minimal() +
-               #scale_y_continuous(limits = c(-25, 200)) +
-               #labs(title = "Percent Difference", x = "", y = "") 
-             
-             
+             br(),
+             fluidRow(column(3),
+                      column(6, align = "center", h4("BGT/JOLTS Percent Difference by State Over Time")),
+                      column(3)),
+             fluidRow(column(1),
+               column(2, selectInput("stateGina", "Select State", choices = (statesWithDc))),
+                      column(6,  plotOutput("gina")),
+                      column(3)),
              fluidRow(h4("Discussion"),
                       p("Paragraph discussing change in state level percent difference over time")),
              fluidRow(column(2,  
@@ -239,7 +238,11 @@ server <- function(input, output) {
     DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "Completeness", "Validity", "Uniqueness")],
                   options = list(dom = 't'), rownames = FALSE)
     
-  })  
+  })
+  
+  output$region_per_diff <- renderDataTable({
+    DT::datatable(round(region_per_diff, 4), options = list(dom = 't'), rownames = FALSE)
+  })
   
   output$jobsByYearOrRegion <- renderPlot({
     if(input$select == "National"){
@@ -314,7 +317,8 @@ server <- function(input, output) {
      geom_line(aes(x=time, y=per_diff),color="#E57200")  +
       theme_minimal() +
        scale_y_continuous(limits = c(-25, 200)) +
-         labs(title = "Percent Difference", x = "", y = "")
+      scale_x_date(date_breaks = "1 year", date_labels = "%Y")+
+         labs(title = "", x = "", y = "")
   })
   
   
