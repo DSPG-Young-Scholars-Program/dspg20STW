@@ -99,6 +99,18 @@ ui <- fluidPage(
              fluidRow(column(1), 
                       column(10, plotOutput("statebins", width= "100%", height = "600px")),
                       column(1)),
+             
+             # use gina's time chart code here
+             
+            # gina<-  read.csv("src/shiny-dashboard/stwFluid/per_diff_state.csv")
+             
+            # ggplot(subset(gina, State %in% c("Virginia"))) + 
+             #  geom_line(aes(x=time, y=per_diff),color="#E57200")  + 
+              # theme_minimal() +
+               #scale_y_continuous(limits = c(-25, 200)) +
+               #labs(title = "Percent Difference", x = "", y = "") 
+             
+             
              fluidRow(h4("Discussion"),
                       p("Paragraph discussing change in state level percent difference over time")),
              fluidRow(column(2,  

@@ -98,11 +98,34 @@ gina <- new %>%
 
 gina$time <- as_date(parse_date_time(gina$date, "ym"))
 
+write.csv(gina, "src/shiny-dashboard/stwFluid/per_diff_state.csv", row.names = F)
+
 
 #######
+
+
+
+
+
 
 ggplot(subset(gina, State %in% c("Virginia"))) + 
   geom_line(aes(x=time, y=bgt),color="#E57200") + 
   geom_line(aes(x=time, y=jolts),color="#232D4B") + theme_minimal() +
   scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
   labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") 
+
+ggplot(subset(gina, State %in% c("Virginia"))) + 
+  geom_line(aes(x=time, y=bgt),color="#E57200") + 
+  geom_line(aes(x=time, y=jolts),color="#232D4B") + theme_minimal() +
+  scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") 
+
+
+ggplot(gina) + 
+  geom_line(aes(x=time, y=per_diff),color="#E57200") + 
+  theme_minimal() +
+  scale_y_continuous(labels = scales::comma,name = "Job Estimates",seq(0, 1000000, by = 50000)) +
+  labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") +
+  facet_wrap(~State, ncol = 7)
+
+
