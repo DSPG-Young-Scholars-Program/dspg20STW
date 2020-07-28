@@ -15,7 +15,11 @@ ui <- fluidPage(
    navbarPage( title = "Skilled Technical Workforce",
 
        tabPanel("About",
-                h1("Skilled Techinical Workforce"),
+                fluidRow(column(3, p("image")),
+                         column(6, h1("Skilled Techinical Workforce")),
+                         column(3, tags$img(height = "50%", width = "50%", src = "nsf-ncses.png", align = "right"))
+                         ),
+                
                 p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high 
                   level of knowledge in a technical domain such as computers, mathematics, healthcare, architecture, engineering, construction, or extraction. 
                   The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
