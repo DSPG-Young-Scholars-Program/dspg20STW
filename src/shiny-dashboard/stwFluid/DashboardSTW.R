@@ -5,6 +5,9 @@ library(ggplot2)
 library(data.table)
 library(rsconnect)
 library(DT)
+library(lubridate)
+
+statesWithDc <- c(state.name, "District of Columbia")
 
 ui <- fluidPage(
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
@@ -118,9 +121,13 @@ ui <- fluidPage(
                       column(10, plotOutput("statebins", width= "100%", height = "600px")),
                       column(1)),
              
-             # use gina's time chart code here
+             fluidRow(column(1, selectInput("stateGina", "Select State", choices = (statesWithDc))),
+                      column(10, plotOutput("gina")),
+                      column(1)),
              
-            # gina<-  read.csv("src/shiny-dashboard/stwFluid/per_diff_state.csv")
+            # use gina's time chart code here
+             
+            # gina<-  read.csv("per_diff_state.csv")
              
             # ggplot(subset(gina, State %in% c("Virginia"))) + 
              #  geom_line(aes(x=time, y=per_diff),color="#E57200")  + 
@@ -292,7 +299,27 @@ server <- function(input, output) {
             legend.justification = c("right", "top"),
             legend.direction =  "horizontal") + 
       labs(fill = "Percent Difference")
-  }) 
+  })
+  
+  
+  
+  
+  #Rendering Gina's timechart
+  output$gina <- renderPlot({
+    gina <- read.csv("per_diff_state.csv")
+    gina$time <- as_date(parse_date_time(gina$date, "ym"))
+    graphic_data <- gina[gina$State == input$stateGina, ]
+    
+    ggplot(graphic_data) +
+     geom_line(aes(x=time, y=per_diff),color="#E57200")  +
+      theme_minimal() +
+       scale_y_continuous(limits = c(-25, 200)) +
+         labs(title = "Percent Difference", x = "", y = "")
+  })
+  
+  
+  
+  
   
   
   #SOC definitions
@@ -464,7 +491,7 @@ server <- function(input, output) {
       print("Business and Financial Operations Occupations")
     }else if(input$definition2 == "SOC 15"){
       print("Computer and Mathematical Occupations")
-    }else if(input$definition22 == "SOC 17"){
+    }else if(input$definition2 == "SOC 17"){
       print("Architecture and Engineering Occupations")
     }else if(input$definition2 == "SOC 19"){
       print("Life, Physical, and Social Science Occupations")
