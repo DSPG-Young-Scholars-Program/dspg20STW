@@ -7,6 +7,8 @@ library(rsconnect)
 library(DT)
 library(lubridate) 
 
+
+
 statesWithDc <- c(state.name, "District of Columbia")
 region_per_diff <- read.csv("regional_per_diff.csv")
 
@@ -232,10 +234,18 @@ server <- function(input, output) {
                         "Longitude",
                         "Minimum education required", 
                         "Maximum education required")
+  
+  
+  data$Completeness = as.numeric(data$Completeness) * 100
+  data$Completeness = sprintf(data$Completeness, fmt = "%#.2f")
+  names(data)[names(data) == "Completeness"] <- "% Completeness"
+  
+  
+  
   #rendering profiling table
   output$profile <- renderDataTable({
 
-    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "Completeness", "Validity", "Uniqueness")],
+    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "% Completeness", "Validity", "Uniqueness")],
                   options = list(dom = 't'), rownames = FALSE)
     
   })
