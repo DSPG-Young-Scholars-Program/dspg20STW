@@ -7,8 +7,19 @@ library(rsconnect)
 library(DT)
 library(lubridate) 
 
+
+
 statesWithDc <- c(state.name, "District of Columbia")
+
 region_per_diff <- read.csv("regional_per_diff.csv")
+region_per_diff$National = sprintf(region_per_diff$National, fmt = "%#.2f")
+region_per_diff$Northeast = sprintf(region_per_diff$Northeast, fmt = "%#.2f")
+region_per_diff$Midwest = sprintf(region_per_diff$Midwest, fmt = "%#.2f")
+region_per_diff$South = sprintf(region_per_diff$South, fmt = "%#.2f")
+region_per_diff$West = sprintf(region_per_diff$West, fmt = "%#.2f")
+
+
+
 
 ui <- fluidPage(
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
@@ -135,14 +146,20 @@ ui <- fluidPage(
                column(2, selectInput("stateGina", "Select State", choices = (statesWithDc))),
                       column(6,  plotOutput("gina")),
                       column(3)),
+             
              fluidRow(h4("Discussion"),
                       p("Paragraph discussing change in state level percent difference over time")),
+             
              fluidRow(column(2,  
                              wellPanel(
                                selectInput("definition2", "SOC Definition", choices = c("SOC 11", "SOC 13", "SOC 15",
                                                                                        "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                        "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
                                textOutput("soc2")))), 
+             
+             fluidRow(column(1),
+                      column(10, h4("BGT/JOLTS Percent Difference and Percent of BGT Job Ads in each Major Occupation Group by State"), align = "center"),
+                      column(1)),
              fluidRow(dataTableOutput("summary")) 
         ) # end tabPanel
         
@@ -153,7 +170,7 @@ ui <- fluidPage(
        
        navbarMenu("BGT Education", 
          tabPanel("State Comparisons",
-                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads That Do Not Require a College Degree by State") )), 
+                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads that do not require a college degree by state") )), 
                   fluidRow(width = 12, column(5), 
                            column(2, sliderInput("slide2", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
                            column(5)),
@@ -166,12 +183,23 @@ ui <- fluidPage(
                                                                                             "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                             "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
                                     textOutput("soc")))), 
+                  fluidRow(column(1),
+                           column(10, h4("Percent of Job Ads Not Requiring a Bachelor’s Degree or Above and Percent of STW BGT Job Ads by Major Occupation Groups"), align = "center"),
+                           column(1)),
                   fluidRow(dataTableOutput("stwTable")) 
          ), # end tabPanel
        
           tabPanel("Occupation Comparisons")
           
           ),#end navbar
+       
+       #STW Crosswalk
+       tabPanel(
+         "STW Crosswalk"
+       ),
+       
+       
+       
        
        #end STW vs Non-STW-------------
        tabPanel(
@@ -232,16 +260,24 @@ server <- function(input, output) {
                         "Longitude",
                         "Minimum education required", 
                         "Maximum education required")
+  
+  
+  data$Completeness = as.numeric(data$Completeness) * 100
+  data$Completeness = sprintf(data$Completeness, fmt = "%#.2f")
+  names(data)[names(data) == "Completeness"] <- "% Completeness"
+  
+  
+  
   #rendering profiling table
   output$profile <- renderDataTable({
 
-    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "Completeness", "Validity", "Uniqueness")],
+    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "% Completeness", "Validity", "Uniqueness")],
                   options = list(dom = 't'), rownames = FALSE)
     
   })
   
   output$region_per_diff <- renderDataTable({
-    DT::datatable(round(region_per_diff, 4), options = list(dom = 't'), rownames = FALSE)
+    DT::datatable(region_per_diff, options = list(dom = 't'), rownames = FALSE)
   })
   
   output$jobsByYearOrRegion <- renderPlot({
