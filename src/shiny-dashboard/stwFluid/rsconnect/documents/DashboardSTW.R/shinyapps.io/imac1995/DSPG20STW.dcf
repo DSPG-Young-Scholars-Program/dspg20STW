@@ -5,8 +5,8 @@ account: imac1995
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2616588
-bundleId: 3450178
+bundleId: 3452070
 url: https://imac1995.shinyapps.io/DSPG20STW/
-when: 1596025612.01116
+when: 1596056224.68882
 asMultiple: FALSE
 asStatic: FALSE
