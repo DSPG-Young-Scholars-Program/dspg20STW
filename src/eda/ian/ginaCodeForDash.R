@@ -2,6 +2,7 @@ library(ggplot2)
 library(lubridate)
 library(dplyr)
 
-region_per_diff <- read.csv("src/shiny-dashboard/stwFluid/regional_per_diff.csv")
+x <- read.csv("src/shiny-dashboard/stwFluid/statebinsData.csv")
 
-region_per_diff$National = sprintf(region_per_diff$National, fmt = "%#.3f")
+x$per_diff = sprintf(x$per_diff, fmt = "%#.2f")
+
