@@ -131,7 +131,7 @@ ui <- fluidPage(
         
         
         tabPanel("State Comparisons", 
-             fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
+             fluidRow(width = 12, align = "center", column(12, h3("BGT/JOLTS Percent Difference and Percent of BGT Job Ads in each Major Occupation Group by State") )), 
              fluidRow(width = 12, column(5), 
                       column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
            
@@ -164,7 +164,7 @@ ui <- fluidPage(
        
        navbarMenu("BGT Education", 
          tabPanel("State Comparisons",
-                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads That Do Not Require a College Degree by State") )), 
+                  fluidRow(width = 12, align = "center", column(12, h3("Percent of Job Ads Not Requiring a Bachelor’s Degree or Above and Percent of STW BGT Job Ads by Major Occupation Groups") )), 
                   fluidRow(width = 12, column(5), 
                            column(2, sliderInput("slide2", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
                            column(5)),
