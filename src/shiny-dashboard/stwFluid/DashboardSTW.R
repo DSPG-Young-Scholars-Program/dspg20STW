@@ -115,7 +115,7 @@ ui <- fluidPage(
                                   "dots show JOLTS job opening estimates, and the", tags$span(' orange ', style = "background-color: #E57200; color: white;border-radius: 25px; white-space: pre-wrap;"), 
                                   "dots show the BGT job-ads estimates."),
                                 selectInput("select", "", choices = c("National", "Regional"), selected = "National"),
-                                plotOutput("jobsByYearOrRegion")),
+                                plotOutput("jobsByYearOrRegion", width = 500, height = 700)),
                          column(2)),
                 fluidRow(column(2),
                          column(8, align = "center", h4("BGT/JOLTS Percent Difference by Region and Year"),
@@ -264,14 +264,19 @@ server <- function(input, output) {
   
   data$Completeness = as.numeric(data$Completeness) * 100
   data$Completeness = sprintf(data$Completeness, fmt = "%#.2f")
+  
+  data$Validity = as.numeric(data$Validity) * 100
+  data$Validity = sprintf(data$Validity, fmt = "%#.2f")
+  
   names(data)[names(data) == "Completeness"] <- "% Completeness"
+  names(data)[names(data) == "Validity"] <- "% Validity"
   
   
   
   #rendering profiling table
   output$profile <- renderDataTable({
 
-    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "% Completeness", "Validity", "Uniqueness")],
+    DT::datatable(data[data$Year == input$prof_select, c("Variable", "Description", "% Completeness", "% Validity", "Uniqueness")],
                   options = list(dom = 't'), rownames = FALSE)
     
   })
@@ -289,15 +294,18 @@ server <- function(input, output) {
         geom_point(y = total_wide$jolts, color = "#232D4B", size = 3) +
         scale_x_continuous(breaks = 2010:2019, 
                            limits =c(2010,2019)) + 
-        scale_y_continuous(breaks = seq(0, 90000000, 10000000),  
+        scale_y_continuous(breaks = seq(0, 100000000, 25000000),  
                            labels = scales::comma, 
-                           limits = c(0, 90000000),
+                           limits = c(0, 100000000),
                            expand = c(0, 0))+
         theme_minimal() +
         labs(y = "Number of Job Openings/Ads", 
              x = "", 
-             title = "",
-             subtitle= "")
+             title = "National",
+             subtitle= "") +
+        coord_flip() +
+        theme(plot.margin = unit(c(5.5, 5.5, 500, 5.5), "pt"),
+              plot.title = element_text(face = "bold", hjust = 0.5))
     } else {
       total_wide_region <- read.csv("total_wide_region.csv")
       ggplot(total_wide_region, aes(x = year, xend = year, y = bgt, yend = jolts)) + 
@@ -307,7 +315,7 @@ server <- function(input, output) {
         scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  
         scale_x_continuous(breaks = c(2010:2019)) + 
         scale_color_manual(values=c("#E57200", "#232D4B")) +
-        facet_wrap(~region) + 
+        facet_wrap(~region, ncol = 1) + 
         theme_minimal() +
         theme(plot.title = element_text(hjust = .5, size = 20), 
               plot.subtitle = element_text(size = 12),
@@ -316,7 +324,8 @@ server <- function(input, output) {
               strip.text.x = element_text(face = "bold",size = 12)) +
         labs(title = "",
              y = "Number of Job Openings/Ads",
-             subtitle = "") 
+             subtitle = "") +
+        coord_flip() 
       
     }
   })
