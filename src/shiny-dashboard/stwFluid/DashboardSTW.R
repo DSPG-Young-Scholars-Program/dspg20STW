@@ -10,7 +10,16 @@ library(lubridate)
 
 
 statesWithDc <- c(state.name, "District of Columbia")
+
 region_per_diff <- read.csv("regional_per_diff.csv")
+region_per_diff$National = sprintf(region_per_diff$National, fmt = "%#.2f")
+region_per_diff$Northeast = sprintf(region_per_diff$Northeast, fmt = "%#.2f")
+region_per_diff$Midwest = sprintf(region_per_diff$Midwest, fmt = "%#.2f")
+region_per_diff$South = sprintf(region_per_diff$South, fmt = "%#.2f")
+region_per_diff$West = sprintf(region_per_diff$West, fmt = "%#.2f")
+
+
+
 
 ui <- fluidPage(
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
@@ -251,7 +260,7 @@ server <- function(input, output) {
   })
   
   output$region_per_diff <- renderDataTable({
-    DT::datatable(round(region_per_diff, 4), options = list(dom = 't'), rownames = FALSE)
+    DT::datatable(region_per_diff, options = list(dom = 't'), rownames = FALSE)
   })
   
   output$jobsByYearOrRegion <- renderPlot({

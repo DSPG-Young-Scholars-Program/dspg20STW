@@ -2,10 +2,6 @@ library(ggplot2)
 library(lubridate)
 library(dplyr)
 
-prof <- read.csv("src/shiny-dashboard/stwFluid/prof.csv")
+region_per_diff <- read.csv("src/shiny-dashboard/stwFluid/regional_per_diff.csv")
 
-x <- head(prof)
-
-x$completeness = x$completeness * 100
-
-
+region_per_diff$National = sprintf(region_per_diff$National, fmt = "%#.3f")
