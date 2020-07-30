@@ -6,11 +6,12 @@ library(data.table)
 library(rsconnect)
 library(DT)
 library(lubridate) 
-
+library(tidyr)
 
 
 statesWithDc <- c(state.name, "District of Columbia")
 
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 
 
@@ -128,10 +129,25 @@ ui <- fluidPage(
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
              fluidRow(width = 12, column(5), 
                       column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
-           
+              fluidRow(align = "center", 
+                       column(1),
+                       column(10, 
+                              p(strong("Percent Difference: "), 
+                                "(0, -20]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[6], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                HTML("&nbsp;"),
+                                "(-20, -40]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[3], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                HTML("&nbsp;"),
+                                "(-40, -60]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[1], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                HTML("&nbsp;"),
+                                "(-60, -80]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[2], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                HTML("&nbsp;"),
+                                "(-80, -100]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[7],"; color: white;border-radius: 5px; white-space: pre-wrap;", sep = ""))
+                               )),
+                       column(1)),
              fluidRow(column(1), 
                       column(10, plotOutput("statebins", width= "100%", height = "600px")),
                       column(1)),
+             
              br(),
              fluidRow(column(3),
                       column(6, align = "center", h4("BGT/JOLTS Percent Difference by State Over Time")),
@@ -168,6 +184,24 @@ ui <- fluidPage(
                   fluidRow(width = 12, column(5), 
                            column(2, sliderInput("slide2", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
                            column(5)),
+                  
+                  fluidRow(align = "center", 
+                           column(1),
+                           column(10, 
+                                  p(strong("Percent Difference: "), 
+                                    "(40, 50]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[6], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                    HTML("&nbsp;"),
+                                    "(50, 60]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[3], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                    HTML("&nbsp;"),
+                                    "(60, 70]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[1], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                    HTML("&nbsp;"),
+                                    "(70, 80]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[2], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                    HTML("&nbsp;"),
+                                    "(80, 90]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[7],"; color: white;border-radius: 5px; white-space: pre-wrap;", sep = ""))
+                                  )),
+                           column(1)),
+                  
+                  
                   fluidRow(column(1), 
                            column(10, plotOutput("stw", width= "100%", height = "600px")),
                            column(1)), 
@@ -353,11 +387,8 @@ server <- function(input, output) {
                 values = c("[0, -20)" = cbPalette[6], "[-20, -40)" = cbPalette[3],"[-40, -60)" = cbPalette[1], 
                            "[-60, -80)" = cbPalette[2], "[-80, -100)"= cbPalette[7] )) +
       theme_statebins()+
-      theme(plot.margin = margin(0,0,0,0),
-            legend.position = c(.35, .9),
-            legend.justification = c("right", "top"),
-            legend.direction =  "horizontal") + 
-      labs(fill = "Percent Difference", title = "2019 BGT/JOLTS Percent Difference by State")
+      theme(plot.margin = margin(0,0,0,0), 
+            legend.position = "none") 
     
     
   
@@ -443,15 +474,20 @@ server <- function(input, output) {
     
     data <- read.csv("stw_edu.csv")
     
-    statebins(data[data$year == input$slide2, ], state_col = "state", value_col = "nobach", 
-             direction = 1, round = TRUE, name = "Percent of Job Ads", font_size = 5) + 
-      theme_statebins() +
-      scale_fill_gradient(low = "white",high = "#0E879C", na.value = "grey60", limits = c(0, 1)) +
+    data[, -c(1:2)] <- data[, -c(1:2)] *100
+    
+    mutate(data[data$year == input$slide2, ], value = ifelse(nobach >= 40 & nobach < 50, "[40, 50)",
+                                                     ifelse(nobach >= 50 & nobach < 60, "[50, 60)", 
+                                                            ifelse(nobach >= 60 & nobach < 70, "[60, 70)", 
+                                                                   ifelse(nobach >= 70 & nobach < 80, "[70, 80)", 
+                                                                          ifelse(nobach >= 80 & nobach < 90, "[80, 90)", NA)))))) %>%
+      statebins(ggplot2_scale_function = scale_fill_manual,
+                round = TRUE, font_size = 5, 
+                values = c("[40, 50)" = cbPalette[6], "[50, 60)" = cbPalette[3],"[60, 70)" = cbPalette[1], 
+                           "[70, 80)" = cbPalette[2], "[80, 90)"= cbPalette[7] )) +
+      theme_statebins()+
       theme(plot.margin = margin(0,0,0,0),
-            legend.position = c(.35, .9),
-            legend.justification = c("right", "top"),
-            legend.direction =  "horizontal") + 
-      labs(fill = "Percent of Job Ads")
+            legend.position = "none")  
   })
   
   output$stwTable <- renderDataTable({
@@ -484,10 +520,8 @@ server <- function(input, output) {
     names(table)[names(table) == "X51"] <- "SOC 51"
     names(table)[names(table) == "X53"] <- "SOC 53"
     names(table)[names(table) == "X55"] <- "SOC 55"
-
-    viz_data <- table%>%filter(Year == input$slide2) 
     
-    DT::datatable(viz_data,
+    DT::datatable(table[table$Year == input$slide2, ],
                   options = list(dom = 't', pageLength = 51, scrollX = TRUE), rownames = FALSE)
     
   })
