@@ -50,15 +50,13 @@ state_year_jolts_bgt_table_maker <- function(years){
 
       new <- merge(state_year, bgt, by = c("state","year"), all.x = T)
 
-      new$diff <- new$jolts - new$bgt
-
-      new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100 
+      new$per_change <- round(((new$bgt - new$jolts)/(new$jolts))* 100, 2)
 
       assign(paste("state_year_bgt_jolts", min(years), max(years), sep = "_"), new, .GlobalEnv)
 }
 
 
-#state_year_jolts_bgt_table_maker(2010:2019)
+state_year_jolts_bgt_table_maker(2010:2019)
 
 #statebins(state_year_bgt_jolts_2010_2019[state_year_bgt_jolts_2010_2019$year == 2019, ], state_col = "state", value_col = "per_diff", palette = "Blues",
 #          direction =1, round=TRUE,  name = "Percent Difference") +
@@ -69,7 +67,7 @@ state_year_jolts_bgt_table_maker <- function(years){
 
 
 
-
+#write.csv(state_year_bgt_jolts_2010_2019, "src/shiny-dashboard/stwFluid/state_year.csv", row.names = FALSE)
 
 
 

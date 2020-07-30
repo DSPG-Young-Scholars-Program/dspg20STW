@@ -11,13 +11,6 @@ library(lubridate)
 
 statesWithDc <- c(state.name, "District of Columbia")
 
-region_per_diff <- read.csv("regional_per_diff.csv")
-region_per_diff$National = sprintf(region_per_diff$National, fmt = "%#.2f")
-region_per_diff$Northeast = sprintf(region_per_diff$Northeast, fmt = "%#.2f")
-region_per_diff$Midwest = sprintf(region_per_diff$Midwest, fmt = "%#.2f")
-region_per_diff$South = sprintf(region_per_diff$South, fmt = "%#.2f")
-region_per_diff$West = sprintf(region_per_diff$West, fmt = "%#.2f")
-
 
 
 
@@ -80,9 +73,7 @@ ui <- fluidPage(
                               tags$li("Validity: The percentage of data elements whose attributes possess values within the range expected for a legitimate entry"),
                               tags$li("Uniqueness: The number of unique values that have been entered for a variable")
                             ))))),
-       fluidRow(h4("Discussion"), 
-                p("Note: All information regarding variable descriptions was taken from the Burning Glass Data Dictionary"),
-                br(),
+       fluidRow(h4("Methodology"), 
                 p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
                   that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
                   counting the number of non missing values and dividing it by the total number of observations.
@@ -100,7 +91,8 @@ ui <- fluidPage(
                   The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
                   If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
                   We obtained uniqueness by counting the number of distinct values for the variable.")
-                )
+                ),
+                h4("Observations")
        ),
        
        #end profiling tab------------------------------------------ 
@@ -122,9 +114,11 @@ ui <- fluidPage(
                                 fluidRow(dataTableOutput("region_per_diff"))),
                          column(2)), 
                 br(),
-                fluidRow(p("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
+                fluidRow(
+                h4("Observations"),
+                p("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
                    job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
-                   23 MOC over the years 2010-2019 between and within states (we can all brainstorm on this)"))
+                   23 MOG over the years 2010-2019 between and within states (we can all brainstorm on this)"))
                 ),
                 
         
@@ -147,7 +141,7 @@ ui <- fluidPage(
                       column(6,  plotOutput("gina")),
                       column(3)),
              
-             fluidRow(h4("Discussion"),
+             fluidRow(h4("Observations"),
                       p("Paragraph discussing change in state level percent difference over time")),
              
              fluidRow(column(2,  
@@ -281,17 +275,26 @@ server <- function(input, output) {
     
   })
   
+  library(dplyr)
+  total_wide <- read.csv("nation_region_year.csv")
+  total_wide_table <-total_wide %>% select(year, per_change, region) %>% spread(key = region, value = per_change) %>% select("Year" = year, National, Northeast, Midwest, South, West)
+  total_wide_table$National <- sprintf(total_wide_table$National,fmt = "%#.2f")
+  total_wide_table$Northeast <- sprintf(total_wide_table$Northeast,fmt = "%#.2f")
+  total_wide_table$Midwest <- sprintf(total_wide_table$Midwest,fmt = "%#.2f")
+  total_wide_table$South <- sprintf(total_wide_table$South,fmt = "%#.2f")
+  total_wide_table$West <- sprintf(total_wide_table$West,fmt = "%#.2f")
+  
   output$region_per_diff <- renderDataTable({
-    DT::datatable(region_per_diff, options = list(dom = 't'), rownames = FALSE)
+    DT::datatable(total_wide_table, options = list(dom = 't'), rownames = FALSE)
   })
   
+
   output$jobsByYearOrRegion <- renderPlot({
     if(input$select == "National"){
-      total_wide <- read.csv("jobsByYear.csv")
-      ggplot(total_wide, aes(x= year, xend = year, y = bgt, yend = jolts)) + 
+      ggplot(total_wide[total_wide$region == "National", ], aes(x= year, xend = year, y = bgt, yend = jolts)) + 
         geom_segment(color = "grey60") + 
-        geom_point(y = total_wide$bgt, color = "#E57200", size = 3)+
-        geom_point(y = total_wide$jolts, color = "#232D4B", size = 3) +
+        geom_point(y = total_wide[total_wide$region == "National", "bgt"], color = "#E57200", size = 3)+
+        geom_point(y = total_wide[total_wide$region == "National", "jolts"], color = "#232D4B", size = 3) +
         scale_x_continuous(breaks = 2010:2019, 
                            limits =c(2010,2019)) + 
         scale_y_continuous(breaks = seq(0, 100000000, 25000000),  
@@ -307,11 +310,10 @@ server <- function(input, output) {
         theme(plot.margin = unit(c(5.5, 5.5, 500, 5.5), "pt"),
               plot.title = element_text(face = "bold", hjust = 0.5))
     } else {
-      total_wide_region <- read.csv("total_wide_region.csv")
-      ggplot(total_wide_region, aes(x = year, xend = year, y = bgt, yend = jolts)) + 
+      ggplot(total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West",], aes(x = year, xend = year, y = bgt, yend = jolts)) + 
         geom_segment(color = "grey60") +
-        geom_point(y = total_wide_region$bgt, color = "#E57200", size = 3)+
-        geom_point(y = total_wide_region$jolts, color = "#232D4B", size = 3) +
+        geom_point(y = total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West","bgt"], color = "#E57200", size = 3)+
+        geom_point(y = total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West", "jolts"], color = "#232D4B", size = 3) +
         scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  
         scale_x_continuous(breaks = c(2010:2019)) + 
         scale_color_manual(values=c("#E57200", "#232D4B")) +
@@ -334,19 +336,19 @@ server <- function(input, output) {
   output$statebins <- renderPlot({
     
     #renderPlot height and width
-    data <- read.csv("statebinsData.csv")
+    data <- read.csv("state_year.csv")
     
     viz_data <- data %>% filter(year == input$slide) 
     
-    statebins(viz_data, state_col = "state", value_col = "per_diff", direction = 1, round = TRUE, 
-              name = "Percent Difference", font_size = 5) + 
+    statebins(viz_data, state_col = "state", value_col = "per_change", direction = 1, round = TRUE, 
+              name = "Percent Change", font_size = 5) + 
       theme_statebins() +
-      scale_fill_gradient(low = "white", high = "#0E879C", na.value = "grey60", limits = c(0, 150)) +
+      scale_fill_gradient(low = "#0E879C", high = "white", na.value = "grey60", limits = c(-100, 0)) +
       theme(plot.margin = margin(0,0,0,0),
             legend.position = c(.35, .9),
             legend.justification = c("right", "top"),
             legend.direction =  "horizontal") + 
-      labs(fill = "Percent Difference")
+      labs(fill = "Percent Change")
   })
   
   
@@ -354,14 +356,14 @@ server <- function(input, output) {
   
   #Rendering Gina's timechart
   output$gina <- renderPlot({
-    gina <- read.csv("per_diff_state.csv")
+    gina <- read.csv("state_month.csv")
     gina$time <- as_date(parse_date_time(gina$date, "ym"))
     graphic_data <- gina[gina$State == input$stateGina, ]
     
     ggplot(graphic_data) +
-     geom_line(aes(x=time, y=per_diff),color="#E57200")  +
+     geom_line(aes(x=time, y=per_change),color="#E57200")  +
       theme_minimal() +
-       scale_y_continuous(limits = c(-25, 200)) +
+       scale_y_continuous(limits = c(-100, 20)) +
       scale_x_date(date_breaks = "1 year", date_labels = "%Y")+
          labs(title = "", x = "", y = "")
   })
@@ -385,11 +387,9 @@ server <- function(input, output) {
     data <- read.csv("occupation_groups.csv")
     
     #removes the x column by setting it to NULL
-    data$X <- NULL
-    
     names(data)[names(data) == "state"] <- "State"
     names(data)[names(data) == "year"] <- "Year"
-    names(data)[names(data) == "per_diff"] <- "Percent Difference"
+    names(data)[names(data) == "per_change"] <- "Percent Change"
     names(data)[names(data) == "X11"] <- "SOC 11"
     names(data)[names(data) == "X13"] <- "SOC 13"
     names(data)[names(data) == "X15"] <- "SOC 15"
@@ -416,9 +416,8 @@ server <- function(input, output) {
     names(data)[names(data) == "X55"] <- "SOC 55"
     names(data)[names(data) == "X.NA."] <- "SOC NA"
   
-    viz_data <- data %>% filter(Year == input$slide) %>%
-      mutate(`Percent Difference` = round(`Percent Difference`, 4))
-    
+    viz_data <- data %>% filter(Year == input$slide) 
+    viz_data[, -c(1:2)] <- lapply(viz_data[, -c(1:2)], sprintf, fmt = "%#.2f")
     
     
     DT::datatable(viz_data,

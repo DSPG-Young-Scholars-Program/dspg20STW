@@ -12,7 +12,7 @@ conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
                                port = 5432,
                                user = Sys.getenv(x = "DB_USR"),
                                password = Sys.getenv(x = "DB_PWD"))
- 
+
 source("src/eda/sarah/state_year_aggregation.R")
 
 #run second
@@ -26,21 +26,28 @@ for(year in 2010:2019){
   tbl <- RPostgreSQL::dbGetQuery(
     conn = conn, 
     statement = paste("SELECT EXTRACT(YEAR FROM jobdate) AS year, state, SUBSTRING(soc from 1 for 2) AS occ, COUNT(DISTINCT(id)) AS bgt
-                    FROM bgt_job.jolts_comparison_", year, 
+                      FROM bgt_job.jolts_comparison_", year, 
                       " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
                       " GROUP BY  year, occ, state", sep = ""))
   
   tbl <- tbl %>% spread(key = occ, value = bgt)
-  tbl <- tbl %>% mutate(round(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]), 4))
+  tbl <- tbl %>% mutate(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]))
   
   bgt <- rbind(bgt, tbl)
 }
 
+
+
+
+bgt[, -c(1:2)] <- bgt[, -c(1:2)] * 100
+
+bgt[,-c(1:2)] <- lapply(bgt[, -c(1:2)], sprintf, fmt = "%#.2f")
+
 #write this as a csv instead and filter by year
-final_data <- merge(state_year_bgt_jolts_2010_2019[, c("state", "year", "per_diff")], bgt, by = c("state", "year"))
+#final_data <- merge(state_year_bgt_jolts_2010_2019[, c("state", "year", "per_change")], bgt, by = c("state", "year"))
 
 # will need this for the shiny app
-#write.csv(final_data, "data/ncses_stw/dataForInteractiveDoc/occupation_groups.csv")
+write.csv(final_data, "src/shiny-dashboard/stwFluid/occupation_groups.csv", row.names = F)
 
 
 y = 2011
