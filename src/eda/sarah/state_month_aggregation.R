@@ -5,7 +5,7 @@ library(ggplot2)
 library(tidyr)
 library(lubridate)
 #---------------------------------------- BGT-JOLTS STATE/MONTH Aggregation-----------------------------------------------#
-state <- read_xlsx("data/original/ncses_stw/jlt_statedata_q4_2019.xlsx", skip = 4)
+state <- read_xlsx("data/ncses_stw/original/jlt_statedata_q4_2019.xlsx", skip = 4)
 
 state <- state %>% mutate(`jolts` = `Job Openings` * 1000, 
                           Hires = Hires * 1000, 
@@ -20,7 +20,12 @@ new_df <- state %>%
   select(State, `jolts`, Year, Month) 
 
 bgt <- data.frame(year = numeric(0), month = numeric(0), count= numeric(0), state = character(0))
-
+conn <- RPostgreSQL::dbConnect(drv = RPostgreSQL::PostgreSQL(),
+                               dbname = "sdad",
+                               host = "postgis1",
+                               port = 5432,
+                               user = Sys.getenv(x = "DB_USR"),
+                               password = Sys.getenv(x = "DB_PWD"))
 for(year in 2010:2019){
   
   tbl <- RPostgreSQL::dbGetQuery(
@@ -41,11 +46,9 @@ new <- merge(new_df, bgt, by.x = c("State", "Year", "Month"), by.y = c("state", 
 
 colnames(new)[colnames(new) == "count"] <- "bgt"
 
-new$diff <- new$jolts - new$bgt
+new$per_change <- ((new$bgt - new$jolts)/new$jolts) * 100
 
 
-# per_diff
-new$per_diff <- new$diff/((new$jolts + new$bgt)/2) * 100
 
 ####### Gina created the month percent difference tables/chart below
 new$Month2 <- ifelse(nchar(new$Month) == 1, paste("0", as.character(new$Month), sep = ""), as.character(new$Month))
@@ -72,7 +75,7 @@ ggplot(subset(gina, State %in% c("Virginia"))) +
 
 # percent difference
 ggplot(subset(gina, State %in% c("Virginia"))) + 
-  geom_line(aes(x=time, y=per_diff),color="#E57200") + 
+  geom_line(aes(x=time, y=per_change),color="#E57200") + 
   theme_minimal() +
   labs(title = "BGT vs. JOLTS Job Estimates in Virginia", x = "") 
 
@@ -85,7 +88,7 @@ ggplot(gina) +
   facet_wrap(~State, ncol = 7)
 
 # we will need this for the shiny app
-#write.csv(gina, "src/shiny-dashboard/stwFluid/per_diff_state.csv", row.names = F)
+#write.csv(gina, "src/shiny-dashboard/stwFluid/state_month.csv", row.names = F)
 
 
 
