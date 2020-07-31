@@ -474,8 +474,7 @@ server <- function(input, output) {
     
     data <- read.csv("stw_edu.csv")
     
-    data[, -c(1:2)] <- data[, -c(1:2)] *100
-    
+
     mutate(data[data$year == input$slide2, ], value = ifelse(nobach >= 40 & nobach < 50, "[40, 50)",
                                                      ifelse(nobach >= 50 & nobach < 60, "[50, 60)", 
                                                             ifelse(nobach >= 60 & nobach < 70, "[60, 70)", 
@@ -520,6 +519,8 @@ server <- function(input, output) {
     names(table)[names(table) == "X51"] <- "SOC 51"
     names(table)[names(table) == "X53"] <- "SOC 53"
     names(table)[names(table) == "X55"] <- "SOC 55"
+    
+    table[, -c(1:2)] <- lapply(table[, -c(1:2)], sprintf, fmt = "%#.2f")
     
     DT::datatable(table[table$Year == input$slide2, ],
                   options = list(dom = 't', pageLength = 51, scrollX = TRUE), rownames = FALSE)
