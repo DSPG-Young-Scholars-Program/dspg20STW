@@ -65,23 +65,37 @@ for(year in 2010:2019){
     tbl<- merge(tbl, xwalk[,c("O.NET.SOC.Code","rothwell_STW")], by.x = "onet", by.y = "O.NET.SOC.Code", all.x = T)
     
     tbl$occ <- substr(tbl$onet, start = 1, stop = 2)
-    tbl <- tbl %>% select(!onet)%>% filter(rothwell_STW == 1)  %>% group_by(year, state, occ) %>% summarize(bgt = sum(bgt)) 
+    
+    tbl$rothwell_STW <- as.character(tbl$rothwell_STW)
+    
+    tbl$rothwell_STW <- ifelse(is.na(tbl$rothwell_STW) == TRUE, "MISSING", tbl$rothwell_STW)
+    
+    tbl <- tbl %>% select(!onet) %>% group_by(year, state, occ, rothwell_STW) %>% 
+      summarize(bgt = sum(bgt)) %>% ungroup() %>% 
+      complete(rothwell_STW, nesting(state, occ, year), fill = list(bgt = 0))%>% 
+      filter(rothwell_STW == "1") %>%
+      select(!rothwell_STW)
     
     tbl <-  tbl  %>% spread(key = occ, value = bgt)
+
     
-    tbl[is.na(tbl)] <- 0
     tbl <- as.data.frame(tbl)
 
-    tbl <- tbl %>% mutate(round(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]), 4))
+    tbl <- tbl %>% mutate(tbl[, -c(1:2)]/rowSums(x = tbl[, -c(1:2)]))
     
     occ <- rbind(occ, tbl)
 }
 
+# na column not relevant here. 
+occ <- occ[, -26]
+
+final_data[, -c(1:2)] <- final_data[, -c(1:2)] *100
+
 final_data <- merge(bach[, c("state", "year", "nobach")], occ,  by = c("state", "year"))
 
-final_data$nobach <- round(final_data$nobach, 4)
+final_data[, -c(1:2)] <- final_data[, -c(1:2)] *100
 
-#write.csv(final_data, "/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/stw_edu.csv", row.names = F)
+#write.csv(final_data, "/sfs/qumulo/qhome/sm9dv/dspg20STW/src/shiny-dashboard/stwFluid/stw_edu.csv", row.names = F)
 
 final_data <- read.csv("data/ncses_stw/stw_edu.csv")
 
