@@ -2,8 +2,8 @@
 title: "edu_knowledge_rothwell"
 author: "Sarah McDonald"
 date: "7/20/2020"
-output: html_document
-#output: md_document
+#output: html_document
+output: md_document
 ---
 ```{r, include =F}
 library(readxl)
@@ -128,7 +128,7 @@ rothwell_soc[rothwell_soc$`2010 SOC Code` == "29-1141", "rothwell_STW"] <- 1
 head(rothwell_soc, 10)
 ```
 
-Add back to xwalk
+Merge with OCC
 ```{r}
 rothwell <- merge(xwalk_soc, rothwell_soc, by = "2010 SOC Code")
 occ <- read_xls("/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/original/onet/2010-occ-codes-with-crosswalk-from-2002-2011.xls",
@@ -136,6 +136,9 @@ occ <- read_xls("/sfs/qumulo/qhome/sm9dv/dspg20STW/data/ncses_stw/original/onet/
 occ <- occ[,-1]
 
 occ <- occ %>% filter(grepl("^\\d{4}$", x = `2010 Census Code`))
+
+# some of the SOC codes in the OCC data table have "Xs" where multiple SOC codes is relevant to one OCC codes.
+# ex) if 13-1111 and 13-1112 corresponded to occ code, 3783, the SOC codes would show as 13-111X
 
 occ_XX <- occ %>% filter(grepl(pattern = "^\\d{2}\\-\\d{2}XX$", x = `2010 SOC Code`)) %>%
   mutate(`2010 SOC Code X` = substr(`2010 SOC Code`, start = 1, stop = 5))
@@ -145,24 +148,44 @@ occ_X <- occ %>% filter(grepl(pattern = "^\\d{2}\\-\\d{3}X$", x = `2010 SOC Code
 
 occ_not_X <- occ %>% filter(grepl(pattern = "^\\d{2}\\-\\d{4}$", x = `2010 SOC Code`)) 
 
+rothwell <- rothwell %>%
+  merge(occ, by= "2010 SOC Code", all.x = T)
+
+  
+for(j in occ_X$`2010 SOC Code X`){ 
+    
+  for(i in rothwell[is.na(rothwell$`2010 Census Code`) == T, "2010 SOC Code"]){
+
+    if( i %like% j){
+      
+      rothwell[rothwell$`2010 SOC Code` == i, "2010 Census Code"] <- occ_X[occ_X$`2010 SOC Code X` == j, "2010 Census Code"]
+      rothwell[rothwell$`2010 SOC Code` == i, "Occupation 2010 Description"] <- occ_X[occ_X$`2010 SOC Code X` == j, "Occupation 2010 Description"]
+
+      }
+  
+    }
 
 
+  }
+
+for(j in occ_XX$`2010 SOC Code X`){ 
+    
+  for(i in rothwell[is.na(rothwell$`2010 Census Code`) == T, "2010 SOC Code"]){
+
+    if( i %like% j){
+      
+      rothwell[rothwell$`2010 SOC Code` == i, "2010 Census Code"] <- occ_XX[occ_XX$`2010 SOC Code X` == j, "2010 Census Code"]
+      rothwell[rothwell$`2010 SOC Code` == i, "Occupation 2010 Description"] <- occ_XX[occ_XX$`2010 SOC Code X` == j, "Occupation 2010 Description"]
+
+      }
+  
+    }
 
 
-
-
-
-
-
-t <- merge(rothwell, occ, by = "2010 SOC Code", all.x =  T)
+  }
 
 ```
 
-
-We fix the case where registered nurses fail to meet the knowledge and education criteria (Step 5).
 ```{r}
-
 #write.csv(rothwell, "/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv")
 ```
-
-Merge with OCC
