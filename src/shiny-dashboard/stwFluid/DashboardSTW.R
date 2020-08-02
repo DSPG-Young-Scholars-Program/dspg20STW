@@ -222,8 +222,11 @@ ui <- fluidPage(
           ),#end navbar
        
        #STW Crosswalk
-       tabPanel(
-         "STW Crosswalk"
+       tabPanel( "STW Crosswalk", 
+         fluidRow(width = 12, align = "center", column(12, h3("STW Crosswalk") )), 
+         fluidRow(dataTableOutput("stwXwalk")) 
+         
+         
        ),
        
        
@@ -526,6 +529,31 @@ server <- function(input, output) {
                   options = list(dom = 't', pageLength = 51, scrollX = TRUE), rownames = FALSE)
     
   })
+  
+  
+  
+  output$stwXwalk <- renderDataTable({
+    
+    
+    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"))
+    
+    
+    names(xwalk)[names(xwalk) == "X2010.SOC.Code"] <- "2010 SOC Code"
+    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Code"] <- "ONET-SOC 2010 Code"
+    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Code.Title"] <- "ONET-SOC 2010 Code Title"
+    names(xwalk)[names(xwalk) == "X2010.SOC.Title"] <- "2010 SOC Title"
+    names(xwalk)[names(xwalk) == "education_STW"] <- "Rothwell Education Requirement"
+    names(xwalk)[names(xwalk) == "knowledge_STW"] <- "Rothwell Knowledge Requirement"
+    names(xwalk)[names(xwalk) == "rothwell_STW"] <- "Rothwell Category"
+    names(xwalk)[names(xwalk) == "Occupation.2010.Description"] <- "Occupation 2010 Description"
+    names(xwalk)[names(xwalk) == "X2010.Census.Code"] <- "2010 Census Code"
+    
+    
+    
+    DT::datatable(xwalk,
+                  options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE)
+    
+  })  
   
   output$soc <- renderText({
     if(input$definition == "SOC 11"){

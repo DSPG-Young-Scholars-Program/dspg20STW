@@ -5,6 +5,7 @@ date: "7/20/2020"
 #output: html_document
 output: md_document
 ---
+
 ```{r, include =F}
 library(readxl)
 library(dplyr)
@@ -187,5 +188,5 @@ for(j in occ_XX$`2010 SOC Code X`){
 ```
 
 ```{r}
-#write.csv(rothwell, "/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv")
+#write.csv(rothwell, "/sfs/qumulo/qhome/sm9dv/dspg20STW/src/edu_knowledge_rothwell/rothwell.csv", row.names = F)
 ```
