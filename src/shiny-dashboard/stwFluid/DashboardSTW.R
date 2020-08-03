@@ -15,26 +15,26 @@ cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
 
 
 
-ui <- fluidPage(
+ui <- fluidPage( 
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
   HTML('<script>try{Typekit.load();}catch(e){}</script>'),
   theme = "theme.css",
-  title = "DSPG2020STW", 
+  title = "DSPG2020STW",  
 
    navbarPage( title = "Skilled Technical Workforce",
 
        tabPanel("About",
-                fluidRow(column(3, tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" )),
+                fluidRow(column(3, tags$a(tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" ), href="https://biocomplexity.virginia.edu/")),
                          column(6, h1("Skilled Techinical Workforce")),
-                         column(3, tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"))
+                         column(3, tags$a(tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"), href="https://www.nsf.gov/statistics/"))
                          ),
                 h5("Project"),
-                p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high 
-                  level of knowledge in a technical domain such as computers, mathematics, healthcare, architecture, engineering, construction, or extraction. 
-                  The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
-                  in Building America’s Skilled Technical Workforce (2017) indicate the United States is not adequately developing and sustaining the STW 
-                  needed to compete in the 21st century; they project that by 2022 the United States will have 3.4 million unfilled STW jobs."),
-                p("Our project aims to explore the usability of the Burning Glass Technologies job ad data for describing the demand of the skilled technical workforce."),
+                p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high level of knowledge in a technical domain. The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
+                in Building America’s Skilled Technical Workforce (2017) indicate the United States is not adequately developing and sustaining the STW needed to compete in the 21st century; they project that by 2022 the United States will have 3.4 million unfilled STW jobs. Our understanding of this shortfall is in part due to 
+                data deficits that prohibit our ability to describe and quantify the skill formation pathways that lead to employment in the STW. These data deficits hinder the ability of policy makers to develop workforce programs, the ability of educators to develop relevant training programs, and the ability of job seekers to make 
+                informed decisions regarding the nondegree credentials that will lead to employment in the STW. The work presented here was done by students in the 2020 Data Science for the Public Good Program. The project explores the fitness-for-use of the", tags$a(href = "https://www.burning-glass.com/","Burning Glass Technologies"),"job ad data to help fill in some of the STW data gaps 
+                by benchmarking these data against the Bureau of Labor Statistics",tags$a(href = "https://www.bls.gov/jlt/", "Job Opening and Turnover Survey (JOLTS)"), "national and experimental state job openings estimates and the", tags$a(href = "https://www.bls.gov/oes/home.htm", "Occupations Employment Statistics"),"state Standard Occupational Classification (OES) estimates."),
+                helpText(tags$em("National Academies of Sciences, Engineering, and Medicine (2017) Building America's Skilled Technical Workforce. Washington, DC: The National Academies Press.")),
                 h5("Who We Are"),
                 h4("University of Virginia, Biocomplexity Institute, Social and Decision Analytics Division"),
                 p("The Social and Decision Analytics Division (SDAD) is one of three research divisions within the Biocomplexity Institute and Initiative at the University of Virginia. 
@@ -58,11 +58,23 @@ ui <- fluidPage(
                 
                 ), # end about tab
                 
-       tabPanel("Data Profiling", 
-                
+       tabPanel("Data Profiling",  
                 fluidRow(column(12, align = "center", h3("Burning Glass Job Ads Data Profiling, 2010-2019"))), 
+                fluidRow(h4("Methodology"), 
+                         p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
+                  that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
+                  counting the number of non missing values and dividing it by the total number of observations.
+                  Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
+                         fluidRow(dataTableOutput("validity_table")),
+                         br(),
+                         p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
+                  The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
+                  If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
+                  We obtained uniqueness by counting the number of distinct values for the variable.")
+                ),
+                
                 fluidRow(
-                  column(8,fluidRow(dataTableOutput("profile"))), 
+                  column(8,fluidRow(h4("Results"), dataTableOutput("profile"))), 
                   column(1),
                   column(3, 
                     wellPanel(
@@ -74,31 +86,33 @@ ui <- fluidPage(
                               tags$li("Validity: The percentage of data elements whose attributes possess values within the range expected for a legitimate entry"),
                               tags$li("Uniqueness: The number of unique values that have been entered for a variable")
                             ))))),
-       fluidRow(h4("Methodology"), 
-                p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
-                  that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
-                  counting the number of non missing values and dividing it by the total number of observations.
-                  Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
-          fluidRow(dataTableOutput("validity_table")),
-                p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
-                  The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
-                  If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
-                  We obtained uniqueness by counting the number of distinct values for the variable.")
-                ),
-                h4("Observations")
+                br(),
+                h4("Observations"),
+                tags$li("The greatest change in the completeness of the BGT job-ad variables that were profiled is the increase in completeness for the minimum and maximum number of years of education required. 
+                        In 2010 the percentage completeness was 44.18 for minimum and 14.74 for maximum education required; in contrast, in 2019 the minimum was 99.94% and maximum 100.00%."),
+                br(),
+                tags$li("The number of job-ads have increased 186% from 2010 (11,687,110) to 2019 (33,452,673). Some of this can be attributed to the change in the number of online job boards visited each day by BGT (~32,000 in
+                         2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
+                helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
        #end profiling tab------------------------------------------ 
        
        
        navbarMenu("BGT/JOLTS Benchmark", 
-        tabPanel("Total/Regional Comparisons", 
-                fluidRow(column(12, align = "center", h3("National and Regional Comparison of Job Estimates"))),
+        tabPanel("National/Regional Comparisons", 
+                fluidRow(column(12, align = "center", h3("Benchmarking BGT Job Ads to JOLTS Job Openings")),
+                         p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
+                         While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
+                         br(),
+                         p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
+                  De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
+                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)")),
                 fluidRow(column(2),
                          column(8, align = "center",
                                 p("The", tags$span(' blue ', style = "background-color: #232D4B; color: white;border-radius: 25px; white-space: pre-wrap;"), 
                                   "dots show JOLTS job opening estimates, and the", tags$span(' orange ', style = "background-color: #E57200; color: white;border-radius: 25px; white-space: pre-wrap;"), 
-                                  "dots show the BGT job-ads estimates."),
+                                  "dots show the BGT job-ads."),
                                 selectInput("select", "", choices = c("National", "Regional"), selected = "National"),
                                 plotOutput("jobsByYearOrRegion", width = 500, height = 700)),
                          column(2)),
@@ -109,15 +123,18 @@ ui <- fluidPage(
                 br(),
                 fluidRow(
                 h4("Observations"),
-                p("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
-                   job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
-                   23 MOG over the years 2010-2019 between and within states (we can all brainstorm on this)"))
+                p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
+                  While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
+                br(),
+                p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
+                  De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
+                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)"))
                 ),
                 
         
         
         
-        tabPanel("State Comparisons", 
+        tabPanel("State Comparisons",  
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
              fluidRow(width = 12, column(5), 
                       column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
@@ -331,7 +348,7 @@ server <- function(input, output) {
                            limits = c(0, 100000000),
                            expand = c(0, 0))+
         theme_minimal() +
-        labs(y = "Number of Job Openings/Ads", 
+        labs(y = "Number of Job Ads and Job Openings", 
              x = "", 
              title = "National",
              subtitle= "") +
