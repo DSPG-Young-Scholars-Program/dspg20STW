@@ -34,8 +34,7 @@ ui <- fluidPage(
                 data deficits that prohibit our ability to describe and quantify the skill formation pathways that lead to employment in the STW. These data deficits hinder the ability of policy makers to develop workforce programs, the ability of educators to develop relevant training programs, and the ability of job seekers to make 
                 informed decisions regarding the nondegree credentials that will lead to employment in the STW. The work presented here was done by students in the 2020 Data Science for the Public Good Program. The project explores the fitness-for-use of the", tags$a(href = "https://www.burning-glass.com/","Burning Glass Technologies"),"job ad data to help fill in some of the STW data gaps 
                 by benchmarking these data against the Bureau of Labor Statistics",tags$a(href = "https://www.bls.gov/jlt/", "Job Opening and Turnover Survey (JOLTS)"), "national and experimental state job openings estimates and the", tags$a(href = "https://www.bls.gov/oes/home.htm", "Occupations Employment Statistics"),"state Standard Occupational Classification (OES) estimates."),
-                br(),
-                p("National Academies of Sciences, Engineering, and Medicine (2017) Building America's Skilled Technical Workforce. Washington, DC: The National Academies Press."),
+                helpText(tags$em("National Academies of Sciences, Engineering, and Medicine (2017) Building America's Skilled Technical Workforce. Washington, DC: The National Academies Press.")),
                 h5("Who We Are"),
                 h4("University of Virginia, Biocomplexity Institute, Social and Decision Analytics Division"),
                 p("The Social and Decision Analytics Division (SDAD) is one of three research divisions within the Biocomplexity Institute and Initiative at the University of Virginia. 
@@ -59,16 +58,23 @@ ui <- fluidPage(
                 
                 ), # end about tab
                 
-       tabPanel("Data Profiling", 
-                
+       tabPanel("Data Profiling",  
                 fluidRow(column(12, align = "center", h3("Burning Glass Job Ads Data Profiling, 2010-2019"))), 
                 fluidRow(h4("Methodology"), 
-                  p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
+                         p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
                   that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
-                  counting the number of non missing values and dividing it by the total number of observations.Validity is the percentage of values that are within a specified range for a variable. 
-                  An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:")),
+                  counting the number of non missing values and dividing it by the total number of observations.
+                  Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
+                         fluidRow(dataTableOutput("validity_table")),
+                         br(),
+                         p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
+                  The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
+                  If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
+                  We obtained uniqueness by counting the number of distinct values for the variable.")
+                ),
+                
                 fluidRow(
-                  column(8,fluidRow(dataTableOutput("profile"))), 
+                  column(8,fluidRow(h4("Results"), dataTableOutput("profile"))), 
                   column(1),
                   column(3, 
                     wellPanel(
@@ -81,13 +87,13 @@ ui <- fluidPage(
                               tags$li("Uniqueness: The number of unique values that have been entered for a variable")
                             ))))),
                 br(),
-          fluidRow(dataTableOutput("validity_table")),
-                p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
-                  The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
-                  If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
-                  We obtained uniqueness by counting the number of distinct values for the variable."),
-                
-                h4("Observations")
+                h4("Observations"),
+                tags$li("The greatest change in the completeness of the BGT job-ad variables that were profiled is the increase in completeness for the minimum and maximum number of years of education required. 
+                        In 2010 the percentage completeness was 44.18 for minimum and 14.74 for maximum education required; in contrast, in 2019 the minimum was 99.94% and maximum 100.00%."),
+                br(),
+                tags$li("The number of job-ads have increased 186% from 2010 (11,687,110) to 2019 (33,452,673). Some of this can be attributed to the change in the number of online job boards visited each day by BGT (~32,000 in
+                         2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
+                helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
        #end profiling tab------------------------------------------ 
