@@ -79,15 +79,7 @@ ui <- fluidPage(
                   that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
                   counting the number of non missing values and dividing it by the total number of observations.
                   Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
-                p(tags$ul(tags$li("id: the observation is unique, i.e. does not appear more than once"),
-                tags$li("jobdate: the observation is in the format YYYY-MM-DD and contained within the range of January 1st for December 31st of the specified year"),
-                tags$li("state: the observation is one of the 50 states, the District of Columbia, or a U.S. territory"),
-                tags$li("soc: the observation has seven characters"),
-                tags$li("socname: the observation is not a numeric string"),
-                tags$li("lat: the observation is greater than zero"),
-                tags$li("lon: the observation is less than zero"),
-                tags$li("minedu: the observation is either 0, 12, 14, 16, 18, or 21"),
-                tags$li("maxedu: the observation is either 0, 12, 14, 16, 18, or 21"))),
+          fluidRow(dataTableOutput("validity_table")),
                 p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
                   The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
                   If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
@@ -344,14 +336,17 @@ server <- function(input, output) {
              title = "National",
              subtitle= "") +
         coord_flip() +
-        theme(plot.margin = unit(c(5.5, 5.5, 500, 5.5), "pt"),
-              plot.title = element_text(face = "bold", hjust = 0.5))
+        theme(plot.margin = unit(c(5.5, 50, 500, 5.5), "pt"),
+              plot.title = element_text(face = "bold", hjust = 0.5), 
+              axis.text.x = element_text(size = 12), 
+              axis.text.y = element_text(size = 12),
+              axis.title.x = element_text(size = 14))
     } else {
       ggplot(total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West",], aes(x = year, xend = year, y = bgt, yend = jolts)) + 
         geom_segment(color = "grey60") +
         geom_point(y = total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West","bgt"], color = "#E57200", size = 3)+
         geom_point(y = total_wide[total_wide$region == "Northeast"|total_wide$region == "Midwest"|total_wide$region == "South"|total_wide$region == "West", "jolts"], color = "#232D4B", size = 3) +
-        scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 5000000)) +  
+        scale_y_continuous(labels = scales::comma, breaks = seq(0, 30000000, 10000000), limits = c(0, 35000000)) +  
         scale_x_continuous(breaks = c(2010:2019)) + 
         scale_color_manual(values=c("#E57200", "#232D4B")) +
         facet_wrap(~region, ncol = 1) + 
@@ -359,8 +354,11 @@ server <- function(input, output) {
         theme(plot.title = element_text(hjust = .5, size = 20), 
               plot.subtitle = element_text(size = 12),
               axis.title.x = element_blank(), 
+              axis.title.y= element_blank(), 
               legend.position = "none", 
-              strip.text.x = element_text(face = "bold",size = 12)) +
+              strip.text.x = element_text(face = "bold",size = 12), 
+              axis.text.x = element_text(size = 12), 
+              axis.text.y = element_text(size = 12)) +
         labs(title = "",
              y = "Number of Job Openings/Ads",
              subtitle = "") +
@@ -540,7 +538,7 @@ server <- function(input, output) {
     
     names(xwalk)[names(xwalk) == "X2010.SOC.Code"] <- "2010 SOC Code"
     names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Code"] <- "ONET-SOC 2010 Code"
-    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Code.Title"] <- "ONET-SOC 2010 Code Title"
+    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Title"] <- "ONET-SOC 2010 Code Title"
     names(xwalk)[names(xwalk) == "X2010.SOC.Title"] <- "2010 SOC Title"
     names(xwalk)[names(xwalk) == "education_STW"] <- "Rothwell Education Requirement"
     names(xwalk)[names(xwalk) == "knowledge_STW"] <- "Rothwell Knowledge Requirement"
@@ -554,6 +552,12 @@ server <- function(input, output) {
                   options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE)
     
   })  
+  
+  output$validity_table <- renderDataTable({
+    
+    data <- read.csv("validity_table.csv")
+    DT::datatable(data, options = list(dom= 't'), rownames = F)
+  })
   
   output$soc <- renderText({
     if(input$definition == "SOC 11"){
