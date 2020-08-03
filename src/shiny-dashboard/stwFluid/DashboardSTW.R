@@ -100,7 +100,7 @@ ui <- fluidPage(
        
        
        navbarMenu("BGT/JOLTS Benchmark", 
-        tabPanel("Total/Regional Comparisons", 
+        tabPanel("National/Regional Comparisons", 
                 fluidRow(column(12, align = "center", h3("National and Regional Comparison of Job Estimates"))),
                 fluidRow(column(2),
                          column(8, align = "center",
