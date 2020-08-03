@@ -15,11 +15,11 @@ cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2",
 
 
 
-ui <- fluidPage(
+ui <- fluidPage( 
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
   HTML('<script>try{Typekit.load();}catch(e){}</script>'),
   theme = "theme.css",
-  title = "DSPG2020STW", 
+  title = "DSPG2020STW",  
 
    navbarPage( title = "Skilled Technical Workforce",
 
@@ -62,6 +62,11 @@ ui <- fluidPage(
        tabPanel("Data Profiling", 
                 
                 fluidRow(column(12, align = "center", h3("Burning Glass Job Ads Data Profiling, 2010-2019"))), 
+                fluidRow(h4("Methodology"), 
+                  p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
+                  that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
+                  counting the number of non missing values and dividing it by the total number of observations.Validity is the percentage of values that are within a specified range for a variable. 
+                  An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:")),
                 fluidRow(
                   column(8,fluidRow(dataTableOutput("profile"))), 
                   column(1),
@@ -75,17 +80,13 @@ ui <- fluidPage(
                               tags$li("Validity: The percentage of data elements whose attributes possess values within the range expected for a legitimate entry"),
                               tags$li("Uniqueness: The number of unique values that have been entered for a variable")
                             ))))),
-       fluidRow(h4("Methodology"), 
-                p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
-                  that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
-                  counting the number of non missing values and dividing it by the total number of observations.
-                  Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
+                br(),
           fluidRow(dataTableOutput("validity_table")),
                 p("The number of observations that met the specified conditions were counted and added to the number of NAs. We divided this sum by the total number of observations to obtain the variable’s validity.
                   The last measure is uniqueness. Uniqueness is the number of valid, unique observations. Missing values are not included in uniqueness. 
                   If two or more observations are identical, together they add a value of 1 to the uniqueness measure. 
-                  We obtained uniqueness by counting the number of distinct values for the variable.")
-                ),
+                  We obtained uniqueness by counting the number of distinct values for the variable."),
+                
                 h4("Observations")
        ),
        
