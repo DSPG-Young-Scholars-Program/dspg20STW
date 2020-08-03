@@ -29,12 +29,13 @@ ui <- fluidPage(
                          column(3, tags$a(tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"), href="https://www.nsf.gov/statistics/"))
                          ),
                 h5("Project"),
-                p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high 
-                  level of knowledge in a technical domain such as computers, mathematics, healthcare, architecture, engineering, construction, or extraction. 
-                  The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
-                  in Building America’s Skilled Technical Workforce (2017) indicate the United States is not adequately developing and sustaining the STW 
-                  needed to compete in the 21st century; they project that by 2022 the United States will have 3.4 million unfilled STW jobs."),
-                p("Our project aims to explore the usability of the Burning Glass Technologies job ad data for describing the demand of the skilled technical workforce."),
+                p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high level of knowledge in a technical domain. The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
+                in Building America’s Skilled Technical Workforce (2017) indicate the United States is not adequately developing and sustaining the STW needed to compete in the 21st century; they project that by 2022 the United States will have 3.4 million unfilled STW jobs. Our understanding of this shortfall is in part due to 
+                data deficits that prohibit our ability to describe and quantify the skill formation pathways that lead to employment in the STW. These data deficits hinder the ability of policy makers to develop workforce programs, the ability of educators to develop relevant training programs, and the ability of job seekers to make 
+                informed decisions regarding the nondegree credentials that will lead to employment in the STW. The work presented here was done by students in the 2020 Data Science for the Public Good Program. The project explores the fitness-for-use of the Burning Glass Technologies job ad data to help fill in some of the STW data gaps 
+                by benchmarking these data against the Bureau of Labor Statistics Job Opening and Turnover Survey (JOLTS) national and experimental state job openings estimates and the Occupations Employment Statistics state Standard Occupational Classification (OES) estimates."),
+                br(),
+                p("National Academies of Sciences, Engineering, and Medicine (2017) Building America's Skilled Technical Workforce. Washington, DC: The National Academies Press."),
                 h5("Who We Are"),
                 h4("University of Virginia, Biocomplexity Institute, Social and Decision Analytics Division"),
                 p("The Social and Decision Analytics Division (SDAD) is one of three research divisions within the Biocomplexity Institute and Initiative at the University of Virginia. 
