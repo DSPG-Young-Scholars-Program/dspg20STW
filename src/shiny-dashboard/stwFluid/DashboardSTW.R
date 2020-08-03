@@ -101,7 +101,13 @@ ui <- fluidPage(
        
        navbarMenu("BGT/JOLTS Benchmark", 
         tabPanel("National/Regional Comparisons", 
-                fluidRow(column(12, align = "center", h3("Benchmarking BGT Job Ads to JOLTS Job Openings"))),
+                fluidRow(column(12, align = "center", h3("Benchmarking BGT Job Ads to JOLTS Job Openings")),
+                         p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
+                         While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
+                         br(),
+                         p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
+                  De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
+                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)")),
                 fluidRow(column(2),
                          column(8, align = "center",
                                 p("The", tags$span(' blue ', style = "background-color: #232D4B; color: white;border-radius: 25px; white-space: pre-wrap;"), 
@@ -128,7 +134,7 @@ ui <- fluidPage(
         
         
         
-        tabPanel("State Comparisons", 
+        tabPanel("State Comparisons",  
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
              fluidRow(width = 12, column(5), 
                       column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
