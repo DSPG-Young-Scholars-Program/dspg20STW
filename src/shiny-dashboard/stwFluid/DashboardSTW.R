@@ -117,9 +117,12 @@ ui <- fluidPage(
                 br(),
                 fluidRow(
                 h4("Observations"),
-                p("Paragraph that describes how JOLTS estimates job openings and how BGT collects and records job-ads: 
-                   job openings versus job-ads what are the biases in the comparisons and a paragraph that summarizes the statebins changes in the 
-                   23 MOG over the years 2010-2019 between and within states (we can all brainstorm on this)"))
+                p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
+                  While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
+                br(),
+                p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
+                  De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
+                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)"))
                 ),
                 
         
