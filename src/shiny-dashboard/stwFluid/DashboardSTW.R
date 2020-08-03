@@ -339,7 +339,7 @@ server <- function(input, output) {
                            limits = c(0, 100000000),
                            expand = c(0, 0))+
         theme_minimal() +
-        labs(y = "Number of Job Openings/Ads", 
+        labs(y = "Number of Job Ads and Job Openings", 
              x = "", 
              title = "National",
              subtitle= "") +
