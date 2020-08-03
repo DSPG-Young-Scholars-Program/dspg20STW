@@ -200,11 +200,11 @@ ggplot(total_region, aes(x=year, y=value, fill=region)) +
 
 #------------------------------------------PERCENT DIFFERNCE-----------------------------------------#
 
-total_wide$per_change <- ((total_wide$bgt - total_wide$jolts)/(total_wide$jolts))*100
+total_wide$per_diff <- ((total_wide$bgt - total_wide$jolts)/(total_wide$jolts))*100
 
 
 
-total_wide_region$per_change <- ((total_wide_region$bgt - total_wide_region$jolts)/(total_wide_region$jolts))*100
+total_wide_region$per_diff <- ((total_wide_region$bgt - total_wide_region$jolts)/(total_wide_region$jolts))*100
 
 # line graph: national percent difference over time
 ggplot(total_wide, aes(x = year, y = per_diff)) +
