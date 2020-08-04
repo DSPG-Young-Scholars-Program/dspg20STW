@@ -590,6 +590,7 @@ server <- function(input, output) {
   output$validity_table <- renderDataTable({
     
     data <- read.csv("validity_table.csv")
+    data <- rbind(data, c("sector", "the observation is either 11, 21, 22, 23, 31-33, 42, 44-45, 48-49, 51, 52, 53, 54, 55, 56, 61, 62,  71, 72, 81, 92"))
     DT::datatable(data, options = list(dom= 't'), rownames = F)
   })
   
