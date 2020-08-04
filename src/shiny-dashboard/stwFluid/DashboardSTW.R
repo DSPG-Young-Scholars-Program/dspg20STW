@@ -188,7 +188,9 @@ ui <- fluidPage(
                                                                                        "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                        "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
                                textOutput("soc2")))), 
-             
+             p("District of Columbia has either the smallest percent difference or is one of the top three states with the smallest percent 
+               difference for all ten years. The D.C. SOCs with the largest percentage are Management Occupations, Business Financial Operations Occupations, 
+               and Computer and Mathematical occupations which for all ten years accounted for ~50% of the STW jobs"),
              fluidRow(column(1),
                       column(10, h4("BGT/JOLTS Percent Difference and Percent of BGT Job Ads in each Major Occupation Group by State"), align = "center"),
                       column(1)),
