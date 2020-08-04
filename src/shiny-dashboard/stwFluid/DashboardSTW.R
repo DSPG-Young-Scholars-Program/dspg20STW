@@ -32,8 +32,9 @@ ui <- fluidPage(
                 p("A job in the skilled technical workforce (STW) is one that is open to an individual without a bachelor’s degree who has a high level of knowledge in a technical domain. The United States needs a STW to foster innovation and remain competitive in the global economy, but findings by the National Academies’ 
                 in Building America’s Skilled Technical Workforce (2017) indicate the United States is not adequately developing and sustaining the STW needed to compete in the 21st century; they project that by 2022 the United States will have 3.4 million unfilled STW jobs. Our understanding of this shortfall is in part due to 
                 data deficits that prohibit our ability to describe and quantify the skill formation pathways that lead to employment in the STW. These data deficits hinder the ability of policy makers to develop workforce programs, the ability of educators to develop relevant training programs, and the ability of job seekers to make 
-                informed decisions regarding the nondegree credentials that will lead to employment in the STW. The work presented here was done by students in the 2020 Data Science for the Public Good Program. The project explores the fitness-for-use of the", tags$a(href = "https://www.burning-glass.com/","Burning Glass Technologies"),"job ad data to help fill in some of the STW data gaps 
-                by benchmarking these data against the Bureau of Labor Statistics",tags$a(href = "https://www.bls.gov/jlt/", "Job Opening and Turnover Survey (JOLTS)"), "national and experimental state job openings estimates and the", tags$a(href = "https://www.bls.gov/oes/home.htm", "Occupations Employment Statistics"),"state Standard Occupational Classification (OES) estimates."),
+                informed decisions regarding the nondegree credentials that will lead to employment in the STW."), 
+                p("The work presented here was done by students in the 2020 Data Science for the Public Good Program. The project explores the fitness-for-use of the", tags$a(href = "https://www.burning-glass.com/","Burning Glass Technologies"),"job ad data to help fill in some of the STW data gaps 
+                by benchmarking these data against the Bureau of Labor Statistics",tags$a(href = "https://www.bls.gov/jlt/", "Job Opening and Turnover Survey (JOLTS)"), "national and experimental state job openings estimates and the", tags$a(href = "https://www.bls.gov/oes/home.htm", "Occupations Employment Statistics (OES)"),"state Standard Occupational Classification (SOC) estimates."),
                 helpText(tags$em("National Academies of Sciences, Engineering, and Medicine (2017) Building America's Skilled Technical Workforce. Washington, DC: The National Academies Press.")),
                 h5("Who We Are"),
                 h4("University of Virginia, Biocomplexity Institute, Social and Decision Analytics Division"),
@@ -46,12 +47,12 @@ ui <- fluidPage(
                 tags$a(href="https://biocomplexity.virginia.edu/social-decision-analytics.", "https://biocomplexity.virginia.edu/social-decision-analytics.")),
 
                 h4("Data Science for the Public Good Program"),
-                p("The Data Science for the Public Good (DSPG) Young Scholars program is a summer immersive program held at SDAD. Entering its seventh year, the program engages students from across the country 
+                p("The ", tags$a(href = "https://biocomplexity.virginia.edu/social-decision-analytics/dspg-program","Data Science for the Public Good (DSPG)")," Young Scholars program is a summer immersive program held at SDAD. Entering its seventh year, the program engages students from across the country 
                   to work together on projects that address state, federal, and local government challenges around critical social issues relevant in the world today. 
                   DSPG young scholars conduct research at the intersection of statistics, computation, and the social sciences to determine how information 
                   generated within every community can be leveraged to improve quality of life and inform public policy."),
                 h4("Team"),
-                p("Vicki Lancaster, PI"),
+                p("Vicki Lancaster, Principal Scientist"),
                 p("Sarah McDonald, Acting Fellow"),
                 p("Ian MacLeod, Intern"),
                 p("Gina Fendley, Intern")
@@ -88,11 +89,13 @@ ui <- fluidPage(
                             ))))),
                 br(),
                 h4("Observations"),
-                tags$li("The greatest change in the completeness of the BGT job-ad variables that were profiled is the increase in completeness for the minimum and maximum number of years of education required. 
+                p("The greatest change in the completeness of the BGT job-ad variables that were profiled is the increase in completeness for the minimum and maximum number of years of education required. 
                         In 2010 the percentage completeness was 44.18 for minimum and 14.74 for maximum education required; in contrast, in 2019 the minimum was 99.94% and maximum 100.00%."),
-                br(),
-                tags$li("The number of job-ads have increased 186% from 2010 (11,687,110) to 2019 (33,452,673). Some of this can be attributed to the change in the number of online job boards visited each day by BGT (~32,000 in
+                p("The number of job-ads have increased 186% from 2010 (11,687,110) to 2019 (33,452,673). Some of this can be attributed to the change in the number of online job boards visited each day by BGT (~32,000 in
                          2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
+                p("BGT assigns a North American Industry Classification System (NAICS) code to a job ad based on the name of the employer. Since it 
+                  is common practice for staffing companies not to disclose the name of the employer in online job ads this variable was missing in 
+                  ~40% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
                 helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
@@ -101,13 +104,13 @@ ui <- fluidPage(
        
        navbarMenu("BGT/JOLTS Benchmark", 
         tabPanel("National/Regional Comparisons", 
-                fluidRow(column(12, align = "center", h3("Benchmarking BGT Job Ads to JOLTS Job Openings")),
-                         p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
+                fluidRow(column(12, align = "center", h3("Benchmarking BGT Job Ads to JOLTS Job Openings"))),
+                fluidRow(
+                  p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
                          While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
-                         br(),
-                         p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
+                  p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
                   De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
-                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)")),
+                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days).")),
                 fluidRow(column(2),
                          column(8, align = "center",
                                 p("The", tags$span(' blue ', style = "background-color: #232D4B; color: white;border-radius: 25px; white-space: pre-wrap;"), 
@@ -123,12 +126,9 @@ ui <- fluidPage(
                 br(),
                 fluidRow(
                 h4("Observations"),
-                p("JOLTS data provides a snapshot of near term labor demand at a point in time, the last business day of the reference month. The number of job openings is estimated from a stratified survey of 16,400 U.S. public and private non-farm business establishments. 
-                  While the JOLTS asks a nationally representative sample of employers about job openings, the data are aggregated by geography (national, regional), industry (21 NAIC sectors), business type (private, government), and time (month)."),
-                br(),
-                p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
-                  De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
-                  It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days)"))
+                p("There is a slight decrease in the percent difference, [(BGTi – JOLTSi)/JOLTSi]*100, from 2010 to 2019 for the national and regional comparisons. The West has the largest decrease from a percent difference of -65.39 in 2010 to -52.88 in 2019."),
+                p("The trends in volume are similar for BGT job ads and JOLT job openings, 41 of the 50 percent differences are on the 60’s, but are increasing.")
+                )
                 ),
                 
         
@@ -136,6 +136,11 @@ ui <- fluidPage(
         
         tabPanel("State Comparisons",  
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
+             fluidRow(p("Since the JOLTS sample of 16,000 establishments does not directly support the production of sample based state estimates, in 2019, 
+                        the JOLTS program began publishing model-assisted estimates at the state total nonfarm level. The estimate is a composite of the current 
+                        JOLTS sample, data from the Quarterly Census of Employment and Wages (QCEW), and data from the Current Employment Statistics (CES) program. 
+                        The Composite Synthetic job openings are a function of the ratio of industry-regional job openings and hires. This ratio of published job 
+                        openings to hires is applied to model hires estimates to derive model job opening estimates.")),
              fluidRow(width = 12, column(5), 
                       column(2, sliderInput("slide", label = NULL, min = 2010, max = 2019, value = 2014, sep = ""))),
               fluidRow(align = "center", 
@@ -186,9 +191,9 @@ ui <- fluidPage(
         ),#end navbar
                 
        #end Jolts vs BGT tab-----------------
+       tabPanel("BGT/OES Benchmark"),
        
-       navbarMenu("BGT Education", 
-         tabPanel("State Comparisons",
+         tabPanel("BGT Education",
                   fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads that do not require a college degree by state") )), 
                   fluidRow(width = 12, column(5), 
                            column(2, sliderInput("slide2", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
@@ -226,9 +231,7 @@ ui <- fluidPage(
                   fluidRow(dataTableOutput("stwTable")) 
          ), # end tabPanel
        
-          tabPanel("Occupation Comparisons")
-          
-          ),#end navbar
+       
        
        #STW Crosswalk
        tabPanel( "STW Crosswalk", 
@@ -291,6 +294,7 @@ server <- function(input, output) {
   
   
   data <- read.csv("prof.csv", col.names = c("Variable", "Completeness", "Validity", "Uniqueness", "Year"))
+  sector <- read.csv("sector_profiling.csv", col.names = c("Variable", "Completeness", "Validity", "Uniqueness", "Year"))
   data$Description <- c("Unique identifier generated by BGT",
                         "Date the job posting was spidered", 
                         "State where job is located", 
@@ -300,7 +304,9 @@ server <- function(input, output) {
                         "Longitude",
                         "Minimum education required", 
                         "Maximum education required")
+  sector$Description <- "2-Digit NAICS code "
   
+  data <- rbind(data, sector)
   
   data$Completeness = as.numeric(data$Completeness) * 100
   data$Completeness = sprintf(data$Completeness, fmt = "%#.2f")
@@ -342,7 +348,8 @@ server <- function(input, output) {
         geom_point(y = total_wide[total_wide$region == "National", "bgt"], color = "#E57200", size = 3)+
         geom_point(y = total_wide[total_wide$region == "National", "jolts"], color = "#232D4B", size = 3) +
         scale_x_continuous(breaks = 2010:2019, 
-                           limits =c(2010,2019)) + 
+                           limits =c(2010,2019), 
+                           minor_breaks =  NULL) + 
         scale_y_continuous(breaks = seq(0, 100000000, 25000000),  
                            labels = scales::comma, 
                            limits = c(0, 100000000),
@@ -350,10 +357,10 @@ server <- function(input, output) {
         theme_minimal() +
         labs(y = "Number of Job Ads and Job Openings", 
              x = "", 
-             title = "National",
+             title = "",
              subtitle= "") +
         coord_flip() +
-        theme(plot.margin = unit(c(5.5, 50, 500, 5.5), "pt"),
+        theme(plot.margin = unit(c(5.5, 50, 5.5, 5.5), "pt"),
               plot.title = element_text(face = "bold", hjust = 0.5), 
               axis.text.x = element_text(size = 12), 
               axis.text.y = element_text(size = 12),
