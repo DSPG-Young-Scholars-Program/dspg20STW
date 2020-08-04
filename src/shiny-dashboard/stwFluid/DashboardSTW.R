@@ -173,7 +173,14 @@ ui <- fluidPage(
                       column(3)),
              
              fluidRow(h4("Observations"),
-                      p("Paragraph discussing change in state level percent difference over time")),
+                      p("Unlike comparisons to JOLTS at the national level where JOLTS is the ground truth and differences with BGT are a function of comparing job openings to job ads, how the monthly 
+                        counts are calculated, and the changing landscape of online job ads, with state comparisons there is no ground truth. 
+                        JOLTS state estimates are experimental and do not provide with standard errors. "),
+                      br(),
+                      p("The state percent differences are extremely volatile. Alaska, District of Columbia, Maine, and South Dakota all have percent differences that go 
+                        from negative to positive or close to zero. Maine goes from a -75 percent difference to a +10 percent difference."),
+                      br()
+                      ),
              
              fluidRow(column(2,  
                              wellPanel(
