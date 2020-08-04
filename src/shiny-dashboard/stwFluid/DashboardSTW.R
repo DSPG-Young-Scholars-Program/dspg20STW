@@ -8,7 +8,7 @@ library(DT)
 library(lubridate) 
 library(tidyr)
 
-#Testing
+
 
 statesWithDc <- c(state.name, "District of Columbia")
 
