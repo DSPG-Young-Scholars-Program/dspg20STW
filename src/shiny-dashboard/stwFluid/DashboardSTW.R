@@ -111,14 +111,24 @@ ui <- fluidPage(
                   p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
                   De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
                   It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days).")),
-                fluidRow(column(2),
-                         column(8, align = "center",
+                fluidRow(
+                         column(6, align = "center",
                                 p("The", tags$span(' blue ', style = "background-color: #232D4B; color: white;border-radius: 25px; white-space: pre-wrap;"), 
                                   "dots show JOLTS job opening estimates, and the", tags$span(' orange ', style = "background-color: #E57200; color: white;border-radius: 25px; white-space: pre-wrap;"), 
                                   "dots show the BGT job-ads."),
                                 selectInput("select", "", choices = c("National", "Regional"), selected = "National"),
                                 plotOutput("jobsByYearOrRegion", width = 500, height = 700)),
-                         column(2)),
+                         column(1),
+                         column(5, 
+                                p("Regions: ", 
+                                  "Northeast", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[7], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                  HTML("&nbsp;"),
+                                  "Midwest", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[4], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                  HTML("&nbsp;"),
+                                  "South", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[6], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
+                                  HTML("&nbsp;"),
+                                  "West", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[2],"; color: white;border-radius: 5px; white-space: pre-wrap;", sep = ""))
+                                ), plotOutput("regions"))),
                 fluidRow(column(2),
                          column(8, align = "center", h4("BGT/JOLTS Percent Difference by Region and Year"),
                                 fluidRow(dataTableOutput("region_per_diff"))),
@@ -256,6 +266,12 @@ ui <- fluidPage(
        #STW Crosswalk
        tabPanel( "STW Crosswalk", 
          fluidRow(width = 12, align = "center", column(12, h3("STW Crosswalk") )), 
+         fluidRow(p("The construction of the crosswalk follows Rothwell’s (2015) definition of the STW. Data sources used to construct the crosswalk are:"),
+                  p(tags$a(href = "https://www.onetcenter.org/crosswalks.html#soc", "2010 O*NET-SOC occupations to 2010 SOC occupations")), 
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Content Model Knowledge data associated with each O*NET-SOC occupation")), 
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Education percent frequency data associated with each O*NET-SOC occupation")),
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk")),
+                  helpText("Jonathan Rothwell, September 1, 2015. Defining Skilled Technical Work. Prepared for National Academies Board on Science, Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training and Certification Pathways”. https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf")),
          fluidRow(dataTableOutput("stwXwalk")) 
          
          
@@ -360,6 +376,27 @@ server <- function(input, output) {
     DT::datatable(total_wide_table, options = list(dom = 't'), rownames = FALSE)
   })
   
+  
+  output$regions <- renderPlot({
+    library(statebins)
+    states <- data.frame(state.name, state.region)
+    states <- rbind(states, c("District of Columbia", "South"))
+    levels(states$state.region)[levels(states$state.region)=="North Central"] <- "Midwest"
+    
+    cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+    
+    
+    statebins(state_data = states, state_col = "state.name", value_col = "state.region", ggplot2_scale_function = scale_fill_manual,
+              font_size = 5, 
+              round = TRUE,
+              values = c("South" = cbPalette[6], "Midwest" = cbPalette[4],"Northeast" = cbPalette[7], 
+                         "West" = cbPalette[2])) +
+      theme_statebins()+
+      theme(plot.margin = margin(0,0,0,0), 
+            legend.position = "none") 
+    
+    
+  }) 
 
   output$jobsByYearOrRegion <- renderPlot({
     if(input$select == "National"){
@@ -577,7 +614,7 @@ server <- function(input, output) {
   output$stwXwalk <- renderDataTable({
     
     
-    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"))
+    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"), na.strings = ".")
     
     
     names(xwalk)[names(xwalk) == "X2010.SOC.Code"] <- "2010 SOC Code"
