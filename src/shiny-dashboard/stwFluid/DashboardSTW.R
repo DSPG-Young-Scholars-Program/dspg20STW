@@ -260,7 +260,8 @@ ui <- fluidPage(
                   p(tags$a(href = "https://www.onetcenter.org/crosswalks.html#soc", "2010 O*NET-SOC occupations to 2010 SOC occupations")), 
                   p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Content Model Knowledge data associated with each O*NET-SOC occupation")), 
                   p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Education percent frequency data associated with each O*NET-SOC occupation")),
-                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk"))),
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk")),
+                  helpText("Jonathan Rothwell, September 1, 2015. Defining Skilled Technical Work. Prepared for National Academies Board on Science, Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training and Certification Pathways”. https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf")),
          fluidRow(dataTableOutput("stwXwalk")) 
          
          
