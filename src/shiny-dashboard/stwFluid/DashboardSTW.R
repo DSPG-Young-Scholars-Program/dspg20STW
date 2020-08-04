@@ -256,6 +256,11 @@ ui <- fluidPage(
        #STW Crosswalk
        tabPanel( "STW Crosswalk", 
          fluidRow(width = 12, align = "center", column(12, h3("STW Crosswalk") )), 
+         fluidRow(p("The construction of the crosswalk follows Rothwell’s (2015) definition of the STW. Data sources used to construct the crosswalk are:"),
+                  p(tags$a(href = "https://www.onetcenter.org/crosswalks.html#soc", "2010 O*NET-SOC occupations to 2010 SOC occupations")), 
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Content Model Knowledge data associated with each O*NET-SOC occupation")), 
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Education percent frequency data associated with each O*NET-SOC occupation")),
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk"))),
          fluidRow(dataTableOutput("stwXwalk")) 
          
          
@@ -577,7 +582,7 @@ server <- function(input, output) {
   output$stwXwalk <- renderDataTable({
     
     
-    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"))
+    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"), na.strings = ".")
     
     
     names(xwalk)[names(xwalk) == "X2010.SOC.Code"] <- "2010 SOC Code"
