@@ -65,7 +65,7 @@ ui <- fluidPage(
                 fluidRow(h4("Methodology"), 
                          p("The data profiling process includes three measures: completeness, validity, and uniqueness. Completeness is the percentage of observations for a variable 
                   that include a value. If the observation is missing, indicated with “NA”, then the observation is not complete. We measured completeness for each variable by
-                  counting the number of non missing values and dividing it by the total number of observations.
+                  counting the number of non-missing values and dividing it by the total number of observations.
                   Validity is the percentage of values that are within a specified range for a variable. An observation of “NA” is valid. To measure validity, we defined the expected range for each variable:"),
                          fluidRow(dataTableOutput("validity_table")),
                          br(),
@@ -94,9 +94,8 @@ ui <- fluidPage(
                         In 2010 the percentage completeness was 44.18 for minimum and 14.74 for maximum education required; in contrast, in 2019 the minimum was 99.94% and maximum 100.00%."),
                 p("The number of job-ads have increased 186% from 2010 (11,687,110) to 2019 (33,452,673). Some of this can be attributed to the change in the number of online job boards visited each day by BGT (~32,000 in
                          2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
-                p("BGT assigns a North American Industry Classification System (NAICS) code to a job ad based on the name of the employer. Since it 
-                  is common practice for staffing companies not to disclose the name of the employer in online job ads this variable was missing in 
-                  ~20-25% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
+                p("BGT assigns a North American Industry Classification System (NAICS) code to a job ad based on the name of the employer. Since it is common practice for staffing companies not to 
+                  disclose the name of the employer in online job ads this variable was missing in ~25% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
                 helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
@@ -128,12 +127,8 @@ ui <- fluidPage(
                 fluidRow(
                 h4("Observations"),
                 p("There is a slight decrease in the percent difference, [(BGTi – JOLTSi)/JOLTSi]*100, from 2010 to 2019 for the national and regional comparisons. The West has the largest decrease from a percent difference of -65.39 in 2010 to -52.88 in 2019."),
-                p("The trends in volume are similar for BGT job ads and JOLT job openings, 41 of the 50 percent differences are on the 60’s, but are increasing.")
-                )
-                ),
+                p("The increasing trends in the volume of BGT job ads and JOLT job openings are similar, as indicated with percent differences over time between -53% to -74%."))),
                 
-        
-        
         
         tabPanel("State Comparisons",  
              fluidRow(width = 12, align = "center", column(12, h3("Percent Difference Between BGT and JOLTS") )), 
@@ -176,10 +171,10 @@ ui <- fluidPage(
                       p("Unlike comparisons to JOLTS at the national level where JOLTS is the ground truth and differences with BGT are a function of comparing job openings to job ads, how the monthly 
                         counts are calculated, and the changing landscape of online job ads, with state comparisons there is no ground truth. 
                         JOLTS state estimates are experimental and do not provide with standard errors. "),
-                      br(),
+                      
                       p("The state percent differences are extremely volatile. Alaska, District of Columbia, Maine, and South Dakota all have percent differences that go 
-                        from negative to positive or close to zero. Maine goes from a -75 percent difference to a +10 percent difference."),
-                      br()
+                        from negative to positive or close to zero. Maine goes from a -75 percent difference to a +10 percent difference.")
+                    
                       ),
              
              fluidRow(column(2,  
@@ -187,10 +182,13 @@ ui <- fluidPage(
                                selectInput("definition2", "SOC Definition", choices = c("SOC 11", "SOC 13", "SOC 15",
                                                                                        "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                        "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
-                               textOutput("soc2")))), 
-             p("District of Columbia has either the smallest percent difference or is one of the top three states with the smallest percent 
-               difference for all ten years. The D.C. SOCs with the largest percentage are Management Occupations, Business Financial Operations Occupations, 
-               and Computer and Mathematical occupations which for all ten years accounted for ~50% of the STW jobs"),
+                               
+                               textOutput("soc2"))),
+                      column(10, p("District of Columbia has either the smallest percent difference or is one of the top three states with the smallest percent difference 
+                                   for all ten years. The D.C. SOCs with the largest percentage are Management Occupations, Business Financial Operations Occupations, 
+                                   and Computer and Mathematical occupations which for all ten years accounted for ~50% of the job ads."),
+                             p("The states with the largest percent difference, ~-75%, had SOCs in the double digits for Healthcare Practitioners and Technical Occupations and Sales and related Occupations."))), 
+             
              fluidRow(column(1),
                       column(10, h4("BGT/JOLTS Percent Difference and Percent of BGT Job Ads in each Major Occupation Group by State"), align = "center"),
                       column(1)),
@@ -204,7 +202,9 @@ ui <- fluidPage(
        tabPanel("BGT/OES Benchmark"),
        
          tabPanel("BGT Education",
-                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads that do not require a college degree by state") )), 
+                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Jobs Ads Requiring a Two-Year Degree or Less") )), 
+                  fluidRow(width = 12, p("For the map below, we calculated the percent of BGT Job Ads that have a minimum education value of 0, 12, or 14, 
+                                         which means the job required no education, a high school education, or a two-year degree.")),
                   fluidRow(width = 12, column(5), 
                            column(2, sliderInput("slide2", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
                            column(5)),
@@ -229,15 +229,25 @@ ui <- fluidPage(
                   fluidRow(column(1), 
                            column(10, plotOutput("stw", width= "100%", height = "600px")),
                            column(1)), 
+                  fluidRow(h4("Observations"),
+                           p("We see the District of Columbia has the smallest percentage, which means the many BGT Job Ads required a bachelor’s degree or higher, 
+                             or did not have an explicit minimum education value listed."), 
+                           p("West Virginia and Mississippi have multiple instances where the percent of BGT Job Ads that require a two-year degree or less fall in the 80-90% range.")), 
                   fluidRow(column(2,  
                                   wellPanel(
                                     selectInput("definition", "SOC Definition", choices = c("SOC 11", "SOC 13", "SOC 15",
                                                                                             "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                             "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
-                                    textOutput("soc")))), 
+                                    textOutput("soc"))),
+                           column(10, 
+                                  p("In the table below, we classified BGT Job Ads using the Rothwell’s definition, and provide a percent of STW Job Ads in each major occupation group alongside of the percent of job ads requiring a two-year degree or less."),
+                                  p("We see that the District of Columbia, which has the lowest percentage of job ads requiring a two-year degree or less, has a relatively large percentage of STW jobs in the SOC 15 group, which is Computer and Mathematical Occupations."),
+                                  p("The largest percentage of STW jobs are in SOC 29 and SOC 49, which are Healthcare Practitioners and Technical Occupations and Installation, Maintenance, and Repair Occupations."))), 
                   fluidRow(column(1),
-                           column(10, h4("Percent of Job Ads Not Requiring a Bachelor’s Degree or Above and Percent of STW BGT Job Ads by Major Occupation Groups"), align = "center"),
+                           column(10, h4("Percent of Job Ads Requiring a Two-Year Degree or Less and Percent of STW BGT Job Ads by Major Occupation Groups"), align = "center"),
                            column(1)),
+                  
+                           
                   fluidRow(dataTableOutput("stwTable")) 
          ), # end tabPanel
        
@@ -529,7 +539,7 @@ server <- function(input, output) {
     
     names(table)[names(table) == "state"] <- "State"
     names(table)[names(table) == "year"] <- "Year"
-    names(table)[names(table) == "nobach"] <- "% No Bachelors"
+    names(table)[names(table) == "nobach"] <- "% Two-Year Degree or Less"
     names(table)[names(table) == "X11"] <- "SOC 11"
     names(table)[names(table) == "X13"] <- "SOC 13"
     names(table)[names(table) == "X15"] <- "SOC 15"
