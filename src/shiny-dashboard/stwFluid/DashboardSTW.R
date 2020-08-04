@@ -96,7 +96,7 @@ ui <- fluidPage(
                          2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
                 p("BGT assigns a North American Industry Classification System (NAICS) code to a job ad based on the name of the employer. Since it 
                   is common practice for staffing companies not to disclose the name of the employer in online job ads this variable was missing in 
-                  ~40% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
+                  ~20-25% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
                 helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
@@ -173,7 +173,14 @@ ui <- fluidPage(
                       column(3)),
              
              fluidRow(h4("Observations"),
-                      p("Paragraph discussing change in state level percent difference over time")),
+                      p("Unlike comparisons to JOLTS at the national level where JOLTS is the ground truth and differences with BGT are a function of comparing job openings to job ads, how the monthly 
+                        counts are calculated, and the changing landscape of online job ads, with state comparisons there is no ground truth. 
+                        JOLTS state estimates are experimental and do not provide with standard errors. "),
+                      br(),
+                      p("The state percent differences are extremely volatile. Alaska, District of Columbia, Maine, and South Dakota all have percent differences that go 
+                        from negative to positive or close to zero. Maine goes from a -75 percent difference to a +10 percent difference."),
+                      br()
+                      ),
              
              fluidRow(column(2,  
                              wellPanel(
@@ -181,7 +188,9 @@ ui <- fluidPage(
                                                                                        "SOC 17", "SOC 19", "SOC 21", "SOC 23", "SOC 25", "SOC 27", "SOC 29", "SOC 31", "SOC 33",
                                                                                        "SOC 35", "SOC 37", "SOC 39", "SOC 41", "SOC 43", "SOC 45", "SOC 47", "SOC 49", "SOC 51", "SOC 53", "SOC 55")),
                                textOutput("soc2")))), 
-             
+             p("District of Columbia has either the smallest percent difference or is one of the top three states with the smallest percent 
+               difference for all ten years. The D.C. SOCs with the largest percentage are Management Occupations, Business Financial Operations Occupations, 
+               and Computer and Mathematical occupations which for all ten years accounted for ~50% of the STW jobs"),
              fluidRow(column(1),
                       column(10, h4("BGT/JOLTS Percent Difference and Percent of BGT Job Ads in each Major Occupation Group by State"), align = "center"),
                       column(1)),
@@ -581,6 +590,7 @@ server <- function(input, output) {
   output$validity_table <- renderDataTable({
     
     data <- read.csv("validity_table.csv")
+    data <- rbind(data, c("sector", "the observation is either 11, 21, 22, 23, 31-33, 42, 44-45, 48-49, 51, 52, 53, 54, 55, 56, 61, 62,  71, 72, 81, 92"))
     DT::datatable(data, options = list(dom= 't'), rownames = F)
   })
   
