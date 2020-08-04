@@ -96,7 +96,7 @@ ui <- fluidPage(
                          2013 to ~50,000 in 2019) and some to the increase in the percentage of job-ads posted online which Carnevale et al. (2014) estimated at 60-70% in 2014 and BGT estimates at 85% in 2019."),
                 p("BGT assigns a North American Industry Classification System (NAICS) code to a job ad based on the name of the employer. Since it 
                   is common practice for staffing companies not to disclose the name of the employer in online job ads this variable was missing in 
-                  ~40% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
+                  ~20-25% of the job ads regardless of the year. This prohibited any benchmarking to JOLTS using industry aggregations."),
                 helpText(tags$em("Carnevale Anthony, Tamara Jayasundera, and Dmitri Repnikov. 2014. “Understanding Online Job Ads Data” Georgetown University Center on Education and the Workforce."))
        ),
        
