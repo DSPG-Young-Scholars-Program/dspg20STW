@@ -26,7 +26,7 @@ ui <- fluidPage(
 
        tabPanel("About",
                 fluidRow(column(3, tags$a(tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" ), href="https://biocomplexity.virginia.edu/")),
-                         column(6, h1("Skilled Techinical Workforce")),
+                         column(6, h1("Skilled Technical Workforce")),
                          column(3, tags$a(tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"), href="https://www.nsf.gov/statistics/"))
                          ),
                 h5("Project"),
