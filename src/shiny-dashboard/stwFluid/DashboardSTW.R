@@ -111,16 +111,20 @@ ui <- fluidPage(
                   p("BGT job ad data are collected using a web crawling technique that uses computer programs called spiders to browse approximately 50,000 online job boards, corporate websites, and other places where job ads are posted and extracts more than 70 variables per advertisement to create the repository of jobs data. 
                   De-duplication of the job ad is performed once at the website level, to avoid counting the same posting that recurs across multiple days, and once at the aggregate level, to eliminate the same posting advertised on multiple sites. 
                   It is important to note BGT only measures new postings (a given posting appears only on the first month it is recorded) while JOLTS measures active postings (the same posting can appear in two or more consecutive months if time to fill is more than 30 days).")),
-                fluidRow(
-                         column(6, align = "center",
+                br(),
+                fluidRow(column(1),
+                         column(5, align = "center",
                                 p("The", tags$span(' blue ', style = "background-color: #232D4B; color: white;border-radius: 25px; white-space: pre-wrap;"), 
-                                  "dots show JOLTS job opening estimates, and the", tags$span(' orange ', style = "background-color: #E57200; color: white;border-radius: 25px; white-space: pre-wrap;"), 
+                                  "dots show JOLTS job opening estimates, and the", br(), tags$span(' orange ', style = "background-color: #E57200; color: white;border-radius: 25px; white-space: pre-wrap;"), 
                                   "dots show the BGT job-ads."),
                                 selectInput("select", "", choices = c("National", "Regional"), selected = "National"),
-                                plotOutput("jobsByYearOrRegion", width = 500, height = 700)),
-                         column(1),
-                         column(5, 
-                                p("Regions: ", 
+                                plotOutput("jobsByYearOrRegion", width = 500, height = 600)),
+                     column(1),
+                         column(4,
+                                
+                                fluidRow(
+                                  
+                                p(align = "right",
                                   "Northeast", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[7], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
                                   HTML("&nbsp;"),
                                   "Midwest", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[4], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
@@ -128,16 +132,21 @@ ui <- fluidPage(
                                   "South", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[6], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
                                   HTML("&nbsp;"),
                                   "West", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[2],"; color: white;border-radius: 5px; white-space: pre-wrap;", sep = ""))
-                                ), plotOutput("regions"))),
+                                ), 
+                                plotOutput("regions", height = "300px")
+                                
+                          
+                                )), column(1)),
                 fluidRow(column(2),
-                         column(8, align = "center", h4("BGT/JOLTS Percent Difference by Region and Year"),
-                                fluidRow(dataTableOutput("region_per_diff"))),
-                         column(2)), 
+                       column(8, align = "center", h4("BGT/JOLTS Percent Difference by Region and Year"),
+                               fluidRow(dataTableOutput("region_per_diff"))),
+                       column(2)), 
                 br(),
                 fluidRow(
                 h4("Observations"),
                 p("There is a slight decrease in the percent difference, [(BGTi – JOLTSi)/JOLTSi]*100, from 2010 to 2019 for the national and regional comparisons. The West has the largest decrease from a percent difference of -65.39 in 2010 to -52.88 in 2019."),
-                p("The increasing trends in the volume of BGT job ads and JOLT job openings are similar, as indicated with percent differences over time between -53% to -74%."))),
+                p("The increasing trends in the volume of BGT job ads and JOLT job openings are similar, as indicated with percent differences over time between -53% to -74%."), br()
+                )),
                 
         
         tabPanel("State Comparisons",  
