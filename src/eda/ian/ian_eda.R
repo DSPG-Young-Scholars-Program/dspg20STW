@@ -74,7 +74,7 @@ compare_years <- function(years){
   
   total <<- total 
   
-   
+  
   
 }
 
@@ -83,14 +83,14 @@ compare_years(2010:2019)
 
 
 #ggplot(total, aes(x = year, y = value)) + 
- # geom_point(colour = "#232D4B") + 
-  #facet_wrap(~ variable) + 
-  #ggtitle("Total Job Openings BGT vs Jolts") + 
-  #labs(y = "Number of Job Openings") +  
-  #scale_x_continuous(breaks = c(2010,2012,2014,2016,2018)) +
-  #scale_y_continuous(breaks = seq(0,90000000, 10000000)) +
-  #theme(plot.title = element_text(hjust = .5)) + 
-  #theme(strip.background = element_rect(fill="#E57200"))
+# geom_point(colour = "#232D4B") + 
+#facet_wrap(~ variable) + 
+#ggtitle("Total Job Openings BGT vs Jolts") + 
+#labs(y = "Number of Job Openings") +  
+#scale_x_continuous(breaks = c(2010,2012,2014,2016,2018)) +
+#scale_y_continuous(breaks = seq(0,90000000, 10000000)) +
+#theme(plot.title = element_text(hjust = .5)) + 
+#theme(strip.background = element_rect(fill="#E57200"))
 
 
 #Looking at the quantiles
@@ -142,9 +142,9 @@ compare_years_region <- function(years){
     tbl <- RPostgreSQL::dbGetQuery(
       conn = conn, 
       statement = paste("SELECT COUNT(DISTINCT id), state 
-                    FROM bgt_job.jolts_comparison_", y, 
+                        FROM bgt_job.jolts_comparison_", y, 
                         " WHERE state 
-                      IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
+                        IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
                         " GROUP BY state",  sep = ""))
     
     tbl <- merge(tbl, states, by.x = "state", by.y = "state.name")
@@ -175,31 +175,31 @@ compare_years_region(2010:2019)
 
 
 #boxplot visual where each boxplot represents a region and is color coordinated based on bgt or jolts; y axis is value
- 
+
 #For midwest jolts estimates, 50% of total job openings between 2010 and 2019 reported 13,759,000 or less openings
 
 
 #options(scipen = 10000)
 #ggplot(total, aes(x = factor(region), y = value, fill = variable)) + 
- # geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
-  #theme(plot.title = element_text(hjust = .5)) + 
-  #labs(x = "Region", y = "Job Openings between 2010-2019") +
-  #scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
-  #scale_fill_manual(values = c("#E57200", "#232D4B")) +
-  #theme_classic()
+# geom_boxplot() + ggtitle("BGT vs Jolts Job Openings per Region") + 
+#theme(plot.title = element_text(hjust = .5)) + 
+#labs(x = "Region", y = "Job Openings between 2010-2019") +
+#scale_y_continuous(breaks = seq(0,30000000, 3000000)) +
+#scale_fill_manual(values = c("#E57200", "#232D4B")) +
+#theme_classic()
 
 
 
 #options(scipen = 10000)
 #ggplot(total, aes(x = year, y = value, color = region)) + 
-  #geom_point() + 
-  #facet_wrap(~ variable) + 
-  #ggtitle("Total Job Openings BGT vs Jolts per Region") + 
-  #labs(y = "Number of Job Openings") + 
-  #scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
-  #scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
-  #theme(strip.background = element_rect(fill="#E57200")) +
-  #scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
+#geom_point() + 
+#facet_wrap(~ variable) + 
+#ggtitle("Total Job Openings BGT vs Jolts per Region") + 
+#labs(y = "Number of Job Openings") + 
+#scale_y_continuous(breaks = seq(0, 30000000, 3000000)) +  
+#scale_x_continuous(breaks = c(2010, 2012, 2014, 2016, 2018)) + 
+#theme(strip.background = element_rect(fill="#E57200")) +
+#scale_color_manual(values=c("#E57200", "#232D4B", "#009FDF", "#EF3F6B"))
 
 #Presentation plots
 options(scipen = 10000)
