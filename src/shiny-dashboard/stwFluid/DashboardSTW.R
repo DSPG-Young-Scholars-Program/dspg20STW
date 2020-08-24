@@ -2,6 +2,7 @@ library(shiny)
 library(dplyr)
 library(statebins)
 library(ggplot2)
+library(ggrepel)
 library(data.table)
 library(rsconnect)
 library(DT)
@@ -218,9 +219,29 @@ ui <- fluidPage(
         ),#end navbar
                 
        #end Jolts vs BGT tab-----------------
-       tabPanel("BGT/OES Benchmark"),
        
-         tabPanel("BGT Education",
+       tabPanel("BGT/OES Benchmark", 
+              
+              fluidRow(width = 12, align = "center", 
+                       column(4, sliderInput("slide3", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
+                       column(4, selectInput("stateChoice", "Select State", choices = (statesWithDc))), 
+                       column(4, selectInput("regionChoice", "Select Region", choices = c("Northeast", "Midwest", "West", "South")))),
+                fluidRow(width = 12, align = "center", 
+                          column(4, plotOutput("national_oes")),
+                          column(4, plotOutput("state_oes")),
+                         column(4, plotOutput("region_oes"))), 
+              fluidRow(width = 12, align = "center", 
+                       column(4), 
+                       column(4, selectInput("majSOCChoice", "Select Major SOC", choices = seq(11, 53, 2))), 
+                       column(4)),
+              fluidRow(width =12, align = "center",
+                       column(4), 
+                       column(4, plotOutput("state_oes_alt")), 
+                       column(4, plotOutput("region_oes_alt")))
+               ),
+       
+       
+       tabPanel("BGT Education",
                   fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Jobs Ads Requiring a Two-Year Degree or Less") )), 
                   fluidRow(width = 12, p("For the map below, we calculated the percent of BGT Job Ads that have a minimum education value of 0, 12, or 14, 
                                          which means the job required no education, a high school education, or a two-year degree.")),
@@ -372,7 +393,6 @@ server <- function(input, output) {
     
   })
   
-  library(dplyr)
   total_wide <- read.csv("nation_region_year.csv")
   total_wide_table <-total_wide %>% select(year, per_change, region) %>% spread(key = region, value = per_change) %>% select("Year" = year, National, Northeast, Midwest, South, West)
   total_wide_table$National <- sprintf(total_wide_table$National,fmt = "%#.2f")
@@ -558,6 +578,90 @@ server <- function(input, output) {
                   options = list(dom = 't', pageLength = 51, scrollX = TRUE), rownames = FALSE)
       
     
+  })
+  
+# oes output
+  output$national_oes <- renderPlot({
+    national_maj <- read.csv("oes_national_maj.csv")
+  
+    ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
+      geom_point()+
+      geom_text_repel()+
+      scale_x_continuous(breaks = 0:17, limits = c(0, 17), expand = c(0,0)) +
+      scale_y_continuous(breaks = 0:17, limits = c(0, 17), expand = c(0,0))+
+      theme_minimal() +
+      geom_abline(intercept = 0, slope = 1, color = "grey70")+
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
+      coord_fixed(ratio = 1)
+    
+  })
+  
+  state_maj <- read.csv("oes_state_maj.csv")
+  
+  region <- state_maj %>% select(year, maj_occ_code, bgt, tot_emp, region) %>%
+    filter(is.na(region) == F & !(maj_occ_code == 55)) %>%
+    group_by(year, maj_occ_code, region) %>%
+    summarize(bgt = sum(bgt, na.rm = T), tot_emp = sum(tot_emp,na.rm = T))%>%
+    group_by(year, region) %>%
+    mutate(per_bgt = (bgt/sum(bgt)) * 100, 
+           per_oes = (tot_emp/sum(tot_emp)) * 100)
+  
+  
+  output$state_oes <- renderPlot({
+    state_maj <- read.csv("oes_state_maj.csv")
+    
+    ggplot(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
+      geom_point()+
+      geom_text_repel()+
+      scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0)) +
+      scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0))+
+      theme_minimal() +
+      geom_abline(intercept = 0, slope = 1, color = "grey70")+
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
+      coord_fixed(ratio = 1)
+    
+    
+  })
+  
+  
+  output$state_oes_alt <- renderPlot({
+    ggplot(state_maj[state_maj$year == input$slide3 & state_maj$maj_occ_code == input$majSOCChoice, ], aes(x = per_bgt, y = per_oes, color = region)) +
+      geom_point()+
+      scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0)) +
+      scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0))+
+      theme_minimal() +
+      geom_abline(intercept = 0, slope = 1, color = "grey70")+
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
+      coord_fixed(ratio = 1)
+  })
+  
+  output$region_oes <- renderPlot({
+    ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
+      geom_point()+
+      geom_text_repel()+
+      scale_x_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0)) +
+      scale_y_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0))+
+      theme_minimal() +
+      geom_abline(intercept = 0, slope = 1, color = "grey70")+
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
+      coord_fixed(ratio = 1)
+  })
+  
+  output$region_oes_alt <- renderPlot({
+    ggplot(region[region$year == input$slide3 & region$maj_occ_code == input$majSOCChoice, ], aes(x = per_bgt, y = per_oes, label = region)) +
+      geom_point()+
+      geom_text_repel()+
+      scale_x_continuous(breaks = 0:18, limits = c(0, 18)) +
+      scale_y_continuous(breaks = 0:18, limits = c(0, 18))+
+      theme_minimal() +
+      geom_abline(intercept = 0, slope = 1, color = "grey70")+
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes", caption = "BGT: 2019 Job Ads; OES: May 2019 National Estimates") +
+      coord_fixed(ratio = 1)
   })
   
 # Eduation output
