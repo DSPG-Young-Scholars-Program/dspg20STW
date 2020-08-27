@@ -258,5 +258,85 @@ ggplot(region[region$year == 2014 & region$maj_occ_code == 47, ], aes(x = per_bg
 
 # national by Soc Code
 
+############# BY 6 DIGIT SOC CODES ##################
+
+# select detailed SOC codes here
+
+stw_table <- read.csv("/sfs/qumulo/qhome/sm9dv/dspg20STW/src/shiny-dashboard/stwFluid/rothwell_copy.csv")
+
+stw_table <- stw_table[, c("X2010.SOC.Code", "rothwell_STW")] %>% unique()
+
+oes_detailed <- data.frame()
+for(y in 2010:2019){
+  if(y %in% (2010:2013)){
+    data <- read_xls(paste("data/ncses_stw/original/oes/oesm", substr(y, 3,4), "nat/national_M", y, "_dl.xls", sep = ""))
+    
+  } else{
+    data <- read_xlsx(paste("data/ncses_stw/original/oes/oesm", substr(y, 3,4), "nat/national_M", y, "_dl.xlsx", sep = ""))
+    
+  }
+  
+  names(data) <- tolower(names(data))
+  
+  if("group" %in% colnames(data)){
+    colnames(data)[colnames(data) == "group"] <- "o_group"
+  } else if ("occ_group" %in% colnames(data)){
+    colnames(data)[colnames(data) == "occ_group"] <- "o_group"
+  }
+  
+  
+  grand_total <- as.numeric(data[data$occ_code == "00-0000", "tot_emp"])
+  
+  oes <-data %>% filter(o_group == "detailed") %>%
+    select(occ_code, tot_emp) %>%
+    mutate(per_oes = (tot_emp/grand_total) * 100, 
+           year = y)
+  
+  oes <- merge(oes, stw_table, by.x = "occ_code", by.y = "X2010.SOC.Code", all.x = T)
+  
+  oes_detailed <- rbind(oes_detailed, oes)
+  
+}
+
+
+bgt_detailed <- data.frame()
+for(y in 2010:2019){
+  
+  
+  tbl <- RPostgreSQL::dbGetQuery(
+    conn = conn, 
+    statement = paste("SELECT EXTRACT(YEAR FROM jobdate) AS year, soc AS occ_code, COUNT(DISTINCT(id)) AS bgt
+                      FROM bgt_job.jolts_comparison_", y, 
+                      " WHERE state IN ", paste("(", paste(shQuote(c(state.name, "District of Columbia"), type="sh"), collapse=", "), ")", sep = ""),
+                      " GROUP BY  year, occ_code", sep = ""))
+  
+  tbl <- tbl %>% select(year, occ_code, bgt) %>% 
+    group_by(year, occ_code) %>% 
+    summarize(bgt = sum(bgt)) %>%
+    mutate(per_bgt = (bgt/sum(bgt)) * 100)
+  
+  bgt_detailed <- rbind(bgt_detailed, tbl)
+}
+
+
+new <- merge(oes, tbl, by = c("occ_code", "year"), all = T)
+new <- merge(new, stw_table, by.x = "occ_code", by.y = "X2010.SOC.Code", all.x = T)
+
+
+# these do not perfectly match up
+# this is a pretty unhelpful graph 
+ggplot(new, aes(x = per_bgt, y = per_oes, color = as.factor(rothwell_STW))) +
+  geom_point()+
+  scale_x_continuous(breaks = 0:5, limits = c(0, 5)) +
+  scale_y_continuous(breaks = 0:5, limits = c(0, 5))+
+  theme_minimal() +
+  geom_abline(intercept = 0, slope = 1, color = "grey70")+
+  labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+       title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes", caption = "BGT: 2019 Job Ads; OES: May 2019 National Estimates") +
+  coord_fixed(ratio = 1)
+
+
+
+
 
 

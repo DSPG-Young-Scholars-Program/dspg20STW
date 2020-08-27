@@ -8,7 +8,7 @@ library(rsconnect)
 library(DT)
 library(lubridate) 
 library(tidyr) 
-
+library(ggtips)
 
 
 statesWithDc <- c(state.name, "District of Columbia")
@@ -23,8 +23,7 @@ ui <- fluidPage(
   theme = "theme.css",
   title = "DSPG2020STW",  
 
-   navbarPage( title = "Skilled Technical Workforce",
-
+   navbarPage( title = tags$span(style = "font-size: 16px;", "Skilled Technical Workforce"),
        tabPanel("About",
                 fluidRow(column(3, tags$a(tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" ), href="https://biocomplexity.virginia.edu/")),
                          column(6, h1("Skilled Technical Workforce")),
@@ -221,15 +220,74 @@ ui <- fluidPage(
        #end Jolts vs BGT tab-----------------
        
        tabPanel("BGT/OES Benchmark", 
-              
+              fluidRow(column(12, align = "center", 
+                              h3("Benchmarking BGT Job Ads to OES Total Employment"))),
+              fluidRow(p("The Occupational Employment Statistics (OES) program produces employment and wage estimates annually for nearly 800 occupations. 
+                                These estimates are available for the nation as a whole, for individual states, and for metropolitan and nonmetropolitan areas; 
+                                national occupational estimates for specific industries are also available.")),
+              fluidRow(align = "center", h4("Comparison of BGT Job Ads and OES Employment by Major Occupation Codes")),
               fluidRow(width = 12, align = "center", 
-                       column(4, sliderInput("slide3", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")),
-                       column(4, selectInput("stateChoice", "Select State", choices = (statesWithDc))), 
-                       column(4, selectInput("regionChoice", "Select Region", choices = c("Northeast", "Midwest", "West", "South")))),
-                fluidRow(width = 12, align = "center", 
-                          column(4, plotOutput("national_oes")),
-                          column(4, plotOutput("state_oes")),
-                         column(4, plotOutput("region_oes"))), 
+                       column(4), 
+                       column(2, sliderInput("slide3", label = NULL, min = 2010, max = 2019, value = 2014, sep = "")), 
+                       column(2, selectInput("stateChoice", "Select State", choices = (statesWithDc))), 
+                       column(4)
+                       #column(4, selectInput("regionChoice", "Select Region", choices = c("Northeast", "Midwest", "West", "South")))
+                       ),
+             
+              fluidRow(width = 12,  
+                      column(4, align = "center", 
+                             strong("National Comparisons"), 
+                             plotOutput("national_oes")),
+                      column(4, style = "font-size: 12px;",
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Management Occupations (11)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Business and Financial Operations Occupations (13)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Computer and Mathematical Occupations (15)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Architecture and Engineering Occupations (17)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Life, Physical, and Social Science Occupations (19)", 
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Community and Social Service Occupations (21)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Legal Occupations (23)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Educational Instruction and Library Occupations (25)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Arts, Design, Entertainment, Sports, and Media Occupations (27)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Healthcare Practitioners and Technical Occupations (29)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Healthcare Support Occupations (31)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Protective Service Occupations (33)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Food Preparation and Serving Related Occupations (35)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Building and Grounds Cleaning and Maintenance Occupations (37)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Personal Care and Service Occupations (39)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Sales and Related Occupations (41)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Office and Administrative Support Occupations (43)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Farming, Fishing, and Forestry Occupations (45)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Construction and Extraction Occupations (47)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Installation, Maintenance, and Repair Occupations (49)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[6], ";", sep = "")), "Production Occupations (51)",
+                             br(), 
+                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[6], ";", sep = "")), "Transportation and Material Moving Occupations (53)"
+                             ), 
+                      column(4, align = "center", 
+                             strong("State Comparisons"), 
+                             plotOutput("state_oes"))
+                      #column(4, plotOutput("region_oes"))
+                      ),
               fluidRow(width = 12, align = "center", 
                        column(4), 
                        column(4, selectInput("majSOCChoice", "Select Major SOC", choices = seq(11, 53, 2))), 
@@ -301,7 +359,7 @@ ui <- fluidPage(
                   p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Content Model Knowledge data associated with each O*NET-SOC occupation")), 
                   p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Education percent frequency data associated with each O*NET-SOC occupation")),
                   p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk")),
-                  helpText("Jonathan Rothwell, September 1, 2015. Defining Skilled Technical Work. Prepared for National Academies Board on Science, Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training and Certification Pathways”. https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf")),
+                  helpText(tags$em("Jonathan Rothwell, September 1, 2015. Defining Skilled Technical Work. Prepared for National Academies Board on Science, Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training and Certification Pathways”. https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf"))),
          fluidRow(dataTableOutput("stwXwalk")) 
          
          
@@ -581,21 +639,26 @@ server <- function(input, output) {
   })
   
 # oes output
+  national_maj <- read.csv("oes_national_maj.csv")
   output$national_oes <- renderPlot({
-    national_maj <- read.csv("oes_national_maj.csv")
+    
   
-    ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
-      geom_point()+
+  ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
+      geom_point(shape = 21, size = 3)+
+      scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
-      scale_x_continuous(breaks = 0:17, limits = c(0, 17), expand = c(0,0)) +
-      scale_y_continuous(breaks = 0:17, limits = c(0, 17), expand = c(0,0))+
+      scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand = c(0,0)) +
+      scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand = c(0,0))+
       theme_minimal() +
       geom_abline(intercept = 0, slope = 1, color = "grey70")+
-      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
-           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
-      coord_fixed(ratio = 1)
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
+      coord_fixed(ratio = 1) +
+      theme(legend.position = "none")
+  
     
   })
+  
+
   
   state_maj <- read.csv("oes_state_maj.csv")
   
@@ -611,16 +674,17 @@ server <- function(input, output) {
   output$state_oes <- renderPlot({
     state_maj <- read.csv("oes_state_maj.csv")
     
-    ggplot(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
-      geom_point()+
+    ggplot(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
+      geom_point(shape = 21, size = 3)+
+      scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
       scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0)) +
       scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0))+
       theme_minimal() +
       geom_abline(intercept = 0, slope = 1, color = "grey70")+
-      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
-           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
-      coord_fixed(ratio = 1)
+      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
+      coord_fixed(ratio = 1)+
+      theme(legend.position = "none")
     
     
   })
@@ -639,8 +703,9 @@ server <- function(input, output) {
   })
   
   output$region_oes <- renderPlot({
-    ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, label = maj_occ_code)) +
-      geom_point()+
+    ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
+      geom_point(shape = 21, size = 3)+
+      scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
       scale_x_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0)) +
       scale_y_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0))+
@@ -648,7 +713,8 @@ server <- function(input, output) {
       geom_abline(intercept = 0, slope = 1, color = "grey70")+
       labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
            title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
-      coord_fixed(ratio = 1)
+      coord_fixed(ratio = 1)+
+      theme(legend.position = "none")
   })
   
   output$region_oes_alt <- renderPlot({
