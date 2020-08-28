@@ -239,49 +239,49 @@ ui <- fluidPage(
                              strong("National Comparisons"), 
                              plotOutput("national_oes")),
                       column(4, style = "font-size: 12px;",
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Management Occupations (11)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[2],";", sep = "")), "Management Occupations (11)", 
+                             br(),
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[2],";", sep = "")), "Business and Financial Operations Occupations (13)",
+                             br(),
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[2],";", sep = "")), "Computer and Mathematical Occupations (15)",
+                             br(),
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[2],";", sep = "")), "Architecture and Engineering Occupations (17)",
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Business and Financial Operations Occupations (13)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[2],";", sep = "")), "Life, Physical, and Social Science Occupations (19)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Computer and Mathematical Occupations (15)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[3],";", sep = "")), "Community and Social Service Occupations (21)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Architecture and Engineering Occupations (17)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[3],";", sep = "")), "Legal Occupations (23)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[2], ";", sep = "")), "Life, Physical, and Social Science Occupations (19)", 
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[3],";", sep = "")), "Educational Instruction and Library Occupations (25)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Community and Social Service Occupations (21)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[3],";", sep = "")), "Arts, Design, Entertainment, Sports, and Media Occupations (27)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Legal Occupations (23)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[3],";", sep = "")), "Healthcare Practitioners and Technical Occupations (29)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Educational Instruction and Library Occupations (25)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[4],";", sep = "")), "Healthcare Support Occupations (31)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Arts, Design, Entertainment, Sports, and Media Occupations (27)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[4],";", sep = "")), "Protective Service Occupations (33)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[3], ";", sep = "")), "Healthcare Practitioners and Technical Occupations (29)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[4],";", sep = "")), "Food Preparation and Serving Related Occupations (35)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Healthcare Support Occupations (31)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[4],";", sep = "")), "Building and Grounds Cleaning and Maintenance Occupations (37)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Protective Service Occupations (33)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[4],";", sep = "")), "Personal Care and Service Occupations (39)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Food Preparation and Serving Related Occupations (35)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[5],";", sep = "")), "Sales and Related Occupations (41)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Building and Grounds Cleaning and Maintenance Occupations (37)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[5],";", sep = "")), "Office and Administrative Support Occupations (43)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[4], ";", sep = "")), "Personal Care and Service Occupations (39)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[5],";", sep = "")), "Farming, Fishing, and Forestry Occupations (45)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Sales and Related Occupations (41)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[5],";", sep = "")), "Construction and Extraction Occupations (47)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Office and Administrative Support Occupations (43)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[5],";", sep = "")), "Installation, Maintenance, and Repair Occupations (49)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Farming, Fishing, and Forestry Occupations (45)",
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[6],";", sep = "")), "Production Occupations (51)", 
                              br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Construction and Extraction Occupations (47)",
-                             br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[5], ";", sep = "")), "Installation, Maintenance, and Repair Occupations (49)",
-                             br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[6], ";", sep = "")), "Production Occupations (51)",
-                             br(), 
-                             tags$span(HTML("&#8226;"), style = paste("color: ", cbPalette[6], ";", sep = "")), "Transportation and Material Moving Occupations (53)"
+                             tags$div(id = "circle", style = paste("display: inline-block; border: 1px solid black; background: ", cbPalette[6],";", sep = "")), "Transportation and Material Moving Occupations (53)", 
                              ), 
                       column(4, align = "center", 
                              strong("State Comparisons"), 
@@ -644,7 +644,7 @@ server <- function(input, output) {
     
   
   ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
-      geom_point(shape = 21, size = 3)+
+      geom_point(shape = 21, size = 2.5, stroke = 1)+
       scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
       scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand = c(0,0)) +
@@ -675,7 +675,7 @@ server <- function(input, output) {
     state_maj <- read.csv("oes_state_maj.csv")
     
     ggplot(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
-      geom_point(shape = 21, size = 3)+
+      geom_point(shape = 21, size = 3, stroke = 1)+
       scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
       scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0)) +
@@ -924,6 +924,6 @@ server <- function(input, output) {
    
 }
 
-# Run the application 
+
 shinyApp(ui = ui, server = server) 
 

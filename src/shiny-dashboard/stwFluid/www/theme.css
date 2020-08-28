@@ -71,3 +71,9 @@ body {
 .tab-pane {
   margin: 0px 20px 0px 20px;
 }
+    
+#circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%
+}
