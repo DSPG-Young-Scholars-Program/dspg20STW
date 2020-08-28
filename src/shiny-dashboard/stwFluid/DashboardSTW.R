@@ -634,59 +634,47 @@ server <- function(input, output) {
     
     DT::datatable(viz_data,
                   options = list(dom = 't', pageLength = 51, scrollX = TRUE), rownames = FALSE)
-      
     
   })
   
 # oes output
   national_maj <- read.csv("oes_national_maj.csv")
-  output$national_oes <- renderPlot({
-    
   
-  ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
-      geom_point(shape = 21, size = 2.5, stroke = 1)+
-      scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
-      geom_text_repel()+
-      scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand = c(0,0)) +
-      scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand = c(0,0))+
-      theme_minimal() +
-      geom_abline(intercept = 0, slope = 1, color = "grey70")+
-      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
-      coord_fixed(ratio = 1) +
-      theme(legend.position = "none")
-  
-    
-  })
-  
+  adj_limit <- reactive({
+    max(max(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, "per_bgt"], na.rm = T),
+        max(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, "per_oes"], na.rm = T),
+        max(national_maj[national_maj$year == input$slide3, "per_bgt"], na.rm = T),
+        max(national_maj[national_maj$year == input$slide3, "per_oes"], na.rm = T)) + 1
+  })  
 
+  output$national_oes <- renderPlot({
+    ggplot(national_maj[national_maj$year == input$slide3, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
+        geom_point(shape = 21, size = 2.5, stroke = 1)+
+        scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
+        geom_text_repel()+
+        scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand = c(0,0)) +
+        scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand = c(0,0))+
+        theme_minimal() +
+        geom_abline(intercept = 0, slope = 1, color = "grey70")+
+        labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
+        coord_fixed(ratio = 1) +
+        theme(legend.position = "none")
+  })
   
   state_maj <- read.csv("oes_state_maj.csv")
   
-  region <- state_maj %>% select(year, maj_occ_code, bgt, tot_emp, region) %>%
-    filter(is.na(region) == F & !(maj_occ_code == 55)) %>%
-    group_by(year, maj_occ_code, region) %>%
-    summarize(bgt = sum(bgt, na.rm = T), tot_emp = sum(tot_emp,na.rm = T))%>%
-    group_by(year, region) %>%
-    mutate(per_bgt = (bgt/sum(bgt)) * 100, 
-           per_oes = (tot_emp/sum(tot_emp)) * 100)
-  
-  
   output$state_oes <- renderPlot({
-    state_maj <- read.csv("oes_state_maj.csv")
-    
     ggplot(state_maj[state_maj$year == input$slide3 & state_maj$state == input$stateChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
       geom_point(shape = 21, size = 3, stroke = 1)+
       scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
-      scale_x_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0)) +
-      scale_y_continuous(breaks = seq(0, 35, 5), limits = c(0, 35), expand=c(0,0))+
+      scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand=c(0,0)) +
+      scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand=c(0,0))+
       theme_minimal() +
       geom_abline(intercept = 0, slope = 1, color = "grey70")+
       labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
       coord_fixed(ratio = 1)+
       theme(legend.position = "none")
-    
-    
   })
   
   
@@ -701,6 +689,14 @@ server <- function(input, output) {
            title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
       coord_fixed(ratio = 1)
   })
+  
+  region <- state_maj %>% select(year, maj_occ_code, bgt, tot_emp, region) %>%
+    filter(is.na(region) == F & !(maj_occ_code == 55)) %>%
+    group_by(year, maj_occ_code, region) %>%
+    summarize(bgt = sum(bgt, na.rm = T), tot_emp = sum(tot_emp,na.rm = T))%>%
+    group_by(year, region) %>%
+    mutate(per_bgt = (bgt/sum(bgt)) * 100, 
+           per_oes = (tot_emp/sum(tot_emp)) * 100)
   
   output$region_oes <- renderPlot({
     ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
