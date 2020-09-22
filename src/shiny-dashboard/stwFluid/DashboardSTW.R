@@ -9,13 +9,27 @@ library(DT)
 library(lubridate) 
 library(tidyr) 
 library(ggtips)
+library(shinyjs)
 
 
 statesWithDc <- c(state.name, "District of Columbia")
 
 cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
-
+# CODE TO DETECT ORIGIN OF LINK AND CHANGE LOGO ACCORDINGLY
+jscode <- "var referer = document.referrer;
+           var n = referer.includes('economic');
+           var x = document.getElementsByClassName('navbar-brand');
+           if (n != true) {
+             x[0].innerHTML = '<div style=\"margin-top:-14px\"><a href=\"https://datascienceforthepublicgood.org/events/symposium2020/poster-sessions\">' +
+                              '<img src=\"DSPG_black-01.png\", alt=\"DSPG 2020 Symposium Proceedings\", style=\"height:42px;\">' +
+                              '</a></div>';
+           } else {
+             x[0].innerHTML = '<div style=\"margin-top:-14px\"><a href=\"https://datascienceforthepublicgood.org/economic-mobility/community-insights\">' +
+                              '<img src=\"AEMLogoGatesColorsBlack-11.png\", alt=\"Gates Economic Mobility Case Studies\", style=\"height:42px;\">' +
+                              '</a></div>';
+           }
+           "
 
 ui <- fluidPage( 
   HTML('<script src="//use.typekit.net/tgy5tlj.js"></script>'),
@@ -24,9 +38,11 @@ ui <- fluidPage(
   title = "DSPG2020STW",  
 
    navbarPage( title = tags$span(style = "font-size: 16px;", "Skilled Technical Workforce"),
+               useShinyjs(),
+               selected = "About",
        tabPanel("About",
                 fluidRow(column(3, tags$a(tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" ), href="https://biocomplexity.virginia.edu/")),
-                         column(6, h1("Skilled Technical Workforce")),
+                         column(6, h2("Skilled Technical Workforce (STW) Estimates for States x Years (2010 to 2019) and Benchmarking")),
                          column(3, tags$a(tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"), href="https://www.nsf.gov/statistics/"))
                          ),
                 h5("Project"),
@@ -415,7 +431,8 @@ ui <- fluidPage(
 
 
 server <- function(input, output) {
-  
+  # Run JavaScript Code
+  runjs(jscode)
   
   data <- read.csv("prof.csv", col.names = c("Variable", "Completeness", "Validity", "Uniqueness", "Year"))
   sector <- read.csv("sector_profiling.csv", col.names = c("Variable", "Completeness", "Validity", "Uniqueness", "Year"))
