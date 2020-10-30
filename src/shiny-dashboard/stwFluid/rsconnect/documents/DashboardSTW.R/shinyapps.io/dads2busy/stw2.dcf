@@ -1,0 +1,12 @@
+name: stw2
+title: stw2
+username:
+account: dads2busy
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2721211
+bundleId: 3581185
+url: https://dads2busy.shinyapps.io/stw2/
+when: 1598988325.92101
+asMultiple: FALSE
+asStatic: FALSE
