@@ -303,20 +303,20 @@ ui <- fluidPage(
                              strong("State Comparisons"), 
                              plotOutput("state_oes"))
                       #column(4, plotOutput("region_oes"))
-                      ),
-              fluidRow(width = 12, align = "center", 
-                       column(4), 
-                       column(4, selectInput("majSOCChoice", "Select Major SOC", choices = seq(11, 53, 2))), 
-                       column(4)),
-              fluidRow(width =12, align = "center",
-                       column(4), 
-                       column(4, plotOutput("state_oes_alt")), 
-                       column(4, plotOutput("region_oes_alt")))
+                      )
+           #   fluidRow(width = 12, align = "center", 
+            #           column(4), 
+             #          column(4, selectInput("majSOCChoice", "Select Major SOC", choices = seq(11, 53, 2))), 
+              #         column(4)),
+            #  fluidRow(width =12, align = "center",
+             #          column(4), 
+              #         column(4, plotOutput("state_oes_alt")), 
+               #        column(4, plotOutput("region_oes_alt")))
                ),
        
        
        tabPanel("BGT Education",
-                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Jobs Ads Requiring a Two-Year Degree or Less") )), 
+                  fluidRow(width = 12, align = "center", column(12, h3("Percent of BGT Job Ads Requiring Less Than A Bachelor's Degree") )), 
                   fluidRow(width = 12, p("For the map below, we calculated the percent of BGT Job Ads that have a minimum education value of 0, 12, or 14, 
                                          which means the job required no education, a high school education, or a two-year degree.")),
                   fluidRow(width = 12, column(5), 
@@ -358,7 +358,7 @@ ui <- fluidPage(
                                   p("We see that the District of Columbia, which has the lowest percentage of job ads requiring a two-year degree or less, has a relatively large percentage of STW jobs in the SOC 15 group, which is Computer and Mathematical Occupations."),
                                   p("The largest percentage of STW jobs are in SOC 29 and SOC 49, which are Healthcare Practitioners and Technical Occupations and Installation, Maintenance, and Repair Occupations."))), 
                   fluidRow(column(1),
-                           column(10, h4("Percent of Job Ads Requiring a Two-Year Degree or Less and Percent of STW BGT Job Ads by Major Occupation Groups"), align = "center"),
+                           column(10, h4("Percent of BGT Job Ads Requiring Less Than A Bachelor's Degree and Percent of STW BGT Job Ads by Major Occupation Groups"), align = "center"),
                            column(1)),
                   
                            
@@ -669,8 +669,9 @@ server <- function(input, output) {
         geom_point(shape = 21, size = 2.5, stroke = 1)+
         scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
         geom_text_repel()+
-        scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand = c(0,0)) +
-        scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand = c(0,0))+
+        scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit())) +
+        scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()))+
+        expand_limits(x = 0, y = 0) +
         theme_minimal() +
         geom_abline(intercept = 0, slope = 1, color = "grey70")+
         labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
@@ -685,8 +686,9 @@ server <- function(input, output) {
       geom_point(shape = 21, size = 3, stroke = 1)+
       scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
       geom_text_repel()+
-      scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand=c(0,0)) +
-      scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()), expand=c(0,0))+
+      scale_x_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit())) +
+      scale_y_continuous(breaks = seq(0, adj_limit(), 5), limits = c(0, adj_limit()))+
+      expand_limits(x = 0, y = 0) +
       theme_minimal() +
       geom_abline(intercept = 0, slope = 1, color = "grey70")+
       labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed") +
@@ -707,41 +709,41 @@ server <- function(input, output) {
       coord_fixed(ratio = 1)
   })
   
-  region <- state_maj %>% select(year, maj_occ_code, bgt, tot_emp, region) %>%
-    filter(is.na(region) == F & !(maj_occ_code == 55)) %>%
-    group_by(year, maj_occ_code, region) %>%
-    summarize(bgt = sum(bgt, na.rm = T), tot_emp = sum(tot_emp,na.rm = T))%>%
-    group_by(year, region) %>%
-    mutate(per_bgt = (bgt/sum(bgt)) * 100, 
-           per_oes = (tot_emp/sum(tot_emp)) * 100)
+ # region <- state_maj %>% select(year, maj_occ_code, bgt, tot_emp, region) %>%
+  #  filter(is.na(region) == F & !(maj_occ_code == 55)) %>%
+   # group_by(year, maj_occ_code, region) %>%
+   # summarize(bgt = sum(bgt, na.rm = T), tot_emp = sum(tot_emp,na.rm = T))%>%
+    #group_by(year, region) %>%
+    #mutate(per_bgt = (bgt/sum(bgt)) * 100, 
+     #      per_oes = (tot_emp/sum(tot_emp)) * 100)
   
-  output$region_oes <- renderPlot({
-    ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
-      geom_point(shape = 21, size = 3)+
-      scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
-      geom_text_repel()+
-      scale_x_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0)) +
-      scale_y_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0))+
-      theme_minimal() +
-      geom_abline(intercept = 0, slope = 1, color = "grey70")+
-      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
-           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
-      coord_fixed(ratio = 1)+
-      theme(legend.position = "none")
-  })
+ # output$region_oes <- renderPlot({
+  #  ggplot(region[region$year == input$slide3 & region$region == input$regionChoice, ], aes(x = per_bgt, y = per_oes, fill = substr(maj_occ_code, 1, 1), label = maj_occ_code)) +
+   #   geom_point(shape = 21, size = 3)+
+    #  scale_fill_manual(values = c(cbPalette[2], cbPalette[3], cbPalette[4], cbPalette[5],cbPalette[6])) +
+     # geom_text_repel()+
+#      scale_x_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0)) +
+ #     scale_y_continuous(breaks = 0:18, limits = c(0, 18), expand = c(0,0))+
+  #    theme_minimal() +
+   #   geom_abline(intercept = 0, slope = 1, color = "grey70")+
+    #  labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+     #      title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes") +
+      #coord_fixed(ratio = 1)+
+    #  theme(legend.position = "none")
+#  })
   
-  output$region_oes_alt <- renderPlot({
-    ggplot(region[region$year == input$slide3 & region$maj_occ_code == input$majSOCChoice, ], aes(x = per_bgt, y = per_oes, label = region)) +
-      geom_point()+
-      geom_text_repel()+
-      scale_x_continuous(breaks = 0:18, limits = c(0, 18)) +
-      scale_y_continuous(breaks = 0:18, limits = c(0, 18))+
-      theme_minimal() +
-      geom_abline(intercept = 0, slope = 1, color = "grey70")+
-      labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
-           title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes", caption = "BGT: 2019 Job Ads; OES: May 2019 National Estimates") +
-      coord_fixed(ratio = 1)
-  })
+ # output$region_oes_alt <- renderPlot({
+  #  ggplot(region[region$year == input$slide3 & region$maj_occ_code == input$majSOCChoice, ], aes(x = per_bgt, y = per_oes, label = region)) +
+   #   geom_point()+
+    #  geom_text_repel()+
+     # scale_x_continuous(breaks = 0:18, limits = c(0, 18)) +
+      #scale_y_continuous(breaks = 0:18, limits = c(0, 18))+
+      #theme_minimal() +
+  #    geom_abline(intercept = 0, slope = 1, color = "grey70")+
+   #   labs(x = "Percent of BGT Ads", y = "Percent of OES Total Employed", 
+    #       title = "Comparison of BGT Job Ads and OES Employment \nby Major Occupation Codes", caption = "BGT: 2019 Job Ads; OES: May 2019 National Estimates") +
+     # coord_fixed(ratio = 1)
+  #})
   
 # Eduation output
   output$stw <- renderPlot({
