@@ -427,7 +427,7 @@ rothwell <- rothwell %>% mutate(rothwell_stw_2010 = ifelse(rothwell_stw_2010 == 
 
 
 ```{r}
-test <- rothwell %>%
+rothwell <- rothwell %>%
   rename(
     "soc_code_2010" = "2010 SOC Code", 
     "soc_code_2018" = "2018 SOC Code", 

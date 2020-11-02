@@ -42,7 +42,7 @@ ui <- fluidPage(
                selected = "About",
        tabPanel("About",
                 fluidRow(column(3, tags$a(tags$img(height = "100%", width = "70%", src = "biilogo.png", align = "left" ), href="https://biocomplexity.virginia.edu/")),
-                         column(6, h2("Skilled Technical Workforce (STW) Estimates for States x Years (2010 to 2019) and Benchmarking")),
+                         column(6, h1("Skilled Technical Workforce")),
                          column(3, tags$a(tags$img(height = "45%", width = "50%", src = "nsf-ncses.png", align = "right"), href="https://www.nsf.gov/statistics/"))
                          ),
                 h5("Project"),
@@ -370,12 +370,25 @@ ui <- fluidPage(
        #STW Crosswalk
        tabPanel( "STW Crosswalk", 
          fluidRow(width = 12, align = "center", column(12, h3("STW Crosswalk") )), 
-         fluidRow(p("The construction of the crosswalk follows Rothwell’s (2015) definition of the STW. Data sources used to construct the crosswalk are:"),
-                  p(tags$a(href = "https://www.onetcenter.org/crosswalks.html#soc", "2010 O*NET-SOC occupations to 2010 SOC occupations")), 
-                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Content Model Knowledge data associated with each O*NET-SOC occupation")), 
-                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET 15.1 Database: Education percent frequency data associated with each O*NET-SOC occupation")),
-                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2010 Census Occupation Codes with Crosswalk")),
-                  helpText(tags$em("Jonathan Rothwell, September 1, 2015. Defining Skilled Technical Work. Prepared for National Academies Board on Science, Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training and Certification Pathways”. https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf"))),
+         fluidRow(p("The construction of the crosswalk follows Rothwell’s (2015) definition of the STW,", 
+                    tags$a(href = "https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf", "Defining Skilled Technical Work"), ", prepared for National Academies Board on Science, 
+                    Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training, and Certification”."),
+                  p("This crosswalk was updated in November 2020 to incorporate the", tags$a(href = "https://www.onetcenter.org/database.html",  "O*NET® 25.0 Database.")),
+                  p("Data sources used to construct the crosswalk are:"),
+                  
+                  p(tags$a(href = "https://www.onetcenter.org/database.html#individual-files","O*NET® 25.0 Content Models for Knowledge and Education")), 
+                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2019/walk.html","O*NET® 25.0 Crosswalk from 2010 O*NET-SOC to 2019 O*NET-SOC")), 
+                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc/","Crosswalk O*NET-SOC 2010 to 2010 SOC")), 
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2010 Census Occupation Codes with Crosswalk")), 
+    
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2018 Census Occupation Code List with Crosswalk")), 
+                  
+                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc2018/","Crosswalk O*NET-SOC 2010 to 2018 SOC")), 
+                  
+                  
+                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2018 Census STEM, STEM-Related and Non-STEM related Code List "))
+         
+                  ),
          fluidRow(dataTableOutput("stwXwalk")) 
          
          
@@ -808,20 +821,8 @@ server <- function(input, output) {
   output$stwXwalk <- renderDataTable({
     
     
-    xwalk <- read.csv("rothwell_copy.csv", colClasses = c(X2010.Census.Code = "character"), na.strings = ".")
-    
-    
-    names(xwalk)[names(xwalk) == "X2010.SOC.Code"] <- "2010 SOC Code"
-    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Code"] <- "ONET-SOC 2010 Code"
-    names(xwalk)[names(xwalk) == "O.NET.SOC.2010.Title"] <- "ONET-SOC 2010 Code Title"
-    names(xwalk)[names(xwalk) == "X2010.SOC.Title"] <- "2010 SOC Title"
-    names(xwalk)[names(xwalk) == "education_STW"] <- "Rothwell Education Requirement"
-    names(xwalk)[names(xwalk) == "knowledge_STW"] <- "Rothwell Knowledge Requirement"
-    names(xwalk)[names(xwalk) == "rothwell_STW"] <- "Rothwell Category"
-    names(xwalk)[names(xwalk) == "Occupation.2010.Description"] <- "Occupation 2010 Description"
-    names(xwalk)[names(xwalk) == "X2010.Census.Code"] <- "2010 Census Code"
-    
-    
+    xwalk <- read.csv("rothwell_revised.csv",  na.strings = ".", colClasses = rep("character", 16))
+
     
     DT::datatable(xwalk,
                   options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE)
