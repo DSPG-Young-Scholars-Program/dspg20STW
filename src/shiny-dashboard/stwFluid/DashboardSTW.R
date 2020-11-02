@@ -822,10 +822,39 @@ server <- function(input, output) {
     
     
     xwalk <- read.csv("rothwell_revised.csv",  na.strings = ".", colClasses = rep("character", 16))
-
+ 
+    colnames(xwalk) <- c("STW <br> Category <br> ONET 25.0",
+                         "STW <br> Education <br> ONET 25.0", 
+                         "STW <br> Knowledge <br> ONET 25.0", 
+                         "STEM <br> Category <br> 2018", 
+                         "SOC Code <br> 2018", 
+                         "SOC Title <br> 2018", 
+                         "ONET Code <br> 2019", 
+                         "ONET Title <br> 2019", 
+                         "OCC Code <br> 2018", 
+                         "OCC Title <br> 2018", 
+                         "SOC Code <br> 2010", 
+                         "SOC Title <br> 2010", 
+                         "ONET Code <br> 2010", 
+                         "ONET Title <br> 2010", 
+                         "OCC Code <br> 2010", 
+                         "OCC Title <br> 2010")
     
-    DT::datatable(xwalk,
-                  options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE)
+    
+    DT::datatable(xwalk, escape = F, class = "display nowrap",
+                  options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE) %>%
+      formatStyle("SOC Code <br> 2018","white-space"="nowrap") %>%
+      formatStyle("ONET Code <br> 2019", "white-space"="nowrap") %>%
+      formatStyle("SOC Code <br> 2010","white-space"="nowrap") %>%
+      formatStyle("ONET Code <br> 2010", "white-space"="nowrap") %>%
+      formatStyle("SOC Title <br> 2018", "white-space"="normal") %>%
+      formatStyle("SOC Title <br> 2010", "white-space"="normal") %>%
+      formatStyle("ONET Title <br> 2019", "white-space"="normal") %>%
+      formatStyle("ONET Title <br> 2010", "white-space"="normal") %>%
+      formatStyle("OCC Title <br> 2010", "white-space"="normal") %>%
+      formatStyle("OCC Title <br> 2018", "white-space"="normal")
+    
+    
     
   })  
   
