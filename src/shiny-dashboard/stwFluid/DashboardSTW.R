@@ -384,10 +384,9 @@ ui <- fluidPage(
                   p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2018 Census Occupation Code List with Crosswalk")), 
                   
                   p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc2018/","Crosswalk O*NET-SOC 2010 to 2018 SOC")), 
-                  
-                  
+                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2019/soc.html", "Crosswalk O*NET-SOC 2019 to 2018 SOC")),
                   p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2018 Census STEM, STEM-Related and Non-STEM related Code List "))
-         
+
                   ),
          fluidRow(dataTableOutput("stwXwalk")) 
          
@@ -821,11 +820,17 @@ server <- function(input, output) {
   output$stwXwalk <- renderDataTable({
     
     
-    xwalk <- read.csv("rothwell_revised.csv",  na.strings = ".", colClasses = rep("character", 16))
+    xwalk <- read.csv("rothwell_revised.csv",  na.strings = ".", colClasses = rep("character", 22))
  
-    colnames(xwalk) <- c("STW <br> Category <br> ONET 25.0",
+    colnames(xwalk) <- c("STW <br> Category <br> ONET 25.1",
+                         "STW <br> Education <br> ONET 25.1", 
+                         "STW <br> Knowledge <br> ONET 25.1",
+                         "STW <br> Category <br> ONET 25.0",
                          "STW <br> Education <br> ONET 25.0", 
                          "STW <br> Knowledge <br> ONET 25.0", 
+                         "STW <br> Category <br> ONET 15.1",
+                         "STW <br> Education <br> ONET 15.1", 
+                         "STW <br> Knowledge <br> ONET 15.1",
                          "STEM <br> Category <br> 2018", 
                          "SOC Code <br> 2018", 
                          "SOC Title <br> 2018", 
