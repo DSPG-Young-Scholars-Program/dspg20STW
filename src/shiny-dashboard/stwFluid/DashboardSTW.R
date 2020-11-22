@@ -375,8 +375,11 @@ ui <- fluidPage(
                     Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training, and Certification”."),
                   p("This crosswalk was updated in November 2020 to incorporate the", tags$a(href = "https://www.onetcenter.org/database.html",  "O*NET® 25.0 Database.")),
                   p("Data sources used to construct the crosswalk are:"),
+                  p(tags$a(href = "https://www.onetcenter.org/database.html#all-files","O*NET® 25.1 Content Models for Knowledge and Education")),
                   
-                  p(tags$a(href = "https://www.onetcenter.org/database.html#individual-files","O*NET® 25.0 Content Models for Knowledge and Education")), 
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET® 25.0 Content Models for Knowledge and Education")),
+                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET® 15.1 Content Models for Knowledge and Education")),
+                  
                   p(tags$a(href = "https://www.onetcenter.org/taxonomy/2019/walk.html","O*NET® 25.0 Crosswalk from 2010 O*NET-SOC to 2019 O*NET-SOC")), 
                   p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc/","Crosswalk O*NET-SOC 2010 to 2010 SOC")), 
                   p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2010 Census Occupation Codes with Crosswalk")), 
