@@ -10,7 +10,7 @@ library(lubridate)
 library(tidyr) 
 library(ggtips)
 library(shinyjs)
-
+library(readxl)
 
 statesWithDc <- c(state.name, "District of Columbia")
 
@@ -326,7 +326,7 @@ ui <- fluidPage(
                   fluidRow(align = "center", 
                            column(1),
                            column(10, 
-                                  p(strong("Percent Difference: "), 
+                                  p(strong("Percent of Job Ads: "), 
                                     "(40, 50]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[6], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
                                     HTML("&nbsp;"),
                                     "(50, 60]", tags$span(HTML("&emsp;&nbsp;"), style = paste("background-color: ", cbPalette[3], "; color: white;border-radius: 5px; white-space: pre-wrap;", sep = "")),
@@ -368,31 +368,49 @@ ui <- fluidPage(
        
        
        #STW Crosswalk
-       tabPanel( "STW Crosswalk", 
-         fluidRow(width = 12, align = "center", column(12, h3("STW Crosswalk") )), 
-         fluidRow(p("The construction of the crosswalk follows Rothwell’s (2015) definition of the STW,", 
-                    tags$a(href = "https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf", "Defining Skilled Technical Work"), ", prepared for National Academies Board on Science, 
-                    Technology, and Economic Policy Project on the “Supply Chain for Middle-Skilled Jobs: Education, Training, and Certification”."),
-                  p("This crosswalk was updated in November 2020 to incorporate the", tags$a(href = "https://www.onetcenter.org/database.html",  "O*NET® 25.0 Database.")),
-                  p("Data sources used to construct the crosswalk are:"),
-                  p(tags$a(href = "https://www.onetcenter.org/database.html#all-files","O*NET® 25.1 Content Models for Knowledge and Education")),
-                  
-                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET® 25.0 Content Models for Knowledge and Education")),
-                  p(tags$a(href = "https://www.onetcenter.org/db_releases.html","O*NET® 15.1 Content Models for Knowledge and Education")),
-                  
-                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2019/walk.html","O*NET® 25.0 Crosswalk from 2010 O*NET-SOC to 2019 O*NET-SOC")), 
-                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc/","Crosswalk O*NET-SOC 2010 to 2010 SOC")), 
-                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2010 Census Occupation Codes with Crosswalk")), 
-    
-                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html","2018 Census Occupation Code List with Crosswalk")), 
-                  
-                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2010/soc2018/","Crosswalk O*NET-SOC 2010 to 2018 SOC")), 
-                  p(tags$a(href = "https://www.onetcenter.org/taxonomy/2019/soc.html", "Crosswalk O*NET-SOC 2019 to 2018 SOC")),
-                  p(tags$a(href = "https://www.census.gov/topics/employment/industry-occupation/guidance/code-lists.html", "2018 Census STEM, STEM-Related and Non-STEM related Code List "))
-
-                  ),
-         fluidRow(dataTableOutput("stwXwalk")) 
-         
+       tabPanel( "STW Occupations", 
+         fluidRow(width = 12, align = "center", column(12, h3("O*NET-SOC 2019 (Version 25.1) Skilled Technical Workforce Occupations"))),
+         fluidRow(p("The Occupational Information Network (O*NET) Program provides a rich 
+                    data set of worker- and job-oriented requirements and characteristics 
+                    that are used to designate whether an occupation falls in the STW. 
+                    Of the 1,016", tags$a(href ="https://www.onetcenter.org/database.html", "O*NET-SOC (Version 25.1)"), 
+                    "occupation titles in the", tags$a(href = "https://www.onetcenter.org/taxonomy.html", "2019 taxonomy"), ", 
+                    923 occupations contain data on worker requirements and characteristics, 
+                    experience requirements, occupational requirements, workforce characteristics, 
+                    and occupation-specific information. Survey data is collected from job incumbents, 
+                    occupational experts, and occupational analysts drawn from the", 
+                    tags$a(href = "https://www.onetcenter.org/content.html", "O*NET Content Model"), ". 
+                    These are referred to as data-level occupations. The 923 data-level occupations 
+                    include, 722 SOC level occupations with no detailed O*NET-SOC occupations 
+                    nested under them and 52 SOC level occupations with 149 detailed O*NET-SOC 
+                    occupations nested under them. A detailed O*NET-SOC occupation is nested under 
+                    the six-digit SOC code from which it originates and is identified with a two-digit 
+                    extension; for example the detailed SOC code 13-1081 for a logician has the detailed 
+                    O*NET-SOC code 13-1081.01 for a logistics engineer nested under it. These 8-digit 
+                    detailed O*NET-SOC occupations do not exist in the SOC system. Of the remaining 
+                    93 non data-level occupations, 19 are military specific, 24 have the SOC code for 
+                    “All-Others'' (the sixth digit is a 9) with the two-digit extension of a detailed 
+                    O*NET-SOC occupation and 50 have the SOC code for ''All-Others'' 
+                    (the six-digit is a 9) without the two-digit extension of a detailed O*NET-SOC occupation."),
+                  p("The criteria for a STW designation are based on the Content Model survey data elements 
+                    knowledge and education as described in", 
+                    tags$a(href = "https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf", "Rothwell (2015)"), 
+                    ". The knowledge criterion is met 
+                    if the occupation scores at least 4.5 in any of the 14 knowledge domains. The education 
+                    criteria of less than a bachelor's degree is met if the majority of workers in an 
+                    occupation possess less than a bachelor's degree (e.g., no formal educational 
+                    credential, high school diploma or equivalent, post-secondary nondegree credential, 
+                    some college but no degree, associate's degree) as determined by the O*NET education 
+                    survey data. Using the O*NET 25.1 database, of the 923 data-level occupations, 143 
+                    (15%) meet both the knowledge and education criteria for a STW designation. Of these 
+                    117 (82%) are SOC level occupations with no detailed O*NET-SOC occupations nested under 
+                    them (Table 1); 6 are STW SOC level occupations with 5 STW and 5 nonSTW detailed 
+                    O*NET-SOC occupations nested under them (Table 2); and 13 are nonSTW SOC level occupations 
+                    with 15 STW and 14 nonSTW detailed O*NET-SOC occupations nested them (Table 3).")),
+         fluidRow("Table 1", dataTableOutput("occ_table1")),
+         fluidRow("Table 2", dataTableOutput("occ_table2")),
+         fluidRow("Table 3", dataTableOutput("occ_table3")),
+         br()
          
        ),
        
@@ -820,51 +838,24 @@ server <- function(input, output) {
   
   
   
-  output$stwXwalk <- renderDataTable({
+  # stw occupation tables
+  output$occ_table1 <- renderDataTable({
+    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 1)
+    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
+  })
+  
+  output$occ_table2 <- renderDataTable({
+    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 2)
+    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
     
+  })
+  
+  output$occ_table3 <- renderDataTable({
+    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 3)
+    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
     
-    xwalk <- read.csv("rothwell_revised.csv",  na.strings = ".", colClasses = rep("character", 22))
- 
-    colnames(xwalk) <- c("STW <br> Category <br> ONET 25.1",
-                         "STW <br> Education <br> ONET 25.1", 
-                         "STW <br> Knowledge <br> ONET 25.1",
-                         "STW <br> Category <br> ONET 25.0",
-                         "STW <br> Education <br> ONET 25.0", 
-                         "STW <br> Knowledge <br> ONET 25.0", 
-                         "STW <br> Category <br> ONET 15.1",
-                         "STW <br> Education <br> ONET 15.1", 
-                         "STW <br> Knowledge <br> ONET 15.1",
-                         "STEM <br> Category <br> 2018", 
-                         "SOC Code <br> 2018", 
-                         "SOC Title <br> 2018", 
-                         "ONET Code <br> 2019", 
-                         "ONET Title <br> 2019", 
-                         "OCC Code <br> 2018", 
-                         "OCC Title <br> 2018", 
-                         "SOC Code <br> 2010", 
-                         "SOC Title <br> 2010", 
-                         "ONET Code <br> 2010", 
-                         "ONET Title <br> 2010", 
-                         "OCC Code <br> 2010", 
-                         "OCC Title <br> 2010")
-    
-    
-    DT::datatable(xwalk, escape = F, class = "display nowrap",
-                  options = list(dom = 'tp', pageLength = 50, scrollX = TRUE), rownames = FALSE) %>%
-      formatStyle("SOC Code <br> 2018","white-space"="nowrap") %>%
-      formatStyle("ONET Code <br> 2019", "white-space"="nowrap") %>%
-      formatStyle("SOC Code <br> 2010","white-space"="nowrap") %>%
-      formatStyle("ONET Code <br> 2010", "white-space"="nowrap") %>%
-      formatStyle("SOC Title <br> 2018", "white-space"="normal") %>%
-      formatStyle("SOC Title <br> 2010", "white-space"="normal") %>%
-      formatStyle("ONET Title <br> 2019", "white-space"="normal") %>%
-      formatStyle("ONET Title <br> 2010", "white-space"="normal") %>%
-      formatStyle("OCC Title <br> 2010", "white-space"="normal") %>%
-      formatStyle("OCC Title <br> 2018", "white-space"="normal")
-    
-    
-    
-  })  
+  })
+  
   
   output$validity_table <- renderDataTable({
     

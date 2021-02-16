@@ -111,13 +111,34 @@ onet_2010_onet_2019 <- read.csv("~/dspg20STW/data/ncses_stw/original/onet/2010_t
 # SOC 2018 to O*NET-SOC 2019
 soc_2018_onet_2019 <- read.csv("~/dspg20STW/data/ncses_stw/original/onet/2019_to_SOC_Crosswalk.csv")
 
+soc_2010_soc_2018 <-read_xlsx("~/dspg20STW/data/ncses_stw/original/onet/soc_2010_to_2018_crosswalk.xlsx", skip = 8)
+
+
+#rothwell <- merge(onet_2010_to_soc_2010, onet_2010_onet_2019, by.x = "O*NET-SOC 2010 Code", by.y = "O.NET.SOC.2010.Code", all = T )
+
+#rothwell <- merge(rothwell, soc_2018_onet_2019[, c("O.NET.SOC.2019.Code", "X2018.SOC.Code", "X2018.SOC.Title")], by = "O.NET.SOC.2019.Code", all = T)
+
+#colnames(rothwell)[colnames(rothwell) == "X2018.SOC.Code"] <- "2018 SOC Code"
+#colnames(rothwell)[colnames(rothwell) == "X2018.SOC.Title"] <- "2018 SOC Title"
+
+rothwell <- merge(onet_2010_to_soc_2010, onet_2010_to_soc_2018[, c("O*NET-SOC 2010 Code", "2018 SOC Code", "2018 SOC Title")], by = "O*NET-SOC 2010 Code", all = T)
+
+rothwell <- merge(rothwell, onet_2010_onet_2019[, c("O.NET.SOC.2019.Code", "O.NET.SOC.2010.Code", "O.NET.SOC.2019.Title")],by.x = "O*NET-SOC 2010 Code", by.y = "O.NET.SOC.2010.Code", all = T)
+
+rothwell <- rothwell %>% select(1,3,5, 7)
+
+rothwell2 <- merge(onet_2010_onet_2019, soc_2018_onet_2019, by = "O.NET.SOC.2019.Code", all =T)
+rothwell2<-rothwell2 %>% select(1,2,6)
+
+# i think this is the best way
+rothwell2 <- merge(rothwell2, onet_2010_to_soc_2010[, c("O*NET-SOC 2010 Code","2010 SOC Code")],by.x = "O.NET.SOC.2010.Code", by.y = "O*NET-SOC 2010 Code", all =  T)
+
+rothwell2 <- rothwell2 %>% select(1,4,3,2)
+
 ```
 
 
 Classify by 2010 O*NET
-```{r}
-rothwell <- onet_2010_to_soc_2010
-```
 
 Merge with 2010 Census Occupation Table
 
@@ -189,7 +210,7 @@ fill_table <- function(data, column, year){
 
 
 ```{r}
-rothwell <- merge(rothwell, occ_2010_to_soc_2010, all.x = T)
+rothwell <- merge(rothwell, occ_2010_to_soc_2010, by = "2010 SOC Code", all.x = T)
 
 fill_table(data = x, column = "2010 SOC Code X", year = 2010)
 fill_table(data = broad, column = "broad", year = 2010)
@@ -199,10 +220,6 @@ fill_table(data = minor, column = "minor", year = 2010)
 
 Now, merge with 2018 SOC and OCC codes
 
-```{r}
-rothwell <- 
-  merge(rothwell, onet_2010_to_soc_2018[, c("O*NET-SOC 2010 Code", "2018 SOC Code", "2018 SOC Title")], by.x = "O*NET-SOC 2010 Code", by.y = "O*NET-SOC 2010 Code", all = T)  # merges 2018 SOC
-```
 
 some of the SOC codes in the OCC data table have "Xs" where multiple SOC codes is relevant to one OCC codes.
 ex) if 13-1111 and 13-1112 corresponded to occ code, 3783, the SOC codes would show as 13-111X
@@ -239,7 +256,7 @@ intersect(minor$minor, xxx$`2018 SOC Code XXX`)
 
 
 ```{r}
-rothwell <- merge(rothwell, occ_2018_to_soc_2018, all.x = T)
+rothwell <- merge(rothwell, occ_2018_to_soc_2018, by = "2018 SOC Code", all.x = T)
 
 fill_table(data = x, column = "2018 SOC Code X", year = 2018)
 fill_table(data = broad, column = "broad", year = 2018)
@@ -248,18 +265,10 @@ fill_table(data = minor, column = "minor", year = 2018)
 fill_table(data = xxx, column = "2018 SOC Code XXX", year = 2018)
 ```
 
-Merge 2019 onets
-
-```{r}
-rothwell <- merge(rothwell, onet_2010_onet_2019[, c("O.NET.SOC.2010.Code", "O.NET.SOC.2019.Code", "O.NET.SOC.2019.Title")], 
-              by.x = "O*NET-SOC 2010 Code", by.y = "O.NET.SOC.2010.Code")
-```
-
-
 Merge Census STEM data
 
 ```{r}
-rothwell <- merge(rothwell, stem_2018[, c("2018 SOC Code", "2018 Census Code", "2018 STEM Category")], by= c("2018 SOC Code", "2018 Census Code"), all.x = T)
+rothwell <- merge(rothwell, stem_2018[, c("2018 SOC Code", "2018 Census Code", "2018 STEM Category")], by = c("2018 SOC Code", "2018 Census Code"), all.x = T)
 ```
 
 
@@ -574,7 +583,7 @@ rothwell <- rothwell %>%
 
 
 ```{r, eval = F}
-write.csv(rothwell, "~/dspg20STW/src/edu_knowledge_rothwell/rothwell_revised.csv", row.names = F)
+write.csv(rothwell, "~/dspg20STW/src/edu_knowledge_rothwell/rothwell_revised_test.csv", row.names = F)
 ```
 
 
