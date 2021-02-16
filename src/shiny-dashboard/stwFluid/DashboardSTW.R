@@ -407,9 +407,17 @@ ui <- fluidPage(
                     them (Table 1); 6 are STW SOC level occupations with 5 STW and 5 nonSTW detailed 
                     O*NET-SOC occupations nested under them (Table 2); and 13 are nonSTW SOC level occupations 
                     with 15 STW and 14 nonSTW detailed O*NET-SOC occupations nested them (Table 3).")),
-         fluidRow("Table 1", dataTableOutput("occ_table1")),
-         fluidRow("Table 2", dataTableOutput("occ_table2")),
-         fluidRow("Table 3", dataTableOutput("occ_table3")),
+         fluidRow(h4("Table 1: 117 STW SOC level occupations with no detailed O*NET-SOC occupations nested under them"),
+                  dataTableOutput("occ_table1"), 
+                  tags$b("Bolded orange codes are STW occupations.")),
+         fluidRow(h4("Table 2: 6 STW SOC level occupations with 5 STW & 5 nonSTW detailed O*NET-SOC nested occupations"),
+                  dataTableOutput("occ_table2"),
+                  tags$b("Bolded orange codes are STW occupations."),
+                  tags$b("NA = No O*NET 29.1 Content Model data available.")),
+         fluidRow(h4("Table 3: 13 nonSTW SOC level occupations with 15 STW and 14 nonSTW detailed O*NET-SOC nested occupations"),
+                  dataTableOutput("occ_table3"),
+                  tags$b("Bolded orange codes are STW occupations."),
+                  tags$b("NA = No O*NET 29.1 Content Model data available.")),
          br()
          
        ),
@@ -840,19 +848,52 @@ server <- function(input, output) {
   
   # stw occupation tables
   output$occ_table1 <- renderDataTable({
-    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 1)
-    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
+    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 1)
+    # excel changes this to a date so we correct it
+    tbl[tbl$`Occupation Name` == "Postmasters and Mail Superintendents", "SOC 2019"] <- "11-9131"
+    
+    soc_stw <- tbl %>% filter(soc_stw == 1) %>% pull(`SOC 2019`)
+    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
+    
+    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F)%>% 
+      formatStyle(
+      'SOC 2019',
+      color = styleEqual(c(soc_stw), c(rep("#E57200", length(soc_stw)))),
+      fontWeight = styleEqual(c(soc_stw), c(rep("bold", length(soc_stw))))
+    ) %>% 
+      formatStyle('O*NET-SOC Version 25.1', 
+                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
+                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw)))))
   })
   
   output$occ_table2 <- renderDataTable({
-    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 2)
-    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
+    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 2)
+    # excel changes these to dates
+    tbl[tbl$`O*NET-SOC Version 25.1` %like% "11-3051.0", "SOC 2019"] <- "11-3051"
     
+    soc_stw <- tbl %>% filter(soc_stw == 1) %>% pull(`SOC 2019`)
+    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
+    
+    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F)%>% 
+      formatStyle(
+        'SOC 2019',
+        color = styleEqual(c(soc_stw), c(rep("#E57200", length(soc_stw)))),
+        fontWeight = styleEqual(c(soc_stw), c(rep("bold", length(soc_stw))))
+      ) %>% 
+      formatStyle('O*NET-SOC Version 25.1', 
+                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
+                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw)))))    
   })
   
   output$occ_table3 <- renderDataTable({
-    tbl <- read_xlsx("~/dspg20STW/src/shiny-dashboard/stwFluid/stw_occupations_tables.xlsx", sheet = 3)
-    DT::datatable(tbl, options = list(dom = 't',paging = FALSE), rownames = F)
+    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 3)
+    
+    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
+    
+    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F) %>% 
+      formatStyle('O*NET-SOC Version 25.1', 
+                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
+                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw))))) 
     
   })
   
