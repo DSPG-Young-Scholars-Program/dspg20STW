@@ -11,6 +11,8 @@ library(tidyr)
 library(ggtips)
 library(shinyjs)
 library(readxl)
+library(kableExtra)
+library(knitr)
 
 statesWithDc <- c(state.name, "District of Columbia")
 
@@ -370,54 +372,14 @@ ui <- fluidPage(
        #STW Crosswalk
        tabPanel( "STW Occupations", 
          fluidRow(width = 12, align = "center", column(12, h3("O*NET-SOC 2019 (Version 25.1) Skilled Technical Workforce Occupations"))),
-         fluidRow(p("The Occupational Information Network (O*NET) Program provides a rich 
-                    data set of worker- and job-oriented requirements and characteristics 
-                    that are used to designate whether an occupation falls in the STW. 
-                    Of the 1,016", tags$a(href ="https://www.onetcenter.org/database.html", "O*NET-SOC (Version 25.1)"), 
-                    "occupation titles in the", tags$a(href = "https://www.onetcenter.org/taxonomy.html", "2019 taxonomy"), ", 
-                    923 occupations contain data on worker requirements and characteristics, 
-                    experience requirements, occupational requirements, workforce characteristics, 
-                    and occupation-specific information. Survey data is collected from job incumbents, 
-                    occupational experts, and occupational analysts drawn from the", 
-                    tags$a(href = "https://www.onetcenter.org/content.html", "O*NET Content Model"), ". 
-                    These are referred to as data-level occupations. The 923 data-level occupations 
-                    include, 722 SOC level occupations with no detailed O*NET-SOC occupations 
-                    nested under them and 52 SOC level occupations with 149 detailed O*NET-SOC 
-                    occupations nested under them. A detailed O*NET-SOC occupation is nested under 
-                    the six-digit SOC code from which it originates and is identified with a two-digit 
-                    extension; for example the detailed SOC code 13-1081 for a logician has the detailed 
-                    O*NET-SOC code 13-1081.01 for a logistics engineer nested under it. These 8-digit 
-                    detailed O*NET-SOC occupations do not exist in the SOC system. Of the remaining 
-                    93 non data-level occupations, 19 are military specific, 24 have the SOC code for 
-                    “All-Others'' (the sixth digit is a 9) with the two-digit extension of a detailed 
-                    O*NET-SOC occupation and 50 have the SOC code for ''All-Others'' 
-                    (the six-digit is a 9) without the two-digit extension of a detailed O*NET-SOC occupation."),
-                  p("The criteria for a STW designation are based on the Content Model survey data elements 
-                    knowledge and education as described in", 
-                    tags$a(href = "https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf", "Rothwell (2015)"), 
-                    ". The knowledge criterion is met 
-                    if the occupation scores at least 4.5 in any of the 14 knowledge domains. The education 
-                    criteria of less than a bachelor's degree is met if the majority of workers in an 
-                    occupation possess less than a bachelor's degree (e.g., no formal educational 
-                    credential, high school diploma or equivalent, post-secondary nondegree credential, 
-                    some college but no degree, associate's degree) as determined by the O*NET education 
-                    survey data. Using the O*NET 25.1 database, of the 923 data-level occupations, 143 
-                    (15%) meet both the knowledge and education criteria for a STW designation. Of these 
-                    117 (82%) are SOC level occupations with no detailed O*NET-SOC occupations nested under 
-                    them (Table 1); 6 are STW SOC level occupations with 5 STW and 5 nonSTW detailed 
-                    O*NET-SOC occupations nested under them (Table 2); and 13 are nonSTW SOC level occupations 
-                    with 15 STW and 14 nonSTW detailed O*NET-SOC occupations nested them (Table 3).")),
-         fluidRow(h4("Table 1: 117 STW SOC level occupations with no detailed O*NET-SOC occupations nested under them"),
-                  dataTableOutput("occ_table1"), 
-                  tags$b("Bolded orange codes are STW occupations.")),
-         fluidRow(h4("Table 2: 6 STW SOC level occupations with 5 STW & 5 nonSTW detailed O*NET-SOC nested occupations"),
-                  dataTableOutput("occ_table2"),
-                  tags$b("Bolded orange codes are STW occupations."),
-                  tags$b("NA = No O*NET 29.1 Content Model data available.")),
-         fluidRow(h4("Table 3: 13 nonSTW SOC level occupations with 15 STW and 14 nonSTW detailed O*NET-SOC nested occupations"),
-                  dataTableOutput("occ_table3"),
-                  tags$b("Bolded orange codes are STW occupations."),
-                  tags$b("NA = No O*NET 29.1 Content Model data available.")),
+         fluidRow(p("The criteria for a STW designation are derived using data from the Occupational Information Network (O*NET) Content Model. O*NET is a program sponsored by the Department of Labor that establishes and maintains a framework for organizing occupational data aligned with the Bureau of Labor Statistics (BLS) Standard Occupation Classification (SOC) system. The SOC system is the federal standard for classifying workers into occupations based on work performed and is supplemented with data from the O*NET Content Model for most occupations, referred to as data-level occupations. The Content Model database supplies information on the characteristics of occupations and their requirements categorized into six domains, worker requirements and characteristics, experience requirements, occupational requirements, workforce characteristics, and occupation-specific information. The data are collected from job incumbents, occupational experts, and occupational analysts; the data are reported as means or percentages along with the sample size, standard errors, and upper and lower confidence bounds. "),
+                  p("The STW criteria are based on the Content Model worker characteristic variables, education and knowledge as defined in ", 
+                    tags$a(href = "https://sites.nationalacademies.org/cs/groups/pgasite/documents/webpage/pga_167744.pdf", "Rothwell (2015);"), 
+                    " 123 occupations with complete O*NET-SOC Version 25.1 Content Model data for knowledge and education meet the criteria for STW.")),
+         fluidRow( align = "center", h4("STW Occupations using O*NET-SOC Version 25.1"),
+                  tags$b("(Bolded Occupation Names / Codes are also STEM occupations)"),
+                  tableOutput("occ_table1"), 
+                  tags$b("(Bolded Occupation Names / Codes are also STEM occupations)")),
          br()
          
        ),
@@ -847,55 +809,46 @@ server <- function(input, output) {
   
   
   # stw occupation tables
-  output$occ_table1 <- renderDataTable({
-    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 1)
+  output$occ_table1 <- function() {
+    tbl <- read_xlsx("occupations.xlsx", sheet = 1)
+    tbl <- tbl[-1, ]
     # excel changes this to a date so we correct it
     tbl[tbl$`Occupation Name` == "Postmasters and Mail Superintendents", "SOC 2019"] <- "11-9131"
-    
-    soc_stw <- tbl %>% filter(soc_stw == 1) %>% pull(`SOC 2019`)
-    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
-    
-    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F)%>% 
-      formatStyle(
-      'SOC 2019',
-      color = styleEqual(c(soc_stw), c(rep("#E57200", length(soc_stw)))),
-      fontWeight = styleEqual(c(soc_stw), c(rep("bold", length(soc_stw))))
-    ) %>% 
-      formatStyle('O*NET-SOC Version 25.1', 
-                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
-                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw)))))
-  })
   
-  output$occ_table2 <- renderDataTable({
-    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 2)
-    # excel changes these to dates
-    tbl[tbl$`O*NET-SOC Version 25.1` %like% "11-3051.0", "SOC 2019"] <- "11-3051"
     
-    soc_stw <- tbl %>% filter(soc_stw == 1) %>% pull(`SOC 2019`)
-    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
     
-    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F)%>% 
-      formatStyle(
-        'SOC 2019',
-        color = styleEqual(c(soc_stw), c(rep("#E57200", length(soc_stw)))),
-        fontWeight = styleEqual(c(soc_stw), c(rep("bold", length(soc_stw))))
-      ) %>% 
-      formatStyle('O*NET-SOC Version 25.1', 
-                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
-                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw)))))    
-  })
+    kable(tbl) %>%
+      kable_styling(bootstrap_options = c("striped", "hover")) %>%
+      pack_rows(group_label = "Management Occupations", 1, 1, label_row_css = "text-align: right;") %>%
+      pack_rows("Business and Financial Operations Occupations", 2, 2, label_row_css = "text-align: right;") %>%
+      pack_rows("Computer and Mathematical Occupations", 3, 4, label_row_css = "text-align: right;") %>%
+      pack_rows("Architecture and Engineering Occupations", 5, 10, label_row_css = "text-align: right;") %>%
+      pack_rows("Life, Physical, and Social Science Occupations", 11,11, label_row_css = "text-align: right;")%>%
+      pack_rows("Art, Design, Entertainment, Sports, And Media Occupations", 12,18, label_row_css = "text-align: right;") %>%
+      pack_rows("Healthcare Practitioners and Technical Occupations", 19,23, label_row_css = "text-align: right;") %>%
+      pack_rows("Food Preparations and Serving Relations Occupations", 24, 24, label_row_css = "text-align: right;") %>%
+      pack_rows("Office and Administrative Support Occupations", 25, 26, label_row_css = "text-align: right;") %>%
+      pack_rows("Farming, Fishing, and Forestry Occupations", 27, 27, label_row_css = "text-align: right;") %>%
+      pack_rows("Construction and Extraction Occupations", 28, 56, label_row_css = "text-align: right;") %>%
+      pack_rows("Installation, Maintenance, and Repair Occupations", 57, 94, label_row_css = "text-align: right;") %>%
+      pack_rows("Production Occupations", 95, 118, label_row_css = "text-align: right;") %>%
+      pack_rows("Transportation and Material Moving Occupations", 119, 123, label_row_css = "text-align: right;") %>%
+      row_spec(3:11, bold = T, color = "#E57200") %>%
+      row_spec(19:23, bold= T, color= "#E57200") %>%
+      row_spec(0, extra_css = "border-bottom: 1px solid")
+    
+    
+  #  DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F)%>% 
+  #    formatStyle(
+  #    'SOC 2019',
+  #    color = styleEqual(c(soc_stw), c(rep("#E57200", length(soc_stw)))),
+  #    fontWeight = styleEqual(c(soc_stw), c(rep("bold", length(soc_stw))))
+  #  ) %>% 
+  #    formatStyle('O*NET-SOC Version 25.1', 
+  #                color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
+  #                fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw)))))
+  }
   
-  output$occ_table3 <- renderDataTable({
-    tbl <- read_xlsx("stw_occupations_tables.xlsx", sheet = 3)
-    
-    onet_stw <- tbl %>% filter(onet_stw == 1) %>% pull(`O*NET-SOC Version 25.1`)
-    
-    DT::datatable(tbl[, 1:3], options = list(dom = 't',paging = FALSE), rownames = F) %>% 
-      formatStyle('O*NET-SOC Version 25.1', 
-                  color = styleEqual(c(onet_stw), c(rep("#E57200", length(onet_stw)))),
-                  fontWeight = styleEqual(c(onet_stw), c(rep("bold", length(onet_stw))))) 
-    
-  })
   
   
   output$validity_table <- renderDataTable({
